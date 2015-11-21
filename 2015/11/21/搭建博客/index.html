@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://wjpworking.github.io/2015/11/21/搭建博客/index.html">
 <meta property="og:site_name" content="wjpworking的博客">
 <meta property="og:description" content="简介本来是想直接用官方给的主题的，但是我发现我不会使用这样一个主题，所有我只好学习了如何使用node.js和hexo主题两件工具来搭建博客。本来我在大学的这三年的过程中是没有学过和这相关的东西，因为学的是软件工程专业，这方面学校虽然也有一定的教授，但是还是和系统的学习有较大的差别。虽然在这其中还是有一些麻烦，但是在经过查找资料后，已经将我先在遇到的大部分问题解决了，现在我来介绍如何搭建一个简单的博">
-<meta property="og:updated_time" content="2015-11-21T13:10:01.525Z">
+<meta property="og:updated_time" content="2015-11-21T13:39:40.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建博客的简单步骤">
 <meta name="twitter:description" content="简介本来是想直接用官方给的主题的，但是我发现我不会使用这样一个主题，所有我只好学习了如何使用node.js和hexo主题两件工具来搭建博客。本来我在大学的这三年的过程中是没有学过和这相关的东西，因为学的是软件工程专业，这方面学校虽然也有一定的教授，但是还是和系统的学习有较大的差别。虽然在这其中还是有一些麻烦，但是在经过查找资料后，已经将我先在遇到的大部分问题解决了，现在我来介绍如何搭建一个简单的博">
@@ -87,7 +87,7 @@
 		<a href="/about" title="wjpworking" target="_blank" itemprop="author">wjpworking</a>
 		
   <p class="article-time">
-    <time datetime="2015-11-21T13:10:01.525Z" itemprop="datePublished"> 發表於 2015-11-21</time>
+    <time datetime="2015-11-21T13:39:40.493Z" itemprop="datePublished"> 發表於 2015-11-21</time>
     
   </p>
 </header>
@@ -96,7 +96,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建github账号及配置"><span class="toc-number">2.</span> <span class="toc-text">创建github账号及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Git和Node-js"><span class="toc-number">3.</span> <span class="toc-text">下载Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载hexo"><span class="toc-number">4.</span> <span class="toc-text">下载hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余参考"><span class="toc-number">5.</span> <span class="toc-text">其余参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建github账号及配置"><span class="toc-number">2.</span> <span class="toc-text">创建github账号及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Git和Node-js"><span class="toc-number">3.</span> <span class="toc-text">下载Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载hexo"><span class="toc-number">4.</span> <span class="toc-text">下载hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建页面"><span class="toc-number">5.</span> <span class="toc-text">创建页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git同步"><span class="toc-number">6.</span> <span class="toc-text">git同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余参考"><span class="toc-number">7.</span> <span class="toc-text">其余参考</span></a></li></ol>
 		
 		</div>
 		
@@ -104,8 +104,10 @@
 <h2 id="创建github账号及配置">创建github账号及配置</h2><p>在<a href="http://www.github.com" target="_blank" rel="external">Github</a>上申请账号，然后建立一个仓库（repository）,但是要设置为<code>public</code>的，名<br>称为yourusername.githun.io，这样就创建了一个仓库了。然后在此仓库中的<code>Settings</code>中的<code>option</code>中点击<code>Lanuch
  automatic page generator</code>，然后根据提示完成下面的步骤</p>
 <h2 id="下载Git和Node-js">下载Git和Node.js</h2><p><a href="http://git-scm.com/download/" target="_blank" rel="external">Git下载地址</a><br><a href="https://nodejs.org/" target="_blank" rel="external">Node.js下载地址</a></p>
-<h2 id="下载hexo">下载hexo</h2><p>在你要建立的目录下 执行以下指令：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># npm install -g hexo&#10;# hexo init [floder]&#10;# npm install&#10;# hexo server</span><br></pre></td></tr></table></figure></p>
+<h2 id="下载hexo">下载hexo</h2><p>在你要建立的目录下 执行以下指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># npm install -g hexo</span></span><br><span class="line"><span class="comment"># hexo init [floder]</span></span><br><span class="line"><span class="comment"># npm install</span></span><br><span class="line"><span class="comment"># hexo server</span></span><br></pre></td></tr></table></figure></p>
 <p>如果一切顺利，这时你就可以在地址栏中输入<code>127.0.0.1:4000</code>来查看演示网页了。</p>
+<h2 id="创建页面">创建页面</h2><p>在<code>\source\_posts</code>新建你所需要的页面，文件格式为<code>.md</code>然后，执行以下指令<code># hexo server</code>,然后在浏览器中输入<br><code>127.0.0.1:4000</code>来查看你所建立的页面</p>
+<h2 id="git同步">git同步</h2><p>执行<code>npm install hexo-deployer-git --save</code>来下载插件，然后在<code>_config.yml</code>进行配置，这是就可以使用<code>hexo deply</code><br>直接在github上进行部署了</p>
 <h2 id="其余参考">其余参考</h2><p><a href="http://blog.fens.me/hexo-blog-github/" target="_blank" rel="external">Hexo在github上构建免费的Web应用</a><br><a href="http://wsgzao.github.io/post/hexo-guide/" target="_blank" rel="external">使用GitHub和Hexo搭建免费静态Blog</a></p>
   
 	</div>
@@ -151,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建github账号及配置"><span class="toc-number">2.</span> <span class="toc-text">创建github账号及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Git和Node-js"><span class="toc-number">3.</span> <span class="toc-text">下载Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载hexo"><span class="toc-number">4.</span> <span class="toc-text">下载hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余参考"><span class="toc-number">5.</span> <span class="toc-text">其余参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建github账号及配置"><span class="toc-number">2.</span> <span class="toc-text">创建github账号及配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载Git和Node-js"><span class="toc-number">3.</span> <span class="toc-text">下载Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载hexo"><span class="toc-number">4.</span> <span class="toc-text">下载hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建页面"><span class="toc-number">5.</span> <span class="toc-text">创建页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git同步"><span class="toc-number">6.</span> <span class="toc-text">git同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其余参考"><span class="toc-number">7.</span> <span class="toc-text">其余参考</span></a></li></ol>
  
   </div>
 
@@ -184,6 +186,10 @@
           </li>
         
     </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
