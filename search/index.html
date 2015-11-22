@@ -1,10 +1,10 @@
 
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html >
 <head>
   <meta charset="UTF-8">
   
-    <title>Wjpworking&#39;s Blog</title>
+    <title>search | Wjpworking&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="wjpworking">
@@ -13,12 +13,13 @@
     
     <meta name="description" content="new studying">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Wjpworking's Blog">
-<meta property="og:url" content="http://wjpworking.github.io/index.html">
+<meta property="og:title" content="search">
+<meta property="og:url" content="http://wjpworking.github.io/search/index.html">
 <meta property="og:site_name" content="Wjpworking's Blog">
 <meta property="og:description" content="new studying">
+<meta property="og:updated_time" content="2015-11-22T11:36:21.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wjpworking's Blog">
+<meta name="twitter:title" content="search">
 <meta name="twitter:description" content="new studying">
 
     
@@ -34,9 +35,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-  <body>
-    <header>
-      
+    <body>
+      <header>
+        
 <div>
 		
 			<div id="imglogo">
@@ -70,113 +71,31 @@
 				</ul>
 			</nav>			
 </div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/22/docker的使用/" title="Docker的使用" itemprop="url">
-  
-    <h1 itemprop="name">Docker的使用</h1>
-    
-     
-           <p itemprop="description" >简介在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个技术。并且在当时还看到了对于go语言的简单介绍，说是这样一门语言是由Google开发的要用来代替C预言的，我当时还在我的计算机上搭建了一个G</p>
+      </header>
+      <div id="container">
         
-    
-    <time datetime="2015-11-22T10:07:23.444Z" itemprop="datePublished">2015-11-22</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/21/搭建博客/" title="搭建博客的简单步骤" itemprop="url">
-  
-    <h1 itemprop="name">搭建博客的简单步骤</h1>
-    
-     
-           <p itemprop="description" >简介本来是想直接用官方给的主题的，但是我发现我不会使用这样一个主题，所有我只好学习了如何使用node.js和hexo主题两件工具来搭建博客。本来我在大学的这三年的过程中是没有学过和这相关的东西，因为学的是软件工程专业，这方面学校虽然也有一定的教授，但是还是和系统的学习有较大的差别</p>
-        
-    
-    <time datetime="2015-11-21T13:39:40.493Z" itemprop="datePublished">2015-11-21</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2015/11/21/about/" title="搭建这个博客的原因" itemprop="url">
-  
-    <h1 itemprop="name">搭建这个博客的原因</h1>
-    
-     
-           <p itemprop="description" >这是我在github搭建的博客，算是我以前的使用github的产生，虽然两年前以idwangmo的身份搭建了 一个github账号，但是前几天出于某种原因被我给删除了，现在只只好重新建立一个账号，开始记录我从大三开始的学习过程</p>
-        
-    
-    <time datetime="2015-11-21T12:39:22.013Z" itemprop="datePublished">2015-11-21</time>
-  </a>
-</section>
-
-
-
-
-
-
-
+<div  id="main" class="page">
+  <div id='cse' style='width:100%;text-align:center'>正在加载搜索结果，请稍等。</div>
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+<script src="http://www.google.com.hk/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+google.load('search', '1', {language : 'zh-CN',style: google.loader.themes.MINIMALIST});
+google.setOnLoadCallback(function(){
+  var customSearchControl = new google.search.CustomSearchControl('001341117790592458308');
+  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+  var options = new google.search.DrawOptions();
+  options.setAutoComplete(true);
+  customSearchControl.draw('cse', options);
+  var match = location.search.match(/q=([^&]*)(&|$)/);
+  if(match && match[1]){
+    var search = decodeURIComponent(match[1]); 
+    customSearchControl.execute(search);
+  }
+},true);
+</script>
 
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="wjpworking" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://www.google.com" target="_blank" title="Google">Google</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
+      </div>
+      <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -225,7 +144,7 @@
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
+      <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 <script src="/js/jquery.qrcode-0.12.0.min.js"></script>
@@ -380,6 +299,5 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 
 <!-- Tiny_search End -->
 
-    <a href="https://github.com/wjpworking"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-  </body>
- </html>
+    </body>
+   </html>
