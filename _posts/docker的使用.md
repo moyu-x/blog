@@ -27,7 +27,7 @@ Windows和Mac上就直接使用官方的镜像了，不用考虑其他的了，�
 
 ## 安装daocloud的工具（不适用可直接跳过）
 在Daocloud的Dashboard中的我的集群中根据步骤进行部署  
-![Dashboard](/img/dashboard.png)  
+![Dashboard](http://7xokkh.com1.z0.glb.clouddn.com/dashboard.png)  
 然后下载镜像的使用如下命令：
 ```bash
 # dao pull youimages
