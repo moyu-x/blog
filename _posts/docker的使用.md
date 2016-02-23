@@ -45,7 +45,7 @@ Windows和Mac上就直接使用官方的镜像了，不用考虑其他的了，�
 # docker run hello-world
 ```
 这时会下载一个hello-world的镜像，如果显示了如下的东西，则说明你已经成功安装Docker了：
-```
+```txt
 Hello from Docker.
 This message shows that your installation appears to be working correctly.
 
