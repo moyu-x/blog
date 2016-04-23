@@ -1,13 +1,12 @@
-title: 日常笔记
+title: Ubuntu移除多余的内核
 date: 2016-2-29 21:47:53
 tags:
 - 日常
 - 笔记
 categories:
 - 笔记
-description: 记录自己日常所需的一些内容，防止自己忘记或者是临时需要时不能摘到
 ---
-# 移除多余的内核
+# Ubuntu移除多余的内核
 在使用Ubuntu的时候，发现内核更新的频率比较高，所以需要删除一些内核来节省空间
 1. 查询当前系统所使用的内核`uname -r`
 2. 查询系统中安装的内核`dpkg --get-selections|grep linux`
