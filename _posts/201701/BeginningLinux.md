@@ -1,5 +1,6 @@
 ---
 title: 开始使用Linux
+update: 2017-2-5 15:30:50
 date: 2017-01-30 23:03:58
 tags:
   - Linux
@@ -41,9 +42,9 @@ categories:
    # 安装，默认安装在node文件件下
    umake nodejs nodejs-lang
 
-   # 配置，在.bashrc或者.zshrc中配置环境变量
+   # 配置，在.bashrc或者.zshrc中配置环境变量，并将npm包也配置到path中
    export PATH="$PATH:${HOME}/node/bin"
-   export NODE_PATH="${HOME}/node_modules/bin"
+   export PATH="$PATH:${HOME}/node_modules/bin"
 
    # 使用淘宝的镜像，在.npmrc文件中写入
    registry=https://registry.npm.taobao.org
@@ -80,6 +81,18 @@ categories:
    alias ohmyzsh="vim ~/.oh-my-zsh"
    ```
 
-8. 使用vim，安装我不说了，对于插件有两个选择，一个[spf13](http://vim.spf13.com/)，另一个是过人写的[spacevim](http://spacevim.org/)
+8. 使用vim，安装我不说了，对于插件有两个选择，一个[spf13](http://vim.spf13.com/)，另一个是国人写的[spacevim](http://spacevim.org/)
+
+9. 关闭Ubuntu的访客模式：
+
+   ```bash
+   # 编辑以下文件，没有就创建一个
+   sudo vim /etc/lightdm/lightdm.conf
+
+   # 在配置文件中写入以下内容
+   [SeatDefaults]
+   greeter-session=unity-greeter
+   allow-guest=false
+   ```
 
 到现在，基本的配置已经完成了，现在就可以进入写代码的环节了。当然我写的这个博客不适合所有的人，只是我记录我日常使用时的安装和配置过程，简单一些，明白一些，方便我下一次手痒是将系统重新装了。
