@@ -1,34 +1,43 @@
+---
 title: Docker的使用
 date: 2015-11-22 15:07:45
+updated: 2017-3-22 21:07:19
 tags:
-- docker
+  - docker
 categories:
-- 虚拟化
+  - 虚拟化
 ---
 
 # 简介
+
 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个技术。并且在当时还看到了对于go语言的简单介绍，说是这样一门语言是由Google开发的要用来代替C预言的，我当时还在我的计算机上搭建了一个Go语言的开发环境，并且还看了一些书籍，但是现在都完全的忘记了，只知道当的论坛中对这门语言的评价不是太好，那时还是1.3版本，编译器还是用C来写的。没有实现自举编译，现在1.5已经实现自举编译了，这不说了，因为现在我也不会这一门语言，除了一些基本的语法之外。虽然网络上已经有许多的安装方法了，但是我还是写一下作为分享好了。
 
 # 网站
 [Docker官网](www.docker.com)  
+
 [The way to go中文版](https://github.com/Unknwon/the-way-to-go_ZH_CN)  
-[Daocloud官网](www.daocloud.io):docker的一个镜像，挺好使得
+
+[Daocloud官网](www.daocloud.io)：现在免费提供了docker的加速服务
 
 # 安装docker
-鉴于国内的网速，还说使用快一点的镜像比较好，如果是企业的话就不要考虑了，尽量使用商业的吧:  
-Linux  
+鉴于国内的网速，还说使用快一点的镜像比较好，如果是企业的话就不要考虑了，尽量使用商业的吧: ，Linux  
+
 ```bash
 daocloud的下载指令
 curl -sSL https://get.daocloud.io/docker | sh
 docker下载指令
 wget -qO- https://get.docker.com/ | sh
 ```
-Windows和Mac上就直接使用官方的镜像了，不用考虑其他的了，因为迅雷下这个还是挺快的
+Windows和Mac上就直接使用官方的镜像了，不用考虑其他的了，因为迅雷下这个还是挺快的。现在在Windows和Mac上面都有了原生的支持，但是对于Windows来说，最新的版本是构建以hyper-v上的，会给装了VMware的机器造成影响，但网上的解决方法都有点类似于双系统了，要么使用VMware版本，要么使用hyper-v版本，所以我建议性能好的机器还是继续在虚拟机中玩吧，其他的可以考虑使用网上给的解决办法。
 
-# 安装daocloud的工具（不适用可直接跳过）
+# 安装daocloud的工具（不使用可直接跳过）
+
 在Daocloud的Dashboard中的我的集群中根据步骤进行部署  
+
 ![Dashboard](http://7xokkh.com1.z0.glb.clouddn.com/dashboard.png)  
+
 然后下载镜像的使用如下命令：
+
 ```bash
 dao pull youimages
 ```
@@ -40,6 +49,7 @@ docker pull yourimages
 ```
 
 # 一个简单的docker实例，来自官方
+
 输入如下指令；
 ```bash
 docker run hello-world
