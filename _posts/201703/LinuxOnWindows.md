@@ -8,7 +8,7 @@ categories:
   - Linux
 ---
 
-最近几天在Windows上折腾Linux了，也体验了一些新的玩法，所以在这里总结一下。在Windows上玩Linux主要有这么几种：
+最近几天在Windows上折腾Linux了，主要是发现现在我装双系统没有意义，准备换回以前使用Linux的模式了，主要也是用来进行测试和一些Linux的学习，所有来回切换系统十分的麻烦。当然了我也体验了一些新的玩法，所以在这里总结一下，在Windows上玩Linux主要有这么几种：
 
 1. 虚拟机
 2. Docker
@@ -19,7 +19,7 @@ categories:
 
 # Bash on Windows
 
-Windows的Linux子系统其实一直存在，Windows xp和Windows 7中都可以使用，在Windows 8中被微软删除了，以前这个子系统是微软为美国军方提供的，所以用的比较少，功能也少。在Windows 10发布一周年更新的时候，微软联合了Canonical 联合发布了Bash on Linux这个子系统，其完全使用净室开发，在Windows上完全实现了Bash的接口和操作，其实现的机构图如下，其实就是利用bash对Windows底层的内核态进行了一个抽象和，其基本和win32api这些是同一个层次的东西：
+Windows的Linux子系统其实一直存在，Windows xp和Windows 7中都可以使用，在Windows 8中被微软删除了，以前这个子系统是微软为美国军方提供的，所以用的比较少，功能也少，其也不是为了开发者进行设计的，所以社区对其功能的挖掘较少。在Windows 10发布一周年更新的时候，微软联合了Canonical 联合发布了Bash on Linux这个子系统，其完全使用净室开发，在Windows上完全实现了Bash的接口和操作，其实现的机构图如下，其实就是利用bash对Windows底层的内核态进行了一个抽象和，其基本和win32 api这些是位于同一个层次的：
 
 ![BashOnWindows结构](/Image/BashOnWindows结构.jpg)
 
