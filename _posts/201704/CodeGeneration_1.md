@@ -18,5 +18,67 @@ categories:
 
 # 简单实现
 
-这里实现一个读取三个数据，一个为类名，一个为属性类型，一个为属性名称，生成一个简单的POJO类的代码生成器，生成的文件当然是放在通目录下。
+这里实现一个读取三个数据，一个为类名，一个为属性类型，一个为属性名称，生成一个简单类的代码生成器，生成的文件当然是放在同级目录下。
 
+这个简单的实现其实最主要的问题是对文件的写入，其实对getter和setter的编写来说应该是十分的简单的，整个文件生成的核心代码如下，不过这些代码有点丑陋，这些里面只是使用字符串拼接的方法实现了一个类的主体模板，没有其他的东西，只要花时间都能做成：
+
+```java
+    /**
+     * 生成getter方法.
+     *
+     * @param attributeType 属性类型
+     * @param attributeName 属性名
+     * @return 生成好的getter方法
+     */
+    public static String generateGetter(String attributeType, String attributeName) {
+        return "\tpublic " + attributeType + " get" + CodeGeneration.toUpperCaseFirstOne(attributeName) + "(){\r" +
+                "\t\treturn " + attributeName + ";\r" +
+                "\t}\r";
+    }
+
+
+    /**
+     * 生成setter方法.
+     *
+     * @param attributeType 属性类型
+     * @param attributeName 属性名
+     * @return 生成好的setter方法 string
+     */
+    public static String generateSetter(String attributeType, String attributeName) {
+        return "\tpublic void set" + CodeGeneration.toUpperCaseFirstOne(attributeName) + "(" + attributeType + " " + attributeName + ")\r" +
+                "\t\tthis." + attributeName + " = " + attributeName + ";\r" +
+                "\t}\r";
+    }
+
+    /**
+     * 生成类的首部.
+     *
+     * @param className 类名
+     * @return 类首部
+     */
+    public static String generateClassHeader(String className) {
+        return "public class " + CodeGeneration.toUpperCaseFirstOne(className) + "{\r";
+    }
+
+    /**
+     * 生成类的属性.
+     *
+     * @param attributeType 属性的类型
+     * @param attributeName 属性的名称
+     * @return 生成的属性
+     */
+    public static String generateClassAttribute(String attributeType, String attributeName) {
+        return "\tprivate " + attributeType + " " + attributeName + ";\r";
+    }
+
+    /**
+     * 生成的类的底部.
+     *
+     * @return 类底部
+     */
+    public static String generateClassFoot() {
+        return "}";
+    }
+```
+
+其实就是编写一个模板代码，然后就可以根据此来生成大量的代码了，真个完整的代码在Github上可以看到。
