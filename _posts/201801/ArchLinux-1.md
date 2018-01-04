@@ -19,9 +19,9 @@ categories:
 
 ### 安装盘
 
-去(官方网站)[www.archlinux.org]或者(清华源)[https://mirrors.tuna.tsinghua.edu.cn]上面下载最新的镜像进行刻录。理论上来说使用老的镜像进行安装也是可以的，但是安装的过程中会把安装的软件更新到最新的版本，所以没有意义。
+去[官方网站](www.archlinux.org)或者[清华源](https://mirrors.tuna.tsinghua.edu.cn)上面下载最新的镜像进行刻录。理论上来说使用老的镜像进行安装也是可以的，但是安装的过程中会把安装的软件更新到最新的版本，所以没有意义。
 
-然后使用(rufus)[https://rufus.akeo.ie/]这个软件将下下来的镜像刻录成USB的启动盘，这是就需要选择UEFI还是BIOS启动了，这两个根据硬件来自行进行选择吧。如果是要装双系统的，应该优先安装Windows，并且需要关闭Windows的快速启动和安全启动功能，这样才能安全的安装ArchLinux。
+然后使用[rufus](https://rufus.akeo.ie/)这个软件将下下来的镜像刻录成USB的启动盘，这是就需要选择UEFI还是BIOS启动了，这两个根据硬件来自行进行选择吧。如果是要装双系统的，应该优先安装Windows，并且需要关闭Windows的快速启动和安全启动功能，这样才能安全的安装ArchLinux。
 
 ## 安装
 
