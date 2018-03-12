@@ -27,10 +27,11 @@ SigLevel = Optional TrustedOnly
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
 
-然后再安装`archlinuxcn-keyring`这个包导入秘钥就行。对于这其中可能存在的两个问题，也就是由使用硬件时钟造成秘钥导入不成功的问题，可以使用以下方法进行解决：
+然后再安装`archlinuxcn-keyring`这个包导入秘钥就行。对于这其中可能存在的两个问题，也就是由使用硬件时钟造成秘钥导入不成功的问题（这个一般是时间的问题，硬件时间不是UTC时间的情况下造成的）
+，可以使用以下方法进行解决：
 
 1. 立即同步时间，不用修改系统的时间设置
-2. 删除`/etc/pacman.d/gnupg`文件夹，然后运行`pacman-key --init`和`pacman-key --refresh-keys`就可以解决这一个问题
+2. 删除`/etc/pacman.d/gnupg`文件夹，然后运行`pacman-key --init`，`pacman-key --poplaute archlinux`和`pacman-key --refresh-keys`就可以解决这一个问题
 
 ## Python
 
