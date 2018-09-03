@@ -22,7 +22,7 @@ categories:
 
 Spring Application Framework的核心是IoC容器。
 
-![Spring配置元数据](/Image/BeginningSpring/Spring配置元数据.png)
+![Spring配置元数据](/imagess/BeginningSpring/Spring配置元数据.png)
 
 所有的Bean都被定义在`<beans>`元素中，而每一个Bean则使用`<bean>`元素进行定义。Bean的名称由id特性定义。应用程序或者配置元数据中的其他Bean定义可以通过名称访问相关的Bean。
 
@@ -30,7 +30,7 @@ Spring Application Framework的核心是IoC容器。
 
 Spring容器也是一个Java对象，在某些特定的时间点被创建，并允许管理应用程序的其他部分。在独立的应用程序中，可以使用编程方法，而在Web应用程序中，使用声明方法则是更好的选择。
 
-![分层体系结构](/Image/BeginningSpring/分层体系结构.png)
+![分层体系结构](/images/BeginningSpring/分层体系结构.png)
 
 在工厂方法中，首先通过调用Setter方法设置所需的依赖项，然后使用具体类创建一个Bean并将其返回。此外，依赖项还可以通过构造函数参数的形式赋予。
 
@@ -84,7 +84,7 @@ Spring提供了`Qualifier`注解，当将`@Qualifer`注解与`@Autowired`和`@Be
 
 在Spring容器控制之外的对象获取在Spring容器中的Bean
 
-![获取Spring中的对象](/Image/BeginningSpring/获取Spring中的对象.png)
+![获取Spring中的对象](/images/BeginningSpring/获取Spring中的对象.png)
 
 不管如何努力，某些情况下总会需要从处于Spring容器控制之外的其他对象访问Bean，在这种情况下，这些对象首先应该获取该对该环境中ApplicationContext实例的引用，对于独立的应用程序，应该由开发人员显示处理该任务。对于web应用程序，Spring提供了一个WebApplicationContextUtils的实用工具类，该类中的方法可以返回Web应用程序的ApplicationContext实例。
 
@@ -112,7 +112,7 @@ Spring的作用域：
 
 当定义Request作用域Bean和Session作用域Bean时，必须在`<Bean>`元素中放置`<aop:scoped-proxy/`元素作为一个子元素。
 
-![Spring内置的作用域](/Image/BeginningSpring/Spring内置的作用域.png)
+![Spring内置的作用域](/images/BeginningSpring/Spring内置的作用域.png)
 
 `@Scope`注解被用来在类级别或工厂级别指定当前Bean定义的作用域，其通过一个String值标示Bean定义的作用域，此外还可以接受第二个参数，该参数可以修改代理生成模式。
 
@@ -130,15 +130,15 @@ Spring的作用域：
 
 Spring 3.1引入了Bean定义配置文件。在基于XML的配置文件中，该配置文件支持在一个`<beans>`元素中定义另一个`<beans>`元素。
 
-![依赖注入的元素标记](/Image/BeginningSpring/依赖注入的元素标记.png)
+![依赖注入的元素标记](/images/BeginningSpring/依赖注入的元素标记.png)
 
 # 第三章 使用Spring MVC构建Web应用程序
 
 万维网的三个核心元素：HTML，HTTP和URI
 
-![BeginningSpringMVC结构](/Image/BeginningSpring/BeginningSpringMVC结构.png)
+![BeginningSpringMVC结构](/images/BeginningSpring/BeginningSpringMVC结构.png)
 
-![DispatchServlet](/Image/BeginningSpring/DispatchServlet.png)
+![DispatchServlet](/images/BeginningSpring/DispatchServlet.png)
 
 DispatchServlet的定义包含在Web应用程序的部署描述文件中，即web.xml文件
 
@@ -198,7 +198,7 @@ Spring 4.0引入了扩展自LocaleResolver的LocaleContextResolver接口，从�
 
 DispatcherServlet将在应用程序上下文中查找一个名为themeResolver的Spring bean，如果该Bean不存在，则配置使用FixedThemeResolver
 
-![SpringMVC的标签](/Image/BeginningSpring/SpringMVC的标签.png)
+![SpringMVC的标签](/images/BeginningSpring/SpringMVC的标签.png)
 
 # 第四章 使用Spring进行JDBC数据访问
 
@@ -279,7 +279,7 @@ SQLExceptionTranslato接口的另一个公共实现是SQLStatteSQLExceptionTrans
 
 默认情况下，如果JdbcTemplate的dataSource依赖得到满足，那么JdbcTemplate会创建并使用SQLErrorCodeExceptionTranslator；否则，就会就会SQLStateCodeExceptionTranslator。其结果就是，在默认情况下，如果数据访问对象正在使用JdbcTemplate，就可以利用自动异常转换功能。
 
-![Spring的JDBC知识点](/Image/BeginningSpring/Spring的JDBC知识点.png)
+![Spring的JDBC知识点](/images/BeginningSpring/Spring的JDBC知识点.png)
 
 # 第五章 通过Spring使用JPA进行数据访问
 
@@ -314,7 +314,7 @@ SQLExceptionTranslato接口的另一个公共实现是SQLStatteSQLExceptionTrans
 * 一对多（1:M）
 * 多对多（M:M）
 
-![Java-SQL关系映射表](/Image/BeginningSpring/Java-SQL关系映射表.png)
+![Java-SQL关系映射表](/images/BeginningSpring/Java-SQL关系映射表.png)
 
 默认情况下，JPA将Date类型的属性映射到timestamp。
 
@@ -348,9 +348,9 @@ Spring可以处理数据访问层中抛出的不同类型的数据访问异常�
 
 为了使用Spring的异常处理和转换能力，需要使用`@Repository`注解来标记DAO，然后，需要从PersistenceExceptionTranslationPostProccessor类创建一个Bean定义，以便Spring通知DAO Bean，捕获特定技术的数据访问异常，并将异常转换为DataAccessException层次结构。
 
-![SpringJPA1](/Image/BeginningSpring/SpringJPA1.png)
+![SpringJPA1](/images/BeginningSpring/SpringJPA1.png)
 
-![SpringJAP2](/Image/BeginningSpring/SpringJAP2.png)
+![SpringJAP2](/images/BeginningSpring/SpringJAP2.png)
 
 # 第六章 使用Spring管理事务
 
@@ -369,7 +369,7 @@ Spring可以处理数据访问层中抛出的不同类型的数据访问异常�
 
 Spring的事务抽象模型基于PlathformTransctionManager接口，并且存在不同的具体实现，而每一种实现都与一个特定的数据访问技术相对应。
 
-![与不同数据访问技术对应的PlathformTransctionManager实现](/Image/BeginningSpring/与不同数据访问技术对应的PlathformTransctionManager实现.png)
+![与不同数据访问技术对应的PlathformTransctionManager实现](/images/BeginningSpring/与不同数据访问技术对应的PlathformTransctionManager实现.png)
 
 事务是需要定义边界的，事务性方法的一般结构：
 
@@ -400,7 +400,7 @@ try {
 * Propagation NEVER：当方法调用时，如果系统中存在一个活动事务且发生了错误，那么必须在系统中没有任何活动事务的情况下调用方法。
 * Propagation MANDATORY：当调用方法是，如果系统中不存在一个活动的事务且发生了错误，必须确保在访问该方法是已经创建了一个事务。
 
-![事务传播的规则](/Image/BeginningSpring/事务传播的规则.png)
+![事务传播的规则](/images/BeginningSpring/事务传播的规则.png)
 
 Spring通过使用代理执行声明式事务。
 
@@ -411,7 +411,7 @@ Spring通过使用代理执行声明式事务。
 
 在TransctionSynchronization方法中，使用了一种回调机制来指定在当前事务结束时候需要指定的自定义代码块。
 
-![事务管理总结](../Image/事务管理总结.png)
+![事务管理总结](../images/事务管理总结.png)
 
 # 第七章 使用Spring进行测试驱动开发
 
@@ -426,7 +426,7 @@ Spring TestContext Framework在测试方法结束后执行的是回滚操作而�
 * 测试异常处理程序
 * 打印模拟请求和响应
 
-![使用Spring进行测试驱动开发](/Image/BeginningSpring/使用Spring进行测试驱动开发.png)
+![使用Spring进行测试驱动开发](/images/BeginningSpring/使用Spring进行测试驱动开发.png)
 
 # 第八章 使用Spring进行面向切面编程
 
@@ -444,9 +444,9 @@ Spring提供了一个子项目Spring AOP，该项目通过应用Proxy模式，�
 
 AOP的配置位于`<aop:config>`标签中，通过该标签可以定义“	切面”、切入点等。
 
-![环绕列表](/Image/BeginningSpring/环绕列表.png)
+![环绕列表](/images/BeginningSpring/环绕列表.png)
 
-![环绕的流程](/Image/BeginningSpring/环绕的流程.png)
+![环绕的流程](/images/BeginningSpring/环绕的流程.png)
 
 如果从ThrowsAdvice的其中一个方法中抛出一个异常，则该异常将会覆盖原异常。
 
@@ -469,13 +469,13 @@ AOP注解：
 * `@Around`：该注解能够在目标方法执行之前和之后启动通知方法执行，从字面上讲意味着围绕在接合点周围。
 * `@DeaclareParents`：可以通过提供一个接口的具体类而让目标对象动态低实现该接口。
 
-![AOP知识点](/Image/BeginningSpring/AOP知识点.png)
+![AOP知识点](/images/BeginningSpring/AOP知识点.png)
 
 # 第九章 SpEL
 
-![SpEL表达式](/Image/BeginningSpring/SpEL表达式.png)
+![SpEL表达式](/images/BeginningSpring/SpEL表达式.png)
 
-![SpEL知识点](/Image/BeginningSpring/SpEL知识点.png)
+![SpEL知识点](/images/BeginningSpring/SpEL知识点.png)
 
 # 第十章 缓存 
 
@@ -508,11 +508,11 @@ Spring缓存仅提供了一种缓存抽象，而没有针对任何缓存基础�
 * ConcurrentMapCacheManager：在幕后使用了JDK的ConcurrentMap，提供了与SimpleCacheManager配置相同的功能，但并不需要想前面那样定义缓存存储器。
 * Composite CacheManager：能够让我们使用当个缓存管理器定义多个缓存管理器
 
-![Spring缓存只是点](/Image/BeginningSpring/Spring缓存只是点.png)
+![Spring缓存只是点](/images/BeginningSpring/Spring缓存只是点.png)
 
 # 第十一章 Spring REST
 
-![HTTP状态码](/Image/BeginningSpring/HTTP状态码.png)
+![HTTP状态码](/images/BeginningSpring/HTTP状态码.png)
 
 # 第十二章 Spring Security
 
@@ -524,4 +524,4 @@ Remember-Me支持基于一种Cookie机制，在登录过程中，存储在客户
 
 在客户端的一个Cookie中存储用户名可以视为一种安全漏洞，因为攻击者可能会窃取存储在客户端机器中的Cookie并进行解码，从而获取用户名。
 
-![SpringSecurity知识点](/Image/BeginningSpring/SpringSecurity知识点.png)
+![SpringSecurity知识点](/images/BeginningSpring/SpringSecurity知识点.png)

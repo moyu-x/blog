@@ -51,11 +51,9 @@ Spring自带了多种类型的应用上下文。下面罗列的几个是你最�
 
 Spring Bean的生命周期：
 
-![SpringBean的生命周期](\Image\SpringBean的生命周期.png)
+![SpringBean的生命周期](\images\201612\SpringBean的生命周期.png)
 
-![Spring模块](\Image\Spring模块.png)
-
-
+![Spring模块](\images\201612\Spring模块.png)
 
 # 第二章
 
@@ -132,7 +130,7 @@ XML不允许某个元素的多个属性具有相同的名字。
 
 Spring为`<constructor-arg>`元素提供了c-命名空间作为替代方案，与之类似，Spring提供了更加简洁的p-命名空间，作为`<property>`元素的替代方案
 
-util-命名空间所提供的功能之一就是`<util:list>`元素，它会创建一个列表的bean。![Spring util-命名空间中的元素](\Image\Spring util-命名空间中的元素.png)
+util-命名空间所提供的功能之一就是`<util:list>`元素，它会创建一个列表的bean。![Spring util-命名空间中的元素](\images\201612\Spring util-命名空间中的元素.png)
 
 在使用了XML的配置之后，如果要让spring同时加载它和其他基于Java的配置可以使用`@ImportResource`注解
 

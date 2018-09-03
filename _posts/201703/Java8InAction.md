@@ -10,7 +10,7 @@ categories:
 
 # 思维导图
 
-![Java8实战](/Image/Java8实战/Java8实战.jpg)
+![Java8实战](/images/Java8实战/Java8实战.jpg)
 
 # 一 为什么使用Java8
 
@@ -66,7 +66,7 @@ Collection主要是为了存储和访问数据，而Stream则主要用于描述�
 1. 往往很笨重，因为它占用了很多空间
 2. 难以让人理解
 
-![行为参数化与值参数化](/Image/Java8实战/行为参数化与值参数化.jpg)
+![行为参数化与值参数化](/images/Java8实战/行为参数化与值参数化.jpg)
 
 小结：
 
@@ -100,9 +100,9 @@ java.util.function.Consumer<T> 定义了一个名叫 accept 的抽象方法，�
 
 java.util.function.Function<T, R> 接口定义了一个叫作 apply 的方法，它接受一个泛型 T 的对象，并返回一个泛型 R 的对象。
 
-![常用函数式接口1](/Image/Java8实战/常用函数式接口1.jpg)
+![常用函数式接口1](/images/Java8实战/常用函数式接口1.jpg)
 
-![常用函数式接口2](/Image/Java8实战/常用函数式接口2.jpg)
+![常用函数式接口2](/images/Java8实战/常用函数式接口2.jpg)
 
 ava编译器会从上下文（目标类型）推断出用什么函数式接口来配合Lambda表达式，这意味着它也可以推断出适合Lambda的签名，因为函数描述符可以通过目标类型来得到。
 
@@ -162,7 +162,7 @@ Streams库的内部迭代可以自动选择一种适合你硬件的数据表示�
 *　一个中间操作链，形成一条流的流水线；
 *　一个终端操作，执行流水线，并能生成结果。
 
-![流操作](/Image/Java8实战/流操作.jpg)
+![流操作](/images/Java8实战/流操作.jpg)
 
 小结：
 
@@ -198,7 +198,7 @@ reduce 接受两个参数：
 * 一个初始值，这里是0；
 * 一个 `BinaryOperator<T> `来将两个元素结合起来产生一个新值
 
-![中间操作和终端操作](\Image\Java8实战\中间操作和终端操作.jpg)
+![中间操作和终端操作](\images\Java8实战\中间操作和终端操作.jpg)
 
 Java 8引入了三个原始类型特化流接口来解决这个问题： IntStream 、 DoubleStream 和LongStream ，分别将流中的元素特化为 int 、 long 和 double ，从而避免了暗含的装箱成本。
 
@@ -231,9 +231,9 @@ Stream API提供了两个静态方法来从函数生成流： Stream.iterate 和
 * 元素分组
 * 元素分区
 
-![Collectors 类的静态工厂方法](\Image\Java8实战\Collectors 类的静态工厂方法.jpg)
+![Collectors 类的静态工厂方法](\images\Java8实战\Collectors 类的静态工厂方法.jpg)
 
-![Collectors 类的静态工厂方法2](\Image\Java8实战\Collectors 类的静态工厂方法2.jpg)
+![Collectors 类的静态工厂方法2](\images\Java8实战\Collectors 类的静态工厂方法2.jpg)
 
 Collector接口的声明：
 
@@ -282,11 +282,11 @@ Collector接口的声明：
 * 流自身的特点，以及流水线中的中间操作修改流的方式，都可能会改变分解过程的性能。
 * 还要考虑终端操作中合并步骤的代价是大是小
 
-![流的数据源和可分解性](\Image\Java8实战\流的数据源和可分解性.jpg)
+![流的数据源和可分解性](\images\Java8实战\流的数据源和可分解性.jpg)
 
 ## 分支/合并框架
 
-![分支合并过程](\Image\Java8实战\分支合并过程.jpg)
+![分支合并过程](\images\Java8实战\分支合并过程.jpg)
 
 **在实际应用时，使用多个 ForkJoinPool 是没有什么意义的。**一般来说把它实例化一次，然后把实例保存在静态字段中，使之成为单例，这样就可以在软件中任何部分方便地重用了。
 
@@ -304,7 +304,7 @@ Collector接口的声明：
 
 Spliterator 是Java 8中加入的另一个新接口；这个名字代表“可分迭代器”（splitableiterator）。
 
-![Spliterator的特性](\Image\Java8实战\Spliterator的特性.jpg)
+![Spliterator的特性](\images\Java8实战\Spliterator的特性.jpg)
 
 小结:
 
@@ -362,7 +362,7 @@ Spliterator 是Java 8中加入的另一个新接口；这个名字代表“可�
 
 Java 8中引入了一种新的语法 X.super.m(…) ，其中 X 是你希望调用的 m方法所在的父接口。
 
-![菱形继承问题](\Image\Java8实战\菱形继承问题.jpg)
+![菱形继承问题](\images\Java8实战\菱形继承问题.jpg)
 
 你只需要遵守下面这三条准则就能解决所有可能的冲突：
 
@@ -381,9 +381,9 @@ Java 8中引入了一种新的语法 X.super.m(…) ，其中 X 是你希望调�
 * 类或者父类中声明的方法的优先级高于任何默认方法。如果前一条无法解决冲突，那就选择同函数签名的方法中实现得最具体的那个接口的方法。
 * 两个默认方法都同样具体时，你需要在类中覆盖该方法，显式地选择使用哪个接口中提供的默认方法。
 
-![Optional 类的方法1](\Image\Java8实战\Optional 类的方法1.jpg)
+![Optional 类的方法1](\images\Java8实战\Optional 类的方法1.jpg)
 
-![Optional 类的方法2](\Image\Java8实战\Optional 类的方法2.jpg)
+![Optional 类的方法2](\images\Java8实战\Optional 类的方法2.jpg)
 
 小结：
 
@@ -398,9 +398,9 @@ Java 8中引入了一种新的语法 X.super.m(…) ，其中 X 是你希望调�
 
 两种趋势不断地推动我们反思我们设计软件的方式。第一种趋势和应用运行的硬件平台相关，第二种趋势与应用程序的架构相关，尤其是它们之间如何交互。
 
-![并发和并行](\Image\Java8实战\并发和并行.jpg)
+![并发和并行](\images\Java8实战\并发和并行.jpg)
 
-![使用 Future 以异步方式执行长时间的操作](\Image\Java8实战\使用 Future 以异步方式执行长时间的操作.jpg)
+![使用 Future 以异步方式执行长时间的操作](\images\Java8实战\使用 Future 以异步方式执行长时间的操作.jpg)
 
  CompletableFuture 具有一定的优势，因为它允许你对执行器（ Executor ）进行配置，尤其是线程池的大小，让它以更适合应用需求的方式进行配置，满足程序的要求。
 
@@ -432,13 +432,13 @@ N threads = N CPU * U CPU * (1 + W/C)
 
  TemporalField 是一个接口，它定义了如何访问 temporal 对象某个字段的值。 ChronoField 枚举实现了这一接口，所以你可以很方便地使用 get 方法得到枚举元素的值。
 
-![日期时间类1](\Image\Java8实战\日期时间类1.jpg)
+![日期时间类1](\images\Java8实战\日期时间类1.jpg)
 
-![日期时间类2](\Image\Java8实战\日期时间类2.jpg)
+![日期时间类2](\images\Java8实战\日期时间类2.jpg)
 
-![表示时间点的日期_时间类的通用方法](\Image\Java8实战\表示时间点的日期_时间类的通用方法.jpg)
+![表示时间点的日期_时间类的通用方法](\images\Java8实战\表示时间点的日期_时间类的通用方法.jpg)
 
-![TemporalAdjuster 类中的工厂方法](\Image\Java8实战\TemporalAdjuster 类中的工厂方法.jpg)
+![TemporalAdjuster 类中的工厂方法](\images\Java8实战\TemporalAdjuster 类中的工厂方法.jpg)
 
 小结：
 
@@ -456,7 +456,7 @@ N threads = N CPU * U CPU * (1 + W/C)
 
 在函数式编程的上下文中，一个“函数”对应于一个数学函数：它接受零个或多个参数，生成一个或多个结果，并且不会有任何副作用。你可以把它看成一个黑盒，它接收输入并产生一些输出。
 
-![一个没有任何副作用的函数](\Image\Java8实战\一个没有任何副作用的函数.jpg)
+![一个没有任何副作用的函数](\images\Java8实战\一个没有任何副作用的函数.jpg)
 
 要被称为函数式，函数或者方法不应该抛出任何异常。
 
@@ -510,7 +510,7 @@ Java 8在两个方面对注解机制进行了改进，分别为：
 
 从Java 8开始，注解已经能应用于任何类型
 
-![集合类和接口中新增的方法](\Image\Java8实战\集合类和接口中新增的方法.jpg)
+![集合类和接口中新增的方法](\images\Java8实战\集合类和接口中新增的方法.jpg)
 
 Files 类最引人注目的改变是，你现在可以用文件直接产生流。
 

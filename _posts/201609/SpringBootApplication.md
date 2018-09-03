@@ -58,7 +58,7 @@ public @interface SpringBootTest {
 
 而其中默认提供的`SpringBootTestContextBootstrapper`则是一个实现测试文件配置的加载，启动入口以及基本的配置，这我么可以从其继承链上看出来这是对`TestContextBootstrapper`的实现:
 
-![SpringBootTestContextBootstrapper](\img\SpringBootTestContextBootstrapper.png)
+![SpringBootTestContextBootstrapper](\images\201609\SpringBootTestContextBootstrapper.png)
 
 # SpringRunner
 

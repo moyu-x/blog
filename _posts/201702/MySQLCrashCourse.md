@@ -89,7 +89,7 @@ DESC 关键字只应用到直接位于其前面的列名。
 
 在 SELECT 语句中，数据根据 WHERE 子句中指定的搜索条件进行过滤。WHERE 子句在表名（ FROM 子句）之后给出。
 
-![where子句操作符](/Image/MySQL必知必会/where子句操作符.jpg)
+![where子句操作符](/images/MySQL必知必会/where子句操作符.jpg)
 
 在创建表时，表设计人员可以指定其中的列是否可以不包含值。在一个列不包含值时，称其为包含空值 NULL 。
 
@@ -144,11 +144,11 @@ REGEXP 后所跟的东西作为正则表达式处理。
 
 匹配任何单一字符可通过指定一组用 [ 和 ] 括起来的字符来完成。
 
-![where子句操作符](/Image/MySQL必知必会/where子句操作符.jpg)
+![where子句操作符](/images/MySQL必知必会/where子句操作符.jpg)
 
-![重复元字符](/Image/MySQL必知必会/重复元字符.jpg)
+![重复元字符](/images/MySQL必知必会/重复元字符.jpg)
 
-![定位元字符](/Image/MySQL必知必会/定位元字符.jpg)
+![定位元字符](/images/MySQL必知必会/定位元字符.jpg)
 
 ^ 有两种用法。在集合中（用 [ 和 ] 定义），用它来否定该集合，否则，用来指串的开始处。
 
@@ -168,25 +168,25 @@ REGEXP 后所跟的东西作为正则表达式处理。
 
 删除数据右侧多余的空格来整理数据，这可以使用MySQL的 RTrim() 函数来完成。 LTrim() （去掉串左边的空格）以及Trim() （去掉串左右两边的空格）。
 
-![MySQL算术操作符](/Image/MySQL必知必会/MySQL算术操作符.jpg)
+![MySQL算术操作符](/images/MySQL必知必会/MySQL算术操作符.jpg)
 
 # 十一 使用数据处理函数
 
-![常用的文本处理函数](/Image/MySQL必知必会/常用的文本处理函数.jpg)
+![常用的文本处理函数](/images/MySQL必知必会/常用的文本处理函数.jpg)
 
-![时间处理函数](/Image/MySQL必知必会/时间处理函数.jpg)
+![时间处理函数](/images/MySQL必知必会/时间处理函数.jpg)
 
 无论你什么时候指定一使用数据处理函数个日期，不管是插入或更新表值还是用 WHERE 子句进行过滤，日期必须为格式yyyy-mm-dd。
 
 如果你想要的仅是日期，则使用 Date() 是一个良好的习惯，即使你知道相应的列只包含日期也是如此。
 
-![数值处理函数](/Image/MySQL必知必会/数值处理函数.jpg)
+![数值处理函数](/images/MySQL必知必会/数值处理函数.jpg)
 
 # 十二 汇总数据
 
 聚集函数（aggregate function） 运行在行组上，计算和返回单个值的函数。
 
-![聚集函数](/Image/MySQL必知必会/聚集函数.jpg)
+![聚集函数](/images/MySQL必知必会/聚集函数.jpg)
 
 AVG() 只能用来确定特定数值列的平均值，而且列名必须作为函数参数给出。为了获得多个列的平均值，必须使用多个 AVG() 函数。
 
@@ -214,9 +214,9 @@ COUNT() 函数有两种使用方式：
 
 WHERE 在数据分组前进行过滤， HAVING 在数据分组后进行过滤。
 
-![groupby和orderby的区别](/Image/MySQL必知必会/groupby和orderby的区别.jpg)
+![groupby和orderby的区别](/images/MySQL必知必会/groupby和orderby的区别.jpg)
 
-![select的执行顺序](/Image/MySQL必知必会/select的执行顺序.jpg)
+![select的执行顺序](/images/MySQL必知必会/select的执行顺序.jpg)
 
 # 十四 使用子查询
 
@@ -294,7 +294,7 @@ MySQL对数据和索引进行两遍扫描来完成搜索：
 
 布尔方式不同于迄今为止使用的全文本搜索语法的地方在于，即使没有定义FULLTEXT 索引，也可以使用它。但这是一种非常缓慢的操作（其性能将随着数据量的增加而降低）。
 
-![全文布尔操作符](/Image/MySQL必知必会/全文布尔操作符.jpg)
+![全文布尔操作符](/images/MySQL必知必会/全文布尔操作符.jpg)
 
 全文本版本搜索的使用说明：
 
@@ -551,7 +551,7 @@ GRANT 和 REVOKE 可在几个层次上控制访问权限：
 * 特定的列；
 * 特定的存储过程。
 
-![权限](/Image/MySQL必知必会/权限.jpg)
+![权限](/images/MySQL必知必会/权限.jpg)
 
 在使用 GRANT 和 REVOKE 时，用户账号必须存在，但对所涉及的对象没有这个要求。这允许管理员在创建数据库和表之前设计和实现安全措施。
 

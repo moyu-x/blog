@@ -21,7 +21,7 @@ categories:
 
 Windows的Linux子系统其实一直存在，Windows xp和Windows 7中都可以使用，在Windows 8中被微软删除了，以前这个子系统是微软为美国军方提供的，所以用的比较少，功能也少，其也不是为了开发者进行设计的，所以社区对其功能的挖掘较少。在Windows 10发布一周年更新的时候，微软联合了Canonical 联合发布了Bash on Linux这个子系统，其完全使用净室开发，在Windows上完全实现了Bash的接口和操作，其实现的机构图如下，其实就是利用bash对Windows底层的内核态进行了一个抽象和，其基本和win32 api这些是位于同一个层次的：
 
-![BashOnWindows结构](/Image/BashOnWindows结构.jpg)
+![BashOnWindows结构](/images/201703/BashOnWindows结构.jpg)
 
 使用的方法也十分的简单，在`设置 -> 更新 -> 针对开发人员`中设置成开发人员模式就行，然后在`启用或关闭Windows功能`中将Linux子系统打开基本就可以了。在重启后，在cmd或power shell中输入bash，就可以使用了。
 
@@ -45,7 +45,7 @@ spm -i swan-desktop
 
 安装完成后使用的效果如下：
 
-![Windows上xfce效果](/Image/Windows上xfce效果.jpg)
+![Windows上xfce效果](/images/201703/Windows上xfce效果.jpg)
 
 ### 使用zsh
 

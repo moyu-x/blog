@@ -270,7 +270,7 @@ background-image属性用十分特殊，它只是要设置一个元素的背景�
 background-image: url(images/test.png)
 ```
 
-![边框样式](/Image/边框样式.png)
+![边框样式](/images/201701/边框样式.png)
 
 `border-style`设置边框样式
 
@@ -449,5 +449,3 @@ video属性：
 表单中的大多数不同类型的`<input>`元素都可以使用placeholder属性，这会为填表人提供一个提示，让他们了解这个控件中输入什么内容
 
 required这个属性可以用于任何表单控件，它表示一个域是表要的，如果没有为这个控件指定一个值，就无法正常提交表单
-
-

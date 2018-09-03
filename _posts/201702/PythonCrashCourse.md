@@ -14,7 +14,7 @@ categories:
 
 # 思维导图
 
-![Python编程从入门到实战](/Image/Python从入门到实战/Python编程从入门到实战.jpg)
+![Python编程从入门到实战](/images/Python从入门到实战/Python编程从入门到实战.jpg)
 
 # 一 变量和基本类型
 
@@ -145,4 +145,4 @@ for 语句的第二部分包含字典名和方法 items() ，它返回一个键 
 
 # 十一 测试
 
-![unittest Module 中的断言方法](/Image/Python从入门到实战/unittest Module 中的断言方法.jpg)
+![unittest Module 中的断言方法](/images/Python从入门到实战/unittest Module 中的断言方法.jpg)

@@ -10,4 +10,4 @@ categories:
 
 《MySQL必知必会》的脑图：
 
-![MySQL必知必会](/Image/MySQL必知必会/MySQL必知必会.jpg)
+![MySQL必知必会](/images/MySQL必知必会/MySQL必知必会.jpg)

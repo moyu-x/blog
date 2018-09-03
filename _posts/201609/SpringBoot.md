@@ -16,13 +16,14 @@ tags:
 
 1. 通过官网的[Start Spring Boot](https://start.spring.io/)来进行创建，界面十分简洁，简单的配置一下就可以开始配置了开发自己的项目了
 
-   ![SpringBoot](\img\SpringBoot.png)
+   ![SpringBoot](\images\201609\SpringBoot.png)
 
 2. 使用Spring Boot CLI命令行工具来新建一个项目，简单命令为：
 
    ```shell
    spring init --build gradle demo
    ```
+
    这里是使用了Gradle为构建工具，而项目的名称则为demo，我没没有向其中添加其余的Spring 的模块，这就是最基本的Spring Boot的程序。
 
 3. 使用IDE自带的工具来进行配置，其实就是书写一个简单的构建文件，构建文件要么是基于[Maven](http://maven.apache.org/)的，要么是基于[Gradle](https://gradle.org/)的，不过我是推荐使用Gradle作为构建工具，主要是文件的整体结构清晰简单，就是这点就是可以值得去使用的了。
@@ -33,7 +34,7 @@ tags:
 
 ```txt
 .
-├── .gitignore 
+├── .gitignore
 ├── build.gradle
 ├── gradle
 │   └── wrapper
@@ -66,7 +67,7 @@ tags:
 
 # 默认依赖包
 
- ![依赖文件](\img\依赖文件.png)
+ ![依赖文件](\images\201609\依赖文件.png)
 
 这是默认情况提供给我们的依赖包，我们可以发现其提供给我们了三种测试工具，Junit、Mock和hamcrest，还提供了默认的JSON处理包和yaml的处理包，提供了日志文件接口sef4j。
 
