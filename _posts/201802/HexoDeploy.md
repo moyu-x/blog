@@ -141,7 +141,8 @@ server {
     return 404; # managed by Certbot
 
 
-}         
+}
+  
 ```
 
 至此，你的网站已经在你的VPS上进行了部署，使用了Nginx作为服务器，并且在服务器上面部署了HTTPS，这样也就达成了我们的目标了。
@@ -150,4 +151,3 @@ server {
 
 1. [How To Set Up Let's Encrypt with Nginx Server Blocks on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04)
 2. [Cerbot Document](https://certbot.eff.org/all-instructions/)
-
