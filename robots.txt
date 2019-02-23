@@ -7,6 +7,7 @@ Allow: /2015/
 Allow: /2016/
 Allow: /2017/
 Allow: /2018/
+Allow: /2019/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
