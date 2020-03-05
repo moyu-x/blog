@@ -1,5 +1,22 @@
-# 墨语的后花园
+# Welcome to 墨语的后花园 👋
 
-我的博客地址是[https://www.idwangmo.top](https://www.idwangmo.top),用来记录我日常学习中的知识，也用来存放自己的一些总结，当然有些时候也会对我日常使用的东西进行总结，整理成为一个小教程。
+> 一个私人博客
 
-文章的内容可能很水，浪费你的时间，也可能有些地方对你有所帮助，请各位看官多担待一些，提出批评和建议，十分感谢。
+### 🏠 [Homepage](https://www.idwangmo.top)
+
+因为不想配置评论系统和各种 SEO，所以直接将整个目录传上来了，这里面不会有安全问题。
+
+## Author
+
+👤 **idwangmo**
+
+- Website: https://www.idwangmo.top
+- Github: [@idwangmo](https://github.com/idwangmo)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
