@@ -24,12 +24,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "idwangmo"
 
 [permalinks]              # 兼容 hexo 的链接
-  post = "/:year/:month/:day/:title/"
-
-[taxonomies]
-  category = "categories"
-  # series = "series"
-  tag = "tags"
+  post = "/:year/:month/:day/:filename/"
 
 [sitemap]                 # essential                     # 必需
   changefreq = "weekly"
@@ -57,6 +52,9 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "categories"
   url = "/categories/"
 
+[[menu.main]]
+  name = "笔记"
+  url = "http://notes.idwangmo.top"
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
