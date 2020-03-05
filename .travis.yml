@@ -1,9 +1,18 @@
-sudo: false
-language: go
-git:
-  depth: 1
-install: go get -v github.com/gohugoio/hugo
+sudo: true
+dist: trust
+language: eneric
+
+addons:
+  apt:
+    packages:
+      - snapd
+
+install:
+  - sudo snap install hugo
+  - export PATH=/snap/bin:$PATH
+
 script: hugo
+
 deploy:
   provider: pages
   skip_cleanup: true
