@@ -1,6 +1,6 @@
 sudo: true
-dist: trust
-language: eneric
+dist: trusty
+language: generic
 
 addons:
   apt:
@@ -11,11 +11,10 @@ install:
   - sudo snap install hugo
   - export PATH=/snap/bin:$PATH
 
-script: hugo
+script:
+  - hugo
 
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: public
-  target_branch: gh_pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
