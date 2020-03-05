@@ -17,7 +17,5 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  on:
-    branch: new-site
   local_dir: public
   target_branch: gh_pages
