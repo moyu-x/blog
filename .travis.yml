@@ -1,0 +1,14 @@
+sudo: false
+language: go
+git:
+  depth: 1
+install: go get -v github.com/gohugoio/hugo
+script: hugo
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: new-site
+  local_dir: public
+  target_branch: gh_pages
