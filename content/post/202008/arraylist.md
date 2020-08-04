@@ -1,11 +1,11 @@
 ---
-title: Arraylist
+title: ArrayList源码阅读
 date: 2020-08-02T18:13:04+08:00
 tags:
   - Java
-  - JUC
+  - Collection
 categories:
-  - JUC
+  - Collection
 ---
 
 底层使用`Object[]`实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容，所以最好能在使用前预估好大小。
@@ -118,3 +118,7 @@ categories:
 ```
 
 核心的扩容原理没有改变，只是前置条件改了，当插入位置已经和原有列表长度一直的时候就扩容，减少了判断次数，删除了`ensureExplicitCapacity`和`ensureCapacityInternal`方法。
+
+## 删除操作
+
+包含两种删除操作，下标的操作直接用`System.arraycopy`进行一个本身到本身的拷贝，相当于将目标下标后的元素进行整体移动，时间复杂度为$O(n-i)$;而元素移除的操作需要先遍历查找元素的下标，然后调用`fastremove`使用下标进行移除，这个地方也要进行下标后的数据前移
