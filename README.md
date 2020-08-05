@@ -17,6 +17,11 @@
 
 Give a ⭐️ if this project helped you!
 
+## use
+
+1. 安装[Hugo](https://gohugo.io/)
+2. 使用`git submodule update --init --recursive`来初始化仓库
+
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
