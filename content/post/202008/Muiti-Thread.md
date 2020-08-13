@@ -114,7 +114,9 @@ synchronizied早期属于重量级锁，其使用监视器锁进行实现，监�
 
 ## Atomic类
 
-核心原理用`AtomicIntenger`来分析，其主要在初始化的利用`unsafe`类工具，使用cas+volatile来保证方法的原子操作，利用`objectFieldOffset`这个方法直接从内存中获取存储值的地址，从而直接获取导致，另外用`volatile`进行修饰以组织指令重排而强制让访问此变量的是顺序的。
+### 原理
+
+核心原理用`AtomicIntenger`来分析，其主要在初始化的利用`unsafe`类工具，使用`cas+volatile`来保证方法的原子操作，利用`objectFieldOffset`这个方法直接从内存中获取存储值的地址，从而直接获取导致，另外用`volatile`进行修饰以组织指令重排而强制让访问此变量的是顺序的。
 
 ```java
     // setup to use Unsafe.compareAndSwapInt for updates
@@ -129,4 +131,40 @@ synchronizied早期属于重量级锁，其使用监视器锁进行实现，监�
     }
 
     private volatile int value;
+```
+
+### AtomicStampedReference
+
+`AtomicStampedReference`内部维护一个`Pair`类，通过此类内部`stamp`来表示修改状态，以此来解决ABA问题
+
+```java
+    private static class Pair<T> {
+        final T reference;
+        final int stamp;
+        private Pair(T reference, int stamp) {
+            this.reference = reference;
+            this.stamp = stamp;
+        }
+        static <T> Pair<T> of(T reference, int stamp) {
+            return new Pair<T>(reference, stamp);
+        }
+    }
+```
+
+### AtomicMarkableReference
+
+同`AtomicStampedReference`一样内部维护了一个Pair类，但是用Boolean 值mark作为修改标识，只有两个版本，这知识降低了ABA问题发生的概率，但是不能彻底解决
+
+```java
+    private static class Pair<T> {
+        final T reference;
+        final boolean mark;
+        private Pair(T reference, boolean mark) {
+            this.reference = reference;
+            this.mark = mark;
+        }
+        static <T> Pair<T> of(T reference, boolean mark) {
+            return new Pair<T>(reference, mark);
+        }
+    }
 ```
