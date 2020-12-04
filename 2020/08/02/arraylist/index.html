@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ArrayList源码阅读 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="底层使用Object[]实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2020/08/02/arraylist/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ArrayList源码阅读" />
+<meta property="og:description" content="底层使用Object[]实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2020/08/02/arraylist/" />
+<meta property="article:published_time" content="2020-08-02T18:13:04+08:00" />
+<meta property="article:modified_time" content="2020-08-02T18:13:04+08:00" />
+<meta itemprop="name" content="ArrayList源码阅读">
+<meta itemprop="description" content="底层使用Object[]实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容">
+<meta itemprop="datePublished" content="2020-08-02T18:13:04+08:00" />
+<meta itemprop="dateModified" content="2020-08-02T18:13:04+08:00" />
+<meta itemprop="wordCount" content="2076">
+
+
+
+<meta itemprop="keywords" content="Java,Collection," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ArrayList源码阅读"/>
+<meta name="twitter:description" content="底层使用Object[]实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ArrayList源码阅读</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-02 </span>
+        <div class="post-category">
+            <a href="/categories/collection/"> Collection </a>
+            </div>
+          <span class="more-meta"> 约 2076 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#randomaccess">RandomAccess</a></li>
+    <li><a href="#扩容">扩容</a>
+      <ul>
+        <li><a href="#18-的实现">1.8 的实现</a></li>
+        <li><a href="#111-实现">1.11 实现</a></li>
+      </ul>
+    </li>
+    <li><a href="#删除操作">删除操作</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>底层使用<code>Object[]</code>实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容，所以最好能在使用前预估好大小。</p>
+<p>因为是基于数组实现的，其更符合计算机底层，其在内存上是连续排布，所以在获得内存地址加偏移后能很快的获取指定元素，所以支持高效的随机元素访问。</p>
+<h2 id="randomaccess">RandomAccess</h2>
+<p>这个接口的主要作用就是标识实现此接口的类具有随机访问能力（也表明其更贴近计算机的底层实现），当容器类实现此接口的时候，<code>fori</code>循环的速度会快于<code>iterator</code>的遍历，因为其相当于直接在内存上递增查找。</p>
+<p>例如使用<code>Collections.binarySearch()</code> 方法时候，容器类本身实现<code>RandomAccess</code>，则会走<code>indexedBinarySearch()</code>获取更高的性能，否则则会走<code>iteratorSearch()</code></p>
+<h2 id="扩容">扩容</h2>
+<p>默认的元素大小是 10，在不指定大小的情况下调用重载的构造器构造默认大小为 10 的空数组<code>DEFAULTCAPACITY_EMPTY_ELEMENTDATA</code>，在指定大小为 0 的时候直接使用用于共享的空数组实例<code>EMPTY_ELEMENTDATA</code>，所以在默认情况下，只有在插入数据的时候才会构建，不然都是使用方法本身提供的共享空数组实例。从<code>Collection</code>对象中构建，先使用<code>toArray</code>方法直接转换，如果容量为 0 则用<code>EMPATY_ELEMENTDATA</code>替换原实例，否则在不是<code>ArrayList</code>对象则用<code>Arrays.copyOf()</code>方法转换后替代并保持原顺序。</p>
+<h3 id="18-的实现">1.8 的实现</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="cm">/**
+</span><span class="cm">     * Appends the specified element to the end of this list.
+</span><span class="cm">     *
+</span><span class="cm">     * @param e element to be appended to this list
+</span><span class="cm">     * @return &lt;tt&gt;true&lt;/tt&gt; (as specified by {@link Collection#add})
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ensureCapacityInternal</span><span class="o">(</span><span class="n">size</span> <span class="o">+</span> <span class="n">1</span><span class="o">);</span>  <span class="c1">// Increments modCount!!
+</span><span class="c1"></span>        <span class="n">elementData</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">e</span><span class="o">;</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+		<span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureCapacityInternal</span><span class="o">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ensureExplicitCapacity</span><span class="o">(</span><span class="n">calculateCapacity</span><span class="o">(</span><span class="n">elementData</span><span class="o">,</span> <span class="n">minCapacity</span><span class="o">));</span>
+    <span class="o">}</span>
+
+		<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">calculateCapacity</span><span class="o">(</span><span class="n">Object</span><span class="o">[]</span> <span class="n">elementData</span><span class="o">,</span> <span class="kt">int</span> <span class="n">minCapacity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">elementData</span> <span class="o">==</span> <span class="n">DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">DEFAULT_CAPACITY</span><span class="o">,</span> <span class="n">minCapacity</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">minCapacity</span><span class="o">;</span>
+    <span class="o">}</span>
+
+		<span class="kd">private</span> <span class="kt">void</span> <span class="nf">ensureExplicitCapacity</span><span class="o">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">modCount</span><span class="o">++;</span>
+
+        <span class="c1">// overflow-conscious code
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">minCapacity</span> <span class="o">-</span> <span class="n">elementData</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span>
+            <span class="n">grow</span><span class="o">(</span><span class="n">minCapacity</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * Increases the capacity to ensure that it can hold at least the
+</span><span class="cm">     * number of elements specified by the minimum capacity argument.
+</span><span class="cm">     *
+</span><span class="cm">     * @param minCapacity the desired minimum capacity
+</span><span class="cm">     */</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">grow</span><span class="o">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// overflow-conscious code
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">oldCapacity</span> <span class="o">=</span> <span class="n">elementData</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">newCapacity</span> <span class="o">=</span> <span class="n">oldCapacity</span> <span class="o">+</span> <span class="o">(</span><span class="n">oldCapacity</span> <span class="o">&gt;&gt;</span> <span class="n">1</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">newCapacity</span> <span class="o">-</span> <span class="n">minCapacity</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span>
+            <span class="n">newCapacity</span> <span class="o">=</span> <span class="n">minCapacity</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">newCapacity</span> <span class="o">-</span> <span class="n">MAX_ARRAY_SIZE</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span>
+            <span class="n">newCapacity</span> <span class="o">=</span> <span class="n">hugeCapacity</span><span class="o">(</span><span class="n">minCapacity</span><span class="o">);</span>
+        <span class="c1">// minCapacity is usually close to size, so this is a win:
+</span><span class="c1"></span>        <span class="n">elementData</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">copyOf</span><span class="o">(</span><span class="n">elementData</span><span class="o">,</span> <span class="n">newCapacity</span><span class="o">);</span>
+    <span class="o">}</span>
+
+		<span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">hugeCapacity</span><span class="o">(</span><span class="kt">int</span> <span class="n">minCapacity</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">minCapacity</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="c1">// overflow
+</span><span class="c1"></span>            <span class="k">throw</span> <span class="k">new</span> <span class="n">OutOfMemoryError</span><span class="o">();</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">minCapacity</span> <span class="o">&gt;</span> <span class="n">MAX_ARRAY_SIZE</span><span class="o">)</span> <span class="o">?</span>
+            <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span> <span class="o">:</span>
+            <span class="n">MAX_ARRAY_SIZE</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>默认直接空构造<code>ArrayList</code>，首先调用<code>ensureCapacityInternal</code>进行容量大小的判断；当添加第一个元素的时候，<code>minCapacity</code>为 1，<code>DEFAULT_CAPACITY</code>为 10，最后此方法会返回 10；调用<code>ensureExplicitCapacity</code>方法，<code>minCapacity - elementData.legth &gt; 10</code>成立，调用<code>grow</code>方法，第二个元素的时候这两个值相同，不会调用<code>grow</code>方法；grow 的方法直接将容量进行右移一位的操作（右移 n 位相当于$原数据\times2^n$），此时新的容量为此前的 1.5 倍左右，小于最小值的时候直接用最小值替代扩容值（这个地方一般出现在指定初始化容量小于<code>DEFAULT_CAPACITY</code>或者是空构造添加第一个元素的时候）</p>
+<p><code>hugeCapacity</code>对于溢出的限制，当前<code>minCapacity</code>还是比数组最大值小的时候为数组最大值，否则为整数最大值；当扩容到<code>INTEGER.MAX_VALUE</code>的情况下，在下一次增加元素的情况下，<code>minCapacity</code>已经溢出，这个时候余下两个判段都会进入，最后抛出<code>OutOfMemoryError</code>错误。</p>
+<p><code>Arrays.copyOf</code>的内部调用<code>System.arrayCopy</code>进行实现，<code>copyOf</code>的目的是拷贝原数组指定容量的数据，并返回新数组；而<code>System.arrayCopy</code>是一个<code>native</code>方法，主要是拷贝指定数组的指定数据到目标数组，所以<code>copyof</code>内部用此来实现高效的数组拷贝。]</p>
+<p><code>modCount</code>的作用：这是来源于<code>AbstractList</code>的一个变量，用来表示当前列表被操作的次数，使用这个数据可以进行快速的判错，入<code>iterator</code>用此来判断是否被修改而抛出异常。</p>
+<p><code>ensureCapacity</code>这个方法是提供给使用者使用的，如果在初始化的时候没有创建合适的容量，可以在向其添加数据前调用此方法用以扩容到合适的容量，以减少增加过程中的扩容消耗，其也是调用<code>ensureExplicitCapacity</code>来实现扩容</p>
+<h3 id="111-实现">1.11 实现</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="cm">/**
+</span><span class="cm">     * Appends the specified element to the end of this list.
+</span><span class="cm">     *
+</span><span class="cm">     * @param e element to be appended to this list
+</span><span class="cm">     * @return {@code true} (as specified by {@link Collection#add})
+</span><span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">modCount</span><span class="o">++;</span>
+        <span class="n">add</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">elementData</span><span class="o">,</span> <span class="n">size</span><span class="o">);</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+		<span class="kd">private</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="n">e</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">elementData</span><span class="o">,</span> <span class="kt">int</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">elementData</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+            <span class="n">elementData</span> <span class="o">=</span> <span class="n">grow</span><span class="o">();</span>
+        <span class="n">elementData</span><span class="o">[</span><span class="n">s</span><span class="o">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">;</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>核心的扩容原理没有改变，只是前置条件改了，当插入位置已经和原有列表长度一直的时候就扩容，减少了判断次数，删除了<code>ensureExplicitCapacity</code>和<code>ensureCapacityInternal</code>方法。</p>
+<h2 id="删除操作">删除操作</h2>
+<p>包含两种删除操作，下标的操作直接用<code>System.arraycopy</code>进行一个本身到本身的拷贝，相当于将目标下标后的元素进行整体移动，时间复杂度为$O(n-i)$;而元素移除的操作需要先遍历查找元素的下标，然后调用<code>fastremove</code>使用下标进行移除，这个地方也要进行下标后的数据前移</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-02
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">Java</a>
+          <a href="/tags/collection/">Collection</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/08/03/leetcode-array/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Leetcode Array</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2020/04/13/the-circle-justice/">
+            <span class="next-text nav-default">圆圈正义</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

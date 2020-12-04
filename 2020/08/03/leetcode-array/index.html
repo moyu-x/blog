@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Leetcode Array - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="1、两数之和 方法一 暴力循环法 直接利用两次循环解决问题 方法二 两次哈希 遍历数组，构建Map，下标作为value 再次遍历数组，用target减去当" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2020/08/03/leetcode-array/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Leetcode Array" />
+<meta property="og:description" content="1、两数之和 方法一 暴力循环法 直接利用两次循环解决问题 方法二 两次哈希 遍历数组，构建Map，下标作为value 再次遍历数组，用target减去当" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2020/08/03/leetcode-array/" />
+<meta property="article:published_time" content="2020-08-03T19:48:15+08:00" />
+<meta property="article:modified_time" content="2020-08-03T19:48:15+08:00" />
+<meta itemprop="name" content="Leetcode Array">
+<meta itemprop="description" content="1、两数之和 方法一 暴力循环法 直接利用两次循环解决问题 方法二 两次哈希 遍历数组，构建Map，下标作为value 再次遍历数组，用target减去当">
+<meta itemprop="datePublished" content="2020-08-03T19:48:15+08:00" />
+<meta itemprop="dateModified" content="2020-08-03T19:48:15+08:00" />
+<meta itemprop="wordCount" content="2116">
+
+
+
+<meta itemprop="keywords" content="Leetcode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode Array"/>
+<meta name="twitter:description" content="1、两数之和 方法一 暴力循环法 直接利用两次循环解决问题 方法二 两次哈希 遍历数组，构建Map，下标作为value 再次遍历数组，用target减去当"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Leetcode Array</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-08-03 </span>
+        <div class="post-category">
+            <a href="/categories/leetcode/"> Leetcode </a>
+            </div>
+          <span class="more-meta"> 约 2116 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1两数之和">1、两数之和</a>
+      <ul>
+        <li><a href="#方法一-暴力循环法">方法一 暴力循环法</a></li>
+        <li><a href="#方法二-两次哈希">方法二 两次哈希</a></li>
+        <li><a href="#方法三-一次哈希">方法三 一次哈希</a></li>
+      </ul>
+    </li>
+    <li><a href="#6z字形变化">6、Z字形变化</a></li>
+    <li><a href="#14最长公共子前缀">14、最长公共子前缀</a></li>
+    <li><a href="#15三数之和">15、三数之和</a></li>
+    <li><a href="#26删除排序数组中的重复项">26、删除排序数组中的重复项</a></li>
+    <li><a href="#27原地删除">27、原地删除</a></li>
+    <li><a href="#66加一">66、加一</a></li>
+    <li><a href="#122买卖股票的最佳时机ii">122、买卖股票的最佳时机II</a>
+      <ul>
+        <li><a href="#方法一-连续递增的端点">方法一 连续递增的端点</a></li>
+        <li><a href="#方法二-计算每次波谷和波峰的利润">方法二 计算每次波谷和波峰的利润</a></li>
+      </ul>
+    </li>
+    <li><a href="#189旋转数组">189、旋转数组</a>
+      <ul>
+        <li><a href="#方法一-反转数组">方法一 反转数组</a></li>
+        <li><a href="#方法二-环状替代">方法二 环状替代</a></li>
+      </ul>
+    </li>
+    <li><a href="#350两数组交集ii">350、两数组交集II</a>
+      <ul>
+        <li><a href="#方法一-构建map的方式">方法一 构建Map的方式</a></li>
+        <li><a href="#方法二-交替遍历">方法二 交替遍历</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="1两数之和">1、两数之和</h2>
+<h3 id="方法一-暴力循环法">方法一 暴力循环法</h3>
+<p>直接利用两次循环解决问题</p>
+<h3 id="方法二-两次哈希">方法二 两次哈希</h3>
+<ol>
+<li>遍历数组，构建Map，下标作为value</li>
+<li>再次遍历数组，用target减去当前值做键去寻找数据，要排除获取的数组下标就是当前值的情况</li>
+</ol>
+<h3 id="方法三-一次哈希">方法三 一次哈希</h3>
+<p>从哈希表中取出的数据就是正确答案，否则无答案：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">twoSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">targetMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">Objects</span><span class="o">.</span><span class="na">nonNull</span><span class="o">(</span><span class="n">targetMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">i</span><span class="o">,</span> <span class="n">targetMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)};</span>
+            <span class="o">}</span>
+            <span class="n">targetMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">IllegalArgumentException</span><span class="o">(</span><span class="s">&#34;错了啊&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="6z字形变化">6、Z字形变化</h2>
+<p><img src="/images/202008/z-ans.png" alt=""></p>
+<p>由上图可以看出，以每个竖列加中间数据作为一组，可以确定每组可以放$2n-2$个数据，这个时候就能取模获得在数组中的位置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="n">String</span> <span class="nf">convert</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">numRows</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 处理边界
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">1</span> <span class="o">==</span> <span class="n">numRows</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="n">numRows</span><span class="o">];</span>
+
+        <span class="c1">// 默认数组初始会以null填充
+</span><span class="c1"></span>        <span class="n">Arrays</span><span class="o">.</span><span class="na">fill</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="s">&#34;&#34;</span><span class="o">);</span>
+
+        <span class="kt">char</span><span class="o">[]</span> <span class="n">stTemp</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">period</span> <span class="o">=</span> <span class="n">numRows</span> <span class="o">*</span> <span class="n">2</span> <span class="o">-</span> <span class="n">2</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stTemp</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">mod</span> <span class="o">=</span> <span class="n">i</span> <span class="o">%</span> <span class="n">period</span><span class="o">;</span>
+            <span class="c1">// 在row里面，直接存指定位置
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">mod</span> <span class="o">&lt;</span> <span class="n">numRows</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">result</span><span class="o">[</span><span class="n">mod</span><span class="o">]</span> <span class="o">+=</span> <span class="n">stTemp</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="c1">// 已经超过，直接减去就能找到正确位置
+</span><span class="c1"></span>                <span class="n">result</span><span class="o">[</span><span class="n">period</span> <span class="o">-</span> <span class="n">mod</span><span class="o">]</span> <span class="o">+=</span> <span class="n">stTemp</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">result</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="14最长公共子前缀">14、最长公共子前缀</h2>
+<p>初始化结果为默认的第一个字符串，对给定的字符串数组进行遍历，每次对字符串中的字符与结果字符串的相同位置进行比较，遇到不同则截断字符串，最后返回（要处理给定字符串数组为空的边界条件）</p>
+<p>相当于每次都是当前字符串与结果字符中的字符一一比较</p>
+<h2 id="15三数之和">15、三数之和</h2>
+<ol>
+<li>先进行排序</li>
+<li>遍历数据，每次固定当前值，计算剩下两个数的目标和</li>
+<li>对接下来的数据进行双针扫描，如果结果比计算值少，则移动左指针，扩大数据；结果过大，则移动右指针</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">threeSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">nums</span><span class="o">);</span>
+        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="c1">// 固定尾部，移动头部
+</span><span class="c1"></span>        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">value</span> <span class="o">=</span> <span class="o">-</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="kt">int</span> <span class="n">lp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+            <span class="kt">int</span> <span class="n">rp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+            <span class="c1">// 因为排序，当这个只大于0就没有继续的必要
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">0</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="c1">// 数据在一起
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">lp</span> <span class="o">!=</span> <span class="n">rp</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">0</span> <span class="o">||</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">]))</span> <span class="o">{</span>
+                <span class="k">while</span> <span class="o">(</span><span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">lp</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">rp</span><span class="o">]</span> <span class="o">==</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">nums</span><span class="o">[</span><span class="n">lp</span><span class="o">],</span> <span class="n">nums</span><span class="o">[</span><span class="n">rp</span><span class="o">]));</span>
+                        <span class="n">lp</span><span class="o">++;</span>
+                        <span class="n">rp</span><span class="o">--;</span>
+                        <span class="k">while</span> <span class="o">(</span><span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">lp</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">lp</span> <span class="o">-</span><span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+                            <span class="n">lp</span><span class="o">++;</span>
+                        <span class="o">}</span>
+                        <span class="k">while</span> <span class="o">(</span><span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span> <span class="o">&amp;&amp;</span> <span class="n">nums</span><span class="o">[</span><span class="n">rp</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">rp</span> <span class="o">+</span> <span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+                            <span class="n">rp</span><span class="o">--;</span>
+                        <span class="o">}</span>
+
+                    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">lp</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">rp</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">lp</span><span class="o">++;</span>
+                    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                        <span class="n">rp</span><span class="o">--;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="26删除排序数组中的重复项">26、删除排序数组中的重复项</h2>
+<p>双针法解决，一个指针表示当前已经不重复的元素的位置，另外一个为遍历指针，数据相同移动遍历指针，数据不同交换数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="kt">int</span> <span class="n">interval</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;)</span> <span class="o">{</span>
+           <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">interval</span><span class="o">]</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+               <span class="n">i</span> <span class="o">+=</span><span class="n">1</span><span class="o">;</span>
+           <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+               <span class="n">nums</span><span class="o">[</span><span class="n">interval</span> <span class="o">+</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+               <span class="n">interval</span> <span class="o">+=</span><span class="n">1</span><span class="o">;</span>
+           <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">interval</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="27原地删除">27、原地删除</h2>
+<ol>
+<li>遍历数组，每次都将当前数据移动到正确位置</li>
+<li>并记录出现关键值的次数</li>
+<li>最后数组长度减去关键值次数并返回</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">removeElement</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">interval</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">val</span> <span class="o">==</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">interval</span> <span class="o">+=</span> <span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">interval</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">interval</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="66加一">66、加一</h2>
+<p>三种情况：</p>
+<ol>
+<li>末尾加一不用进位</li>
+<li>末尾加一只用进一位</li>
+<li>全是9的情况</li>
+</ol>
+<p>解决方法如下：</p>
+<ol>
+<li>申明进位数据，默认为0，因为刚开始的时候不用进位</li>
+<li>处理末尾自增</li>
+<li>处理自增后还需要进位的情况</li>
+<li>处理首位要自增构建新数组的情况</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">plusOne</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">digits</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">addon</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">digits</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span><span class="o">--)</span> <span class="o">{</span>
+            <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">addon</span><span class="o">;</span>
+            <span class="n">addon</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+
+            <span class="c1">// 先处理最后一位
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">digits</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span> <span class="o">==</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span>
+
+            <span class="c1">// 处理需要进位的情况
+</span><span class="c1"></span>            <span class="k">if</span> <span class="o">(</span><span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">10</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">addon</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+                <span class="n">digits</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">%=</span> <span class="n">10</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">// 处理最后首位需要进位的情况
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">1</span> <span class="o">!=</span> <span class="n">addon</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">digits</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">digits</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="n">1</span><span class="o">];</span>
+        <span class="n">result</span><span class="o">[</span><span class="n">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">arraycopy</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">1</span><span class="o">,</span> <span class="n">digits</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">digits</span><span class="o">.</span><span class="na">length</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="122买卖股票的最佳时机ii">122、买卖股票的最佳时机II</h2>
+<p>最中要的限制就是不能在同一天买入和卖出，所以这个时候在画出每一天的数据的折线图后，就有以下解决办法：</p>
+<h3 id="方法一-连续递增的端点">方法一 连续递增的端点</h3>
+<p>此方法认为在递增段上获取利润，所以</p>
+<ol>
+<li>遍历给定数据</li>
+<li>遇到增长就计算利润：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span><span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">maxprofit</span> <span class="o">+=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="方法二-计算每次波谷和波峰的利润">方法二 计算每次波谷和波峰的利润</h3>
+<p>就是每次先波谷买入，波峰卖出:</p>
+<ol>
+<li>遍历数据
+<ol>
+<li>先找波谷</li>
+<li>再找波峰</li>
+<li>波峰 - 波谷</li>
+</ol>
+</li>
+<li>重复以上过程</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="c1">// 计算波谷
+</span><span class="c1"></span>    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span> <span class="o">&amp;&amp;</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="kt">int</span> <span class="n">minIndex</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+
+    <span class="c1">// 计算波峰
+</span><span class="c1"></span>    <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">prices</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span> <span class="o">&amp;&amp;</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;=</span> <span class="n">prices</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span>
+    <span class="kt">int</span> <span class="n">maxIndex</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+
+    <span class="n">maxprofit</span> <span class="o">+=</span> <span class="n">prices</span><span class="o">[</span><span class="n">maxIndex</span><span class="o">]</span> <span class="o">-</span> <span class="n">prices</span><span class="o">[</span><span class="n">minIndex</span><span class="o">];</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="189旋转数组">189、旋转数组</h2>
+<p>两个前置条件：</p>
+<ol>
+<li>数组长度为空或者一的时候直接返回原数组</li>
+<li>当移动长度大于数组长度的时候要以数组长度取模<code>k % nums.length</code></li>
+</ol>
+<h3 id="方法一-反转数组">方法一 反转数组</h3>
+<p>移动数组k次，相当于将数组尾部的k个元素移动到数组头部，所以方法如下：</p>
+<ol>
+<li>反转整个数组</li>
+<li>反正0到k个数组元素</li>
+<li>反正k后的数组元素</li>
+</ol>
+<p>反转数组的代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">reverse</span><span class="o">(</span><span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="o">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="o">)</span> <span class="o">/</span> <span class="n">2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">start</span><span class="o">]</span> <span class="o">+=</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">end</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">start</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="n">1</span><span class="o">];</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">start</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">start</span><span class="o">]</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">end</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">1</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="方法二-环状替代">方法二 环状替代</h3>
+<p>直接交换两个元素，当形成环的时候结束，如果还有没有交换过的元素，则偏移后进行下一次循环</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">current</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">prevValue</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">current</span><span class="o">];</span>
+    <span class="k">do</span>  <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="o">(</span><span class="n">current</span> <span class="o">+</span> <span class="n">k</span><span class="o">)</span> <span class="o">%</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">prev</span><span class="o">];</span>
+        <span class="n">nums</span><span class="o">[</span><span class="n">prev</span><span class="o">]</span> <span class="o">=</span> <span class="n">prevValue</span><span class="o">;</span>
+        <span class="n">prevValue</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+
+        <span class="n">current</span> <span class="o">=</span> <span class="n">prev</span><span class="o">;</span>
+        <span class="n">count</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">current</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="350两数组交集ii">350、两数组交集II</h2>
+<h3 id="方法一-构建map的方式">方法一 构建Map的方式</h3>
+<ol>
+<li>交换两数组，将长度小的交换的到前面（减少空间）</li>
+<li>初始化Map并遍历第一个数组，并统计每个数字出现的频率</li>
+<li>遍历第二个数组，并与Map的键值对比，不存在继续；若存在，则输出到第一个数组种，并让下标index偏移</li>
+</ol>
+<h3 id="方法二-交替遍历">方法二 交替遍历</h3>
+<ol>
+<li>
+<p>对两个数组进行排序</p>
+</li>
+<li>
+<p>对两个数组交替进行遍历，遇到相同则记录，核心代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums1</span><span class="o">.</span><span class="na">length</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">j</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">nums2</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+        <span class="n">i</span><span class="o">++;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">nums1</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums1</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">i</span><span class="o">++;</span>
+        <span class="n">j</span><span class="o">++;</span>
+        <span class="n">k</span><span class="o">++;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-03
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/leetcode/">Leetcode</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2020/08/04/hashmap/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">HashMap源码阅读</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2020/08/02/arraylist/">
+            <span class="next-text nav-default">ArrayList源码阅读</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

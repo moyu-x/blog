@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>设计模式（3）：结构性模式 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/01/02/designpattern-3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="设计模式（3）：结构性模式" />
+<meta property="og:description" content="结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/01/02/designpattern-3/" />
+<meta property="article:published_time" content="2017-01-02T14:36:09+00:00" />
+<meta property="article:modified_time" content="2017-01-02T14:36:09+00:00" />
+<meta itemprop="name" content="设计模式（3）：结构性模式">
+<meta itemprop="description" content="结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组">
+<meta itemprop="datePublished" content="2017-01-02T14:36:09+00:00" />
+<meta itemprop="dateModified" content="2017-01-02T14:36:09+00:00" />
+<meta itemprop="wordCount" content="2698">
+
+
+
+<meta itemprop="keywords" content="笔记,设计模式," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式（3）：结构性模式"/>
+<meta name="twitter:description" content="结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">设计模式（3）：结构性模式</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-01-02 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 2698 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#adapter适配器类对象结构型模式">Adapter（适配器）——类对象结构型模式</a></li>
+    <li><a href="#bridge桥接对象结构型模式">Bridge（桥接）——对象结构型模式</a></li>
+    <li><a href="#composite组合对象结构型模式">Composite（组合）——对象结构型模式</a></li>
+    <li><a href="#decorator装饰对象结构型模式">Decorator（装饰）——对象结构型模式</a></li>
+    <li><a href="#facade外观对象结构型模式">FACADE（外观）——对象结构型模式</a></li>
+    <li><a href="#flyweight享元对象结构型模式">Flyweight（享元）——对象结构型模式</a></li>
+    <li><a href="#proxy代理对象结构型模式">Proxy(代理)——对象结构型模式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组合成一个类，结果这个类包含了所有父类的性质。</p>
+<p>适配器使得一个接口与其他接口兼容，从而给出了多个不同接口的统一抽象。</p>
+<p>结构型模型不是对接口和实现的进行组合，而是描述了如何对一些对象进行组合，从而实现新功能的一些方法。因为可以在运行时刻改变对象组合关系，所以对象组合方式具有更大的灵活性，而这种机制用静态类组合是不可能实现的。</p>
+<h2 id="adapter适配器类对象结构型模式">Adapter（适配器）——类对象结构型模式</h2>
+<p>将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不兼容而不能在一起工作的那些类可以在一起工作。</p>
+<p>适用：</p>
+<ul>
+<li>想使用一个已经存在的类，而它的接口不符合你的需求</li>
+<li>想创建一个可以复用的类，该类可以与其他不相关的类或不可预见的类协同工作</li>
+<li>想使用一些已经存在的子类，但是不可能对每一个都进行子类化以匹配它们的接口。对象适配器可以适配它的父类接口</li>
+</ul>
+<p>考虑因素：</p>
+<ul>
+<li>Adapter的匹配程度</li>
+<li>可插入的Adapter</li>
+<li>使用双向适配器提供透明操作</li>
+</ul>
+<p>最小接口集合仅包含两个操作：一个操作定义如何在层次结构中表示一个节点，另一个操作返回该节点的子节点。</p>
+<p>对于窄接口的实现途径：</p>
+<ul>
+<li>使用抽象操作</li>
+<li>使用代理对象</li>
+<li>参数化适配器</li>
+</ul>
+<h2 id="bridge桥接对象结构型模式">Bridge（桥接）——对象结构型模式</h2>
+<p>将抽象部分和实现部分分离，使它们都可以独立地变化。</p>
+<p>当一个抽象可能有多个实现时，通常用继承来协调它们。</p>
+<p>继承机制使得客户代码与平台相关。</p>
+<p>适用：</p>
+<ul>
+<li>不希望在抽象和它的实现部分之间有一个固定的绑定关系</li>
+<li>类的抽象以及它的实现部分都可以通过生成子类的方法加以扩充</li>
+<li>对一个抽象的实现部分的修改应对客户不产生影响</li>
+<li>对客户完全隐藏抽象的实现部分</li>
+<li>在多个对象之间实现共享，但同时要求客户并不知道这一点</li>
+<li>有许多类要生成</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>分离接口及其实现部分</li>
+<li>提高可扩充性</li>
+<li>实现细节对客户透明</li>
+</ul>
+<h2 id="composite组合对象结构型模式">Composite（组合）——对象结构型模式</h2>
+<p>将对象组合成树形结构以表示“部分——整体”的层次结构。Composite使得用户对单个对象和组合对象的使用具有一致性。</p>
+<p>Composite模式的关键是一个抽象类，它既可以代表图元，又可以代表图元的容器。</p>
+<p>适用：</p>
+<ul>
+<li>想表示对象的部分-整体的层次结构</li>
+<li>希望用户忽略组合对象与单个对象的不同，用户将统一地使用组合结构中的所有对象。</li>
+</ul>
+<p>Composite模式：</p>
+<ul>
+<li>定义了包含基本对象和组合的类层次结构</li>
+<li>简化客户代码</li>
+<li>使得更容易增加新类型的组件</li>
+<li>使你的设计变得更加一般化</li>
+</ul>
+<p>注意的问题：</p>
+<ul>
+<li>显示的父部件引用</li>
+<li>共享组件</li>
+<li>最大化Component接口</li>
+<li>声明管理子部件的操作</li>
+<li>Component是否应该实现一个Component列表</li>
+<li>子部件排序</li>
+<li>使用高速缓冲存贮改善性能</li>
+<li>应该由谁删除Component</li>
+<li>存贮组件最好用哪一种数据结构</li>
+</ul>
+<p>仅当一个组件中增加或删除一个组件时，才改变这个组件的父部件。</p>
+<h2 id="decorator装饰对象结构型模式">Decorator（装饰）——对象结构型模式</h2>
+<p>动态的给一个对象添加一些额外的职责。——包装器Wrapper</p>
+<p>将组件嵌入到另一个对象中，我们称这个嵌入的对象为装饰。这个装饰与它所装饰的组件接口一致，因此它对该组件的客户透明。</p>
+<p>适用：</p>
+<ul>
+<li>在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责</li>
+<li>处理那些可以撤销的职责</li>
+<li>当不能采用生成子类的方法进行扩充时</li>
+</ul>
+<p>优点和缺点：</p>
+<ul>
+<li>比静态继承更灵活</li>
+<li>避免在层次结构高层的类有太多的特征</li>
+<li>Decorator与它的Component不一样</li>
+<li>有许多小对象</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>接口的一致性：装饰对象的接口必须与它所装饰的Component的接口一致</li>
+<li>省略抽象的Decorator类</li>
+<li>保持Component类的简单性：为了保证接口的一致性，组件和装饰必须有一个公共的Component父类</li>
+<li>改变对象外壳与改变对象内核</li>
+</ul>
+<h2 id="facade外观对象结构型模式">FACADE（外观）——对象结构型模式</h2>
+<p>为子系统中的一组接口提供一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<p>将一个系统划分为若干个子系统有利于降低系统的复杂性。一个常见的设计目标是使子系统间的通信和相互依赖关系达到最小。达到该目标的途径之一就是引入一个外观对象，它为子系统中较一般的设施提供了一个单一而简单的界面。</p>
+<p>适用情况：</p>
+<ul>
+<li>当你要为一个复杂子系统提供一个简单接口时</li>
+<li>客户程序与抽象类的实现部分之间存在着很大的依赖性</li>
+<li>当你需要构建一个层次结构的子系统时</li>
+</ul>
+<p>客户程序通过发送请求给Facade的方式与子系统通讯，Facade将这些消息转发给适当的子系统对象。</p>
+<p>使用Facade的客户程序不需要直接访问子系统对象。</p>
+<p>优点：</p>
+<ul>
+<li>对客户屏蔽了子系统组件，因而减少了客户处理对象的数目并使得子系统使用起来更加方便</li>
+<li>实现了子系统与客户之间的松耦合关系，而子系统内部的功能组件往往是送紧合的</li>
+<li>如果应用需要，它并不限制它们使用子系统类</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>降低客户-子系统之间的耦合度</li>
+<li>公共子系统类与私有子系统类</li>
+</ul>
+<h2 id="flyweight享元对象结构型模式">Flyweight（享元）——对象结构型模式</h2>
+<p>通用共享技术有效的支持大量细粒度的对象</p>
+<p>flyweight不能对它所运行的场景做出任何假设，这里的关键概念是内部状态和外部状态之间的区别。</p>
+<p>flyweight模式对那些通常因为数量太大而难以用对象来表示的概念或实体进行建模。</p>
+<p>当以下情况都成立时使用：</p>
+<ul>
+<li>一个应用程序使用了大量的对象</li>
+<li>完全由于使用大量对象，造成很大的存储开销</li>
+<li>对象的大多数状态都可以变为外部状态</li>
+<li>如果删除对象的外部状态，那么可以用的相对较小的共享对象取代很多组对象</li>
+<li>应用程序不依赖对象标识。由于Flyweight对象可以被共享，对于概念上明显有别的对象，标识测试将返回真值</li>
+</ul>
+<p>存储节约由一下几个因素决定：</p>
+<ul>
+<li>因为共享，实例总数减少的数目</li>
+<li>对象内部状态的平均数目</li>
+<li>外部状态使计算还是存储的</li>
+</ul>
+<p>节约存储的方法：</p>
+<ul>
+<li>用共享减少内部状态的消耗</li>
+<li>用计算时间换取对外部状态的存储</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>删除外部状态</li>
+<li>管理共享对象</li>
+</ul>
+<p>共享还意味着某种形式的引用计数和垃圾回收，这样当一个Flyweight不再使用时，可以回收它的存储空间。</p>
+<h2 id="proxy代理对象结构型模式">Proxy(代理)——对象结构型模式</h2>
+<p>对其他对象提供一种代理以控制这个对象的访问</p>
+<p>使用Proxy模式的常见情况：</p>
+<ul>
+<li>远程代理（Remote Proxy）为一个对象在不同的地址和空间提供局部代表——可以隐藏一个对象存在于不同地址空间的事实</li>
+<li>虚代理（Virtual Proxy）根据需要创建开销很大的对象——可以进行最优化</li>
+<li>保护代理（Protection Proxy）控制对原始对象的访问</li>
+<li>只能引用（Smart Reference）取代了简单的指针。它在访问对象时执行一些附加操作</li>
+</ul>
+<p>——运行在访问一个对象时有一些附加的内务处理</p>
+<p>一般来说，所有操作在指向实体的转发请求之前，都要检验这个要求是否合法，原始对象是否存在等。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-01-02
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/01/02/designpattern-4/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">设计模式（4）：行为模式及结论</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2016/12/11/designpattern-2/">
+            <span class="next-text nav-default">设计模式（2）：创建型模式</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

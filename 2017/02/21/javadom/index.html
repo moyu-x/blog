@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>根据源代码修改XSD文件 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/02/21/javadom/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="根据源代码修改XSD文件" />
+<meta property="og:description" content="前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/02/21/javadom/" />
+<meta property="article:published_time" content="2017-02-21T23:29:56+00:00" />
+<meta property="article:modified_time" content="2017-02-21T23:29:56+00:00" />
+<meta itemprop="name" content="根据源代码修改XSD文件">
+<meta itemprop="description" content="前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到">
+<meta itemprop="datePublished" content="2017-02-21T23:29:56+00:00" />
+<meta itemprop="dateModified" content="2017-02-21T23:29:56+00:00" />
+<meta itemprop="wordCount" content="1400">
+
+
+
+<meta itemprop="keywords" content="Java,DOM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="根据源代码修改XSD文件"/>
+<meta name="twitter:description" content="前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">根据源代码修改XSD文件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-02-21 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> Java </a>
+            </div>
+          <span class="more-meta"> 约 1400 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#方法设计">方法设计</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="前言">前言</h1>
+<p>这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里</p>
+<h1 id="正文">正文</h1>
+<p>这两天遇到了一个问题，就是以前的公司的VB代码是根据XSD文件自动生成的，然后呢，这个XSD文件被修改了（这就有点尴尬了），以后代码也要更加XSD文件进行生成，这个时候如果人工修改的话，那成本和时间也太高了，这个时候就只能写个工具去做这个事情了，省时省力。辛亏原来的代码是和数据库对接的，虽然文件多，代码量大，但是文件的结构是统一的。我选择Java进行这个工具的开发，主要我也是学习Java平台的。</p>
+<h1 id="xsd文件的解析">XSD文件的解析</h1>
+<p>首先得考虑的是如何解析XSD文件的问题。在Java中，对XML文件的解析主要是有四种方式：DOM，SAX，JDOM，DOM4J。每个方式都有各自的优缺点，我最后考虑选择使用的是DOM的标准实现，主要是因为访问是双向的，可以在任何时候对树上下导航，获取和操作任意部分的数据。其他性能什么的还不是主要考虑的需求，因为不知道XSD中和VB源代码对应的代码中在什么地方，所以要直接就能再任意时刻对XSD的文件进行访问。</p>
+<p>还有一个需要考虑的是XSD文件的命名空间的问题，没有命名空间的XML文件解析十分方便，但是存在命名空间的XSD文件解析优点麻烦，但是DOM可以直接获取到命名空间中最特殊的元素的位置，这就为定位需要修改的地方提供了较大的便利性。</p>
+<h1 id="vb文件的解析">VB文件的解析</h1>
+<p>看到是源代码，我们的第一反应应该是通过编译原理中讲的方式，对源代码进行整体分析，然后再进行处理。其实没有那个必要，原来的代码是通过代码生成器生成出来的，其本身就有一定的规律，找到这些规律之后，其实发现更加简单。</p>
+<p>通过源码发现在如下语句之后&quot;Public Class &ldquo;加上对于的表名之后，下面的函数就是我们需要的内容了，再匹配”Public Property “加上行的名称，精确到一对一相对的关系，在对其中的数据进行提取，和XSD文件中每一个节点的属性进行对比后修改就行了。</p>
+<p>这样，我们就完美的避开了需要对整个文件进行分析完之后才能进行匹配的坑了，虽然效果上肯定是进行分析后的好，但是我这种设计所造成的时间损耗还是在接受范围内的，并且开发的要求也不高。</p>
+<h2 id="方法设计">方法设计</h2>
+<ol>
+<li>读取待匹配文件夹下的所有文件的名称，因为VB源代码和XSD文件的名称是一一对应的</li>
+<li>通过名称找到相关的XSD文件</li>
+<li>获取XSD文件中的相关信息
+<ol>
+<li>通过<code>document.getElementsByTagName</code>获取节点列表，当然我找的这元素有点特殊，其在XSD文中是唯一的，这个便利性就特别大了</li>
+<li>获取当前DOM的实例</li>
+<li>获取所有子节点的列表</li>
+<li>对于每一个子节点的信息与VB中的信息匹配进行修改</li>
+</ol>
+</li>
+<li>获取VB中的信息
+<ol>
+<li>读取VB文件到Buffer中</li>
+<li>按行进行读取，直达匹配到类级别</li>
+<li>对此继续往下读，匹配到配置的信息</li>
+<li>获取这个函数中的信息</li>
+<li>通过正则表达式获取其中的信息</li>
+</ol>
+</li>
+<li>保存修改好的XSD到新的文件中</li>
+<li>关闭各种流</li>
+</ol>
+<h1 id="后记">后记</h1>
+<p>其实关键的东西没有多少，剩下的东西就是编码了，其实分析源代码有时候不一定要进行完整的分析，其实可以将其看成是对一个文件中的数据进行读取和分析，根据实际的需要和要求选择自己需要的技术就可以了，不一定要一尘不变。如匹配到类和方法的时候，我就发现正则是匹配方式不好，所有直接使用按为匹配的方式，而提取数据的时候正则的优势就表现出来了，所有根据环境选择东西，也有可能是我没有完全对正则理解透的原因。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-02-21
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">Java</a>
+          <a href="/tags/dom/">DOM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/02/22/javapersistencewithmybatis3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java Persistence with Mybatis3</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/02/16/newlife/">
+            <span class="next-text nav-default">追寻新旅程</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

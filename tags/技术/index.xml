@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 技术 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 08 Mar 2017 23:22:04 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅谈技术选择</title>
+      <link>https://www.idwangmo.top/2017/03/08/selecttechnology/</link>
+      <pubDate>Wed, 08 Mar 2017 23:22:04 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/08/selecttechnology/</guid>
+      <description>今天发生了一件事情，就是苹果在iOS中使用了JSPatch以及LuaPatch这些热更新技术的应用开发者，收到的苹果的警告邮件，要求在下一个</description>
+    </item>
+    
+    <item>
+      <title>为什么还在用老技术</title>
+      <link>https://www.idwangmo.top/2017/01/28/oldtechnology/</link>
+      <pubDate>Sat, 28 Jan 2017 11:55:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/28/oldtechnology/</guid>
+      <description>如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然</description>
+    </item>
+    
+  </channel>
+</rss>

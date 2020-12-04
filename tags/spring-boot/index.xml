@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Boot on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/spring-boot/</link>
+    <description>Recent content in Spring Boot on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 03 Mar 2017 22:34:48 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Boot学习笔记——基于程序员DD的博客</title>
+      <link>https://www.idwangmo.top/2017/03/03/springboot/</link>
+      <pubDate>Fri, 03 Mar 2017 22:34:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/03/springboot/</guid>
+      <description>前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(2):SpringBootApplication注解</title>
+      <link>https://www.idwangmo.top/2016/09/23/springbootapplication/</link>
+      <pubDate>Fri, 23 Sep 2016 09:24:05 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/23/springbootapplication/</guid>
+      <description>这篇文章就来简单的介绍出初始化创建Spring Boot程序的时候提供的两个类级别的注解，一个是用于程序如口程序的@SpringBootApp</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(1):参见SpringBoot</title>
+      <link>https://www.idwangmo.top/2016/09/22/springboot/</link>
+      <pubDate>Thu, 22 Sep 2016 20:22:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/22/springboot/</guid>
+      <description>最近开始看Spring Boot相关方面的文章，主要原因还是看网上说的这家伙开发软件的速度比传统的Spring的开发要快，所以在最近学习Spr</description>
+    </item>
+    
+  </channel>
+</rss>

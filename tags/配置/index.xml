@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>配置 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/%E9%85%8D%E7%BD%AE/</link>
+    <description>Recent content in 配置 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 05 Feb 2017 22:33:44 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/%E9%85%8D%E7%BD%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编译和配置</title>
+      <link>https://www.idwangmo.top/2017/02/05/something/</link>
+      <pubDate>Sun, 05 Feb 2017 22:33:44 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/05/something/</guid>
+      <description>前言 记录我编译一些软件的方法和经常使用到的工程配置。 编译Git 首先得到Github上面下载最新的git源代码，下面是解压后的编译命令过程： 1</description>
+    </item>
+    
+    <item>
+      <title>软件配置</title>
+      <link>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <description>Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添</description>
+    </item>
+    
+  </channel>
+</rss>

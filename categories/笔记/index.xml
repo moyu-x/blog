@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>笔记 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 笔记 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 13 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>圆圈正义</title>
+      <link>https://www.idwangmo.top/2020/04/13/the-circle-justice/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/04/13/the-circle-justice/</guid>
+      <description>圆圈正义 能否增进人的幸福 (快乐)。但是“幸福”这个词语本身是模糊的。边沁认为, 幸福没有高下之分, 口腹之欲和心智之养没有区别。如果人只根据自己</description>
+    </item>
+    
+    <item>
+      <title>浅谈技术选择</title>
+      <link>https://www.idwangmo.top/2017/03/08/selecttechnology/</link>
+      <pubDate>Wed, 08 Mar 2017 23:22:04 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/08/selecttechnology/</guid>
+      <description>今天发生了一件事情，就是苹果在iOS中使用了JSPatch以及LuaPatch这些热更新技术的应用开发者，收到的苹果的警告邮件，要求在下一个</description>
+    </item>
+    
+    <item>
+      <title>世界是数字的</title>
+      <link>https://www.idwangmo.top/2017/03/04/disfordigital/</link>
+      <pubDate>Sat, 04 Mar 2017 11:49:26 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/04/disfordigital/</guid>
+      <description>简介 这是一本科普读物吧，但是我真的挺喜欢看这本书的，具体的笔记可能有点乱。本身这本书就没有多少东西可以记录上去，只是其中有几句话和观点我比较</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot学习笔记——基于程序员DD的博客</title>
+      <link>https://www.idwangmo.top/2017/03/03/springboot/</link>
+      <pubDate>Fri, 03 Mar 2017 22:34:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/03/springboot/</guid>
+      <description>前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S</description>
+    </item>
+    
+    <item>
+      <title>Java8实战</title>
+      <link>https://www.idwangmo.top/2017/03/02/java8inaction/</link>
+      <pubDate>Thu, 02 Mar 2017 22:21:39 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/02/java8inaction/</guid>
+      <description>思维导图 一 为什么使用Java8 在Java 8中加入 Streams 可以看作把另外两项扩充加入Java 8的直接原因：把代码传递给方法的简洁方式（方法引用、La</description>
+    </item>
+    
+    <item>
+      <title>Python从入门到实战</title>
+      <link>https://www.idwangmo.top/2017/02/27/pythoncrashcourse/</link>
+      <pubDate>Mon, 27 Feb 2017 22:57:33 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/27/pythoncrashcourse/</guid>
+      <description>前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花</description>
+    </item>
+    
+    <item>
+      <title>Java Persistence with Mybatis3</title>
+      <link>https://www.idwangmo.top/2017/02/22/javapersistencewithmybatis3/</link>
+      <pubDate>Wed, 22 Feb 2017 21:11:18 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/22/javapersistencewithmybatis3/</guid>
+      <description>Mybatis的配置 通过xml方式配置 环境（Environment） MyBatis支持配置多数据源环境：配置多个数据源，然后在SqlSess</description>
+    </item>
+    
+    <item>
+      <title>MySQL必知必会</title>
+      <link>https://www.idwangmo.top/2017/02/09/mysqlcrashcourse/</link>
+      <pubDate>Thu, 09 Feb 2017 17:24:50 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/09/mysqlcrashcourse/</guid>
+      <description>一 了解SQL 数据库（database） 保存有组织的数据的容器（通常是一个文件或一组文件）。 表（table） 某种特定类型数据的结构化清单。 模式</description>
+    </item>
+    
+    <item>
+      <title>Spring入门经典</title>
+      <link>https://www.idwangmo.top/2017/02/06/beginningspring/</link>
+      <pubDate>Mon, 06 Feb 2017 22:56:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/06/beginningspring/</guid>
+      <description>第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不</description>
+    </item>
+    
+    <item>
+      <title>Mybatis官方文档笔记</title>
+      <link>https://www.idwangmo.top/2017/02/04/mybatis/</link>
+      <pubDate>Sat, 04 Feb 2017 22:24:23 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/04/mybatis/</guid>
+      <description>前言 这是去年6月份学习Mybatis的时候记录的笔记，但是主要的学习是官方文档，只是入了个门，更加深入在其他笔记中。 基本 从 XML 中构建 SqlSessionFactory 每个基于</description>
+    </item>
+    
+    <item>
+      <title>代码：隐匿在计算机背后的语言</title>
+      <link>https://www.idwangmo.top/2017/01/10/code/</link>
+      <pubDate>Tue, 10 Jan 2017 22:48:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/10/code/</guid>
+      <description>一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面</description>
+    </item>
+    
+    <item>
+      <title>深入浅出HTML和CSS</title>
+      <link>https://www.idwangmo.top/2017/01/05/htmlandcss/</link>
+      <pubDate>Thu, 05 Jan 2017 22:53:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/05/htmlandcss/</guid>
+      <description>一 认识HTML web服务器在互联网上有一份全天候的工作，夜以继日、不知疲倦地等待来自web浏览器的请求，当接收到请求的时候，会进行相关的处理</description>
+    </item>
+    
+    <item>
+      <title>设计模式（4）：行为模式及结论</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-4/</link>
+      <pubDate>Mon, 02 Jan 2017 14:48:18 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-4/</guid>
+      <description>行为模式 行为模式涉及到算法和对象间职责的分配。行为模式不仅描述对象或类的模式，还描述它们之间的通信模式。 行为类模式使用继承机制在类之间分派行</description>
+    </item>
+    
+    <item>
+      <title>设计模式（3）：结构性模式</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-3/</link>
+      <pubDate>Mon, 02 Jan 2017 14:36:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-3/</guid>
+      <description>结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组</description>
+    </item>
+    
+    <item>
+      <title>设计模式（2）：创建型模式</title>
+      <link>https://www.idwangmo.top/2016/12/11/designpattern-2/</link>
+      <pubDate>Sun, 11 Dec 2016 19:08:01 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/11/designpattern-2/</guid>
+      <description>创建型模式实例化了过程。 设计模式中两个不断出现的主旋律： 它们都将关于该系统使用哪些具体的类的信息封装起来 隐藏了这些类的实例是如何被创建和放在</description>
+    </item>
+    
+    <item>
+      <title>设计模式（1）：基础及实例</title>
+      <link>https://www.idwangmo.top/2016/12/07/designpattern-1/</link>
+      <pubDate>Wed, 07 Dec 2016 22:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/07/designpattern-1/</guid>
+      <description>概念 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。 一个设计模式有四个基本要素： 模式名称 问题 解决方案 效果 设计模</description>
+    </item>
+    
+    <item>
+      <title>Spring4学习笔记</title>
+      <link>https://www.idwangmo.top/2016/08/28/spring4/</link>
+      <pubDate>Sun, 28 Aug 2016 13:00:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/08/28/spring4/</guid>
+      <description>Bean 基础 使用 Bean： 读取 spring 的配置文件 获取配置的 bean 调用方法 配置 bean： class：bean 的全类名，通过反射的方式在 IOC 容器中创建 Bean，所</description>
+    </item>
+    
+  </channel>
+</rss>

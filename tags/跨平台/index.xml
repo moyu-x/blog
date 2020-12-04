@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>跨平台 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/</link>
+    <description>Recent content in 跨平台 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 12 Feb 2017 19:31:30 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么可以跨平台</title>
+      <link>https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/</link>
+      <pubDate>Sun, 12 Feb 2017 19:31:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/</guid>
+      <description>这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的</description>
+    </item>
+    
+  </channel>
+</rss>

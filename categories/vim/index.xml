@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/vim/</link>
+    <description>Recent content in Vim on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Feb 2018 21:06:19 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim的使用及YouCompleteMe的配置</title>
+      <link>https://www.idwangmo.top/2018/02/26/usevim/</link>
+      <pubDate>Mon, 26 Feb 2018 21:06:19 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/02/26/usevim/</guid>
+      <description>今天想来介绍一下目前算是经常用的一个编辑器，那就是VIM。这个东西基本上自从我使用Linux开始就伴随着我使用Linux的过程，对于为什么使</description>
+    </item>
+    
+  </channel>
+</rss>

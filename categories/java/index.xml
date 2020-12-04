@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/java/</link>
+    <description>Recent content in Java on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>队列、AQS和锁</title>
+      <link>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</guid>
+      <description>CopyOnWriteArrayList 应用于读多写少的环境中，根据类注释，可以直到在所有可变操作（add、set和remove）的时候是创建底层数组副本来实现的。 从源码来看，g</description>
+    </item>
+    
+    <item>
+      <title>Java8的使用：时间</title>
+      <link>https://www.idwangmo.top/2018/09/06/java-time/</link>
+      <pubDate>Thu, 06 Sep 2018 23:38:13 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/09/06/java-time/</guid>
+      <description>在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对</description>
+    </item>
+    
+    <item>
+      <title>根据源代码修改XSD文件</title>
+      <link>https://www.idwangmo.top/2017/02/21/javadom/</link>
+      <pubDate>Tue, 21 Feb 2017 23:29:56 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/21/javadom/</guid>
+      <description>前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到</description>
+    </item>
+    
+  </channel>
+</rss>

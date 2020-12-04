@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>墨语的后花园</title>
+    <link>https://www.idwangmo.top/</link>
+    <description>Recent content on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tinyhttpd 源码阅读</title>
+      <link>https://www.idwangmo.top/2020/12/04/tinyhttpd/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/12/04/tinyhttpd/</guid>
+      <description>仓库地址：http://tinyhttpd.sourceforge.net/ HTTP的相关资料可以再MDN上查到，地址为https://de</description>
+    </item>
+    
+    <item>
+      <title>队列、AQS和锁</title>
+      <link>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</guid>
+      <description>CopyOnWriteArrayList 应用于读多写少的环境中，根据类注释，可以直到在所有可变操作（add、set和remove）的时候是创建底层数组副本来实现的。 从源码来看，g</description>
+    </item>
+    
+    <item>
+      <title>多线程基础</title>
+      <link>https://www.idwangmo.top/2020/08/06/muiti-thread/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/06/muiti-thread/</guid>
+      <description>同类的多个线程共享堆的方法区，但每个线程拥有自己的程序计数器、虚拟机栈和本地方法栈。 死锁的形成一定能在状态上找到一个环，可以参考死锁产生的必</description>
+    </item>
+    
+    <item>
+      <title>ConcurrentHashMap源码阅读</title>
+      <link>https://www.idwangmo.top/2020/08/05/concurrenthashmap/</link>
+      <pubDate>Wed, 05 Aug 2020 23:48:20 +0800</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/05/concurrenthashmap/</guid>
+      <description>线程安全，在类注释中就直接表面这个是为了替代HashTale来实现的，并且兼容HashTable的操作方法。 1.7版本 内部维护了一个Segm</description>
+    </item>
+    
+    <item>
+      <title>HashMap源码阅读</title>
+      <link>https://www.idwangmo.top/2020/08/04/hashmap/</link>
+      <pubDate>Tue, 04 Aug 2020 21:19:24 +0800</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/04/hashmap/</guid>
+      <description>1.8之前是数组+链表构成，1.8改成了当阈值为8的时候，将链表转换为红黑树（当链表长度小于64的时候是会进行扩容而不是直接转红黑树），在键</description>
+    </item>
+    
+    <item>
+      <title>Leetcode Array</title>
+      <link>https://www.idwangmo.top/2020/08/03/leetcode-array/</link>
+      <pubDate>Mon, 03 Aug 2020 19:48:15 +0800</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/03/leetcode-array/</guid>
+      <description>1、两数之和 方法一 暴力循环法 直接利用两次循环解决问题 方法二 两次哈希 遍历数组，构建Map，下标作为value 再次遍历数组，用target减去当</description>
+    </item>
+    
+    <item>
+      <title>ArrayList源码阅读</title>
+      <link>https://www.idwangmo.top/2020/08/02/arraylist/</link>
+      <pubDate>Sun, 02 Aug 2020 18:13:04 +0800</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/02/arraylist/</guid>
+      <description>底层使用Object[]实现，操作受到底层数组实现的限制，在指定位置插入和删除元素的操作的时候会大量消耗性能，在末尾插入唯一消耗性能的是扩容</description>
+    </item>
+    
+    <item>
+      <title>圆圈正义</title>
+      <link>https://www.idwangmo.top/2020/04/13/the-circle-justice/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/04/13/the-circle-justice/</guid>
+      <description>圆圈正义 能否增进人的幸福 (快乐)。但是“幸福”这个词语本身是模糊的。边沁认为, 幸福没有高下之分, 口腹之欲和心智之养没有区别。如果人只根据自己</description>
+    </item>
+    
+    <item>
+      <title>利用 Pandas 导出数据库表</title>
+      <link>https://www.idwangmo.top/2020/04/09/python-pandas/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/04/09/python-pandas/</guid>
+      <description>原因 开发过程很容易遇到需要导出数据进行分析的情况 需要对导出的数据进行处理，如果不处理直接找一个RDMS软件进行处理就行 使用Python+Pa</description>
+    </item>
+    
+    <item>
+      <title>Spring tips</title>
+      <link>https://www.idwangmo.top/2019/02/23/spring-tips/</link>
+      <pubDate>Sat, 23 Feb 2019 21:47:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2019/02/23/spring-tips/</guid>
+      <description>Feign From 的使用 建立一个feign的配置文件，并在其中写入如下代码： 1 2 3 4 @Bean fun encoder(): Encoder { return FormEncoder() } 然后在请求到接口上加入consumes = [MediaT</description>
+    </item>
+    
+    <item>
+      <title>硝烟中的Scrum和XP</title>
+      <link>https://www.idwangmo.top/2018/11/26/scrum-and-xp/</link>
+      <pubDate>Mon, 26 Nov 2018 03:42:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/11/26/scrum-and-xp/</guid>
+      <description>序言 迭代开发的基本要求： 迭代要有固定时长——不能超过6个星期 在没一次迭代的结尾，代码都必须经过QA的测试，能够正常工作 Nokia的Scrum</description>
+    </item>
+    
+    <item>
+      <title>Java8的使用：时间</title>
+      <link>https://www.idwangmo.top/2018/09/06/java-time/</link>
+      <pubDate>Thu, 06 Sep 2018 23:38:13 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/09/06/java-time/</guid>
+      <description>在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对</description>
+    </item>
+    
+    <item>
+      <title>Vim的使用及YouCompleteMe的配置</title>
+      <link>https://www.idwangmo.top/2018/02/26/usevim/</link>
+      <pubDate>Mon, 26 Feb 2018 21:06:19 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/02/26/usevim/</guid>
+      <description>今天想来介绍一下目前算是经常用的一个编辑器，那就是VIM。这个东西基本上自从我使用Linux开始就伴随着我使用Linux的过程，对于为什么使</description>
+    </item>
+    
+    <item>
+      <title>Hexo博客：部署与插件</title>
+      <link>https://www.idwangmo.top/2018/02/22/hexodeploy/</link>
+      <pubDate>Thu, 22 Feb 2018 14:07:33 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/02/22/hexodeploy/</guid>
+      <description>在我两年前写的博客的搭建博客的简单步骤的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部</description>
+    </item>
+    
+    <item>
+      <title>下载怎么办，试试Aria2</title>
+      <link>https://www.idwangmo.top/2018/01/12/aria2/</link>
+      <pubDate>Fri, 12 Jan 2018 23:35:22 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/01/12/aria2/</guid>
+      <description>刚使用Linux的时候，对于下载东西会有种无力感，没了迅雷，没了常见的下载工具，那怎么办呢？wine环境下面搞一个，还是搞下其他的工具？后来</description>
+    </item>
+    
+    <item>
+      <title>ArchLinux的使用(3):日常生活</title>
+      <link>https://www.idwangmo.top/2018/01/09/archlinux-3/</link>
+      <pubDate>Tue, 09 Jan 2018 00:07:36 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/01/09/archlinux-3/</guid>
+      <description>在使用ArchLinux的时候，我一直在想，能不能在ArchLinux之上打造一个简单的娱乐环境。虽然我安装Steam后也能玩游戏，但是我还</description>
+    </item>
+    
+    <item>
+      <title>ArchLinux的使用(2):开发环境的搭建</title>
+      <link>https://www.idwangmo.top/2018/01/07/archlinux-2/</link>
+      <pubDate>Sun, 07 Jan 2018 20:43:05 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/01/07/archlinux-2/</guid>
+      <description>对于我用过的几个发行版本来说，ArchLinux算是天生对程序员亲和的，主要是有这几个原因，首先是官方源中维护了许多的编程环境的包，尤其是以</description>
+    </item>
+    
+    <item>
+      <title>ArchLinux的使用(1):安装</title>
+      <link>https://www.idwangmo.top/2018/01/04/archlinux-1/</link>
+      <pubDate>Thu, 04 Jan 2018 20:36:53 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/01/04/archlinux-1/</guid>
+      <description>在折腾了许多的Linux的发行版本之后，我最终选择的ArchLinux作为我的日常使用版本，具体的心路历程那就多了，反正上了Arch的这条船</description>
+    </item>
+    
+    <item>
+      <title>也算是份总结</title>
+      <link>https://www.idwangmo.top/2017/10/08/summary-201710/</link>
+      <pubDate>Sun, 08 Oct 2017 23:08:39 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/10/08/summary-201710/</guid>
+      <description>算了算时间，从今年6月底的毕业到现在，正式工作的时间已经4个的时间了，如果算上我在大四实习的时间的话，应该有差不多10个月的时间了。在这期间</description>
+    </item>
+    
+    <item>
+      <title>Mongodb在OOM后的处理</title>
+      <link>https://www.idwangmo.top/2017/07/23/mongodb/</link>
+      <pubDate>Sun, 23 Jul 2017 23:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/07/23/mongodb/</guid>
+      <description>原因 在Linux中使用Mongodb的时候，尤其是单机使用的时候，就会出现OOM（Out of Memory）的情况，当此进程是在root权限下执</description>
+    </item>
+    
+    <item>
+      <title>pyenv的使用</title>
+      <link>https://www.idwangmo.top/2017/07/03/pyenv/</link>
+      <pubDate>Mon, 03 Jul 2017 23:47:47 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/07/03/pyenv/</guid>
+      <description>在使用python的时候，总是需要使用不同版本的python环境，虽然可以使用virtualenv，但是对于系统级别的应用和软件来说可能不怎</description>
+    </item>
+    
+    <item>
+      <title>ElementaryOS使用及美化</title>
+      <link>https://www.idwangmo.top/2017/04/14/elementaryos/</link>
+      <pubDate>Fri, 14 Apr 2017 08:01:55 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/04/14/elementaryos/</guid>
+      <description>前几天微软的创造版更新了，导致我以前安装的双系统中的引导被覆盖了，所以我在将数据拷贝出来之后，就准备找一个发行版玩玩了，这一折腾就是一个周的</description>
+    </item>
+    
+    <item>
+      <title>编写一个代码生成器（1）</title>
+      <link>https://www.idwangmo.top/2017/04/01/codegeneration_1/</link>
+      <pubDate>Sat, 01 Apr 2017 22:45:15 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/04/01/codegeneration_1/</guid>
+      <description>最近在写代码的时候使用了IDEA上面的几个代码生成器的插件，例如GsonFormat以及MyBatisCodeHelper，由此就想到了的自</description>
+    </item>
+    
+    <item>
+      <title>在Windows上玩Linux</title>
+      <link>https://www.idwangmo.top/2017/03/27/linuxonwindows/</link>
+      <pubDate>Mon, 27 Mar 2017 09:25:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/27/linuxonwindows/</guid>
+      <description>最近几天在Windows上折腾Linux了，主要是发现现在我装双系统没有意义，准备换回以前使用Linux的模式了，主要也是用来进行测试和一些</description>
+    </item>
+    
+    <item>
+      <title>浅谈新手Linux发行版的选择</title>
+      <link>https://www.idwangmo.top/2017/03/21/linuxdistribution/</link>
+      <pubDate>Tue, 21 Mar 2017 19:08:58 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/21/linuxdistribution/</guid>
+      <description>前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu</description>
+    </item>
+    
+    <item>
+      <title>浅谈技术选择</title>
+      <link>https://www.idwangmo.top/2017/03/08/selecttechnology/</link>
+      <pubDate>Wed, 08 Mar 2017 23:22:04 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/08/selecttechnology/</guid>
+      <description>今天发生了一件事情，就是苹果在iOS中使用了JSPatch以及LuaPatch这些热更新技术的应用开发者，收到的苹果的警告邮件，要求在下一个</description>
+    </item>
+    
+    <item>
+      <title>认识抽象</title>
+      <link>https://www.idwangmo.top/2017/03/07/understandabstraction/</link>
+      <pubDate>Tue, 07 Mar 2017 19:50:46 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/07/understandabstraction/</guid>
+      <description>在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认</description>
+    </item>
+    
+    <item>
+      <title>世界是数字的</title>
+      <link>https://www.idwangmo.top/2017/03/04/disfordigital/</link>
+      <pubDate>Sat, 04 Mar 2017 11:49:26 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/04/disfordigital/</guid>
+      <description>简介 这是一本科普读物吧，但是我真的挺喜欢看这本书的，具体的笔记可能有点乱。本身这本书就没有多少东西可以记录上去，只是其中有几句话和观点我比较</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot学习笔记——基于程序员DD的博客</title>
+      <link>https://www.idwangmo.top/2017/03/03/springboot/</link>
+      <pubDate>Fri, 03 Mar 2017 22:34:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/03/springboot/</guid>
+      <description>前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S</description>
+    </item>
+    
+    <item>
+      <title>Java8实战</title>
+      <link>https://www.idwangmo.top/2017/03/02/java8inaction/</link>
+      <pubDate>Thu, 02 Mar 2017 22:21:39 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/02/java8inaction/</guid>
+      <description>思维导图 一 为什么使用Java8 在Java 8中加入 Streams 可以看作把另外两项扩充加入Java 8的直接原因：把代码传递给方法的简洁方式（方法引用、La</description>
+    </item>
+    
+    <item>
+      <title>Python从入门到实战</title>
+      <link>https://www.idwangmo.top/2017/02/27/pythoncrashcourse/</link>
+      <pubDate>Mon, 27 Feb 2017 22:57:33 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/27/pythoncrashcourse/</guid>
+      <description>前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花</description>
+    </item>
+    
+    <item>
+      <title>Java Persistence with Mybatis3</title>
+      <link>https://www.idwangmo.top/2017/02/22/javapersistencewithmybatis3/</link>
+      <pubDate>Wed, 22 Feb 2017 21:11:18 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/22/javapersistencewithmybatis3/</guid>
+      <description>Mybatis的配置 通过xml方式配置 环境（Environment） MyBatis支持配置多数据源环境：配置多个数据源，然后在SqlSess</description>
+    </item>
+    
+    <item>
+      <title>根据源代码修改XSD文件</title>
+      <link>https://www.idwangmo.top/2017/02/21/javadom/</link>
+      <pubDate>Tue, 21 Feb 2017 23:29:56 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/21/javadom/</guid>
+      <description>前言 这是前端时间遇到的问题，是去年12月份的发生的事情了，当时写了博客，不过是发布在OSchina上面的，现在我将它转移到这里 正文 这两天遇到</description>
+    </item>
+    
+    <item>
+      <title>追寻新旅程</title>
+      <link>https://www.idwangmo.top/2017/02/16/newlife/</link>
+      <pubDate>Thu, 16 Feb 2017 11:20:04 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/16/newlife/</guid>
+      <description>差不多在去年的时候，我开始进行了实习，也对未来的生活和对自己的能力产生了各种各样怀疑，感觉自己像是进入了一个悲剧 世界。我曾经患得患失的过了一</description>
+    </item>
+    
+    <item>
+      <title>为什么可以跨平台</title>
+      <link>https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/</link>
+      <pubDate>Sun, 12 Feb 2017 19:31:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/</guid>
+      <description>这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的</description>
+    </item>
+    
+    <item>
+      <title>MySQL必知必会：脑图</title>
+      <link>https://www.idwangmo.top/2017/02/10/mysqlnaotu/</link>
+      <pubDate>Fri, 10 Feb 2017 12:00:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/10/mysqlnaotu/</guid>
+      <description>《MySQL必知必会》的脑图：</description>
+    </item>
+    
+    <item>
+      <title>MySQL必知必会</title>
+      <link>https://www.idwangmo.top/2017/02/09/mysqlcrashcourse/</link>
+      <pubDate>Thu, 09 Feb 2017 17:24:50 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/09/mysqlcrashcourse/</guid>
+      <description>一 了解SQL 数据库（database） 保存有组织的数据的容器（通常是一个文件或一组文件）。 表（table） 某种特定类型数据的结构化清单。 模式</description>
+    </item>
+    
+    <item>
+      <title>Spring入门经典</title>
+      <link>https://www.idwangmo.top/2017/02/06/beginningspring/</link>
+      <pubDate>Mon, 06 Feb 2017 22:56:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/06/beginningspring/</guid>
+      <description>第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不</description>
+    </item>
+    
+    <item>
+      <title>编译和配置</title>
+      <link>https://www.idwangmo.top/2017/02/05/something/</link>
+      <pubDate>Sun, 05 Feb 2017 22:33:44 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/05/something/</guid>
+      <description>前言 记录我编译一些软件的方法和经常使用到的工程配置。 编译Git 首先得到Github上面下载最新的git源代码，下面是解压后的编译命令过程： 1</description>
+    </item>
+    
+    <item>
+      <title>Mybatis官方文档笔记</title>
+      <link>https://www.idwangmo.top/2017/02/04/mybatis/</link>
+      <pubDate>Sat, 04 Feb 2017 22:24:23 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/04/mybatis/</guid>
+      <description>前言 这是去年6月份学习Mybatis的时候记录的笔记，但是主要的学习是官方文档，只是入了个门，更加深入在其他笔记中。 基本 从 XML 中构建 SqlSessionFactory 每个基于</description>
+    </item>
+    
+    <item>
+      <title>开始使用Linux</title>
+      <link>https://www.idwangmo.top/2017/01/30/beginninglinux/</link>
+      <pubDate>Mon, 30 Jan 2017 23:03:58 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/30/beginninglinux/</guid>
+      <description>使用Linux已经几年了，当然从技术上来说，我应该还只能算上一个新手。玩过了许多的发行版本，装了多次的双系统和虚拟机，其中最为佩服的三个发行</description>
+    </item>
+    
+    <item>
+      <title>我为什么学习计算机</title>
+      <link>https://www.idwangmo.top/2017/01/29/whylearncomputerscience/</link>
+      <pubDate>Sun, 29 Jan 2017 10:17:28 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/29/whylearncomputerscience/</guid>
+      <description>说起来马上也要毕业了，虽然还在为毕业后的工作在考虑中，我有时候就会想，我为什要报这个专业呢，其实还是有一些原因的。当初我报计算机专业的时候，</description>
+    </item>
+    
+    <item>
+      <title>为什么还在用老技术</title>
+      <link>https://www.idwangmo.top/2017/01/28/oldtechnology/</link>
+      <pubDate>Sat, 28 Jan 2017 11:55:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/28/oldtechnology/</guid>
+      <description>如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然</description>
+    </item>
+    
+    <item>
+      <title>代码：隐匿在计算机背后的语言</title>
+      <link>https://www.idwangmo.top/2017/01/10/code/</link>
+      <pubDate>Tue, 10 Jan 2017 22:48:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/10/code/</guid>
+      <description>一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面</description>
+    </item>
+    
+    <item>
+      <title>深入浅出HTML和CSS</title>
+      <link>https://www.idwangmo.top/2017/01/05/htmlandcss/</link>
+      <pubDate>Thu, 05 Jan 2017 22:53:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/05/htmlandcss/</guid>
+      <description>一 认识HTML web服务器在互联网上有一份全天候的工作，夜以继日、不知疲倦地等待来自web浏览器的请求，当接收到请求的时候，会进行相关的处理</description>
+    </item>
+    
+    <item>
+      <title>走在2017</title>
+      <link>https://www.idwangmo.top/2017/01/03/in2017/</link>
+      <pubDate>Tue, 03 Jan 2017 22:53:07 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/03/in2017/</guid>
+      <description>O(∩_∩)O哈哈~，脱了两天，终于把这个总结写完了。说起年终的总结，一般都是在年末写的，我这都到了新的一年的开始了，都还没有写，是不是有点</description>
+    </item>
+    
+    <item>
+      <title>设计模式（4）：行为模式及结论</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-4/</link>
+      <pubDate>Mon, 02 Jan 2017 14:48:18 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-4/</guid>
+      <description>行为模式 行为模式涉及到算法和对象间职责的分配。行为模式不仅描述对象或类的模式，还描述它们之间的通信模式。 行为类模式使用继承机制在类之间分派行</description>
+    </item>
+    
+    <item>
+      <title>设计模式（3）：结构性模式</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-3/</link>
+      <pubDate>Mon, 02 Jan 2017 14:36:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-3/</guid>
+      <description>结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组</description>
+    </item>
+    
+    <item>
+      <title>设计模式（2）：创建型模式</title>
+      <link>https://www.idwangmo.top/2016/12/11/designpattern-2/</link>
+      <pubDate>Sun, 11 Dec 2016 19:08:01 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/11/designpattern-2/</guid>
+      <description>创建型模式实例化了过程。 设计模式中两个不断出现的主旋律： 它们都将关于该系统使用哪些具体的类的信息封装起来 隐藏了这些类的实例是如何被创建和放在</description>
+    </item>
+    
+    <item>
+      <title>设计模式（1）：基础及实例</title>
+      <link>https://www.idwangmo.top/2016/12/07/designpattern-1/</link>
+      <pubDate>Wed, 07 Dec 2016 22:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/07/designpattern-1/</guid>
+      <description>概念 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。 一个设计模式有四个基本要素： 模式名称 问题 解决方案 效果 设计模</description>
+    </item>
+    
+    <item>
+      <title>Spring实战(1)：基础及配置</title>
+      <link>https://www.idwangmo.top/2016/12/05/springinaction-1/</link>
+      <pubDate>Mon, 05 Dec 2016 23:02:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/05/springinaction-1/</guid>
+      <description>第一章 基础 降低Java开发的复杂性，Spring采取的策略： 基于POJO的轻量级和最小侵入性编程 通过依赖注入和面向接口实现松耦合 基于切面和惯</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(2):SpringBootApplication注解</title>
+      <link>https://www.idwangmo.top/2016/09/23/springbootapplication/</link>
+      <pubDate>Fri, 23 Sep 2016 09:24:05 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/23/springbootapplication/</guid>
+      <description>这篇文章就来简单的介绍出初始化创建Spring Boot程序的时候提供的两个类级别的注解，一个是用于程序如口程序的@SpringBootApp</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(1):参见SpringBoot</title>
+      <link>https://www.idwangmo.top/2016/09/22/springboot/</link>
+      <pubDate>Thu, 22 Sep 2016 20:22:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/22/springboot/</guid>
+      <description>最近开始看Spring Boot相关方面的文章，主要原因还是看网上说的这家伙开发软件的速度比传统的Spring的开发要快，所以在最近学习Spr</description>
+    </item>
+    
+    <item>
+      <title>搭建博客的原因</title>
+      <link>https://www.idwangmo.top/2016/09/06/about/</link>
+      <pubDate>Tue, 06 Sep 2016 14:49:56 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/06/about/</guid>
+      <description>从早2013年读大学开始我就知道了github这样一个网站，并且在其中学到了许多自己喜欢的知识，后来我也开始建立我自己的github账号，并</description>
+    </item>
+    
+    <item>
+      <title>Spring4学习笔记</title>
+      <link>https://www.idwangmo.top/2016/08/28/spring4/</link>
+      <pubDate>Sun, 28 Aug 2016 13:00:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/08/28/spring4/</guid>
+      <description>Bean 基础 使用 Bean： 读取 spring 的配置文件 获取配置的 bean 调用方法 配置 bean： class：bean 的全类名，通过反射的方式在 IOC 容器中创建 Bean，所</description>
+    </item>
+    
+    <item>
+      <title>计算机和程序</title>
+      <link>https://www.idwangmo.top/2016/05/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Fri, 27 May 2016 23:15:41 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/05/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%A8%8B%E5%BA%8F/</guid>
+      <description>介绍 现在学习计算机已经三年了，有点想讲一讲我对一个程序的看法了。对于大部分的人来说，也算上没学计算机编程之前的我，都会认为计算机是一个十分智</description>
+    </item>
+    
+    <item>
+      <title>日本文化十讲</title>
+      <link>https://www.idwangmo.top/2016/04/25/%E6%97%A5%E6%9C%AC%E6%96%87%E5%8C%96%E5%8D%81%E8%AE%B2/</link>
+      <pubDate>Mon, 25 Apr 2016 12:36:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/04/25/%E6%97%A5%E6%9C%AC%E6%96%87%E5%8C%96%E5%8D%81%E8%AE%B2/</guid>
+      <description>简介 这是我大二的时候为《日本文化十讲》而写的一篇结课作业在大学中，唯有这一门课是我最喜欢的课程，其他的课程也有比较有趣的，但是在计算机课枯燥</description>
+    </item>
+    
+    <item>
+      <title>程序运行</title>
+      <link>https://www.idwangmo.top/2016/04/23/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/</link>
+      <pubDate>Sat, 23 Apr 2016 10:29:12 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/04/23/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/</guid>
+      <description>有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来</description>
+    </item>
+    
+    <item>
+      <title>Docker的使用</title>
+      <link>https://www.idwangmo.top/2015/11/22/docker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 22 Nov 2015 15:07:45 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2015/11/22/docker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>简介 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个</description>
+    </item>
+    
+    <item>
+      <title>搭建博客的简单步骤</title>
+      <link>https://www.idwangmo.top/2015/11/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sat, 21 Nov 2015 15:07:45 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2015/11/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>简介 本来是想直接用官方给的主题的，但是我发现官方直接给的这样一个主题我不是十分的喜欢，所以我就学习了如何使用Hexo来搭建博客了。虽然在这其</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu移除多余的内核</title>
+      <link>https://www.idwangmo.top/1/01/01/ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/1/01/01/ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/</guid>
+      <description>Ubuntu移除多余的内核 在使用Ubuntu的时候，发现内核更新的频率比较高，所以需要删除一些内核来节省空间: 查询当前系统所使用的内核una</description>
+    </item>
+    
+    <item>
+      <title>软件配置</title>
+      <link>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <description>Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添</description>
+    </item>
+    
+  </channel>
+</rss>

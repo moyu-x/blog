@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BlockingQueue on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/blockingqueue/</link>
+    <description>Recent content in BlockingQueue on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/blockingqueue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>队列、AQS和锁</title>
+      <link>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2020/08/13/blockingqueueandlock/</guid>
+      <description>CopyOnWriteArrayList 应用于读多写少的环境中，根据类注释，可以直到在所有可变操作（add、set和remove）的时候是创建底层数组副本来实现的。 从源码来看，g</description>
+    </item>
+    
+  </channel>
+</rss>

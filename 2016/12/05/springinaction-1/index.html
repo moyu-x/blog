@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring实战(1)：基础及配置 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="第一章 基础 降低Java开发的复杂性，Spring采取的策略： 基于POJO的轻量级和最小侵入性编程 通过依赖注入和面向接口实现松耦合 基于切面和惯" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2016/12/05/springinaction-1/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring实战(1)：基础及配置" />
+<meta property="og:description" content="第一章 基础 降低Java开发的复杂性，Spring采取的策略： 基于POJO的轻量级和最小侵入性编程 通过依赖注入和面向接口实现松耦合 基于切面和惯" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2016/12/05/springinaction-1/" />
+<meta property="article:published_time" content="2016-12-05T23:02:49+00:00" />
+<meta property="article:modified_time" content="2016-12-05T23:02:49+00:00" />
+<meta itemprop="name" content="Spring实战(1)：基础及配置">
+<meta itemprop="description" content="第一章 基础 降低Java开发的复杂性，Spring采取的策略： 基于POJO的轻量级和最小侵入性编程 通过依赖注入和面向接口实现松耦合 基于切面和惯">
+<meta itemprop="datePublished" content="2016-12-05T23:02:49+00:00" />
+<meta itemprop="dateModified" content="2016-12-05T23:02:49+00:00" />
+<meta itemprop="wordCount" content="3299">
+
+
+
+<meta itemprop="keywords" content="笔记,Spring实战," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring实战(1)：基础及配置"/>
+<meta name="twitter:description" content="第一章 基础 降低Java开发的复杂性，Spring采取的策略： 基于POJO的轻量级和最小侵入性编程 通过依赖注入和面向接口实现松耦合 基于切面和惯"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring实战(1)：基础及配置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-05 </span>
+        <div class="post-category">
+            <a href="/categories/spring/"> Spring </a>
+            </div>
+          <span class="more-meta"> 约 3299 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a>
+      <ul>
+        <li><a href="#di">DI</a></li>
+        <li><a href="#aop">AOP</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring容器">Spring容器</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#自动化配置">自动化配置</a></li>
+    <li><a href="#通过java代码转配bean">通过java代码转配bean</a></li>
+    <li><a href="#通过xml装配bean">通过XML装配bean</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章">第一章</h1>
+<h2 id="基础">基础</h2>
+<p>降低Java开发的复杂性，Spring采取的策略：</p>
+<ul>
+<li>基于POJO的轻量级和最小侵入性编程</li>
+<li>通过依赖注入和面向接口实现松耦合</li>
+<li>基于切面和惯例进行声明式编程</li>
+<li>通过切面和模板减少样板式代码</li>
+</ul>
+<p>耦合具有两面性：</p>
+<ol>
+<li>紧密的耦合代码难以测试、难以复用、难以理解，并且典型地表兄出“打地鼠”式的bug特性</li>
+<li>一定程度的耦合又是必须的——完全没有耦合的代码什么也做不了</li>
+</ol>
+<h3 id="di">DI</h3>
+<p>Spring通过Application Context装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。</p>
+<h3 id="aop">AOP</h3>
+<p>AOP往往被定义为促使软件系统实现关注点的分离的一项技术。AOP能够使这些服务区模块化，并以声明 的方式将他们的应用到他们需要影响的组件中去。所造成的结果就是这些组件会具有更高的内聚性并且会更加关注自身的业务，完全不需要了解涉及系统服务所带来的复杂性。</p>
+<p><code>&lt;aop:aspect&gt;</code>元素引用该bean，前置调用为<code>&lt;aop:before&gt;</code>，后置调用为<code>&lt;aop:after&gt;</code></p>
+<h2 id="spring容器">Spring容器</h2>
+<p>spring自带多个容器的实现，可以分为两种不同的类型bean工厂（由org.springframework. beans.
+factory.eanFactory接口定义）是最简单的容器，提供基本的DI支持。应用上下文
+（由org.springframework.context.ApplicationContext接口定义）基于BeanFactory构建，并提供应用框架级别的服务</p>
+<p>Spring自带了多种类型的应用上下文。下面罗列的几个是你最有可能</p>
+<ul>
+<li>AnnotationConfigApplicationContext：从一个或多个基于Java的配置类中加载Spring应用上下文。</li>
+<li>AnnotationConfigWebApplicationContext：从一个或多个基于Java的配置类中加载Spring Web应用上下文。</li>
+<li>ClassPathXmlApplicationContext：从类路径下的一个或多个XML配置文件中加载上下文定义，把应用上下文的定义文件作为类资源。</li>
+<li>FileSystemXmlapplicationcontext：从文件系统下的一个或多个XML配置文件中加载上下文定义。</li>
+<li>XmlWebApplicationContext：从Web应用下的一个或多个XML配置文件中加载上下文定义。</li>
+</ul>
+<p>Spring Bean的生命周期：</p>
+<p><img src="%5Cimages%5C201612%5CSpringBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="SpringBean的生命周期"></p>
+<p><img src="%5Cimages%5C201612%5CSpring%E6%A8%A1%E5%9D%97.png" alt="Spring模块"></p>
+<h1 id="第二章">第二章</h1>
+<p>Spring提供了三种主要的装配机制：</p>
+<ul>
+<li>在XML中进行显式配置。</li>
+<li>在Java中进行显式配置。</li>
+<li>隐式的bean发现机制和自动装配</li>
+</ul>
+<h2 id="自动化配置">自动化配置</h2>
+<p>Spring从两个角度来实现自动化装配：</p>
+<ul>
+<li>组件扫描（component scanning）：Spring会自动发现应用上下文中所创建的bean。</li>
+<li>自动装配（autowiring）：Spring自动满足bean之间的依赖</li>
+</ul>
+<p>使用了<code>@Component</code>注解。这个简单的注解表明该类会作为组件类，并告知Spring要为这个类创建bean</p>
+<p><code>@ComponentScan</code>注解启用了组件扫描，这个注解能够在Spring中启用组件扫描,默认会扫描与配置类相同的包</p>
+<p>使用XML来启用组件扫描的话，那么可以使用Spring context命名空间的<code>&lt;context:component-scan&gt;</code>元素</p>
+<p>Spring应用上下文中所有的bean都会给定一个ID，Spring会根据类名为其指定一个ID。具体来讲就是将类名的第一个字母变为小写。如果想为这个bean设置不同的ID，你所要做的就是将期望的ID作为值传递给@Component注解。</p>
+<p>Spring支持将<code>@Named</code>作为<code>@Component</code>注解的替代方案。两者之间有一些细微的差异，但是在大多数场景中，它们是可以互相替换的。</p>
+<p>有一个原因会促使我们明确地设置基础包，那就是我们想要将配置类放在单独的包中，使其与其他的应用代码区分开来，为了指定不同的基础包，需要做的就是在<code>@ComponentScan</code>的value属性中指明包的名称.</p>
+<p>除了将包设置为简单的String类型之外，<code>@ComponentScan</code>还提供了另外一种方法，那就是将其指定为包中所包含的类或接口</p>
+<p>为了声明要进行自动装配，可以借助Spring的<code>@Autowired</code>注解。如果没有匹配的bean，那么在应用上下文创建的时候，Spring会抛出一个异常。为了避免异常的出现，你可以将<code>@Autowired</code>的required属性设置为<code>false</code></p>
+<p>将required属性设置为false时，Spring会尝试执行自动装配，但是如果没有匹配的bean的话，Spring将会让这个bean处于未装配的状态。但是，把required属性设置为false时，你需要谨慎对待。如果在你的代码中没有进null检查的话，这个处于未装配状态的属性有可能会出现NullPointerException</p>
+<p><code>@Autowired</code>是Spring的特有注解，可以替换为<code>@Inject</code></p>
+<h2 id="通过java代码转配bean">通过java代码转配bean</h2>
+<p>JavaConfig是配置代码，这意味着它不应该包含任何业务逻辑，JavaConfig也不应该侵入到业务逻辑代码之中。尽管不是必须的，但通常会将JavaConfig放到单独的包中，使它与其他的应用程序逻辑分离开来，这样对于它的意图就不会产生困惑了。</p>
+<p>创建JavaConfig类的关键在于为其添加<code>@Configuration</code>注解，<code>@Configuration</code>注解表明这个类是一个配置类，该类应该包含在Spring应用上下文中如何创建bean的细节</p>
+<p>要在JavaConfig中声明bean，我们需要编写一个方法，这个方法会创建所需类型的实例，然后给这个方法添加<code>@Bean</code>注解.默认情况下，bean的ID与带有@Bean注解的方法名是一样的，但是可以使用name属性指定一个不同的名字。</p>
+<p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。</p>
+<p>但是，在软件领域中，我们完全可以将同一个实例注入到任意数量的其他bean之中。默认情况下，Spring中的bean都是单例的。</p>
+<p><strong>带有@Bean注解的方法可以采用任何必要的Java功能来产生bean实例</strong></p>
+<h2 id="通过xml装配bean">通过XML装配bean</h2>
+<p>最简单的Spring XML配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+  <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span class="na">xmlns:c=</span><span class="s">&#34;http://www.springframework.org/schema/c&#34;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+  
+  <span class="c">&lt;!--其余代码--&gt;</span>
+  
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>要在基于XML的Spring配置中声明一个bean，我们要使用spring-beans模式中的另外一个素：<code>&lt;bean&gt;</code>。<code>&lt;bean&gt;</code>元素类似于JavaConfig中的<code>@Bean</code>注解</p>
+<p>作为替代的方案，你也可以使用Spring的c-命名空间。c-命名空间是在Spring 3.0中引入的，它是在XML中更为简洁地描述构造器参数的方式。要使用它的话，必须要在XML的顶部声明其模式</p>
+<p>XML不允许某个元素的多个属性具有相同的名字。</p>
+<p><code>&lt;list&gt;</code>元素是<code>&lt;constructor-arg&gt;</code>的子元素，这表明一个包含值的列表将会传递到构造器中。其中，<code>&lt;value&gt;</code>元素用来指定列表中的每个元素。可以使用<code>&lt;ref&gt;</code>元素替代<code>&lt;value&gt;</code>，实现bean引用列表的装配。</p>
+<p>Spring为<code>&lt;constructor-arg&gt;</code>元素提供了c-命名空间作为替代方案，与之类似，Spring提供了更加简洁的p-命名空间，作为<code>&lt;property&gt;</code>元素的替代方案</p>
+<p>util-命名空间所提供的功能之一就是<code>&lt;util:list&gt;</code>元素，它会创建一个列表的bean。![Spring util-命名空间中的元素](\images\201612\Spring util-命名空间中的元素.png)</p>
+<p>在使用了XML的配置之后，如果要让spring同时加载它和其他基于Java的配置可以使用<code>@ImportResource</code>注解</p>
+<p>在XML中，我们可以使用import元素来拆分XML配置</p>
+<p>Spring中装配bean的三种主要方式：自动化配置、基于Java的显式配置以及基于XML的显式配置</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-12-05
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          <a href="/tags/spring%E5%AE%9E%E6%88%98/">Spring实战</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2016/12/07/designpattern-1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">设计模式（1）：基础及实例</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2016/09/23/springbootapplication/">
+            <span class="next-text nav-default">Spring Boot(2):SpringBootApplication注解</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

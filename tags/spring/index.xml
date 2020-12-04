@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/spring/</link>
+    <description>Recent content in spring on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 23 Feb 2019 21:47:49 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring tips</title>
+      <link>https://www.idwangmo.top/2019/02/23/spring-tips/</link>
+      <pubDate>Sat, 23 Feb 2019 21:47:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2019/02/23/spring-tips/</guid>
+      <description>Feign From 的使用 建立一个feign的配置文件，并在其中写入如下代码： 1 2 3 4 @Bean fun encoder(): Encoder { return FormEncoder() } 然后在请求到接口上加入consumes = [MediaT</description>
+    </item>
+    
+    <item>
+      <title>Spring入门经典</title>
+      <link>https://www.idwangmo.top/2017/02/06/beginningspring/</link>
+      <pubDate>Mon, 06 Feb 2017 22:56:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/02/06/beginningspring/</guid>
+      <description>第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(2):SpringBootApplication注解</title>
+      <link>https://www.idwangmo.top/2016/09/23/springbootapplication/</link>
+      <pubDate>Fri, 23 Sep 2016 09:24:05 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/23/springbootapplication/</guid>
+      <description>这篇文章就来简单的介绍出初始化创建Spring Boot程序的时候提供的两个类级别的注解，一个是用于程序如口程序的@SpringBootApp</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot(1):参见SpringBoot</title>
+      <link>https://www.idwangmo.top/2016/09/22/springboot/</link>
+      <pubDate>Thu, 22 Sep 2016 20:22:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/09/22/springboot/</guid>
+      <description>最近开始看Spring Boot相关方面的文章，主要原因还是看网上说的这家伙开发软件的速度比传统的Spring的开发要快，所以在最近学习Spr</description>
+    </item>
+    
+    <item>
+      <title>Spring4学习笔记</title>
+      <link>https://www.idwangmo.top/2016/08/28/spring4/</link>
+      <pubDate>Sun, 28 Aug 2016 13:00:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/08/28/spring4/</guid>
+      <description>Bean 基础 使用 Bean： 读取 spring 的配置文件 获取配置的 bean 调用方法 配置 bean： class：bean 的全类名，通过反射的方式在 IOC 容器中创建 Bean，所</description>
+    </item>
+    
+  </channel>
+</rss>

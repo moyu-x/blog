@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>浅谈新手Linux发行版的选择 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/03/21/linuxdistribution/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="浅谈新手Linux发行版的选择" />
+<meta property="og:description" content="前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/03/21/linuxdistribution/" />
+<meta property="article:published_time" content="2017-03-21T19:08:58+00:00" />
+<meta property="article:modified_time" content="2017-03-21T19:08:58+00:00" />
+<meta itemprop="name" content="浅谈新手Linux发行版的选择">
+<meta itemprop="description" content="前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu">
+<meta itemprop="datePublished" content="2017-03-21T19:08:58+00:00" />
+<meta itemprop="dateModified" content="2017-03-21T19:08:58+00:00" />
+<meta itemprop="wordCount" content="1761">
+
+
+
+<meta itemprop="keywords" content="Linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅谈新手Linux发行版的选择"/>
+<meta name="twitter:description" content="前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">浅谈新手Linux发行版的选择</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-21 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 约 1761 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#首要条件">首要条件</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#redhat系列">Redhat系列</a></li>
+    <li><a href="#suse系列">SUSE系列</a></li>
+    <li><a href="#ubuntu和debian">Ubuntu和Debian</a></li>
+    <li><a href="#archlinux">ArchLinux</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="前言">前言</h1>
+<p>折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linux就是一个比较重要的问题了。虽然说的是对Linux发行版本的选择，其实准确的来说，应该是多主要的包管理器进行介绍，其他的在每个发行版本上都是大同小异的。</p>
+<h2 id="首要条件">首要条件</h2>
+<p>学习Linux的话，中文的资料可能相对较少一些，找到的可能不是现在最新个版本的资料，所以得会使用各种搜索引擎，包括一些翻译软件。技术上的问题，能翻墙的尽量使用Google吧，不能的话使用Bing也是不错的选择，然后日常的话使用百度。</p>
+<h1 id="发行版介绍">发行版介绍</h1>
+<p>在整个Linux发行版本中，有许多的发行版，主要的就那么几类：Redhat系、SUSE系列、ArchLinux系列以及Ubuntu系列。至于Gentoo和LSF我就不再进行讨论了，基本新手不回去碰的。</p>
+<h2 id="redhat系列">Redhat系列</h2>
+<p>在这个系列中，主要有三个发行版本：RedHat Enterprise Linux、Fedora以及CentOS。主要都是使用yum作为包管理器，而在Fedora中正在测试使用DNF作为最新的包管理器。</p>
+<p>对于新手来说，如果准备看《鸟哥的Linux私房菜》入门的话，应该会学习使用CentOS操作系统，这个系统是来源于对Redhat的源码的直接编译的结果，在Redhat收购CentOS社区后，这些就开始由开始由Redhat公司进行维护了。</p>
+<p>Fedora的使用者相当于Redhat的企业版本的小白鼠，每隔6个月发布一个新的版本，许多新的技术都会先在Fedora上进行使用，然后在4个版本之后再发布一个新的Redhat的企业版。</p>
+<p>使用的yum包管理器，感觉上就是各种插件，其图形化的前端，一直没用找到，并且对于软件包来说，没用deb的软件包多，使用的rpm打包方式也被人吐槽过，问题是我不知道哪里不好。。。</p>
+<h2 id="suse系列">SUSE系列</h2>
+<p>这个应该算是一个比较早的版本了，其主要的桌面环境是使用KDE，由此KDE的主要为维护者也是SUSE的开发者，在前年开始，SUSE和openSUSE社区开始发布了leap版本和tumbleweed的滚动版本。</p>
+<p>如果说是日常使用，其有一个强大无比的管理工具——yast2，基本上在其他发行版本中遇到的一些配置问题，在openSUSE中基本就通过这个工具就解决了。虽然包管理器使用的是zypper，但是其打包的方式是rpm，所有会有大量的软件包来进行使用。</p>
+<h2 id="ubuntu和debian">Ubuntu和Debian</h2>
+<p>在许多推荐文中，都会发现推荐使用这两个发行版来进行学习，我认为这两个发行版也是入门Linux发行版比较好的选择。主要的原因是中文的社区大，虽然wiki没用ArchLinux的丰富，但是在日常的使用中，能在搜索引擎上使用中文轻松的查到许多的相关资料。</p>
+<p>使用的包管理器是apt包管理器，使用起来应该是十分方便的，对于打包方式来说，deb那个近3万的软件包仓库加上Ubuntu自己的ppa社区源，基本上是不会没有软件使用这种说法的。</p>
+<p>如果说是使用的话，我还是支持使用Windows和Mac作为日常的平台，在遇到开发问题的使用使用docker也能解决大部分的问题，其实目前来说，除非必要，不然主动去学习Linux平台的作为开发的可能性应该是十分低的。</p>
+<h2 id="archlinux">ArchLinux</h2>
+<p>这个应该是除了Gentoo和LFS外，自己可定制度最高的系统了，如果作为初学者，使用这个系统可能有点麻烦，但是如果跟着官方文档自己在虚拟机中搭建一边的话，就会对整个Linux体系有所了解了。</p>
+<p>其使用pacman的包管理工具我个人认为有点简陋，但是十分好用，可能是我日常使用较少的原因把。其丰富的AUR源，在其中甚至能找到其他平台需要的东西和解决方案，可能只是需要自己在需要的平台上定制一下就行了。</p>
+<h1 id="结语">结语</h1>
+<p>在几年前，我认为学习Linux是十分有必要的，但是现在，在有docker和vagrant的情况下，我的这个想法有所改变了。现在直接在物理机上搭建这个的过程已经没有必要了，如果在Windows上，有bash for Windows，在Mac上更加不用说。其实阻止我们日常使用Linux的最大原因是驱动问题，双显卡时候的安装Linux是十分麻烦的。对于日常来说，打字软件，QQ等聊天都不是一个日常使用的好平台，所以我的建议是在虚拟机中使用Linux，除非部署的时候使用Linux。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-21
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/03/27/linuxonwindows/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">在Windows上玩Linux</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/03/08/selecttechnology/">
+            <span class="next-text nav-default">浅谈技术选择</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

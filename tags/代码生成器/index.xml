@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>代码生成器 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/</link>
+    <description>Recent content in 代码生成器 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 01 Apr 2017 22:45:15 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编写一个代码生成器（1）</title>
+      <link>https://www.idwangmo.top/2017/04/01/codegeneration_1/</link>
+      <pubDate>Sat, 01 Apr 2017 22:45:15 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/04/01/codegeneration_1/</guid>
+      <description>最近在写代码的时候使用了IDEA上面的几个代码生成器的插件，例如GsonFormat以及MyBatisCodeHelper，由此就想到了的自</description>
+    </item>
+    
+  </channel>
+</rss>

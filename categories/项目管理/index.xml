@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>项目管理 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</link>
+    <description>Recent content in 项目管理 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Nov 2018 03:42:48 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>硝烟中的Scrum和XP</title>
+      <link>https://www.idwangmo.top/2018/11/26/scrum-and-xp/</link>
+      <pubDate>Mon, 26 Nov 2018 03:42:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/11/26/scrum-and-xp/</guid>
+      <description>序言 迭代开发的基本要求： 迭代要有固定时长——不能超过6个星期 在没一次迭代的结尾，代码都必须经过QA的测试，能够正常工作 Nokia的Scrum</description>
+    </item>
+    
+  </channel>
+</rss>

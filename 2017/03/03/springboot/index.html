@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring Boot学习笔记——基于程序员DD的博客 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/03/03/springboot/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring Boot学习笔记——基于程序员DD的博客" />
+<meta property="og:description" content="前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/03/03/springboot/" />
+<meta property="article:published_time" content="2017-03-03T22:34:48+00:00" />
+<meta property="article:modified_time" content="2017-03-03T22:34:48+00:00" />
+<meta itemprop="name" content="Spring Boot学习笔记——基于程序员DD的博客">
+<meta itemprop="description" content="前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S">
+<meta itemprop="datePublished" content="2017-03-03T22:34:48+00:00" />
+<meta itemprop="dateModified" content="2017-03-03T22:34:48+00:00" />
+<meta itemprop="wordCount" content="6039">
+
+
+
+<meta itemprop="keywords" content="Spring boot,笔记," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring Boot学习笔记——基于程序员DD的博客"/>
+<meta name="twitter:description" content="前言 对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《S"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring Boot学习笔记——基于程序员DD的博客</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 6039 字 </span>
+          <span class="more-meta"> 预计阅读 13 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基础">基础</a></li>
+    <li><a href="#文档注释">文档注释</a></li>
+    <li><a href="#统一异常处理">统一异常处理</a></li>
+    <li><a href="#使用jdbctemplate访问数据库">使用JdbcTemplate访问数据库</a>
+      <ul>
+        <li><a href="#数据访问">数据访问</a></li>
+        <li><a href="#整合mybatis">整合MyBatis</a></li>
+      </ul>
+    </li>
+    <li><a href="#事物管理">事物管理</a>
+      <ul>
+        <li><a href="#隔离级别">隔离级别</a></li>
+        <li><a href="#传播行为">传播行为</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring-security">Spring Security</a></li>
+    <li><a href="#缓存">缓存</a>
+      <ul>
+        <li><a href="#缓存注解">缓存注解</a></li>
+        <li><a href="#缓存配置">缓存配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring-boot的工程结构">Spring boot的工程结构</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="前言">前言</h1>
+<p>对于Spring boot的学习，我推荐的是看Spring boot的官方文档，这是最好的选择，因为相关方面的书不怎么好。关于实战的话，《Spring boot实战》作为一个实战类的书还行，对其他方面的解释还不行，得看文档。</p>
+<p>我这个笔记是看的是<a href="http://blog.didispace.com/">程序猿DD</a>的博客来进行写的，主要是他的博客中讲了，数据源、日志及缓存方面的东西，所以我的这个笔记可以说是我看程序猿DD博客的缩减版本。</p>
+<h1 id="spring-boot">Spring boot</h1>
+<h2 id="基础">基础</h2>
+<p>spring-boot-starter：核心模块，包括自动化配置支持，日志和YAML</p>
+<p>spring-boot-test：测试模块</p>
+<p>配置文件位于application.properties或application.yml中</p>
+<p>配置文件的用处：</p>
+<ol>
+<li>自定义的属性与加载——在配置文件定义完成之后使用<code>@Value(${属性名})</code>进行使用</li>
+<li>参数间的引用</li>
+<li>使用随机数——可以使用${random}来产生int值，long值或值String字符串</li>
+<li>可以通过命令行设置属性值</li>
+<li>多环境配置</li>
+</ol>
+<p>在配置文件中通过spring.profile.active属性来设置对应的profile值</p>
+<p>@RestController：Spring4新加注解，取代之前的@Controller和@RequestBody配合返回JSON的写法</p>
+<h2 id="文档注释">文档注释</h2>
+<p>使用Swagger2构建API文档的步骤：</p>
+<ol>
+<li>添加Swagger2依赖</li>
+<li>创建Swagger2的配置类——在Application.java同级别下创建配置类Swagger2，，通过<code>@Configuration</code>注解，让Spring来加载该类配置。再通过<code>@EnableSwagger2</code>注解来启用Swagger2。再通过<code>createRestApi</code>函数创建<code>Docket</code>的Bean之后，<code>apiInfo()</code>用来创建该Api的基本信息（这些基本信息会展现在文档页面中）。<code>select()</code>函数返回一个<code>ApiSelectorBuilder</code>实例用来控制哪些接口暴露给Swagger来展现，本例采用指定扫描的包路径来定义，Swagger会扫描该包下所有Controller定义的API，并产生文档内容（除了被<code>@ApiIgnore</code>指定的请求）。</li>
+<li>添加上文档
+<ol>
+<li>通过@ApiOption注解来个API增加说明</li>
+<li>通过<code>@ApiImplicitParams</code>、<code>@ApiImplicitParam</code>注解来给参数增加说明。</li>
+</ol>
+</li>
+</ol>
+<h2 id="统一异常处理">统一异常处理</h2>
+<ol>
+<li>创建全局异常处理类：通过使用<code>@ControllerAdvice</code>定义统一的异常处理类，而不是在每个Controller中逐个定义。<code>@ExceptionHandler</code>用来定义函数针对的异常类型，最后将Exception对象和请求URL映射到<code>error.html</code>中</li>
+<li>实现error.html页面</li>
+</ol>
+<p>我们只需要在Controller中抛出Exception，当然我们可能会有多种不同的Exception。然后在@ControllerAdvice类中，根据抛出的具体Exception类型匹配@ExceptionHandler中配置的异常类型来匹配错误映射和处理。</p>
+<p>返回JSON格式：</p>
+<p>本质上，只需在<code>@ExceptionHandler</code>之后加入<code>@ResponseBody</code>，就能让处理函数return的内容转换为JSON格式。</p>
+<h2 id="使用jdbctemplate访问数据库">使用JdbcTemplate访问数据库</h2>
+<p>数据源的配置：</p>
+<ol>
+<li>连接数据库</li>
+<li>在application.properties中配置数据源信息</li>
+<li>使用JdbcTemplate操作数据库</li>
+</ol>
+<h3 id="数据访问">数据访问</h3>
+<p>通过整合Hibernate之类的ORM框架，我们以操作Java实体的方式最终将数据改变映射到数据库表中。</p>
+<p><code>spring.jpa.properties.hibernate.hbm2ddl.auto</code>是hibernate的配置属性，其主要作用是：自动创建、更新、验证数据库表结构。该参数的几种配置如下：</p>
+<ul>
+<li><code>create</code>：每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表，哪怕两次没有任何改变也要这样执行，这就是导致数据库表数据丢失的一个重要原因。</li>
+<li><code>create-drop</code>：每次加载hibernate时根据model类生成表，但是sessionFactory一关闭,表就自动删除。</li>
+<li><code>update</code>：最常用的属性，第一次加载hibernate时根据model类会自动建立起表的结构（前提是先建立好数据库），以后加载hibernate时根据model类自动更新表结构，即使表结构改变了但表中的行仍然存在不会删除以前的行。要注意的是当部署到服务器后，表结构是不会被马上建立起来的，是要等应用第一次运行起来后才会。</li>
+<li><code>validate</code>：每次加载hibernate时，验证创建数据库表结构，只会和数据库中的表进行比较，不会创建新表，但是会插入新值。</li>
+</ul>
+<p>创建一个Spring配置类，定义两个DataSource用来读取<code>application.properties</code>中的不同配置。如下例子中，主数据源配置为<code>spring.datasource.primary</code>开头的配置，第二数据源配置为<code>spring.datasource.secondary</code>开头的配置。</p>
+<p>对JdbcTemplate的支持比较简单，只需要为其注入对应的datasource即可</p>
+<p>新增对第一数据源的JPA配置，注意两处注释的地方，用于指定数据源对应的<code>Entity</code>实体和<code>Repository</code>定义位置，用<code>@Primary</code>区分主数据源。</p>
+<p>操作数据的方式：</p>
+<ol>
+<li>使用默认接口</li>
+<li>通通过解析方法名创建查询</li>
+<li>使用<code>@Query</code>注解来创建查询</li>
+</ol>
+<p>在JdbcTemplate的多数据源的支持可以使用<code>@Qualifier</code>来标识就行</p>
+<p>Spring JPA中对于多数据源的支持可以使用DataSource Cofing来完成</p>
+<h3 id="整合mybatis">整合MyBatis</h3>
+<ol>
+<li>引入整合MyBatis的核心依赖mybatis-spring-boot-starter，这里不引入spring-boot-starter-jdbc依赖，是由于mybatis-spring-boot-starter中已经包含了此依赖</li>
+<li>配置数据库的连接</li>
+</ol>
+<h4 id="mybatis注解配置">MyBatis注解配置：</h4>
+<p>传递参方式：</p>
+<ol>
+<li>使用<code>@Param</code></li>
+<li>使用Map</li>
+<li>使用对象</li>
+</ol>
+<p>增删改查：<code>@Insert</code>、<code>@Delete</code>、<code>@Update</code>、<code>@Select</code></p>
+<p>对于增、删、改操作相对变化较小。而对于“查”操作，我们往往需要进行多表关联，汇总计算等操作，那么对于查询的结果往往就不再是简单的实体对象了，往往需要返回一个与数据库实体不同的包装类，那么对于这类情况，就可以通过<code>@Results</code>和<code>@Result</code>注解来进行绑定</p>
+<h2 id="事物管理">事物管理</h2>
+<p>事务的作用就是为了保证用户的每一个操作都是可靠的，事务中的每一步操作都必须成功执行，只要有发生异常就回退到事务开始未进行操作的状态。</p>
+<p>通过单元测试演示了如何使用<code>@Transactional</code>注解来声明一个函数需要被事务管理，通常我们单元测试为了保证每个测试之间的数据独立，会使用<code>@Rollback</code>注解让每个单元测试都能在结束时回滚。而真正在开发业务逻辑时，我们通常在service层接口中使用<code>@Transactional</code>来对各个业务逻辑进行事务管理的配置</p>
+<h3 id="隔离级别">隔离级别</h3>
+<p>隔离级别是指若干个并发的事务之间的隔离程度，与我们开发时候主要相关的场景包括：脏读取、重复读、幻读</p>
+<p>我们可以看<code>org.springframework.transaction.annotation.Isolation</code>枚举类中定义了五个表示隔离级别的值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Isolation</span> <span class="o">{</span>
+    <span class="n">DEFAULT</span><span class="o">(-</span><span class="n">1</span><span class="o">),</span>
+    <span class="n">READ_UNCOMMITTED</span><span class="o">(</span><span class="n">1</span><span class="o">),</span>
+    <span class="n">READ_COMMITTED</span><span class="o">(</span><span class="n">2</span><span class="o">),</span>
+    <span class="n">REPEATABLE_READ</span><span class="o">(</span><span class="n">4</span><span class="o">),</span>
+    <span class="n">SERIALIZABLE</span><span class="o">(</span><span class="n">8</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>DEFAULT</code>：这是默认值，表示使用底层数据库的默认隔离级别。对大部分数据库而言，通常这值就是：<code>READ_COMMITTED</code>。</li>
+<li><code>READ_UNCOMMITTED</code>：该隔离级别表示一个事务可以读取另一个事务修改但还没有提交的数据。该级别不能防止脏读和不可重复读，因此很少使用该隔离级别。</li>
+<li><code>READ_COMMITTED</code>：该隔离级别表示一个事务只能读取另一个事务已经提交的数据。该级别可以防止脏读，这也是大多数情况下的推荐值。</li>
+<li><code>REPEATABLE_READ</code>：该隔离级别表示一个事务在整个过程中可以多次重复执行某个查询，并且每次返回的记录都相同。即使在多次查询之间有新增的数据满足该查询，这些新增的记录也会被忽略。该级别可以防止脏读和不可重复读。</li>
+<li><code>SERIALIZABLE</code>：所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</li>
+</ul>
+<p>指定方法：通过使用<code>isolation</code>属性设置，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Transactional</span><span class="o">(</span><span class="n">isolation</span> <span class="o">=</span> <span class="n">Isolation</span><span class="o">.</span><span class="na">DEFAULT</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="传播行为">传播行为</h3>
+<p>所谓事务的传播行为是指，如果在开始当前事务之前，一个事务上下文已经存在，此时有若干选项可以指定一个事务性方法的执行行为。</p>
+<p>我们可以看<code>org.springframework.transaction.annotation.Propagation</code>枚举类中定义了6个表示传播行为的枚举值：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Propagation</span> <span class="o">{</span>
+    <span class="n">REQUIRED</span><span class="o">(</span><span class="n">0</span><span class="o">),</span>
+    <span class="n">SUPPORTS</span><span class="o">(</span><span class="n">1</span><span class="o">),</span>
+    <span class="n">MANDATORY</span><span class="o">(</span><span class="n">2</span><span class="o">),</span>
+    <span class="n">REQUIRES_NEW</span><span class="o">(</span><span class="n">3</span><span class="o">),</span>
+    <span class="n">NOT_SUPPORTED</span><span class="o">(</span><span class="n">4</span><span class="o">),</span>
+    <span class="n">NEVER</span><span class="o">(</span><span class="n">5</span><span class="o">),</span>
+    <span class="n">NESTED</span><span class="o">(</span><span class="n">6</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>REQUIRED</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则创建一个新的事务。</li>
+<li><code>SUPPORTS</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则以非事务的方式继续运行。</li>
+<li><code>MANDATORY</code>：如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。</li>
+<li><code>REQUIRES_NEW</code>：创建一个新的事务，如果当前存在事务，则把当前事务挂起。</li>
+<li><code>NOT_SUPPORTED</code>：以非事务方式运行，如果当前存在事务，则把当前事务挂起。</li>
+<li><code>NEVER</code>：以非事务方式运行，如果当前存在事务，则抛出异常。</li>
+<li><code>NESTED</code>：如果当前存在事务，则创建一个事务作为当前事务的嵌套事务来运行；如果当前没有事务，则该取值等价于<code>REQUIRED</code>。</li>
+</ul>
+<p>指定方法：通过使用<code>propagation</code>属性设置，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Transactional</span><span class="o">(</span><span class="n">propagation</span> <span class="o">=</span> <span class="n">Propagation</span><span class="o">.</span><span class="na">REQUIRED</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="spring-security">Spring Security</h2>
+<ul>
+<li>通过<code>@EnableWebSecurity</code>注解开启Spring Security的功能</li>
+<li>继承<code>WebSecurityConfigurerAdapter</code>，并重写它的方法来设置一些web安全的细节</li>
+<li><code>configure(HttpSecurity http)</code>方法通过<code>authorizeRequests()</code>定义哪些URL需要被保护、哪些不需要被保护。例如以上代码指定了<code>/</code>和<code>/home</code>不需要任何认证就可以访问，其他的路径都必须通过身份验证。通过<code>formLogin()</code>定义当需要用户登录时候，转到的登录页面。</li>
+<li><code>configureGlobal(AuthenticationManagerBuilder auth)</code>方法，在内存中创建了一个用户</li>
+</ul>
+<h2 id="缓存">缓存</h2>
+<h3 id="缓存注解">缓存注解</h3>
+<ul>
+<li><code>@CacheConfig</code>：主要用于配置该类中会用到的一些共用的缓存配置。在这里<code>@CacheConfig(cacheNames = &quot;users&quot;)</code>：配置了该数据访问对象中返回的内容将存储于名为users的缓存对象中，我们也可以不使用该注解，直接通过<code>@Cacheable</code>自己配置缓存集的名字来定义。</li>
+<li><code>@Cacheable</code>：配置了findByName函数的返回值将被加入缓存。同时在查询时，会先从缓存中获取，若不存在才再发起对数据库的访问。该注解主要有下面几个参数：
+<ul>
+<li><code>value</code>、<code>cacheNames</code>：两个等同的参数（<code>cacheNames</code>为Spring 4新增，作为<code>value</code>的别名），用于指定缓存存储的集合名。由于Spring 4中新增了<code>@CacheConfig</code>，因此在Spring 3中原本必须有的<code>value</code>属性，也成为非必需项了</li>
+<li><code>key</code>：缓存对象存储在Map集合中的key值，非必需，缺省按照函数的所有参数组合作为key值，若自己配置需使用SpEL表达式，比如：<code>@Cacheable(key = &quot;#p0&quot;)</code>：使用函数第一个参数作为缓存的key值，更多关于SpEL表达式的详细内容可参考<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html#cache-spel-context">官方文档</a></li>
+<li><code>condition</code>：缓存对象的条件，非必需，也需使用SpEL表达式，只有满足表达式条件的内容才会被缓存，比如：<code>@Cacheable(key = &quot;#p0&quot;, condition = &quot;#p0.length() &lt; 3&quot;)</code>，表示只有当第一个参数的长度小于3的时候才会被缓存，若做此配置上面的AAA用户就不会被缓存，读者可自行实验尝试。</li>
+<li><code>unless</code>：另外一个缓存条件参数，非必需，需使用SpEL表达式。它不同于<code>condition</code>参数的地方在于它的判断时机，该条件是在函数被调用之后才做判断的，所以它可以通过对result进行判断。</li>
+<li><code>keyGenerator</code>：用于指定key生成器，非必需。若需要指定一个自定义的key生成器，我们需要去实现<code>org.springframework.cache.interceptor.KeyGenerator</code>接口，并使用该参数来指定。需要注意的是：<strong>该参数与key是互斥的</strong></li>
+<li><code>cacheManager</code>：用于指定使用哪个缓存管理器，非必需。只有当有多个时才需要使用</li>
+<li><code>cacheResolver</code>：用于指定使用那个缓存解析器，非必需。需通过<code>org.springframework.cache.interceptor.CacheResolver</code>接口来实现自己的缓存解析器，并用该参数指定。</li>
+</ul>
+</li>
+</ul>
+<p>除了这里用到的两个注解之外，还有下面几个核心注解：</p>
+<ul>
+<li><code>@CachePut</code>：配置于函数上，能够根据参数定义条件来进行缓存，它与<code>@Cacheable</code>不同的是，它每次都会真是调用函数，所以主要用于数据新增和修改操作上。它的参数与<code>@Cacheable</code>类似，具体功能可参考上面对<code>@Cacheable</code>参数的解析</li>
+<li><code>@CacheEvict</code>：配置于函数上，通常用在删除方法上，用来从缓存中移除相应数据。除了同<code>@Cacheable</code>一样的参数之外，它还有下面两个参数：<code>allEntries</code>：非必需，默认为false。当为true时，会移除所有数据<code>beforeInvocation</code>：非必需，默认为false，会在调用方法之后移除数据。当为true时，会在调用方法之前移除数据。</li>
+</ul>
+<h3 id="缓存配置">缓存配置</h3>
+<p>在Spring Boot中通过<code>@EnableCaching</code>注解自动化配置合适的缓存管理器</p>
+<p>除了按顺序侦测外，我们也可以通过配置属性<code>spring.cache.type</code>来强制指定。我们可以通过debug调试查看cacheManager对象的实例来判断当前使用了什么缓存</p>
+<h2 id="spring-boot的工程结构">Spring boot的工程结构</h2>
+<ul>
+<li>root package结构：<code>com.example.myproject</code></li>
+<li>应用主类<code>Application.java</code>置于root package下，通常我们会在应用主类中做一些框架配置扫描等配置，我们放在root package下可以帮助程序减少手工配置来加载到我们希望被Spring加载的内容</li>
+<li>实体（Entity）与数据访问层（Repository）置于<code>com.example.myproject.domain</code>包下</li>
+<li>逻辑层（Service）置于<code>com.example.myproject.service</code>包下</li>
+<li>Web层（web）置于<code>com.example.myproject.web</code>包下</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">com
+  +- example
+    +- myproject
+      +- Application.java
+      |
+      +- domain
+      |  +- Customer.java
+      |  +- CustomerRepository.java
+      |
+      +- service
+      |  +- CustomerService.java
+      |
+      +- web
+      |  +- CustomerController.java
+      |
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-03
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/03/04/disfordigital/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">世界是数字的</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/03/02/java8inaction/">
+            <span class="next-text nav-default">Java8实战</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

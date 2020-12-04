@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java8的使用：时间 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2018/09/06/java-time/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java8的使用：时间" />
+<meta property="og:description" content="在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2018/09/06/java-time/" />
+<meta property="article:published_time" content="2018-09-06T23:38:13+00:00" />
+<meta property="article:modified_time" content="2018-09-06T23:38:13+00:00" />
+<meta itemprop="name" content="Java8的使用：时间">
+<meta itemprop="description" content="在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对">
+<meta itemprop="datePublished" content="2018-09-06T23:38:13+00:00" />
+<meta itemprop="dateModified" content="2018-09-06T23:38:13+00:00" />
+<meta itemprop="wordCount" content="1114">
+
+
+
+<meta itemprop="keywords" content="方法,技巧," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java8的使用：时间"/>
+<meta name="twitter:description" content="在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要 考虑时间的问题。由于Java8之前标准库在时间方面的问题，对"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java8的使用：时间</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-09-06 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> Java </a>
+            </div>
+          <span class="more-meta"> 约 1114 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#字符串转换时间">字符串转换时间</a></li>
+    <li><a href="#时间转字符串">时间转字符串</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#时间间隔">时间间隔</a></li>
+    <li><a href="#时间增减及比较">时间增减及比较</a></li>
+    <li><a href="#特殊操作">特殊操作</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要
+考虑时间的问题。由于Java8之前标准库在时间方面的问题，对于时间都处理就十分都麻烦，
+甚至可以说是十分的恶心了，所以在Java8的时候就根据第三Jodo库实现了一个新的时间库
+时间库（java.time），我现在就简单的介绍下使用，也算式我最近经常使用时间库进行编程操作都一个总结吧：</p>
+<p><strong>time库都操作基本都是函数式的</strong></p>
+<p>函数式</p>
+<h1 id="时间转换">时间转换</h1>
+<p>在对时间进行处理都时候，最常见的两个操作就是将字符串转换成时间或者在各种时间格式之间机型转换，这在之前基本上是要依赖<code>SimpleDateFormat</code>来进行操作，但是这样会存在许多问题，其中时区就可以能是其中一个问题</p>
+<h2 id="字符串转换时间">字符串转换时间</h2>
+<p>对于年月日或者年月日时分秒这种比较标准都时间格式来说，我们可以直接使用自带都方法
+进行转换，需要指定特定的时间格式可以使用$DateTimeFormatter$中的数据，如果这这都
+不太合适，还可以自定义$DateTimeFormatter$的实现。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">
+<span class="c1">// 年-月-日
+</span><span class="c1"></span><span class="n">LocalDate</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&#34;date string&#34;</span><span class="o">);</span>
+
+<span class="c1">// 年-月-日 时:分:秒
+</span><span class="c1"></span><span class="n">LocalDateTime</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&#34;date string&#34;</span><span class="o">);</span>
+
+<span class="c1">// 年-月 这种一般在财务计算中常见
+</span><span class="c1"></span><span class="n">YearMonth</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&#34;date string&#34;</span><span class="o">);</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>对于一些需要自定义都时间格式来说，我们可以使用Java8自带都时间格式函数来进行转换：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">DateTimeFormatter</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="o">.</span><span class="na">ofPattern</span><span class="o">(</span><span class="s">&#34;yyyy-MM-dd&#34;</span><span class="o">);</span>
+<span class="n">LocalDate</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&#34;date string&#34;</span><span class="o">,</span> <span class="n">formatter</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="时间转字符串">时间转字符串</h2>
+<p>在转换成时间都时候，如果式向数据比较标准的时间格式，其实直接使用<code>toString()</code>方法或者<code>String.valueOf()</code>就可以很好的处理时间数据了。但是向转换到一写特使格式都时候，我们同样可以使用<code>DateTimeFormatter</code>来完成我们都操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">LocalDate</span> <span class="n">localDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+<span class="n">DateTimeFormatter</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="o">.</span><span class="na">ofPattern</span><span class="o">(</span><span class="s">&#34;dd LLLL yyyy&#34;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">formattedString</span> <span class="o">=</span> <span class="n">localDate</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">formatter</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="时间处理">时间处理</h1>
+<p>对于时间都处理，一般分为取间隔，时间的比较，时间的增加，这些操作在标准库中都有比较好的实现，我们可以直接取过来使用：</p>
+<h2 id="时间间隔">时间间隔</h2>
+<p>在使用这个方法取得时间的间隔都时候，会存在一个问题：按月都时候不是开闭包含都；精确到天或者月的时候，最后一个月不足自然的半个月都时候式不算一个月都。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">long</span> <span class="n">intervalMonth</span> <span class="o">=</span> <span class="n">ChronoUnit</span><span class="o">.</span><span class="na">MONTHS</span><span class="o">.</span><span class="na">between</span><span class="o">(</span><span class="n">startDate</span><span class="o">,</span> <span class="n">endDate</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="时间增减及比较">时间增减及比较</h2>
+<p>这个直接取时间库中都函数就可以完成：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 在这里，时间都操作式函数式的，每次都返回一个新的时间对象
+</span><span class="c1"></span><span class="n">LocalDate</span> <span class="n">newDate</span> <span class="o">=</span> <span class="n">oldDate</span><span class="o">.</span><span class="na">plusMonths</span><span class="o">(</span><span class="n">1</span><span class="o">);</span>
+
+<span class="c1">// 比较精都和时间的精度有关，两个日期比较就精确到天
+</span><span class="c1"></span><span class="kt">boolean</span> <span class="n">isBefore</span> <span class="o">=</span> <span class="n">sourceDate</span><span class="o">.</span><span class="na">isBefore</span><span class="o">(</span><span class="n">targetDate</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="特殊操作">特殊操作</h2>
+<p>在进行时间处理都时候，经常需要取这个月有多少天，这个月都月末是什么时候的操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 这个月都最后一天
+</span><span class="c1"></span><span class="n">YearMonth</span> <span class="n">sourceDate</span> <span class="o">=</span> <span class="n">targetDate</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">TemporalAdjusters</span><span class="o">.</span><span class="na">lastDayOfMonth</span><span class="o">())</span>
+
+<span class="c1">// 这个月的天数
+</span><span class="c1"></span><span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">targetDate</span><span class="o">.</span><span class="na">lengthOfMonths</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="时间转换-1">时间转换</h1>
+<p>在以前，在对时间进行相互转换都时候需要借助字符串作为中间态，但是使用Java8的标准库之后，时间对象可以直接从大精度转换成小精度：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">LocalDateTime -&gt; LocalDate -&gt; YearMonth
+</code></pre></td></tr></table>
+</div>
+</div><p>当由小精度转换成大精度都时候，只需要补全下精度就行了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">LocalDate</span> <span class="n">sourceDate</span> <span class="o">=</span> <span class="n">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">();</span>
+<span class="n">LocalDateTime</span> <span class="n">targetDate</span> <span class="o">=</span> <span class="n">sourceDate</span><span class="o">.</span><span class="na">atTime</span><span class="o">(</span><span class="n">20</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">22</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-09-06
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%96%B9%E6%B3%95/">方法</a>
+          <a href="/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2018/11/26/scrum-and-xp/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">硝烟中的Scrum和XP</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2018/02/26/usevim/">
+            <span class="next-text nav-default">Vim的使用及YouCompleteMe的配置</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

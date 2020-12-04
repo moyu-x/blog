@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>认识抽象 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/03/07/understandabstraction/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="认识抽象" />
+<meta property="og:description" content="在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/03/07/understandabstraction/" />
+<meta property="article:published_time" content="2017-03-07T19:50:46+00:00" />
+<meta property="article:modified_time" content="2017-03-07T19:50:46+00:00" />
+<meta itemprop="name" content="认识抽象">
+<meta itemprop="description" content="在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认">
+<meta itemprop="datePublished" content="2017-03-07T19:50:46+00:00" />
+<meta itemprop="dateModified" content="2017-03-07T19:50:46+00:00" />
+<meta itemprop="wordCount" content="1184">
+
+
+
+<meta itemprop="keywords" content="博客," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="认识抽象"/>
+<meta name="twitter:description" content="在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">认识抽象</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-03-07 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/"> 博客 </a>
+            </div>
+          <span class="more-meta"> 约 1184 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认为就是对抽象较好的认识。</p>
+<p>在计算机中，抽象是无处不在的。维基百科上给了一个<strong>抽象</strong>的解释：是指以缩减一个概念或是一个现象的信息含量来将其广义化（Generalization）的过程，主要是为了只保存和一特定目的有关的信息。对此，可以知道，对计算机的建模分析也是一种抽象的方法。我一直认为在编写代码的时候，需要有黑箱思想。在对一个组件（来自第三方或者团队其他成员），经过认为合适的可靠性测试后，就要认为其是一个功能可靠的组件，我无需了解他内部的具体实现，只需要知道其是主要运行的流程和功能，然后直接拿来使用就行了。只有在需要对这个模块进行改造的时候才有必要了解他的具体实现和详细的运行流程。</p>
+<p>除此之外，维基百科上也有一个关键计算机抽象化的一个定义：<strong>抽象化</strong>（英语：Abstraction）是将数据与程序，以它的语义来呈现出它的外观，但是隐藏起它的实现细节。抽象化是用来减少程序的复杂度，使得程序员可以专注在处理少数重要的部分。一个电脑系统可以分区成几个抽象层（Abstraction layer），使得程序员可以将它们分开处理。</p>
+<p>其实，看一下定义的核心，就是去除具体的实现，将系统运行的骨架及核心剥离出来，这个抽离出来的骨架可以算是对所定义物体的抽象。对于计算机的使用者来说，操作系统可以算是对整个计算机内部计算运行的一个抽象，其屏蔽了这个计算机内部的实现原理，及各部件间是如何进行运行的，而我们只知道其运行的大体流程和大体上的组成，对于其具体的实现而言我们是不清楚的，这算是对计算机的一个抽象和屏蔽。</p>
+<p>对于程序员来说，编程语言就是对计算机的抽象。在整个计算机的内部，高层是对低层次的一个抽象。如果不说操作系统，整个的抽象层次在我看了应该是这样的：问题-&gt;建模-&gt;代码框架-&gt;具体实现。对于我们写好的代码来说，下面还有许多的层次的抽象，像高级编程语言就是对汇编语言的抽象，汇编语言是对机器语言的抽象。一般我们会认为认为，到了机器语言上应该没有抽象层了吧，其实不是，机器语言还对计算机内部的各种电子元件的电气变化还是进行了抽象的（我对这些不熟）。</p>
+<p>再说为什么不说操作系统，这在计算机编程中也是个及其重要的东西，我们既可能是操作系统的使用者，又有可能是操作系统的创建者，或者兼而有之。如果离开了操作系统，离开了操作系统的依托 ，我们所编写的软件也是可以进行运行的，例如大量的嵌入式设备。对于程序员来说，操作系统来说是一个特殊的抽象层的存在，他的使用者包括了普通人和开发人员。</p>
+<p>其实我个人的认识在某些意义上来说还是有些问题的，所以我认为，如果想要了解这方面的信息，还是需要去看相关方面的书籍才行，比如《现代操作系统》和《深入理解操作系统》。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-03-07
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/03/08/selecttechnology/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">浅谈技术选择</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/03/04/disfordigital/">
+            <span class="next-text nav-default">世界是数字的</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

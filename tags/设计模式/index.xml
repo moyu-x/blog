@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>设计模式 on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 设计模式 on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 02 Jan 2017 14:48:18 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>设计模式（4）：行为模式及结论</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-4/</link>
+      <pubDate>Mon, 02 Jan 2017 14:48:18 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-4/</guid>
+      <description>行为模式 行为模式涉及到算法和对象间职责的分配。行为模式不仅描述对象或类的模式，还描述它们之间的通信模式。 行为类模式使用继承机制在类之间分派行</description>
+    </item>
+    
+    <item>
+      <title>设计模式（3）：结构性模式</title>
+      <link>https://www.idwangmo.top/2017/01/02/designpattern-3/</link>
+      <pubDate>Mon, 02 Jan 2017 14:36:09 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/02/designpattern-3/</guid>
+      <description>结构型模式涉及到如何组合类和对象已获得更大的结构。结构型类模式采用继承机制来组合接口实现。一个简单的例子是采用多重继承的方法将两个以上的类组</description>
+    </item>
+    
+    <item>
+      <title>设计模式（2）：创建型模式</title>
+      <link>https://www.idwangmo.top/2016/12/11/designpattern-2/</link>
+      <pubDate>Sun, 11 Dec 2016 19:08:01 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/11/designpattern-2/</guid>
+      <description>创建型模式实例化了过程。 设计模式中两个不断出现的主旋律： 它们都将关于该系统使用哪些具体的类的信息封装起来 隐藏了这些类的实例是如何被创建和放在</description>
+    </item>
+    
+    <item>
+      <title>设计模式（1）：基础及实例</title>
+      <link>https://www.idwangmo.top/2016/12/07/designpattern-1/</link>
+      <pubDate>Wed, 07 Dec 2016 22:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2016/12/07/designpattern-1/</guid>
+      <description>概念 每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。 一个设计模式有四个基本要素： 模式名称 问题 解决方案 效果 设计模</description>
+    </item>
+    
+  </channel>
+</rss>

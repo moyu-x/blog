@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/</link>
+    <description>Recent content in Categories on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>源码阅读</title>
+      <link>https://www.idwangmo.top/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://www.idwangmo.top/categories/java/</link>
+      <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Collection</title>
+      <link>https://www.idwangmo.top/categories/collection/</link>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/collection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leetcode</title>
+      <link>https://www.idwangmo.top/categories/leetcode/</link>
+      <pubDate>Mon, 03 Aug 2020 19:48:15 +0800</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>笔记</title>
+      <link>https://www.idwangmo.top/categories/%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://www.idwangmo.top/categories/python/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Srping</title>
+      <link>https://www.idwangmo.top/categories/srping/</link>
+      <pubDate>Sat, 23 Feb 2019 21:47:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/srping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>项目管理</title>
+      <link>https://www.idwangmo.top/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Mon, 26 Nov 2018 03:42:48 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://www.idwangmo.top/categories/vim/</link>
+      <pubDate>Mon, 26 Feb 2018 21:06:19 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>博客</title>
+      <link>https://www.idwangmo.top/categories/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 22 Feb 2018 14:07:33 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ArchLinux</title>
+      <link>https://www.idwangmo.top/categories/archlinux/</link>
+      <pubDate>Fri, 12 Jan 2018 23:35:22 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/archlinux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://www.idwangmo.top/categories/linux/</link>
+      <pubDate>Fri, 12 Jan 2018 23:35:22 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>总结</title>
+      <link>https://www.idwangmo.top/categories/%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 08 Oct 2017 23:08:39 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E6%80%BB%E7%BB%93/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mongodb</title>
+      <link>https://www.idwangmo.top/categories/mongodb/</link>
+      <pubDate>Sun, 23 Jul 2017 23:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>代码生成器</title>
+      <link>https://www.idwangmo.top/categories/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/</link>
+      <pubDate>Sat, 01 Apr 2017 22:45:15 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>思考</title>
+      <link>https://www.idwangmo.top/categories/%E6%80%9D%E8%80%83/</link>
+      <pubDate>Thu, 16 Feb 2017 11:20:04 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E6%80%9D%E8%80%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MySQL</title>
+      <link>https://www.idwangmo.top/categories/mysql/</link>
+      <pubDate>Fri, 10 Feb 2017 12:00:35 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编译</title>
+      <link>https://www.idwangmo.top/categories/%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Sun, 05 Feb 2017 22:33:44 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E7%BC%96%E8%AF%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>配置</title>
+      <link>https://www.idwangmo.top/categories/%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 05 Feb 2017 22:33:44 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技术</title>
+      <link>https://www.idwangmo.top/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 28 Jan 2017 11:55:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>https://www.idwangmo.top/categories/spring/</link>
+      <pubDate>Mon, 05 Dec 2016 23:02:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日常</title>
+      <link>https://www.idwangmo.top/categories/%E6%97%A5%E5%B8%B8/</link>
+      <pubDate>Mon, 25 Apr 2016 12:36:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E6%97%A5%E5%B8%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件</title>
+      <link>https://www.idwangmo.top/categories/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Sat, 23 Apr 2016 10:29:12 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E8%BD%AF%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>虚拟化</title>
+      <link>https://www.idwangmo.top/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/</link>
+      <pubDate>Sun, 22 Nov 2015 15:07:45 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://www.idwangmo.top/categories/windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

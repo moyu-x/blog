@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongodb on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/tags/mongodb/</link>
+    <description>Recent content in Mongodb on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 23 Jul 2017 23:30:40 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mongodb在OOM后的处理</title>
+      <link>https://www.idwangmo.top/2017/07/23/mongodb/</link>
+      <pubDate>Sun, 23 Jul 2017 23:30:40 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/07/23/mongodb/</guid>
+      <description>原因 在Linux中使用Mongodb的时候，尤其是单机使用的时候，就会出现OOM（Out of Memory）的情况，当此进程是在root权限下执</description>
+    </item>
+    
+  </channel>
+</rss>

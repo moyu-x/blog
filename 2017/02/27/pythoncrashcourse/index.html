@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python从入门到实战 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/02/27/pythoncrashcourse/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Python从入门到实战" />
+<meta property="og:description" content="前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/02/27/pythoncrashcourse/" />
+<meta property="article:published_time" content="2017-02-27T22:57:33+00:00" />
+<meta property="article:modified_time" content="2017-02-27T22:57:33+00:00" />
+<meta itemprop="name" content="Python从入门到实战">
+<meta itemprop="description" content="前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花">
+<meta itemprop="datePublished" content="2017-02-27T22:57:33+00:00" />
+<meta itemprop="dateModified" content="2017-02-27T22:57:33+00:00" />
+<meta itemprop="wordCount" content="2813">
+
+
+
+<meta itemprop="keywords" content="Python,笔记," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python从入门到实战"/>
+<meta name="twitter:description" content="前言 这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python从入门到实战</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-02-27 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 2813 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#命名">命名</a></li>
+    <li><a href="#二-字符串">二 字符串</a></li>
+    <li><a href="#数值">数值</a></li>
+    <li><a href="#注释">注释</a></li>
+    <li><a href="#python之禅">Python之禅</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#if语句">if语句</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="前言">前言</h1>
+<p>这本书是我最近几天看到Python书籍，前半部分讲的是Python的语法，本来我就学习过python，这次主要是为了制作思维导图，所以花了点时间。这本书重要的还是后面的实战部分，但是那里没有什么笔记可以记录的了，所以我先把记录好的笔记发表出来。</p>
+<h1 id="思维导图">思维导图</h1>
+<p><img src="/images/Python%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98/Python%E7%BC%96%E7%A8%8B%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98.jpg" alt="Python编程从入门到实战"></p>
+<h1 id="一-变量和基本类型">一 变量和基本类型</h1>
+<h2 id="命名">命名</h2>
+<p>在 Python 中使用变量时，需要遵守一些规则和指南。违反这些规则将引发错误，而指南旨在让你编写的代码更容易阅读和理解。请务必牢记下述有关变量的规则:</p>
+<ul>
+<li>变量名只能包含字母、数字和下划线。变量名可以字母或下划线打头，但不能以数字打头</li>
+<li>变量名不能包含空格，但可使用下划线来分隔其中的单词</li>
+<li>不要将 Python 关键字和函数名用作变量名，即不要使用 Python 保留用于特殊用途的单词，如 print 。</li>
+<li>变量名应既简短又具有描述性</li>
+<li>慎用小写字母 l 和大写字母 O ，因为它们可能被人错看成数字 1 和 0 。</li>
+</ul>
+<p>Python 解释器不会对代码做拼写检查，但要求变量名的拼写一致</p>
+<h2 id="二-字符串">二 字符串</h2>
+<p>Python 使用加号（ + ）来合并字符串。这种合并字符串的方法称为 拼接 。通过拼接，可使用存储在变量中的信息来创建完整的消息。</p>
+<p>Python 能够找出字符串开头和末尾多余的空白。要确保字符串末尾没有空白，可使用方法 rstrip() 。你还可以剔除字符串开头的空白，或同时剔除字符串两端的空白。为此，可分别使用方法 lstrip() 和 strip() 。</p>
+<p>Python 3 中的 print 是一个函数，因此括号必不可少。</p>
+<h2 id="数值">数值</h2>
+<p>在 Python 中，可对整数执行加（ + ）减（ - ）乘（ * ）除（ / ）运算。</p>
+<p>Python 将带小数点的数字都称为 浮点数 。大多数编程语言都使用了这个术语，它指出了这样一个事实：小数点可出现在数字的任何位置。每种编程语言都须细心设计，以妥善地处理浮点数，确保不管小数点出现在什么位置，数字的行为都是正常的。从很大程度上说，使用浮点数时都无需考虑其行为。你只需输入要使用的数字， Python 通常都会按你期望的方式处理它们。</p>
+<h2 id="注释">注释</h2>
+<p>编写注释的主要目的是阐述代码要做什么，以及是如何做的。在开发项目期间，你对各个部分如何协同工作了如指掌，但过段时间后，有些细节你可能不记得了。当然，你总是可以通过研究代码来确定各个部分的工作原理，但通过编写注释，以清晰的自然语言对解决方案进行概述，可节省很多时间。要成为专业程序员或与其他程序员合作，就必须编写有意义的注释。</p>
+<h2 id="python之禅">Python之禅</h2>
+<p>使用import this可以查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="四-列表">四 列表</h1>
+<p>列表 由一系列按特定顺序排列的元素组成。</p>
+<p>有时候，你不知道要从列表中删除的值所处的位置。如果你只知道要删除的元素的值，可使用方法 remove() 。</p>
+<p>Python 方法 sort() 让你能够较为轻松地对列表进行排序。</p>
+<p>你还可以按与字母顺序相反的顺序排列列表元素，为此，只需向 sort() 方法传递参数 reverse=True 。</p>
+<p>要保留列表元素原来的排列顺序，同时以特定的顺序呈现它们，可使用函数 sorted() 。函数 sorted() 让你能够按特定顺序显示列表元素，同时不影响它们在列表中的原始排
+列顺序。</p>
+<p>要反转列表元素的排列顺序，可使用方法 reverse() 。</p>
+<p>Python 通过使用缩进让代码更易读；简单地说，它要求你使用缩进让代码整洁而结构清晰。在较长的 Python 程序中，你将看到缩进程度各不相同的代码块，这让你对程序的组织结构有大致的认识。</p>
+<h1 id="五-if语句">五 if语句</h1>
+<p>每条 if 语句的核心都是一个值为 True 或 False 的表达式，这种表达式被称为 条件测试 。 Python 根据条件测试的值为 True 还是 False 来决定是否执行 if 语句中的代码。如果条件测试的值为 True ， Python 就执行紧跟在 if 语句后面的代码；如果为 False ， Python 就忽略这些代码。</p>
+<p>在 Python 中检查是否相等时区分大小写，如果大小写很重要，这种行为有其优点。但如果大小写无关紧要，而只想检查变量的值，可将变量的值转换为小写，再进行比较：</p>
+<p>要检查是否两个条件都为 True ，可使用关键字 and 将两个条件测试合而为一；如果每个测试都通过了，整个表达式就为 True ；如果至少有一个测试没有通过，整个表达式就
+为 False 。</p>
+<p>关键字 or 也能够让你检查多个条件，但只要至少有一个条件满足，就能通过整个测试。仅当两个测试都没有通过时，使用 or 的表达式才为 False 。</p>
+<p><strong>python的检查支持短路检查，可以将频繁测试的放在最前面</strong></p>
+<h2 id="if语句">if语句</h2>
+<p>简单的if语句</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="n">conditional_test</span><span class="p">:</span>
+  <span class="n">do</span> <span class="n">something</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="六-字典">六 字典</h1>
+<p>在 Python 中， 字典 是一系列 键 — 值对 。每个 键 都与一个值相关联，你可以使用键来访问与之相关联的值。与键相关联的值可以是数字、字符串、列表乃至字典。事实上，可将任何 Python 对象用作字典中的值。在 Python 中，字典用放在花括号 {} 中的一系列键 — 值对表示</p>
+<p>对于字典中不再需要的信息，可使用 del 语句将相应的键 — 值对彻底删除。使用 del 语句时，必须指定字典名和要删除的键。</p>
+<p>要编写用于遍历字典的 for 循环，可声明两个变量，用于存储键 — 值对中的键和值。对于这两个变量，可使用任何名称。</p>
+<p>for 语句的第二部分包含字典名和方法 items() ，它返回一个键 — 值对列表。接下来， for 循环依次将每个键 — 值对存储到指定的两个变量中。</p>
+<h1 id="七-用户输入和while循环">七 用户输入和while循环</h1>
+<p>函数 input() 让程序暂停运行，等待用户输入一些文本。获取用户输入后， Python 将其存储在一个变量中，以方便你使用。函数 input() 接受一个参数：即要向用户显示的 提示 或说明，让用户知道该如何做。</p>
+<p>处理数值信息时， 求模运算符 （ % ）是一个很有用的工具，它将两个数相除并返回余数。</p>
+<p>在要求很多条件都满足才继续运行的程序中，可定义一个变量，用于判断整个程序是否处于活动状态。这个变量被称为 标志 ，充当了程序的交通信号灯。你可让程序在标志为 True 时继续运行，并在任何事件导致标志的值为 False 时让程序停止运行。这样，在 while 语句中就只需检查一个条件 —— 标志的当前值是否为 True ，并将所有测试（是否发生了应将标志设置为 False 的事件）都放在其他地方，从而让程序变得更为整洁。</p>
+<h1 id="八-函数">八 函数</h1>
+<p>编写函数时，可给每个形参指定 默认值 。在调用函数中给形参提供了实参时， Python 将使用指定的实参值；否则，将使用形参的默认值。因此，给形参指定默认值后，可在函数调用中省略相应的实参。使用默认值可简化函数调用，还可清楚地指出函数的典型用法。</p>
+<h1 id="九-类">九 类</h1>
+<p>面向对象编程 是最有效的软件编写方法之一。在面向对象编程中，你编写表示现实世界中的事物和情景的类，并基于这些类来创建对象。编写类时，你定义一大类对象都有的通用行为。基于类创建 对象 时，每个对象都自动具备这种通用行为，然后可根据需要赋予每个对象独特的个性。使用面向对象编程可模拟现实情景，其逼真程度达到了令你惊讶的地步。根据类来创建对象被称为实例化 ，这让你能够使用类的实例。</p>
+<h1 id="十-文件和异常">十 文件和异常</h1>
+<p>很多程序都要求用户输入某种信息，如让用户存储游戏首选项或提供要可视化的数据。不管专注的是什么，程序都把用户提供的信息存储在列表和字典等数据结构中。用户关闭程序时，你几乎总是要保存他们提供的信息；一种简单的方式是使用模块 json 来存储数据。</p>
+<h1 id="十一-测试">十一 测试</h1>
+<p>![unittest Module 中的断言方法](/images/Python从入门到实战/unittest Module 中的断言方法.jpg)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-02-27
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/python/">Python</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/03/02/java8inaction/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java8实战</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/02/22/javapersistencewithmybatis3/">
+            <span class="next-text nav-default">Java Persistence with Mybatis3</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

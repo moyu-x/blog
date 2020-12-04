@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.idwangmo.top/sitemap.xml

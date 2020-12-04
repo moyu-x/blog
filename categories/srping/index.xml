@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Srping on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/srping/</link>
+    <description>Recent content in Srping on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 23 Feb 2019 21:47:49 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/srping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring tips</title>
+      <link>https://www.idwangmo.top/2019/02/23/spring-tips/</link>
+      <pubDate>Sat, 23 Feb 2019 21:47:49 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2019/02/23/spring-tips/</guid>
+      <description>Feign From 的使用 建立一个feign的配置文件，并在其中写入如下代码： 1 2 3 4 @Bean fun encoder(): Encoder { return FormEncoder() } 然后在请求到接口上加入consumes = [MediaT</description>
+    </item>
+    
+  </channel>
+</rss>

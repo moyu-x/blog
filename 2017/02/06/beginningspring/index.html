@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring入门经典 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/02/06/beginningspring/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring入门经典" />
+<meta property="og:description" content="第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/02/06/beginningspring/" />
+<meta property="article:published_time" content="2017-02-06T22:56:40+00:00" />
+<meta property="article:modified_time" content="2017-02-06T22:56:40+00:00" />
+<meta itemprop="name" content="Spring入门经典">
+<meta itemprop="description" content="第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不">
+<meta itemprop="datePublished" content="2017-02-06T22:56:40+00:00" />
+<meta itemprop="dateModified" content="2017-02-06T22:56:40+00:00" />
+<meta itemprop="wordCount" content="12679">
+
+
+
+<meta itemprop="keywords" content="笔记,Spring," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring入门经典"/>
+<meta name="twitter:description" content="第一章POJO编程模式、轻量级容器和控制反转 容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务 控制反转：在组件类中，不"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring入门经典</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-02-06 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 12679 字 </span>
+          <span class="more-meta"> 预计阅读 26 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#依赖注入">依赖注入</a>
+      <ul>
+        <li><a href="#setter注入">Setter注入</a></li>
+        <li><a href="#构造函数注入">构造函数注入</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring管理bean">Spring管理Bean</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章pojo编程模式轻量级容器和控制反转">第一章POJO编程模式、轻量级容器和控制反转</h1>
+<p>容器：在该环境中，所有组件都被创建和装配，并且提供了所需服务的中间件服务</p>
+<p>控制反转：在组件类中，不需要使用新的操作符来实例化依赖组件，而是在运行时由容器实例将依赖组件注入组件。因此，对依赖项的控制由组件转到容器。</p>
+<p>控制反转的两种形式：依赖查找和依赖注入</p>
+<p>中间件服务：在每一个应用程序中都会出现的需求，这些需求独立于业务需求</p>
+<h1 id="第二章-使用spring进行依赖注入">第二章 使用Spring进行依赖注入</h1>
+<p>Spring Application Framework的核心是IoC容器。</p>
+<p><img src="/imagess/BeginningSpring/Spring%E9%85%8D%E7%BD%AE%E5%85%83%E6%95%B0%E6%8D%AE.png" alt="Spring配置元数据"></p>
+<p>所有的Bean都被定义在<code>&lt;beans&gt;</code>元素中，而每一个Bean则使用<code>&lt;bean&gt;</code>元素进行定义。Bean的名称由id特性定义。应用程序或者配置元数据中的其他Bean定义可以通过名称访问相关的Bean。</p>
+<p><code>@Autowired</code>通常用来指定在运行时被Spring容器所注入的Bean依赖。</p>
+<p>Spring容器也是一个Java对象，在某些特定的时间点被创建，并允许管理应用程序的其他部分。在独立的应用程序中，可以使用编程方法，而在Web应用程序中，使用声明方法则是更好的选择。</p>
+<p><img src="/images/BeginningSpring/%E5%88%86%E5%B1%82%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" alt="分层体系结构"></p>
+<p>在工厂方法中，首先通过调用Setter方法设置所需的依赖项，然后使用具体类创建一个Bean并将其返回。此外，依赖项还可以通过构造函数参数的形式赋予。</p>
+<p>工厂方法的返回类型被定义为接口而不是具体类。</p>
+<p>默认情况下，没一个Bean都有一个被称为单实例作用域的单个实例。Spring在运行时动态地扩展<code>@Congfiguraton</code>类中多次调用工厂方法，在第一次创建了Bean实例之后就不会创建任何新的Bean实例。对于连续调用，工厂方法将会返回相同的Bean实例。</p>
+<p><code>@Service</code>除了将一个类定义为一个Bean之外，再无其他特殊含义。而注解<code>@Repository</code>能够启用与Spring数据访问相关的其他功能。</p>
+<p>默认情况下，Bean的名称派生自简单的类名但首字母小写。</p>
+<p>Spring通过扫描类路劲中存在的类，尝试在启动期间识别带有注解<code>@Component</code>的类及其派生类。</p>
+<p>需要将<code>&lt;context:component-scan/&gt;</code>放到Bean配置文件中。为此，需要通过在元素<code>&lt;beans&gt;</code>的上面添加架构位置指令来启用上下文命名空间功能。</p>
+<p>每一个Spring模块都有自己的命名空间支持，并针对不同的目的提供了多个命名空间元素。</p>
+<h2 id="依赖注入">依赖注入</h2>
+<h3 id="setter注入">Setter注入</h3>
+<p>Spring需要尽可能多地处理必要的类型转换。Spring通过使用内置的属性编辑器来完成转换工作，此外，还可以添加自定义编辑器，以便处理默认情况下Spring不能处理其他类型转换。</p>
+<h3 id="构造函数注入">构造函数注入</h3>
+<p>Spring容器首先查看Bean定义中的<code>&lt;constructor-arg/&gt;</code>元素，并识别<code>&lt;constructor-arg/&gt;</code>元素指定的依赖项，然后使用Java反射尝试找到一个合适的构造函数。<code>&lt;contructor-arg/&gt;</code>元素的顺序并不重要。在确定了合适的构造函数之后，Spring容器将依赖项作为输入参数值并传入调用构造函数。有时需要提供一个index特性。</p>
+<p><strong>构造函数注入的其中一个缺点是无法处理循环依赖</strong></p>
+<p>Spring容器的启动过程大致可分为两个主要阶段：</p>
+<ol>
+<li>容器处理配置元数据并建立元数据中存在的Bean定义，在该过程中还会对这些Bean定义进行验证</li>
+<li>完成Bean的创建，然后完成依赖注入</li>
+</ol>
+<p>一个Bean在被完全 创建且自己的依赖项被注入之前是不会作为一个依赖项被注入到其他Bean中去。</p>
+<p>Spring容器提供了两种不同形式的Bean重写机制：</p>
+<ol>
+<li>发生在Bean配置元数据文件级别</li>
+<li>发生在容器级别</li>
+</ol>
+<p>可以在基于XML的配置中通过使用<code>&lt;bean&gt;</code>元素的depends-on特性来指定Bean b在Bean a之前被创建。只有在无状态Bean的情况下，当该Bean使用了depends-on特性时，depends-on特性中所列举的Bean才被销毁。（注解形式为<code>@DependsOn</code>）。当在类级别使用<code>@DependOn</code>注解是，通常在组件扫描期间进行处理，此时只有在<code>@DependOn</code>注解内指定的Bean被创建之后才会创建本类，否则就不会创建本类。</p>
+<p>自动装配中有三种模式：ByType、ByName和constructor。如果有多个Bean实例合适自动转配DAO某一个特定属性，那么依赖注入将会失败。一种方法是从自动转配的候选Bean中进行过滤，并注入剩下的Bean，可以使用<code>autowire-candidate</code></p>
+<p>Spring提供了<code>Qualifier</code>注解，当将<code>@Qualifer</code>注解与<code>@Autowired</code>和<code>@Bean</code>注解放置在一起时，自动装配模式将变为byName</p>
+<p><code>@Qualifier</code>注解接受了一个String值，通过该值乐易更改秒人的限定值。这样一来，可以根据不同的限定，可以自动转配那些名称与属性名称并不匹配的其他Bean。</p>
+<p>自动装配仅适用于对其他Bean的依赖，而不适用于纯粹值，对于这些值，可以在字段或Setter方法上使用<code>@Value</code>注解。<code>@Value</code>注解接受一个String值，该值指定了将要被注入DAO内置的Java类型属性的值，而必要的类型转换则由Spring容器处理。其还可以用于表达式驱动的依赖注入。</p>
+<p>在Spring容器控制之外的对象获取在Spring容器中的Bean</p>
+<p><img src="/images/BeginningSpring/%E8%8E%B7%E5%8F%96Spring%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1.png" alt="获取Spring中的对象"></p>
+<p>不管如何努力，某些情况下总会需要从处于Spring容器控制之外的其他对象访问Bean，在这种情况下，这些对象首先应该获取该对该环境中ApplicationContext实例的引用，对于独立的应用程序，应该由开发人员显示处理该任务。对于web应用程序，Spring提供了一个WebApplicationContextUtils的实用工具类，该类中的方法可以返回Web应用程序的ApplicationContext实例。</p>
+<h2 id="spring管理bean">Spring管理Bean</h2>
+<p>在基于XML的配置文件中，使用id特性将一个名称分配个一个Bean，相同的XML文件中不能复制同一个名称，在其他文件中XML文件可以将相同的名称分配给另一个Bean定义，这种情况下，Bean重写机制开始发挥作用。</p>
+<p>基于注解的配置<code>@Component</code>及其派生接收一个Strting值作为Bean名称，如果没有提供名称，那么默认情况下一个简单的类名（第一个字符小写）将成为Bean名称。</p>
+<p>创建Bean的方法：</p>
+<ol>
+<li>调用相关类中一个可用的构造函数</li>
+<li>调用可用的静态或实例工厂方法</li>
+<li>使用Spring自带的FactoryBean接口</li>
+</ol>
+<p>默认情况下，由Spring容器创建的所有Bean都是Singleton作用域。当不同的Bean与不同的层相对应的时，可用使用Singleton作用域，此时创建的实例都是无状态实例，在同一时间服务于不同的请求。</p>
+<p>Spring的作用域：</p>
+<ol>
+<li>Singleton</li>
+<li>protype</li>
+<li>Request</li>
+<li>Session</li>
+<li>globalSession</li>
+</ol>
+<p>当定义Request作用域Bean和Session作用域Bean时，必须在<code>&lt;Bean&gt;</code>元素中放置<code>&lt;aop:scoped-proxy/</code>元素作为一个子元素。</p>
+<p><img src="/images/BeginningSpring/Spring%E5%86%85%E7%BD%AE%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F.png" alt="Spring内置的作用域"></p>
+<p><code>@Scope</code>注解被用来在类级别或工厂级别指定当前Bean定义的作用域，其通过一个String值标示Bean定义的作用域，此外还可以接受第二个参数，该参数可以修改代理生成模式。</p>
+<p>一些Bean可能只在特定的场合或备选方案中使用，在其他情况下并不需要。在这种情况下，预先初始化可能会导致不必要的堆内存消耗</p>
+<p>如果在带有<code>@Component</code>注解的类级别或者在带有<code>@Bean</code>注解的工厂方法级别将<code>@Lazy</code>特性设置为true，那么Bean定义就是延迟初始化</p>
+<p>生命周期回调：</p>
+<ol>
+<li>基于XML的配置的``元素有init-method和destory-method特性，它们接收Bean类中的方法名称作为特性值</li>
+<li>Spring还支持JSR-250 Common Java注解<code>@PostConstruct</code>和<code>PreDestory</code>注解</li>
+<li>使用Spring提供的两个特殊接口：InitializingBean和DisposableBean,，分别声明了afterPropertiesSet()和destory()方法</li>
+</ol>
+<p>有时可能需要根据运行时环境来定义Bean，因为在一个配置元数据文件中不能有两个同名的Bean定义，所有首先必须创建两个不同的Bean配置元数据文件，在每个文件中包括了针对特定环境或平台的Bean定义，通常此时还需要创建第三个带有一个导入元素的Bean配置文件，该元素根据一些特定平台值导入两个元数据中的一个。</p>
+<p>Spring 3.1引入了Bean定义配置文件。在基于XML的配置文件中，该配置文件支持在一个<code>&lt;beans&gt;</code>元素中定义另一个<code>&lt;beans&gt;</code>元素。</p>
+<p><img src="/images/BeginningSpring/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E5%85%83%E7%B4%A0%E6%A0%87%E8%AE%B0.png" alt="依赖注入的元素标记"></p>
+<h1 id="第三章-使用spring-mvc构建web应用程序">第三章 使用Spring MVC构建Web应用程序</h1>
+<p>万维网的三个核心元素：HTML，HTTP和URI</p>
+<p><img src="/images/BeginningSpring/BeginningSpringMVC%E7%BB%93%E6%9E%84.png" alt="BeginningSpringMVC结构"></p>
+<p><img src="/images/BeginningSpring/DispatchServlet.png" alt="DispatchServlet"></p>
+<p>DispatchServlet的定义包含在Web应用程序的部署描述文件中，即web.xml文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;servlet&gt;</span>
+	<span class="nt">&lt;servlet-name&gt;</span>springmvc<span class="nt">&lt;/servlet-name&gt;</span>
+	<span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+  	<span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+
+<span class="nt">&lt;servlet-mapping&gt;</span>
+	<span class="nt">&lt;servlet-name&gt;</span>springmvc<span class="nt">&lt;/servlet-name&gt;</span>
+	<span class="nt">&lt;url-pattern&gt;</span>*.mvc<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>默认情况下，该配文件的解析机制使用了一个默认的命名约定。Servlet默认在WEB-INF文件夹下查找名为{servlet-name}-servlet.xml的配置文件。</p>
+<p>如果使用的是Spring 3.1，还可以在web-fragment.xml文件中定义Servlet，从而向应用程序引入可拔插功能</p>
+<p>通过实现ServletContextAware接口，在WebApplicationContext内注册的Bean还可以访问Servlet的上下文。</p>
+<p>在Spring 3.2之前，需要在XML配置文件中声明<code>&lt;mvc:annotation-driven/&gt;</code>标签，以便将请求调度配置到控制器类；并且需要将DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapterBean注册到应用程序上下文，以便请求处理。</p>
+<p>@Controller用来表示被注解的类作为MVC框架的一个Controller的主要注解</p>
+<p>@RequestMapping注解被用来将用户的请求映射到处理器类或方法。</p>
+<p>@ModeAtrribute注解使用一个向视图公开的键将一个返回值与一个参数绑定起来</p>
+<p>@PathVariable注解将一个方法参数绑定到一个URL模板</p>
+<p>@ControllerAdvice注解能够让我们将代码集中到一个地方，以便跨控制器共享代码</p>
+<p>@InitBinder注解确定用来出事化WebDataBinder</p>
+<p>@ExceptionHandler注解可以订阅方法来处理在控制类中发生的异常</p>
+<p>如果对一个字段同时应用了注解的消息特性和隐式键定义，那么隐式定义的优先级高于注解和消息特性</p>
+<p>Spring提供了两种方法来处理文件上传：</p>
+<ol>
+<li>使用Commons FileUpload多部分请求流程</li>
+<li>使用Servlet 3.1多部分请求流程</li>
+</ol>
+<p>默认情况下，Spring并不会处理任何多部分请求，所有为了启用多部分处理，首先需要在Web应用程序的上下文中定义一个多部分解析器，DispatcherServlet可以访问该解析器。Bean名称应该被定义multipartResolver。</p>
+<p>因为一般来说应该在一个公共的中心位置处理异常，所以创建一个可以处理异常的全局方法显得很有意义（@ControllerAdvice）</p>
+<p>为了初始化区域设置解析器，Dispatcher Servlet在应用程序上下文中查找一个名为localeResolver的Spring Bean。如果没有找到该Bean，则配置使用AcceptHeaderLocaleResolver Bean，其使用键accept-language从HTTP请求头中提取区域设置信息，而该区域设置信息有客服端浏览器发送。处理区域设置信息的一个更好的方法是将其存储在用户会话中。SessionLocaleResolver类通过一个预定义会话特性来存储该信息。</p>
+<p>更改区域设置的另一种方法是使用CokieLocaleResolver类，该类在客户端搜索一个Cookie，如果找到，则设置区域设置。</p>
+<p>Spring 4.0引入了扩展自LocaleResolver的LocaleContextResolver接口，从而支持丰富的区域设置上下文。</p>
+<p>主题架构包含三个主要机制：支持主题的资源包、主题解析器和主题更改拦截器。</p>
+<p>DispatcherServlet将在应用程序上下文中查找一个名为themeResolver的Spring bean，如果该Bean不存在，则配置使用FixedThemeResolver</p>
+<p><img src="/images/BeginningSpring/SpringMVC%E7%9A%84%E6%A0%87%E7%AD%BE.png" alt="SpringMVC的标签"></p>
+<h1 id="第四章-使用spring进行jdbc数据访问">第四章 使用Spring进行JDBC数据访问</h1>
+<p>JDBC没有对不同的数据库供应商所提供的SQL符号进行完全抽象。一般来说，开发人员需要编写特定于自己所使用的关系数据库供应商的SQL语句</p>
+<p>当使用JDBC时，通常会长数据访问层使用以下类似模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+  <span class="c1">// obtain database connection
+</span><span class="c1"></span>  <span class="c1">// start a transaction
+</span><span class="c1"></span>  <span class="c1">// create and execute the query
+</span><span class="c1"></span>  <span class="c1">// process qurey result
+</span><span class="c1"></span>  <span class="c1">// commit the transaction
+</span><span class="c1"></span><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">SQLException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// handle SQL execeptions, perform transaction rollback
+</span><span class="c1"></span><span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+  <span class="c1">// close db resource like connections, statements
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Spring主要使用三种主要方法来提供数据访问操作（通过使用JDBC来完成）：</p>
+<ul>
+<li>使用基于Template Method模式的使用程序类，并通过删除应用程序中重复的数据访问代码块，正确处理资源清理等操作，从而更容易地完成JDBC操作。</li>
+<li>通过使用诸如SimpleJdbcInsert和SimpleJdbcCall之类的类及数据库元数据，简化查询</li>
+<li>通过使用MappingSqlQuery、SQLUpdate和StroredProcedure类，将数据库操作表示为可重复使用的Java对象</li>
+</ul>
+<p>使用Spring的DriverManagerDataSource类定义一个dataSource Bean，该类是javax.sql.DataSource接口的简单实现。但是不要在生产环境中使用。</p>
+<p>Spring对创建华为使用轻量级的数据库实例提供了良好的支持，为此提供了EmbeddedDatabase接口。</p>
+<p>可以使用SQL脚本填充嵌入式数据库，而该脚本可以作为输入参数提供。此时，需要在根类路径中创建schema.sql个data.sql脚本文件，以便上面所述的测试类可以正常工作。</p>
+<p>对于企业级的Java生产环境来说，使用带有连接池功能的DataSource实例可能更加合适。（C3P0或DBCP）。</p>
+<p>如果想要使用有应用程序服务器管理的DataSource实例，可以使用Spring的JEE架构命名空间支持，并借助于JNDI查找访问该实例。</p>
+<p>每次应用程序启动时都会运行初始化脚本，如果只想执行一次初始化脚本，则必须在应用程序之外执行初始化脚本或者有条件的运行初始化脚本。</p>
+<p>Spring的JDBC支持的核心类是JdbcTemplate。该类简化了JDBC的使用并有助于避免常见错误的发生。可以使用JdbcTemplate执行SQL查询或者插入、更新和删除语句。他执行核心的JDBC工作流，在ResultSets上进行迭代操作以及获取JDBC异常并将其转换为Spring提供的泛型的、可提供更多信息的DataAccessException结构。应用程序代码只需提供SQL以及必要的ResultSet处理逻辑即可。</p>
+<p>JdbcTemplate被定义为一个Spring管理的Bean。该Bean是线程安全的，并且可以被不同的数据访问对象共享，因此，它被定义成单例。JdbcTemplate Bean的主要依赖是一个DataSource对象。</p>
+<p>可以使用RowMapper将ResultSet中返回的每一行映射到一个结果对象。</p>
+<p>QuerForList()方法执行查询并返回一个List，其中元素是使用列名作为键的Map</p>
+<p>NamedParameterJdbcTemplate实际上封装了JdbcTemplate，所以几乎所以的艰苦工作都由JdbcTemplate来完成。</p>
+<p>SQLParameterSource接口有多个不同实现，而MapSQLParameterSource是其中之一。它实际上封装了一个普通的Map，所有键是命名参数名，而值是命名参数值。此外BeanPropertySqlParemeterSource实现封装了JavaBean对象，而该对象的属性被用作命名参数值。</p>
+<p>IN字句在SQL标准中仅支持100个以内的占位符作为查询参数。</p>
+<p>使用SimpleJdbcCall和StoredProcedure类调用存储过程和存储函数。</p>
+<p>可以使用batchUpdate进行批处理</p>
+<p>访问特定于供应商的JDBC方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Connection</span> <span class="n">con</span> <span class="o">=</span> <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">getDataSource</span><span class="o">().</span><span class="na">getConnection</span><span class="o">();</span>
+<span class="n">Connection</span> <span class="n">nativeCon</span> <span class="o">=</span> <span class="n">jdbcTemplate</span><span class="o">.</span><span class="na">getNativeJdbcExtractor</span><span class="o">().</span><span class="na">getNativeConnection</span><span class="o">(</span><span class="n">con</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当使用java.sql.Statement执行一个查询时，数据库首先获取查询字符串，然后在执行之前进行解析、编译以及计算执行计划。</p>
+<p>通过使用Spring，可以将任意SQL查询封装为一个Java对象。为此，Spring提供了抽象类MappingSQLQuery，线程安全，并且可以被应用程序中的其他DAO对象所共享。</p>
+<p>在实现可重复使用的查询对象的过程中，第一步是向其超类构造函数传入一个可用的dataSource Bean以及一个SQL查询语句。第二步，通过调用declareParameter(&hellip;)方法为构造函数提供SQL参数，而这些参数使用了SQLParameter实例。最后一步是调用compile()方法。</p>
+<p>Spring JDBC所抛出的所有异常都是DataAccessException（RuntimeException类型）的子类，所有不必显示处理。任何被底层JDBC API抛出的受检查的SQLException都还与DataAccessException框架子类相映射。</p>
+<p>可以使用Spring的JDBC支持所提供的SQLExceptionTranslator自动将SQLException转换为特定于Spring的DataAccessException。SQLExceptionTranslator类实际上是一个接口，并且有多个实现。</p>
+<p>Spring所使用的默认实现是SQLErrorCodeSQLExceptionTranslator，而该实现使用了特定供应商的错误代码。错误代码可以通过SQLErrorCodeFactory类获取，该工厂类从项目类路径中加载一个sql-error-codes.xml文件。</p>
+<p>SQLExceptionTranslato接口的另一个公共实现是SQLStatteSQLExceptionTranslator，它使用了抛出SQLException中的SQL状态信息。</p>
+<p>默认情况下，如果JdbcTemplate的dataSource依赖得到满足，那么JdbcTemplate会创建并使用SQLErrorCodeExceptionTranslator；否则，就会就会SQLStateCodeExceptionTranslator。其结果就是，在默认情况下，如果数据访问对象正在使用JdbcTemplate，就可以利用自动异常转换功能。</p>
+<p><img src="/images/BeginningSpring/Spring%E7%9A%84JDBC%E7%9F%A5%E8%AF%86%E7%82%B9.png" alt="Spring的JDBC知识点"></p>
+<h1 id="第五章-通过spring使用jpa进行数据访问">第五章 通过Spring使用JPA进行数据访问</h1>
+<p>范式不匹配：</p>
+<ol>
+<li>对象之间的相互管理</li>
+<li>粒度</li>
+<li>继承和多态行为相关</li>
+</ol>
+<p>一个成熟的ORM工具该具备以下功能：</p>
+<ul>
+<li>对象模型和关系模型之间的元数据映射</li>
+<li>用来在对象上执行相关操作的CRUD API</li>
+<li>一种对象查询语言</li>
+<li>不同的数据获取策略和对象网络遍历功能，以便提高内存使用率及数据获取时间的性能</li>
+</ul>
+<p>对象-关系映射通常发生在以下两者之间：</p>
+<ul>
+<li>类和表</li>
+<li>类的属性和表的列</li>
+<li>对象关联和外键</li>
+<li>Java类型和SQL类型</li>
+</ul>
+<p>通过<code>@GeneratedValue</code>注解的strategy属性指定实体类的ID生成策略。如果没有指定，JPA则默认使用底层数据库提供的程序的默认策略。</p>
+<p>默认情况下，类中定义的任何特性都被假定为持久化。如果不想让某一属性持久化，则可以用<code>@Transient</code>注解或者transient修饰符来标记它。</p>
+<p>对象之间存在的多种不同类型的关联：</p>
+<ul>
+<li>一对一（1:1）</li>
+<li>多对一（M:1）</li>
+<li>一对多（1:M）</li>
+<li>多对多（M:M）</li>
+</ul>
+<p><img src="/images/BeginningSpring/Java-SQL%E5%85%B3%E7%B3%BB%E6%98%A0%E5%B0%84%E8%A1%A8.png" alt="Java-SQL关系映射表"></p>
+<p>默认情况下，JPA将Date类型的属性映射到timestamp。</p>
+<p>默认情况下，JPA处理Java枚举类型，并将带有序号的枚举类型映射到数据库中带有数值SQL类型的列。然而，如果想要保留枚举值的名称，可以使用带有EnmuType.STRING属性值的<code>@Enumerated</code>注解。</p>
+<p>可以使用<code>@CollectionTable</code>注解指定用来保存集合值的表。</p>
+<p>JPA有两种事物模式：一种是RESOURCE_LOCAL，另一种是JTA</p>
+<p>如果之间连接有Hibernate管理，那么提供一个方言类是可选的。因为Hibernate可以通过查看JDBC驱动程序类知道使用的是哪一个数据库，所以可以自己推断出对应的方言类。</p>
+<p>JPA或者ORM的另一个重要特征是传递性持久化。对于在使用EntityManager实例加载的实体实例上锁完成的更改，JPA会进行跟踪。被更改的实体标记为“脏数据”。该过程称为自动脏数据检查。在实体上完成的更改会导致更新语句，当开发人员提交事务时，JPA会执行这些更新语句。只要实体与EntityManager相连接，并且EntityManager保持打开状态，那么实体就会被跟踪。当关闭EntityManager时，加载的实体将分离，而它们的状态更改不会被跟踪。此时需要一个新的EntityManager实例并使用merge操作重新加载或者重新关联它们。</p>
+<p>使用Spring的JPA带来的好处：</p>
+<ul>
+<li>更容易且更加强大的持久化单元配置</li>
+<li>自动EntityManager管理</li>
+<li>更容易测试</li>
+<li>常见的数据访问异常</li>
+<li>集成事务管理</li>
+</ul>
+<p>Spring提供三种不同的方法来配置EntityManagerFactory：</p>
+<ul>
+<li>LocalEntityManagerFactoryBean</li>
+<li>通过JNDI进行EntityManagerFactory查找</li>
+<li>LocalContainerEntityManagerFactoryBean</li>
+</ul>
+<p>@PersistenceUnit注解表示对EntityManagerFactory的依赖，而@PersistenceContext则表示对容器管理的EntityManager实例的依赖。</p>
+<p>Spring可以处理数据访问层中抛出的不同类型的数据访问异常，并将这些异常转换为一个Spring定义的标准的数据访问异常层次结构，从而减轻开发人员的工作量。</p>
+<p>为了使用Spring的异常处理和转换能力，需要使用<code>@Repository</code>注解来标记DAO，然后，需要从PersistenceExceptionTranslationPostProccessor类创建一个Bean定义，以便Spring通知DAO Bean，捕获特定技术的数据访问异常，并将异常转换为DataAccessException层次结构。</p>
+<p><img src="/images/BeginningSpring/SpringJPA1.png" alt="SpringJPA1"></p>
+<p><img src="/images/BeginningSpring/SpringJAP2.png" alt="SpringJAP2"></p>
+<h1 id="第六章-使用spring管理事务">第六章 使用Spring管理事务</h1>
+<p>事务隔离的属性（ACID）：</p>
+<ul>
+<li>原子性：在任何事务中都可能在数据上执行多个操作。</li>
+<li>一致性：为了让一个系统保持一致，一个活动事务结束之后底层数据库必须处于一致状态。</li>
+<li>隔离性：隔离性定义了如何保护未提交数据免受其他并发事务的影响。</li>
+<li>持久性：当接受到一个系统的提交消息时，系统就具有了持久性，从而可以确认所做的更改已经反映到系统中，而此后可以处理任何可能发生的系统故障。</li>
+</ul>
+<p>通常，每一个数据处理操作SQL是分别执行的，彼此之间完全独立。然而，调用<code>connection.setAutoCommit(false)</code>将事务激活，JDBC会等待反映变化，直到事务结束。</p>
+<p>在JPA中，几乎每个方法调用都会抛出受检查的java.sql.SQLException。</p>
+<p>每种数据访问技术都有其事务机制，他们各自提供不同的API来开始新事务，当数据操作成功完后提交事务，或在发送错误时回滚事务。</p>
+<p>Spring的事务抽象模型基于PlathformTransctionManager接口，并且存在不同的具体实现，而每一种实现都与一个特定的数据访问技术相对应。</p>
+<p><img src="/images/BeginningSpring/%E4%B8%8E%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E6%8A%80%E6%9C%AF%E5%AF%B9%E5%BA%94%E7%9A%84PlathformTransctionManager%E5%AE%9E%E7%8E%B0.png" alt="与不同数据访问技术对应的PlathformTransctionManager实现"></p>
+<p>事务是需要定义边界的，事务性方法的一般结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+  <span class="n">begin</span> <span class="n">transaction</span>
+  <span class="n">execute</span> <span class="n">transactional</span> <span class="n">code</span> <span class="n">block</span>
+  <span class="n">commit</span> <span class="n">transation</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exection</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">handle</span> <span class="n">exception</span>
+  <span class="n">rollback</span> <span class="n">transaction</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+  <span class="k">do</span> <span class="n">resource</span> <span class="n">clean</span> <span class="n">up</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>事务管理是一个横切关注点，而横切管制点最好使用面向切面的编程</p>
+<p>当调用服务方法是，如果事务不存在，则开始事务。然后将事务资源（此时为Connection对象）存储在一个ThreadLocal数据结构总，可以从代码的任何位置访问该资源，并且不必知道如何直接访问一个ThreadLocal数据结构。</p>
+<p>事务传播的规则：</p>
+<ul>
+<li>Propagation REQUIRED：当调用一个方法是，如果不存在事务，Propagation REQUIRED会开始一个新事务，但如果存在一个由其他方法调用而开始的活动事务，则保持该事务，并且在同一事务中执行第二个方法调用。</li>
+<li>Propagation REUIRES_NEW：不管是否已经存在一个活动事务，通常都会开始一个新的事务。</li>
+<li>Propagation NESTED：不管是否已经存在一个活动事务，通常都会开始一个新的事务，但并没有两个独立的事务，而只有一个跨越不同方法调用的活动事务。</li>
+<li>Propagation SUPPORTS：让当前的方法在一个事务中工作，否则，方法在没有任何事务的情况下工作。</li>
+<li>Propagation NOT_SUPPORTS：如果存在一个活动事务，那么该活动事务将被暂停，直到方法调用结束为止。</li>
+<li>Propagation NEVER：当方法调用时，如果系统中存在一个活动事务且发生了错误，那么必须在系统中没有任何活动事务的情况下调用方法。</li>
+<li>Propagation MANDATORY：当调用方法是，如果系统中不存在一个活动的事务且发生了错误，必须确保在访问该方法是已经创建了一个事务。</li>
+</ul>
+<p><img src="/images/BeginningSpring/%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E7%9A%84%E8%A7%84%E5%88%99.png" alt="事务传播的规则"></p>
+<p>Spring通过使用代理执行声明式事务。</p>
+<p>编程式事务管理：</p>
+<ol>
+<li>使用TransctionTemplate，这是Spring推荐使用的方法</li>
+<li>直接使用PlatformTransctionManager，这是一种低级的方法。</li>
+</ol>
+<p>在TransctionSynchronization方法中，使用了一种回调机制来指定在当前事务结束时候需要指定的自定义代码块。</p>
+<p><img src="../images/%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E6%80%BB%E7%BB%93.png" alt="事务管理总结"></p>
+<h1 id="第七章-使用spring进行测试驱动开发">第七章 使用Spring进行测试驱动开发</h1>
+<p>如果多个测试类指定了完全相同的XML位置和配置类，那么Spring TestContext Framework将只创建一次ApplicationContext实例，并在运行时在这些测试类之间共享该实例。</p>
+<p>Spring TestContext Framework在测试方法结束后执行的是回滚操作而不是提交操作。所以除非手动在当前Hibernate Session或者JPA EntityManager中执行刷新操作，否则在测试方法张红执行持久化操作并不会被转化为对应的SQL指令，也不会与数据库有任何交互。</p>
+<p>对Spring MVC的测试（Mock）：</p>
+<ul>
+<li>测试控制器</li>
+<li>测试表单提交</li>
+<li>测试异常处理程序</li>
+<li>打印模拟请求和响应</li>
+</ul>
+<p><img src="/images/BeginningSpring/%E4%BD%BF%E7%94%A8Spring%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91.png" alt="使用Spring进行测试驱动开发"></p>
+<h1 id="第八章-使用spring进行面向切面编程">第八章 使用Spring进行面向切面编程</h1>
+<p>AOP的一些概念：</p>
+<ul>
+<li>接合点（Join-point）：实际代码中的点，在折现点面执行“切面”，从而像应用程序中插入额外的逻辑</li>
+<li>通知（Advice）：在特定的接合点有“切面”所执行的行为（或者代码块）</li>
+<li>切入点（Point-cut）：用来选择需要执行一个或者多个连接点的表达式。可以将一个切入点想象为一组接合点</li>
+<li>目标（Target）：执行流被“切面”更改的对象，所有这意味着该对象是实际的业务逻辑。</li>
+<li>环绕（Weaving）：将“切面”与目标对象接合在一起的过程，可以在三个不同阶段完成该：编译时、加载时或者运行时。</li>
+</ul>
+<p>Spring提供了一个子项目Spring AOP，该项目通过应用Proxy模式，为在目标对象（Spring Bean）上定义方法执行接合点提供了一个纯Java解决方案。</p>
+<p>在底层，Spring AOP使用了AspectJ。</p>
+<p>AOP的配置位于<code>&lt;aop:config&gt;</code>标签中，通过该标签可以定义“	切面”、切入点等。</p>
+<p><img src="/images/BeginningSpring/%E7%8E%AF%E7%BB%95%E5%88%97%E8%A1%A8.png" alt="环绕列表"></p>
+<p><img src="/images/BeginningSpring/%E7%8E%AF%E7%BB%95%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="环绕的流程"></p>
+<p>如果从ThrowsAdvice的其中一个方法中抛出一个异常，则该异常将会覆盖原异常。</p>
+<p>对于Before环绕来说，该方法返回的值越小，优先级越高。对于After环绕来说，返回值越小，优先级越低。</p>
+<p>定义切入点指示符：</p>
+<ul>
+<li>类型签名表达式：<code>Within(&lt;tyoe name&gt;)</code></li>
+<li>方法签名表达式：<code>execution(&lt;scope&gt; &lt;return-typr&gt;&lt;fully-qualified-class-name&gt;.*(parameters))</code></li>
+<li>其他</li>
+</ul>
+<p>AOP注解：</p>
+<ul>
+<li><code>@Before</code>：通过该注解并且根据给定的表达式，可以在实际方法调用之前调用被注解的环绕方法</li>
+<li><code>@PointCut</code>：通过使用该注解并提供一个方法声明，可以定义切入点。该方法的返回类型应该是void，而方法的参数则应该与切入点的参数相匹配</li>
+<li><code>@After</code>：通过使用该注解，可以在实际方法调用之后调用被注解的通知方法，此外，当实际方法成功返回，或者从实际方法中抛出一个异常，这些通知方法都会被调用。</li>
+<li><code>@AfterReturning</code>：该注解所定义的通知将在结合点执行完毕后执行。如果从被通知的方法中抛出了一个异常，则不会执行该通知。</li>
+<li><code>@AfterThrowing</code>：通过使用该注解，可以在异常抛出之后且在调用方法捕捉之前拦截该异常。</li>
+<li><code>@Aspect</code>使用这是一个“切面”的注解</li>
+<li><code>@Around</code>：该注解能够在目标方法执行之前和之后启动通知方法执行，从字面上讲意味着围绕在接合点周围。</li>
+<li><code>@DeaclareParents</code>：可以通过提供一个接口的具体类而让目标对象动态低实现该接口。</li>
+</ul>
+<p><img src="/images/BeginningSpring/AOP%E7%9F%A5%E8%AF%86%E7%82%B9.png" alt="AOP知识点"></p>
+<h1 id="第九章-spel">第九章 SpEL</h1>
+<p><img src="/images/BeginningSpring/SpEL%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="SpEL表达式"></p>
+<p><img src="/images/BeginningSpring/SpEL%E7%9F%A5%E8%AF%86%E7%82%B9.png" alt="SpEL知识点"></p>
+<h1 id="第十章-缓存">第十章 缓存</h1>
+<p>可将（cache）定义为一种存储机制，它将数据保存在某一个地方，并以一种更快的方式为日后的的请求提供服务。</p>
+<p>如果任何方法包含了随机计算的实现，那么缓存将会产生灾难性的问题，所有应该避免对这些随机方法进行缓存。</p>
+<p>Spring缓存仅提供了一种缓存抽象，而没有针对任何缓存基础结构提供实现过程。</p>
+<p>只有使用哪个了public定义的方法才可以被缓存。当在一个类上使用注解是，该类中的每个公共方法将被缓存到给定的存储器中或者从给定的存储器中逐出。</p>
+<p>使用缓存注解：</p>
+<ul>
+<li>
+<p><code>@Cacheable</code>：定义了在一个给定缓存存储器中对被执行方法的结果进行缓存。存储器名称是必须提供的，且必须有注解声明提供。</p>
+<p>从另一个角度看，也可以将缓存称为键值对集合。默认情况下，缓存抽象使用方法签名以及参数值作为一个键值，并将该键与方法调用的结果组成键值对。可以使用SpEL指定自定义键。</p>
+</li>
+<li>
+<p><code>@CacheEvict</code>：定义了相关方法负责从给定的缓存存储器中取出一个值。使用该注解，可以马上显示地从缓存存储器中删除过时数据。</p>
+<p><strong>在相同的方法上使用<code>@Cacheable</code>和<code>@CacheEvict</code>注解并使它们指向相同的缓存存储器将没有任何意义，因为数据被缓存之后又被马上逐出。</strong></p>
+</li>
+<li>
+<p><code>@CachePut</code>：首先执行方法，然后将返回值放入缓存。</p>
+</li>
+<li>
+<p><code>@Caching</code>：其是一个组注解，可以为一个方法定义提供<code>@Cacheable</code>、<code>@CacheEvict</code>或者<code>@CachePut</code>数组</p>
+</li>
+</ul>
+<p>实现缓存管理器：</p>
+<ul>
+<li>SimpleCacheManager</li>
+<li>NoOpCacheManager：主要用于测试目的，但实际上它并不存在存储器中缓存任何数据。</li>
+<li>ConcurrentMapCacheManager：在幕后使用了JDK的ConcurrentMap，提供了与SimpleCacheManager配置相同的功能，但并不需要想前面那样定义缓存存储器。</li>
+<li>Composite CacheManager：能够让我们使用当个缓存管理器定义多个缓存管理器</li>
+</ul>
+<p><img src="/images/BeginningSpring/Spring%E7%BC%93%E5%AD%98%E5%8F%AA%E6%98%AF%E7%82%B9.png" alt="Spring缓存只是点"></p>
+<h1 id="第十一章-spring-rest">第十一章 Spring REST</h1>
+<p><img src="/images/BeginningSpring/HTTP%E7%8A%B6%E6%80%81%E7%A0%81.png" alt="HTTP状态码"></p>
+<h1 id="第十二章-spring-security">第十二章 Spring Security</h1>
+<p>可以将安全性要求分为两个主要的功能集：身份验证和授权。</p>
+<p>Spring Security提供了接受一个明文的密码以及一个随机生成的加盐值，并返回一个加密密码。</p>
+<p>Remember-Me支持基于一种Cookie机制，在登录过程中，存储在客户端计算机上的Cookie被发送大客户端。</p>
+<p>在客户端的一个Cookie中存储用户名可以视为一种安全漏洞，因为攻击者可能会窃取存储在客户端机器中的Cookie并进行解码，从而获取用户名。</p>
+<p><img src="/images/BeginningSpring/SpringSecurity%E7%9F%A5%E8%AF%86%E7%82%B9.png" alt="SpringSecurity知识点"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-02-06
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          <a href="/tags/spring/">Spring</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/02/09/mysqlcrashcourse/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MySQL必知必会</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/02/05/something/">
+            <span class="next-text nav-default">编译和配置</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

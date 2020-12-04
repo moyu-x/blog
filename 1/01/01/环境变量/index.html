@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>软件配置 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="软件配置" />
+<meta property="og:description" content="Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" />
+
+<meta itemprop="name" content="软件配置">
+<meta itemprop="description" content="Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添">
+
+<meta itemprop="wordCount" content="2270">
+
+
+
+<meta itemprop="keywords" content="Windows,配置,Linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="软件配置"/>
+<meta name="twitter:description" content="Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">软件配置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 0001-01-01 </span>
+        <div class="post-category">
+            <a href="/categories/windows/"> Windows </a>
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 约 2270 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#java">Java</a></li>
+    <li><a href="#gradle的环境变量的配置">Gradle的环境变量的配置</a></li>
+    <li><a href="#maven的配置">Maven的配置</a></li>
+    <li><a href="#git的环境变量的配置">Git的环境变量的配置</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#java-1">Java</a></li>
+    <li><a href="#sublime的安装">Sublime的安装</a></li>
+    <li><a href="#ububtu-make的安装">Ububtu make的安装</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="windows中环境变量的配置">Windows中环境变量的配置</h1>
+<h2 id="java">Java</h2>
+<ol>
+<li>
+<p>JAVA_HOME: 新建一个名为<code>JAVA_HOME</code>的变量，内容为jdk安装的目录</p>
+</li>
+<li>
+<p>path中的配置，尽量在当前用户的path中添加：
+在path后面（如果没有的话则新建一个）追加<code>%JAVA_HOME%\bin</code>及<code>%JAVA_HOME%\jre\bin</code>的变量，至于classpath我从一些博客上没有看到需要进行配置的必要，所以我一般不进行配置，有一些博客说配置classpath是老版本的需要，而比较新的版本则没有配置classpath的必要了，并且还有可能造成不必要的错误。个人认为目前的版本没有必要在系统中配置classpath。</p>
+</li>
+<li>
+<p>测试：输入<code>javac -version</code>出现相关的版本号则配置正确</p>
+<p>安装java时，jre会自动更新，而每次自动更新的时候，jdk并不会随著而更新，并且我发现每次自动更新结束之后，无论默认的jre安装在什么地方，更新之后都会更改到C盘之下，所以我建议都把jre和jdk默认安装到C盘下比较好，方便自己以后的管理</p>
+</li>
+<li>
+<p>更新：每次升级的时候没有必要关心jre的版本问题，但是jdk的path会因为安装的问题而发生改变，所以每次更新的时候都需要更新jdk的版本信息。</p>
+</li>
+</ol>
+<h2 id="gradle的环境变量的配置">Gradle的环境变量的配置</h2>
+<p><del>配置Gradle的原因主要是我最近在学习Android的开发的时候遇到的，目前我认为其和maven一样是一个依赖包管理工具，更多深层次的东西现在还没有进行学习，所以也仅是如此叙述。</del></p>
+<p>现在虽然在实习的时候使用Maven进行项目管理，但是在日常的学习使用的过程中还是习惯于使用Gradle来进行依赖和项目的管理，大体的使用过程如下：</p>
+<ol>
+<li>
+<p>GRADLE_HOME：新建一个名为<code>GRADLE_HOME</code>的变量，内容为Gradle的安装目录</p>
+</li>
+<li>
+<p>path的配置：在path中追加<code>%GRADLE_HOME%\bin</code></p>
+</li>
+<li>
+<p>测试： 能正常运行<code>gradle -v</code>命令，出现显示当前信息的文件则说明成功。</p>
+</li>
+<li>
+<p>使用阿里源：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">&#39;http://maven.aliyun.com/nexus/content/groups/public/&#39;</span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>指定jdk的版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-groovy" data-lang="groovy"><span class="n">sourceCompatibility</span><span class="o">=</span><span class="mf">1.7</span>
+<span class="n">targetCompatibility</span> <span class="o">=</span><span class="mf">1.7</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="maven的配置">Maven的配置</h2>
+<ol>
+<li>
+<p>新建变量<code>MAVEN_HOME</code>,其中填入maven安装的目录</p>
+</li>
+<li>
+<p>在path中追加'%MAVEN_HOME%\bin&rsquo;就可以了</p>
+</li>
+<li>
+<p>输入<code>mvn -version</code>出现版本信息</p>
+</li>
+<li>
+<p><del>maven使用oschina的源：因为国内网速的原因，直接使用maven center的源会发现网速比较低，所以可以使用<a href="http://maven.oschina.net">oschina</a>提供的maven源来进行配置，在setting.xml中做如下修改：</del></p>
+<p>在Oschina的源失效之后，也就是和天翼云的合作结束后，这个镜像基本就不能使用了，可以考虑使用阿里的源，在setting.xml中进行入校配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirrors&gt;</span>
+  <span class="nt">&lt;mirror&gt;</span>
+    <span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>
+  <span class="nt">&lt;/mirror&gt;</span>
+<span class="nt">&lt;/mirrors&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>​</p>
+</li>
+</ol>
+<h2 id="git的环境变量的配置">Git的环境变量的配置</h2>
+<p>对于安装git的时候我们既可以使用git中自带在mingw的类Unix的运行环境，也就是git shell，也可以使用Windows的cmd来进行运行,当然安装的时候我还是建议使用独立的git shell来运行git，有是候我们也会在cmd或者是其他的编辑器中需要使用git。这时，就会发现没有配置环境变量，就会导致使用git的不方便，所以还是需要配置git的环境变量。</p>
+<ol>
+<li>
+<p>GIT_HOME： 这是git的安装目录，git安装在什么地方就将其内容设为你所安装的目录</p>
+</li>
+<li>
+<p>path配置： 在path中直接追加<code>%GIT_HOME%\bin</code>，这时就可以了</p>
+</li>
+<li>
+<p>使用<code>git --version</code>名令来测试是否安装成功，当输入指令后出现git相关的版本号后则说明配置成功</p>
+</li>
+<li>
+<p>git连接到github或者其他的代码托管网站：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 配置账户信息</span>
+git config --global user.name <span class="s2">&#34;yourName&#34;</span>
+git config --global user.email yourname@gmail.com
+
+<span class="c1"># 生成RSA秘钥，邮箱同上，并将密钥提交到Github中</span>
+ssh-keygen -t rsa -C <span class="s2">&#34;yourname@gmail.com&#34;</span>
+
+<span class="c1"># 测试是否连接成功</span>
+ssh git@github.com
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h1 id="linux中环境变量的配置">Linux中环境变量的配置</h1>
+<h2 id="java-1">Java</h2>
+<p>在linux中，我主要使用Ubuntu来作为linux的使用环境，则这时可用使用WebUpd8提供的包来进行安装oracle的jdk，也可以使用openjdk来进行java的安装，当然也可以自己下载linux的jdk包之后进行下载安装，但是我认为对于个人使用的话直接使用WebUpd8提供的安装就可以了，对于生成产环境则不能这样做，所以对于oracle的jdk来说，可用使用如下指令就会进行安装并且配置好所需的环境变量了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-add-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="sublime的安装">Sublime的安装</h2>
+<p>在这里也是使用webupd8team提供的安装包来进行直接的安装，其命令如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-add-repository  ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install sublime-text-installer
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="ububtu-make的安装">Ububtu make的安装</h2>
+<p>使用umake指令可以十分方便的安装在Linux编程中所需要的绝大部分软件，安装命令如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-add-repository  ppa:ubuntu-desktop/ubuntu-make
+sudo apt-get update
+sudo apt-get install ubuntu-make
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="c语言的建议">C语言的建议</h1>
+<p>对于C语言来说，我们可以使用微软提供的visual studio communication版本来进行学习，如果你认为这比较大的话，可以使用gcc来进行学习，也就是linux环境。当然不喜欢linux或者不想配置linux的话，我建议可以使用mingw或者是cygwin来进行学习，我强烈反对使用VC++6.0来进行C语言的学习，因为安装一个编辑器的时间都可以把基本的语法看一遍了，简直是在浪费时间。为了使电脑安装的东西少一些，我日常学习和使用C\C++的时候都是使用tdm-gcc和clion来进行学习的，因为其紧跟着gcc的更新，可以使用比较新的语法或功能。</p>
+<h1 id="android-sdk的配置">android sdk的配置</h1>
+<p>因为在国内不能很好的使用<a href="https://www.google.com">Google</a>的数据进行开发和更新，所以只能使用国内提供的镜像来进行配置，具体的可以参考<a href="http://www.androiddevtools.cn/">AndroidDevTool</a>来进行配置，其github的地址为<a href="https://github.com/inferjay/AndroidDevTools">AndroidDevTool</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        0001-01-01
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/windows/">Windows</a>
+          <a href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>
+          <a href="/tags/linux/">Linux</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/1/01/01/ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Ubuntu移除多余的内核</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

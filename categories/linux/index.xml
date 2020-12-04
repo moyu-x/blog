@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 墨语的后花园</title>
+    <link>https://www.idwangmo.top/categories/linux/</link>
+    <description>Recent content in Linux on 墨语的后花园</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 Jan 2018 23:35:22 +0000</lastBuildDate><atom:link href="https://www.idwangmo.top/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>下载怎么办，试试Aria2</title>
+      <link>https://www.idwangmo.top/2018/01/12/aria2/</link>
+      <pubDate>Fri, 12 Jan 2018 23:35:22 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2018/01/12/aria2/</guid>
+      <description>刚使用Linux的时候，对于下载东西会有种无力感，没了迅雷，没了常见的下载工具，那怎么办呢？wine环境下面搞一个，还是搞下其他的工具？后来</description>
+    </item>
+    
+    <item>
+      <title>ElementaryOS使用及美化</title>
+      <link>https://www.idwangmo.top/2017/04/14/elementaryos/</link>
+      <pubDate>Fri, 14 Apr 2017 08:01:55 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/04/14/elementaryos/</guid>
+      <description>前几天微软的创造版更新了，导致我以前安装的双系统中的引导被覆盖了，所以我在将数据拷贝出来之后，就准备找一个发行版玩玩了，这一折腾就是一个周的</description>
+    </item>
+    
+    <item>
+      <title>在Windows上玩Linux</title>
+      <link>https://www.idwangmo.top/2017/03/27/linuxonwindows/</link>
+      <pubDate>Mon, 27 Mar 2017 09:25:30 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/27/linuxonwindows/</guid>
+      <description>最近几天在Windows上折腾Linux了，主要是发现现在我装双系统没有意义，准备换回以前使用Linux的模式了，主要也是用来进行测试和一些</description>
+    </item>
+    
+    <item>
+      <title>浅谈新手Linux发行版的选择</title>
+      <link>https://www.idwangmo.top/2017/03/21/linuxdistribution/</link>
+      <pubDate>Tue, 21 Mar 2017 19:08:58 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/03/21/linuxdistribution/</guid>
+      <description>前言 折腾的两年多的Linux，对于来说，我认为在这上面我还是一个新手。对于新手来说，如何选择一个Linux发行版，以及在什么地方使用Linu</description>
+    </item>
+    
+    <item>
+      <title>开始使用Linux</title>
+      <link>https://www.idwangmo.top/2017/01/30/beginninglinux/</link>
+      <pubDate>Mon, 30 Jan 2017 23:03:58 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/2017/01/30/beginninglinux/</guid>
+      <description>使用Linux已经几年了，当然从技术上来说，我应该还只能算上一个新手。玩过了许多的发行版本，装了多次的双系统和虚拟机，其中最为佩服的三个发行</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu移除多余的内核</title>
+      <link>https://www.idwangmo.top/1/01/01/ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/1/01/01/ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/</guid>
+      <description>Ubuntu移除多余的内核 在使用Ubuntu的时候，发现内核更新的频率比较高，所以需要删除一些内核来节省空间: 查询当前系统所使用的内核una</description>
+    </item>
+    
+    <item>
+      <title>软件配置</title>
+      <link>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.idwangmo.top/1/01/01/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</guid>
+      <description>Windows中环境变量的配置 Java JAVA_HOME: 新建一个名为JAVA_HOME的变量，内容为jdk安装的目录 path中的配置，尽量在当前用户的path中添</description>
+    </item>
+    
+  </channel>
+</rss>

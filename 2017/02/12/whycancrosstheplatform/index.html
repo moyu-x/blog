@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>为什么可以跨平台 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="为什么可以跨平台" />
+<meta property="og:description" content="这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/02/12/whycancrosstheplatform/" />
+<meta property="article:published_time" content="2017-02-12T19:31:30+00:00" />
+<meta property="article:modified_time" content="2017-02-12T19:31:30+00:00" />
+<meta itemprop="name" content="为什么可以跨平台">
+<meta itemprop="description" content="这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的">
+<meta itemprop="datePublished" content="2017-02-12T19:31:30+00:00" />
+<meta itemprop="dateModified" content="2017-02-12T19:31:30+00:00" />
+<meta itemprop="wordCount" content="1478">
+
+
+
+<meta itemprop="keywords" content="编译器,跨平台,博客," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么可以跨平台"/>
+<meta name="twitter:description" content="这两天看了篇《为什Java可以跨平台》的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">为什么可以跨平台</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-02-12 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/"> 博客 </a>
+            </div>
+          <span class="more-meta"> 约 1478 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#懒">懒</a></li>
+    <li><a href="#快">快</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#语言本身实现">语言本身实现</a></li>
+    <li><a href="#工具链实现">工具链实现</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>这两天看了篇<a href="http://www.cnblogs.com/dafume/p/6387989.html">《为什Java可以跨平台》</a>的文章，里面用了比较有趣的语言来介绍的Java跨平台的原因。我想来谈谈更加广泛的原因，可能有的地方写的不对，我们为什么需要跨平台的开发和为什么可以跨平台。</p>
+<p>现在的跨平台主要是分为编程语言的跨平台和应用程序的跨平台这两大类，严格的说，编程语言也算是应用程序，但是我就简单的谈一谈编程语言的跨平台。</p>
+<p>现在的跨平台语言，主要在使用的是Java，JavaScript，Python这三个大类，这几个语言大多都是应用级程序上进行使用，并且使用的规模和范围还是特别广泛的，在底层使用者三个语言的可能性是比较低的。性能是其主要的限制原因，对于底层，首先要考虑和硬件的接合的融洽，也要考虑性能，因为其上有许多的服务要运行。</p>
+<h1 id="为什么需要跨平台">为什么需要跨平台</h1>
+<h2 id="懒">懒</h2>
+<p>程序员都是喜欢偷懒的，同一个功能，谁都不喜欢在不同的平台上在写一遍。写重复性的代码，首先自己不愿意，公司也不愿意做这样的事情，因为出力不讨好，后期还比较麻烦。如果语言能够跨平台开发，那就是不交不错的选择了，写一次代码，然后到处运行，不是挺好的选择吗?</p>
+<h2 id="快">快</h2>
+<p>我说的这个快，不是运行快，而是相对于其它非跨平台的语言开发的时候开发速度更加的快。这个快，在大部分的时候是必须的，对于初创公司，更加喜欢使用能快速开发的语言先搭建出一个可以运行的平台，然后这样就可以尽快的投入市场是使用。还有就是许多需要短时间内开发出来的功能，使用这种便利性的语言，先开发出一个模型，然后后期再根据需求进行维护和修改都是一些不错的选择。</p>
+<h1 id="如何实现跨平台">如何实现跨平台</h1>
+<h2 id="原理">原理</h2>
+<p>其实跨平台的原理不难理解，很简单的一个逻辑。所有的编程都是抽象的，抽象是计算机中一个比较基础的概念。如果将计算机中的各种操作抽象出来，其实就是数理逻辑。也就是说，计算机的编程以及计算机的运行，就是这些数理逻辑在实际过程中的映射而已。</p>
+<p>也就是说，我们将一个语言内部的底层实现抽离出来，形成一套数理逻辑规则，然后在不同的硬件和操作系统平台上进行实现，这样的就可以实现跨平台了编程了。还有就是对于编程语言最重要的一点，那就是其表现形式，也就是说，通用的语句在不同的平台上使用应该是相同的（这也是最难的一点），就是这个难度造成了Java在各个平台上的割裂（一个编写，到处维护嘛），尤其是多线程方面，系统界面外观都还是其次。</p>
+<h2 id="语言本身实现">语言本身实现</h2>
+<p>想Java，Python这种语言，主要是运行在虚拟机或者解释器上面，只要将虚拟机或者解释器构建成跨平台的就行，对于虚拟机或解释器的构建，是不限定语言的，我们可以认为虚拟机是一个黑盒，可以运行在不同硬件和操作系统之上。这样，同一门语言就可以在不同的平台上运行，实现了的跨平台编程了。</p>
+<h2 id="工具链实现">工具链实现</h2>
+<p>也就是说这个语言本身不是一个解释型的语言，也不是编译成字节码运行在虚拟机上，但是使用这门语言编写的代码可以在不同的硬件平台和操作系统之上，是不是挺令人兴奋的。其实这是在工具链的底层动了手脚，在编写代码的时候，我们不需要考虑平台，而在编译的时候，其工具链的底端的汇编生成器上，会根据不同的硬件平台生成不同平台上的汇编代码，进而形成生成不同的二进制代码，或者是在这个硬件平台上生成另外一个硬件的代码（交叉编译）。</p>
+<p>使用的这个主要工具是LLVM，这个强大的工具可以更加硬件的不同，生成不同的二进制代码，虽然说是利用了虚拟技术，但是其一点都不“虚拟”，具体的可以参考以下几篇文章：</p>
+<ol>
+<li><a href="http://geek.csdn.net/news/detail/37785">为什么人人都该懂点LLVM</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/LLVM">LLVM——维基百科</a></li>
+</ol>
+<p>对于其更加深层次的理解就需要去看编译原理相关方面的书了，我就不说书了，因为没多少人会去看这些书的，功利性的编程还是占大多数的，O(∩_∩)O哈哈~</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-02-12
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a>
+          <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/">跨平台</a>
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/02/16/newlife/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">追寻新旅程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/02/10/mysqlnaotu/">
+            <span class="next-text nav-default">MySQL必知必会：脑图</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

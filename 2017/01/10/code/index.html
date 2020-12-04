@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>代码：隐匿在计算机背后的语言 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/01/10/code/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="代码：隐匿在计算机背后的语言" />
+<meta property="og:description" content="一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/01/10/code/" />
+<meta property="article:published_time" content="2017-01-10T22:48:35+00:00" />
+<meta property="article:modified_time" content="2017-01-10T22:48:35+00:00" />
+<meta itemprop="name" content="代码：隐匿在计算机背后的语言">
+<meta itemprop="description" content="一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面">
+<meta itemprop="datePublished" content="2017-01-10T22:48:35+00:00" />
+<meta itemprop="dateModified" content="2017-01-10T22:48:35+00:00" />
+<meta itemprop="wordCount" content="1915">
+
+
+
+<meta itemprop="keywords" content="笔记,计算机," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="代码：隐匿在计算机背后的语言"/>
+<meta name="twitter:description" content="一 至亲密友 编码的意思指的是一种用在机器和人之间传递信息的方式 对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">代码：隐匿在计算机背后的语言</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-01-10 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 1915 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="一-至亲密友">一 至亲密友</h1>
+<p>编码的意思指的是一种用在机器和人之间传递信息的方式</p>
+<p>对于人类来说，我们日常说的的语言可称为一种编码：其一为“口头语言”，另一种“书面语言”</p>
+<p>如果一种编码用在其他编码无法取代的地方，那它就是一种有用的编码</p>
+<h1 id="二-编码与组合">二 编码与组合</h1>
+<p>码字的数目 = 2 ^ 编码的位数</p>
+<h1 id="三-布莱叶盲文与二进制编码">三 布莱叶盲文与二进制编码</h1>
+<p>$ME尽可能的利用编码集内部的每一个可以进行编码的部分，使其具有现实的意义</p>
+<h1 id="四-手电筒的剖析">四 手电筒的剖析</h1>
+<p>我们所能看到和感觉到的事务——通常下都是由原子构成的，每一个原子由有三种基本粒子构成，分别为：中子、电子、质子。原子之间可以通过化学的方式结合成分子，分子的性质通常与组成它的原子大相径庭。</p>
+<p>事实上只要有足够大的电压，任何的物质都是可以导电的</p>
+<h1 id="五-绕过拐角的通信">五 绕过拐角的通信</h1>
+<p>大地有时被认为是零电势点</p>
+<p>电压是电能做的功</p>
+<h1 id="六-电报机与继电器">六 电报机与继电器</h1>
+<p>电磁现象是一种物理上的现象，专指电流流过电路时在其周围产生磁场的现象。</p>
+<h1 id="七-我们的十个数字">七 我们的十个数字</h1>
+<p>数字在最开始产生的时候就是很抽象的</p>
+<p>大多数历史学家认为数字最初起源于对事物的计数</p>
+<p>阿拉伯数字系统不同于先前的数字系统，体现在一下三点：</p>
+<ol>
+<li>阿拉伯数字系统是和位置相关的</li>
+<li>有专门表示数字10的专门符号</li>
+<li>有表示0的符号</li>
+</ol>
+<p>一个多位数中的每一个都有其各自的特定的意义</p>
+<p>任何长度的十进制数相加时，只要根据一种方法将问题分成几部即可，而每个步骤最多只是将两个一位数字相加而已</p>
+<h1 id="八-十的替代品">八 十的替代品</h1>
+<p>在十进制中，10没有特定的符号，因此在八进制中，同样也没有表示8的特定符号</p>
+<p>在结果上，八进制数字系统与十进制数字系统并没有什么不同，只是在细节上存在一些差异</p>
+<p>二进制数最大的问题是数字用完得很快，二进制数的长度增长得很快而非数值增大得快</p>
+<p>在一个多位二进制数中，任何一个以1开头而后面全是0的二进制数一定都是2的整数次幂</p>
+<p>人们在使用二进制数的时候通常将他们写成带有前导零的形式</p>
+<p>二进制数字系统在算术和电子技术之间架起了一座桥梁</p>
+<h1 id="九-二进制数">九 二进制数</h1>
+<p>1比特是可能存在的最小信息量</p>
+<p>在通信理论中，噪声是指影响通信效果的所有事物</p>
+<p>信息可能是多个可能性中的一种</p>
+<p>所有可能被转换成两种或多种可能性的选择的信息，都可以用比特来表示</p>
+<p>如果无法用语言、图画或声音来表达某种事物的时候，也就无法将这个信息用比特的形式来编码</p>
+<p>利用二进制表示信息的一个额外好处就是我们可以清楚的知道我们是否已经相到了所以的可能性</p>
+<h1 id="十-逻辑与开关">十 逻辑与开关</h1>
+<p>亚里士多德认为真理是与逻辑相关的某种事物</p>
+<p>当进行传统代数运算的时候，我们会遵循一定的规则。并且它是处理数字的</p>
+<p>一个类就是一个事务的群体，它后来也被称为集合</p>
+<p>在布尔代中，符号1表示“全集”——也就是我们提到的所有事务。符号0表示空集——不包含任何元素的集合</p>
+<p>布尔表达式$F\times(1-F)=0$是矛盾律，其指出事物不可能既是它本身，同时又是它的对立面</p>
+<h1 id="十一-门">十一 门</h1>
+<p>电子工程师可以运用布尔代数的所有工具去设计开关电路</p>
+<p>继电器是通过放大微弱信号来生成强信号的</p>
+<p>连接继电器是建立逻辑门的关键</p>
+<p>反向器不是逻辑门</p>
+<p><img src="%5Cimages%5C201701%5C%E7%9C%9F%E5%80%BC%E8%A1%A8.png" alt="真值表">
+两个带有反向输入的与门和或非门是等价的，两个带有反向输入的或门和与非门是等价的</p>
+<p>德摩根定律$\overline { A } +\overline { B } =\overline { A+B } $和$\overline { A } \times \overline { B } =\overline { A\times B } $</p>
+<h1 id="十二-二级制加法器">十二 二级制加法器</h1>
+<p>加法器主要部分是由各种形式连接起来的逻辑门</p>
+<p>异或门：两个输入不相同输出1</p>
+<p>同或门：两个输入相同时输出1</p>
+<p>半加器：由一个与门和一个异或门构成，来进行两个二进制数的计算和其进位</p>
+<p><img src="%5Cimages%5C201701%5C%E5%8D%8A%E5%8A%A0%E5%99%A8.png" alt="半加器"></p>
+<p>全加器：两个半加器加上一个或门构成</p>
+<p><img src="%5Cimages%5C201701%5C%E5%85%A8%E5%8A%A0%E5%99%A8.png" alt="全加器"></p>
+<p>加法器的总速度等于数字的位数乘以全加器器件的速速，这称为行波进位</p>
+<h1 id="十三-如何实现减法">十三 如何实现减法</h1>
+<p>八个异或门组合起来可以形成一个求补器</p>
+<p>一般来说，如果两个操作数的符号不同，而结果的符号与操作数的符号不相同，这样的加法就是无效的</p>
+<h1 id="十四-反馈与触发器">十四 反馈与触发器</h1>
+<p>振荡器的输出在0和1之间安照固有的规律交替变化</p>
+<p>振荡器从某个初始状态开始，经过一段时间又回到先前初始状态的这一段间隔定义为振荡器的一个循环（周期）</p>
+<p>一个循环所占用的时间就是该振荡器的周期，周期的倒数就是振荡器的频率</p>
+<h1 id="十五-字节与十六进制">十五 字节与十六进制</h1>
+<p>全世界大部分书面语言的基本字符数都少于256，所以字节是一种理想的保存文本的手段</p>
+<h1 id="十六-存储器组织">十六 存储器组织</h1>
+<p>随机访问存储器也被称为易失性存储器</p>
+<p>机器响应指令码做一系列操作的过程称为执行指令，但这并不能表明机器是一种有生命的东西，因为它不能自行分析机器代码并决定该做什么</p>
+<h1 id="十八-从算盘到芯片">十八 从算盘到芯片</h1>
+<p>信息论研究的是数字信息在噪声的情况下传输，以及如何弥补因噪声产生的损失</p>
+<p>控制论：表示人类和动物的生物过程同计算机和计算机相关的一切</p>
+<p>NPN晶体管：</p>
+<p><img src="%5Cimages%5C201701%5Cnpn%E6%99%B6%E4%BD%93%E7%AE%A1.png" alt="npn晶体管"></p>
+<h1 id="十九-两种典型的微处理器">十九 两种典型的微处理器</h1>
+<p>寻址方式：一、直接寻址；二、间接寻址；三、立即数寻址</p>
+<p>上溢：堆栈不断增大，最终覆盖掉储存器中保存的程序所必须的代码或数据</p>
+<p>下溢：过多的使用POP指令，则会过早的读取完堆栈中的数据从而导致出现错误</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-01-10
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/01/28/oldtechnology/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">为什么还在用老技术</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/01/05/htmlandcss/">
+            <span class="next-text nav-default">深入浅出HTML和CSS</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

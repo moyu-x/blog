@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>为什么还在用老技术 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2017/01/28/oldtechnology/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="为什么还在用老技术" />
+<meta property="og:description" content="如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2017/01/28/oldtechnology/" />
+<meta property="article:published_time" content="2017-01-28T11:55:30+00:00" />
+<meta property="article:modified_time" content="2017-01-28T11:55:30+00:00" />
+<meta itemprop="name" content="为什么还在用老技术">
+<meta itemprop="description" content="如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然">
+<meta itemprop="datePublished" content="2017-01-28T11:55:30+00:00" />
+<meta itemprop="dateModified" content="2017-01-28T11:55:30+00:00" />
+<meta itemprop="wordCount" content="1054">
+
+
+
+<meta itemprop="keywords" content="技术," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么还在用老技术"/>
+<meta name="twitter:description" content="如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">为什么还在用老技术</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-01-28 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+            </div>
+          <span class="more-meta"> 约 1054 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>如果到一个公司，发现公司内部的系统不是自己想象的使用目前最新的技术，有可能部分核心业务还停留在几年前，还有就是大量的遗留代码在代码库中。当然也有可能是这样，内部的使用的技术是业界的潮流，但是外观和界面还停留在上个世纪的感觉。这时，你是不是感觉有点像进入了贼窝的感觉，O(∩_∩)O哈哈~</p>
+<p>其实这可以分为两种情况讨论，一种是现在的互联网公司，一种是传统的企业，其完全是两种不同的情况。</p>
+<p>首先来说一说互联网公司，现在大多的互联网公司都是在这两三年之内成立的，并且由于和传统企业不同的发展模式，所有大部分的架构设计和代码库中的代码都可以说是相当新的。其大部分的客户是面向普通的使用者，只有今年开始有部分公司开始搞企业服务。由于架构看起来是最新的，所以不会有一种技术还停留在上个世纪的感觉；并且由于许多代码都是较为新的或者是以较新的思想来写的，所以遗留代码和技术债务上的问题不是那么的突出；还有就是互联网公司的产品都需要快速的占领市场，所有界面上和交互上的设计都给人一种新颖的感觉，所有不会出现那种界面设计还停留在上个世纪的感觉。</p>
+<p>对于传统的企业的来说，大部分的企业的客户是企业的员工或者是本企业的其他员工，无论是B/S还是C/S的设计，都要考虑一个平滑过渡的准则，因为一次界面设计的大改，带来的不是好处，有可能还会带来其他一些问题，其主要的还是利益的问题。界面的大改，首先企业需要对员工进行培训，还有就是在使用的时候的磨合期，另外还有就是兼容性的问题，这样隐形的成本，带来的就是界面不会进行大面积的更改，可能会在小版本中一点一点的进行修改，让员工慢慢的适应这样一个过程。</p>
+<p>来说代码，对于传统企业的用户，其主要考虑的是稳定性和可使用性。本着宁肯不升级也要保证整个业务系统的稳定运行。由于这样的想法存在，所有许多的功能改进可能要进行完备的测试才能上线，然后这个时候，技术可能以及被所谓的主流市场淘汰了。还有就是在架构设计的初期和技术选型的时候，可能由于种种原因没有使用最新的技术，所有就有可能感觉这个架构存在各种各样的问题。并且到了后期，大量的技术债务和遗留代码存在，升级换代的时候就会出现各种各样的问题，导致谁都不敢去动老的架构和老的代码，除非碰到一个比自己还要牛的人作为保护，不然就慢慢的成为祖传代码。</p>
+<p>对于技术来说，不同的公司和不同的情况应该进行不同的区分，对于技术导向型的公司来说，还是需要根据技术的不同来进行升级。而对于业务导向型的公司，在完成现有业务的情况小，系统还应该有一定的冗余设计，这样才能保证业务的正常运行。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-01-28
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2017/01/29/whylearncomputerscience/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">我为什么学习计算机</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2017/01/10/code/">
+            <span class="next-text nav-default">代码：隐匿在计算机背后的语言</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

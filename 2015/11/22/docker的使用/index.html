@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Docker的使用 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="简介 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2015/11/22/docker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Docker的使用" />
+<meta property="og:description" content="简介 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2015/11/22/docker%E7%9A%84%E4%BD%BF%E7%94%A8/" />
+<meta property="article:published_time" content="2015-11-22T15:07:45+00:00" />
+<meta property="article:modified_time" content="2015-11-22T15:07:45+00:00" />
+<meta itemprop="name" content="Docker的使用">
+<meta itemprop="description" content="简介 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个">
+<meta itemprop="datePublished" content="2015-11-22T15:07:45+00:00" />
+<meta itemprop="dateModified" content="2015-11-22T15:07:45+00:00" />
+<meta itemprop="wordCount" content="1309">
+
+
+
+<meta itemprop="keywords" content="docker," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker的使用"/>
+<meta name="twitter:description" content="简介 在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Docker的使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-11-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%99%9A%E6%8B%9F%E5%8C%96/"> 虚拟化 </a>
+            </div>
+          <span class="more-meta"> 约 1309 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="简介">简介</h1>
+<p>在2013年还是2014年年初的时候，我当时在闲暇时刻去CSDN上面看资料时，发现了关于docker的介绍，后来就再也没有关心过这样一个技术。并且在当时还看到了对于go语言的简单介绍，说是这样一门语言是由Google开发的要用来代替C预言的，我当时还在我的计算机上搭建了一个Go语言的开发环境，并且还看了一些书籍，但是现在都完全的忘记了，只知道当的论坛中对这门语言的评价不是太好，那时还是1.3版本，编译器还是用C来写的。没有实现自举编译，现在1.5已经实现自举编译了，这不说了，因为现在我也不会这一门语言，除了一些基本的语法之外。虽然网络上已经有许多的安装方法了，但是我还是写一下作为分享好了。</p>
+<h1 id="网站">网站</h1>
+<p><a href="www.docker.com">Docker官网</a></p>
+<p><a href="https://github.com/Unknwon/the-way-to-go_ZH_CN">The way to go中文版</a></p>
+<p><a href="www.daocloud.io">Daocloud官网</a>：现在免费提供了docker的加速服务</p>
+<h1 id="安装docker">安装docker</h1>
+<p>鉴于国内的网速，还说使用快一点的镜像比较好，如果是企业的话就不要考虑了，尽量使用商业的吧: Linux</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">daocloud的下载指令
+curl -sSL https://get.daocloud.io/docker <span class="p">|</span> sh
+docker下载指令
+wget -qO- https://get.docker.com/ <span class="p">|</span> sh
+</code></pre></td></tr></table>
+</div>
+</div><p>Windows和Mac上就直接使用官方的镜像了，不用考虑其他的了，因为迅雷下这个还是挺快的。现在在Windows和Mac上面都有了原生的支持，但是对于Windows来说，最新的版本是构建以hyper-v上的，会给装了VMware的机器造成影响，但网上的解决方法都有点类似于双系统了，要么使用VMware版本，要么使用hyper-v版本，所以我建议性能好的机器还是继续在虚拟机中玩吧，其他的可以考虑使用网上给的解决办法。</p>
+<h1 id="安装daocloud的工具不使用可直接跳过">安装daocloud的工具（不使用可直接跳过）</h1>
+<p>在Daocloud的Dashboard中的我的集群中根据步骤进行部署</p>
+<p><img src="http://7xokkh.com1.z0.glb.clouddn.com/dashboard.png" alt="Dashboard"></p>
+<p>然后下载镜像的使用如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">dao pull youimages
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="直接下载命令">直接下载命令</h1>
+<p>直接使用docker命令，如果使用了daocloud话会直接使用daocloud的的加速模式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull yourimages
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="一个简单的docker实例来自官方">一个简单的docker实例，来自官方</h1>
+<p>输入如下指令；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run hello-world
+</code></pre></td></tr></table>
+</div>
+</div><p>这时会下载一个hello-world的镜像，如果显示了如下的东西，则说明你已经成功安装Docker了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-txt" data-lang="txt">Hello from Docker.
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &#34;hello-world&#34; image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker Hub account:
+ https://hub.docker.com
+
+For more examples and ideas, visit:
+ https://docs.docker.com/userguide/
+
+</code></pre></td></tr></table>
+</div>
+</div><p>有时可能会在安装之后报错，说明你需要使用root权限来使用docekr，对于非生产环境来说，其实可以将自己的用户名加入docker的用户组。然后这时你就可以根据你手中的书籍去学习docker了，目前中文的docker书籍并不算多，所以需要在在外国的论坛上多找资料来进行学习，而且需要多多锻炼实践才行。</p>
+<h1 id="后话">后话</h1>
+<p>现在docker的中文书籍比较少，我认为还是使用英文的官方文档比较好，这是你需要加入一些社区去学习新的知识才能在以后的路上走的更加远。在和Docker同一时间出现的还有一个coreos的基于Linux的操作系统，也是应用于虚拟化方面的，我曾经想下了试过，但是很可惜我没有成功，但这也是现在容器技术的另外的一种形式。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-11-22
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2016/04/23/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">程序运行</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2015/11/21/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+            <span class="next-text nav-default">搭建博客的简单步骤</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

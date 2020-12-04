@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>程序运行 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2016/04/23/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="程序运行" />
+<meta property="og:description" content="有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2016/04/23/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/" />
+<meta property="article:published_time" content="2016-04-23T10:29:12+00:00" />
+<meta property="article:modified_time" content="2016-04-23T10:29:12+00:00" />
+<meta itemprop="name" content="程序运行">
+<meta itemprop="description" content="有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来">
+<meta itemprop="datePublished" content="2016-04-23T10:29:12+00:00" />
+<meta itemprop="dateModified" content="2016-04-23T10:29:12+00:00" />
+<meta itemprop="wordCount" content="1529">
+
+
+
+<meta itemprop="keywords" content="软件," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="程序运行"/>
+<meta name="twitter:description" content="有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">程序运行</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-04-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BD%AF%E4%BB%B6/"> 软件 </a>
+            </div>
+          <span class="more-meta"> 约 1529 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>　　有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来解释程序的运行（也可以说是程序的实现），主要还是因为我学软件工程的原因。</p>
+<p>　　在我们编写一个程序的时候，我们总是先要考虑这个程序会做什么，要完成什么样的工作？这可以说是类似于软件工程中的软件需求，通过对所开发软件的需求分析，可以更好解决我们所面临的问题。在现在的开发中，我想除了一些比较大的软件开发或者是对公的软件开发中，应该不会要比较详尽完备的开发文档，其更类似于极限编程。在我的同学编写软件的时候，也是没有对这方面的想法的。但是现在其会在编写代码前会对所开发的软件有一个抽象的认识。这相当于一个概念模型，模型在计算机中是一种至关重要的概念，以后再说吧。听老师讲，现在极限编程在在编程领域应用的比较广泛，所以我认为在开发前，这个对软件的大概模型可以从某种意义上被理解为软件的概要设计了，接下来才是根据这个模型开始对软件的编码了。</p>
+<p>　　有数据就要对数据进行存储和处理（不过数据是软件的基础，基本上软件的运行过程就是一个数据流动的过程，对数据的处理在我看来只是是否使用数据库而已），这时候，数据建模就是一个比较好的工具了。对数据的实体以及数据在整个软件系统中的流动顺序来进行数据库的建模，然后根据数据的建模来把这个数据库模型转换为实际上的一个数据库。当然，我认为数据建模也是有其利弊的，有利的一方面是可以在软件编码前就对软件有了一个较为完整的认识，而不利的一端则是不适用于需要快速迭代进行开发的软件产品。因为对于大部分的软件来说，一个详细的分析建立过程可能以及错失了市场，所以应该根据所做软件的类型和对象来选择合适的开发方法才是最好的选择。</p>
+<p>　　接下来才是对软件进行编码，其实从这个角度看来，软件编码在一个软件的开发过程中其实只是其中的一个部分，而不是整个软件开发的主题。就像一个公司不会只是有从事软件开发的工程师一样，软件开发中的程序员其实只是其中的一个部分，所以应该对软件开发中的其余部分要进行涉猎才行。对于软件的编码，其实主要的要确保在编写时就没有错误（虽然bug是在所难免的），并且在编码的时候还要遵循一定的编码规范，而且还要尽量写好测试才行，这样在每此修改和白盒测试的时候直接运行测试用例就可以了。</p>
+<p>　　在软件编写完成之后或者是在软件编写的过程中还是需要编写测试的，测试可以由编写软件的工程师来进行编写，也可由专门的测试人员来进行编写。我认为最好是在编写程序的时候就写好其测试用例，然后专业的测试人员就可以从不同的方向来对软件进行测试，而不是进行重复的劳动。对于现在的手机终端来说，其实还有一些比较反传统的测试方法，就是在确保软件的基本功能实现并保证没有太明显的bug后，就可以将软件上线运行，将软件的使用者也作为软件的测试这来对待一样，这时就会获得较大数据量的软件测试数据，也可以确保软件在每次新版本发布的时候都会修复上一个版本的错误。并且也可以在接下来的版本中取出以前软件中没有人使用或者是不太实用的功能，也可以加大以前版本中人们比较喜欢的功能来进行开发。</p>
+<p>　　最后，就是软件的后期维护了，其实对于大型的软件开发公司来说，开发一个软件是不会赚太多的钱的，对于一个软件中最赚钱的部分其实是软件开发后之后的软件的维护费用。一个公司不会只采购软件而不需要维护的（其实有这样的可能，但是只是其中的一小部分而已），对于一个软件后期的可持续的维护才是一些大公司购买这些软件的最终于的原因，其次才是软件的质量的好环。现在大型的软件公司如微软、oracle、RedHat主要的营收不是来自软件的出售，而是来自于软件的后期维护，这样才可以赚可持续性的钱。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-04-23
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2016/04/25/%E6%97%A5%E6%9C%AC%E6%96%87%E5%8C%96%E5%8D%81%E8%AE%B2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">日本文化十讲</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2015/11/22/docker%E7%9A%84%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">Docker的使用</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

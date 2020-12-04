@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hexo博客：部署与插件 - 墨语的后花园</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="idwangmo" /><meta name="description" content="在我两年前写的博客的搭建博客的简单步骤的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.0 with theme even" />
+
+
+<link rel="canonical" href="https://www.idwangmo.top/2018/02/22/hexodeploy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Hexo博客：部署与插件" />
+<meta property="og:description" content="在我两年前写的博客的搭建博客的简单步骤的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.idwangmo.top/2018/02/22/hexodeploy/" />
+<meta property="article:published_time" content="2018-02-22T14:07:33+00:00" />
+<meta property="article:modified_time" content="2018-02-22T14:07:33+00:00" />
+<meta itemprop="name" content="Hexo博客：部署与插件">
+<meta itemprop="description" content="在我两年前写的博客的搭建博客的简单步骤的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部">
+<meta itemprop="datePublished" content="2018-02-22T14:07:33+00:00" />
+<meta itemprop="dateModified" content="2018-02-22T14:07:33+00:00" />
+<meta itemprop="wordCount" content="1784">
+
+
+
+<meta itemprop="keywords" content="blog,Nginx,博客," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hexo博客：部署与插件"/>
+<meta name="twitter:description" content="在我两年前写的博客的搭建博客的简单步骤的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">墨语</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="http://notes.idwangmo.top">
+        <li class="mobile-menu-item">笔记</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">墨语</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://notes.idwangmo.top">笔记</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hexo博客：部署与插件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/"> 博客 </a>
+            </div>
+          <span class="more-meta"> 约 1784 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#插件">插件</a></li>
+    <li><a href="#部署">部署</a>
+      <ul>
+        <li><a href="#nginx">Nginx</a></li>
+        <li><a href="#cerbot">Cerbot</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在我两年前写的博客的<a href="https://www.mosdev.xyz/2015/11/21/2015/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客的简单步骤</a>的这篇博文中，我简单的介绍的如何搭建一个基于Github的Hexo博客，现在我来介绍一些其他的用法和部署的方式。</p>
+<h2 id="插件">插件</h2>
+<p>以前使用Hexo而不是Wordpress搭建博客主要原因之一就是可以在Github之类的服务上搭建博客而不需要自己搭建服务器，这样就减少的在金钱方面的投资。如果是现在我还是会在这些方面进行投资的，在以前Hexo的插件不是特别的多，尤其是适合国内的插件和主题都不怎么多，所以我一直都是使用<a href="https://github.com/theme-next/hexo-theme-next">Next</a>作为我的网站的主题的。</p>
+<p>其实这个主题有许多的对国内支持的管理，我感觉十分的方便，如果需要其他的插件可以到官网上去看一下<a href="https://hexo.io/plugins/">插件</a>这个分类，下面有许多的目录值得我们去使用。</p>
+<h2 id="部署">部署</h2>
+<p>在自己的服务器上部署Hexo的方式有许多，可以将服务器的文件打包成Dcoker的镜像进行使用，也可以将使用各种的静态转发的服务器使用，例如：<code>http-server</code>以及<code>httpd</code>等。我这介绍的将是使用<code>Nginx</code>进行部署并且使用<code>cerbot</code>生成SSL证书。</p>
+<p><em>下面我将以我的博客的部署作为演示，并且服务器用的是<code>Ubuntu 17.10</code></em></p>
+<h3 id="nginx">Nginx</h3>
+<p>我们先将数据从我们的GitHub或者其他的代码管理服务上面克隆下来，存到服务器的<code>/var/www/mosdev.xyz</code>的目录下面。然后在<code>/etc/nginx/sites-available</code>中建立一个新的配置文件，例如<code>blog</code>，在其中写入如下的配置内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+        <span class="kn">root</span> <span class="s">/var/www/mosdev.xyz</span><span class="p">;</span>
+
+        <span class="kn">index</span> <span class="s">index.html</span> <span class="s">index.htm</span> <span class="s">index.nginx-debian.html</span><span class="p">;</span>
+
+        <span class="kn">server_name</span> <span class="s">www.mosdev.xyz</span><span class="p">;</span>
+
+        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+                <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这个配置会默认监听80端口，如果休要监听其他的端口可以在配置文件中加入<code>listen</code>字段来进行监听。如果你的配置是正确的话，这个时候删除原来在<code>/etc/nginx/sites-enabled</code>的默认配置，然后重新建立软连接<code>ln -sf ../sites-available/mosdev ./</code>，如果配置都是正确的话，将在输入<code>nginx -s reload</code>的信号后访问你的域名将会看到你部署的博客了。</p>
+<p>现在<code>https</code>已经是网站部署的主流了，所以我们也考虑将网站部署上SSL证书，启用<code>https</code>，最后将不是<code>https</code>的访问都强制转换成http的访问。</p>
+<h3 id="cerbot">Cerbot</h3>
+<p>部署<code>https</code>的一个问题是我们得有SSL证书，以前的SSL证书都比较贵，并且对于个人来说应该不会愿意去购买这么一个证书去部署<code>https</code>的，但是从16年开始，Let&rsquo;s Encrypt 提供了免费的SSL证书，这个时候我们就可以使用这么一个免费的服务去部署一个SSL证书了。</p>
+<h4 id="安装">安装</h4>
+<p>首先当然得是先在服务器上安装cerbot，主要的安装方式有使用Docker或者直接从官方源安装两种：</p>
+<ol>
+<li>
+<p>从官方源安装，这个是没有Nginx插件的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install certbot 
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Docker安装，这个的前提当然是你得在服务器上面安装了个Dockers才行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo docker run -it --rm -p 443:443 -p 80:80 --name certbot <span class="se">\
+</span><span class="se"></span>            -v <span class="s2">&#34;/etc/letsencrypt:/etc/letsencrypt&#34;</span> <span class="se">\
+</span><span class="se"></span>            -v <span class="s2">&#34;/var/lib/letsencrypt:/var/lib/letsencrypt&#34;</span> <span class="se">\
+</span><span class="se"></span>            certbot/certbot certonly
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>虽然我比较喜欢使用Docker进行部署，但是在cerbot这个上面我还是使用了官方源进行安装，这样可以在我更新系统的时候自动进行更新，并且这次我们使用了Nginx进行部署，所以我这次需要安装的是带有Nginx插件的cerbot，具体的安装步骤如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-nginx 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用">使用</h4>
+<p>因为这次我们使用了带有Nginx插件的cerbot，我们首先得确定我们的配置文件是否是正确的<code>nginx -t</code>，然后我们执行一下的命令就可以新生成证书和切换 http流量到https了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 可以自动的修改原有的配置文件，并且在选项中有自动跳转</span>
+sudo certbot --nginx
+<span class="c1"># 如果只是想生成证书，不修改Nginx的配置，可以用如下代码</span>
+sudo certbot --nginx certonly
+<span class="c1"># 配置自动获取证书</span>
+sudo certbot renew --dry-run
+</code></pre></td></tr></table>
+</div>
+</div><p>如果使用的是没有Nginx插件的 cerbot，我们得运行如下代码生成证书：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo certbot certonly --webroot -w /var/www/mosdev.xyz -d www.mosdev.xyz
+</code></pre></td></tr></table>
+</div>
+</div><p>然后修改配置文件如下，也是最终的配置文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+        <span class="kn">root</span> <span class="s">/var/www/mosdev.xyz</span><span class="p">;</span>
+
+        <span class="c1"># Add index.php to the list if you are using PHP
+</span><span class="c1"></span>        <span class="kn">index</span> <span class="s">index.html</span> <span class="s">index.htm</span> <span class="s">index.nginx-debian.html</span><span class="p">;</span>
+
+        <span class="kn">server_name</span> <span class="s">www.mosdev.xyz</span><span class="p">;</span>
+
+        <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+                <span class="c1"># First attempt to serve request as file, then
+</span><span class="c1"></span>                <span class="c1"># as directory, then fall back to displaying a 404.
+</span><span class="c1"></span>                <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="p">=</span><span class="mi">404</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">ipv6only=on</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>    <span class="kn">ssl_certificate</span> <span class="s">/etc/letsencrypt/live/www.mosdev.xyz/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/letsencrypt/live/www.mosdev.xyz/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>    <span class="kn">include</span> <span class="s">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>    <span class="kn">ssl_dhparam</span> <span class="s">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$host</span> <span class="p">=</span> <span class="s">www.mosdev.xyz)</span> <span class="p">{</span>
+        <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+    <span class="p">}</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>
+
+        <span class="kn">listen</span> <span class="mi">80</span> <span class="s">default_server</span><span class="p">;</span>
+        <span class="kn">listen</span> <span class="s">[::]:80</span> <span class="s">default_server</span><span class="p">;</span>
+
+        <span class="kn">server_name</span> <span class="s">www.mosdev.xyz</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">404</span><span class="p">;</span> <span class="c1"># managed by Certbot
+</span><span class="c1"></span>
+
+<span class="p">}</span>
+  
+</code></pre></td></tr></table>
+</div>
+</div><p>至此，你的网站已经在你的VPS上进行了部署，使用了Nginx作为服务器，并且在服务器上面部署了HTTPS，这样也就达成了我们的目标了。</p>
+<h2 id="参考文章">参考文章</h2>
+<ol>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04">How To Set Up Let&rsquo;s Encrypt with Nginx Server Blocks on Ubuntu 16.04</a></li>
+<li><a href="https://certbot.eff.org/all-instructions/">Cerbot Document</a></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">idwangmo</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-02-22
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/blog/">blog</a>
+          <a href="/tags/nginx/">Nginx</a>
+          <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/2018/02/26/usevim/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Vim的使用及YouCompleteMe的配置</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/2018/01/12/aria2/">
+            <span class="next-text nav-default">下载怎么办，试试Aria2</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:idwangmo@promotonmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://github.com/idwangmo" class="iconfont icon-github" title="github"></a>
+  <a href="https://www.idwangmo.top/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2015 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">idwangmo</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
