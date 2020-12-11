@@ -16,27 +16,31 @@ HTTP的相关资料可以再MDN上查到，地址为[https://developer.mozilla.o
 
 ## 一些常用定义
 
-`socketlen_t`定义：在socket编程中的accept函数的第三个参数的长度必须和int的长度相同，于是有了此类型。
+`socketlen_t`定义：在`socket`编程中的`accept`函数的第三个参数的长度必须和int的长度相同，于是有了此类型。
 
-`memset`函数：`void *memset(void *str, int c, size_t n)` 复制字符 c到参数 str 所指向的字符串的前 n 个字符。
+`memset`函数：`void *memset(void *str, int c, size_t n)` 复制字符`c`到参数`str`所指向的字符串的前`n`个字符。
 
-isspace函数：
+`isspace`函数：用于判断字符是否是空白字符
 
 ## Main函数
 
-**执行流程：**参数的声明 ⇒ 调用`startup`函数启动一个服务 ⇒ 在循环中持续的对端口进行监听，调用`accept`函数处理请求 ⇒ 调用`close`函数关闭服务
+**执行流程：**
+
+参数的声明 ⇒ 调用`startup`函数启动一个服务 ⇒ 在循环中持续的对端口进行监听，调用`accept`函数处理请求 ⇒ 调用`close`函数关闭服务
 
 ## startup
 
 用于启动一个进程在特定端口监听网络服务连接，当端口号是0的时候，会随机选择一个端口，并且会修改原有的端口变量为真实的端口。
 
-**执行流程：**创建`socket`连接 ⇒ 处理socket错误 ⇒ 清空name信息 ⇒ 设置name的参数：使用的协议，`AF_INET`是IPV4，监听的端口，主机地址 ⇒ 设置端口复用并处理错误`setsocketopt` ⇒ 使用`bind`函数绑定socket端口 ⇒ 处理是否是随机端口，是则获取一个可用端口 ⇒ 调用`listen`函数设置监听的上限数
+**执行流程：** 
+
+创建`socket`连接 ⇒ 处理socket错误 ⇒ 清空name信息 ⇒ 设置name的参数：使用的协议，`AF_INET`是IPV4，监听的端口，主机地址 ⇒ 设置端口复用并处理错误`setsocketopt` ⇒ 使用`bind`函数绑定socket端口 ⇒ 处理是否是随机端口，是则获取一个可用端口 ⇒ 调用`listen`函数设置监听的上限数
 
 ## accept_request
 
 用于从服务器端口上接受一个请求并返回数据。
 
-执行流程：
+**执行流程：**
 
 1. 开始都是一些变量的声明，由于代码比较老，这个地方使用的还是早期的CGI逻辑
 2. 读取请求体的第一行
