@@ -1,4 +1,4 @@
-baseURL = "https://www.idwangmo.top"
+baseURL = "https://www.moyu-x.top"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "墨语"
@@ -54,7 +54,7 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
 
 [[menu.main]]
   name = "笔记"
-  url = "http://notes.idwangmo.top"
+  url = "http://notes.moyu-x.top"
 [params]
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda

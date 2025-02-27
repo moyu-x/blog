@@ -13,7 +13,7 @@ install:
 
 script:
   - hugo
-  - echo 'www.idwangmo.top' > public/CNAME
+  - echo 'www.moyu-x.top' > public/CNAME
 
 deploy:
   provider: pages

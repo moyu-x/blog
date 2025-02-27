@@ -2,7 +2,7 @@
 
 > 一个私人博客
 
-### 🏠 [Homepage](https://www.idwangmo.top)
+### 🏠 [Homepage](https://www.moyu-x.top)
 
 因为不想配置评论系统和各种 SEO，所以直接将整个目录传上来了，这里面不会有安全问题。
 
@@ -10,7 +10,7 @@
 
 👤 **idwangmo**
 
-- Website: https://www.idwangmo.top
+- Website: https://www.moyu-x.top
 - Github: [@idwangmo](https://github.com/idwangmo)
 
 ## Show your support
