@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="ArchLinux的使用(2):开发环境的搭建" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="ArchLinux, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/01/07/201801/ArchLinux-2/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>ArchLinux的使用(2):开发环境的搭建 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      ArchLinux的使用(2):开发环境的搭建
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-01-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/ArchLinux/">ArchLinux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B9%8B%E5%89%8D"><span class="toc-number">1.</span> <span class="toc-text">安装之前</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#multilib"><span class="toc-number">1.1.</span> <span class="toc-text">multilib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arclinuxcn%E6%BA%90"><span class="toc-number">1.2.</span> <span class="toc-text">arclinuxcn源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python"><span class="toc-number">2.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-number">3.</span> <span class="toc-text">Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Node%E7%8E%AF%E5%A2%83"><span class="toc-number">4.</span> <span class="toc-text">Node环境</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>对于我用过的几个发行版本来说，ArchLinux算是天生对程序员亲和的，主要是有这几个原因，首先是官方源中维护了许多的编程环境的包，尤其是以Python维护的最多。其次是有AUR源，有许多人在共同的维护这个源，可以让开箱即用的包越来越多。最后的原因才是他是一个Linux的发行版本。</p>
+<h2 id="安装之前"><a href="#安装之前" class="headerlink" title="安装之前"></a>安装之前</h2><p>在配置安装环境之前，我们得先对我们镜像源改造一下，这样才能继续我们之后的工作。我们得启用用<code>multilib</code>和<code>archlinuxcn</code>两个源。</p>
+<h3 id="multilib"><a href="#multilib" class="headerlink" title="multilib"></a>multilib</h3><p>对于<code>multilib</code>这个源，我们只需要简单的将<code>/etc/pacman.conf</code>中的<code>multilib</code>的注释取消了就行</p>
+<h3 id="arclinuxcn源"><a href="#arclinuxcn源" class="headerlink" title="arclinuxcn源"></a>arclinuxcn源</h3><p>对于这个我们可以在<code>/etc/pacman.conf</code>加入如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/<span class="variable">$arch</span></span><br></pre></td></tr></table></figure>
+
+<p>然后再安装<code>archlinuxcn-keyring</code>这个包导入秘钥就行。对于这其中可能存在的两个问题，也就是由使用硬件时钟造成秘钥导入不成功的问题（这个一般是时间的问题，硬件时间不是UTC时间的情况下造成的）<br>，可以使用以下方法进行解决：</p>
+<ol>
+<li>立即同步时间，不用修改系统的时间设置</li>
+<li>删除<code>/etc/pacman.d/gnupg</code>文件夹，然后运行<code>pacman-key --init</code>，<code>pacman-key --poplaute archlinux</code>和<code>pacman-key --refresh-keys</code>就可以解决这一个问题</li>
+</ol>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>对于Python编程环境来说，ArchLinux默认的Python环境是最新版本的Python3版本，所以在使用的时候需要注意这个问题，对于常见Python环境的安装方法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Anaconda</span></span><br><span class="line">pacman -S anaconda</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装pyenv</span></span><br><span class="line">pacman -S pyenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Pytcharm</span></span><br><span class="line">yaourt -S pycharm-professional</span><br></pre></td></tr></table></figure>
+
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p> 在ArchLinux中使用Java，可以选择两种JDK的版本，一种是使用openjdk，另外一个是使用Oracle jdk版本，并且在ArchLinux中，可以使用<code>archlinux-java</code>来切换不同的版本。对于Java环境的一些工具集，可以使用如下的命令进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装oracle jdk</span></span><br><span class="line">pacman -S jdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装openjdk</span></span><br><span class="line">pacman -S jdk9-openjdk</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装maven</span></span><br><span class="line">pacman -S maven</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装gradle</span></span><br><span class="line">pacman -S gradle</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装eclipse</span></span><br><span class="line">pacman -S eclipse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Idea</span></span><br><span class="line">pacman -S intellij-idea-ultimate-edition</span><br></pre></td></tr></table></figure>
+
+<h2 id="Node环境"><a href="#Node环境" class="headerlink" title="Node环境"></a>Node环境</h2><p>和大部分的平台的安装配置一样，就是有可能需要配置以下全局的<code>npm</code>包的安装位置和一些目录，可以使用<code>pacman -S nodejs npm</code>来进行安装，可以在<code>~/.npmrc</code>中写入如下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># $HOME为你home目录路径的全写</span></span><br><span class="line">cache=<span class="variable">$HOME</span>/.node_modules</span><br><span class="line">prefix=<span class="variable">$HOME</span>/.node_modules</span><br></pre></td></tr></table></figure>
+<p>对于其他的一些编程环境来说，基本上也是大同小异。对于IDE的配置和选择我会在以后的博文中写出给大家作为参考。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/01/07/201801/ArchLinux-2/">http://moyu-x.com/2018/01/07/201801/ArchLinux-2/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/ArchLinux/">ArchLinux</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/01/09/201801/ArchLinux-3/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">ArchLinux的使用(3):日常生活</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/01/04/201801/ArchLinux-1/">  
+        <span class="next-text nav-default">ArchLinux的使用(1):安装</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

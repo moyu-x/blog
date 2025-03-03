@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="设计模式（1）：基础及实例" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="笔记, 设计模式, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2016/12/07/201612/DesignPattern-1/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>设计模式（1）：基础及实例 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      设计模式（1）：基础及实例
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-12-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#23%E4%B8%AA%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">23个设计模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%E5%B1%95%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text">实例展示</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>每一个模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。</p>
+<p>一个设计模式有四个基本要素：</p>
+<ol>
+<li>模式名称</li>
+<li>问题</li>
+<li>解决方案</li>
+<li>效果</li>
+</ol>
+<p>设计模式是用来在特定场景下解决一般设计问题的类和相互通信的对象的描述。</p>
+<p>MVC通过建立一个”订购&#x2F;通知“协议来分离视图和模型。视图必须保证它的显示正确地反映了模型的状态。一旦模型的数据发生变化，模型将通知有关的视图，每个视图相应地得到刷新自己的机会。</p>
+<p>将对象分离，使得一个对象的改变能改影响另一些对象，而这个对象并不需要知道哪些被影响的对象细节。</p>
+<p>MVC的另一个特征是视图可以嵌套。</p>
+<p>将一些对象划为一组，并将该组对象当作一个对象使用。</p>
+<p>MVC允许在不改变视图外观的情况下改变视图对用户输入的响应方式。</p>
+<p>MVC的主要关心还是由Observe、Composite好Strategy三个设计模式给出的。</p>
+<h2 id="23个设计模式"><a href="#23个设计模式" class="headerlink" title="23个设计模式"></a>23个设计模式</h2><p>Abstract Factory：提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p>
+<p>Adapter：将一个类的接口转换成客户希望的另一个接口。Adapter模式使得原本由于借口哦不兼容而不能在一起工作的那些类可以一起工作。</p>
+<p>Bridge：将抽象部分与它的实现部分分离，使它们都可以独立地变化。</p>
+<p>Builder：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<p>Chain of Reponsibility：为解除请求的发送者和接受者之间的耦合，而使多个对象都有机会处理这个请求。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它。</p>
+<p>Command：将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以支持可取消的操作。</p>
+<p>Composite：将对象组合成树形结构以表示“部分-整体”的层次结构。Composite使得客户对单个对象和复合对象的使用具有一致性。</p>
+<p>Decorator：动态地给一个对象添加一写额外的职责。</p>
+<p>Facade：为子系统中的一组接口提供一个一致的界面，Facade模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。</p>
+<p>Factory Method：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。Factory Method使一个类的实例化延迟到其子类。</p>
+<p>Interpreter：给定一个语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的子句。</p>
+<p>Iterator：提供一种方法顺序访问一个聚合对象中各个元素，而又不需暴露该对象的内部表示。</p>
+<p>Mediator：用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显示地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。</p>
+<p>Memento：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可以将该对象恢复到保存状态。</p>
+<p>Observer：定义对象的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于它的对象都得得到通知并自动刷新。</p>
+<p>Prototype：用原型实例指定创建对象的种类，并且通过拷贝这个原型来创建新的对象。</p>
+<p>Proxy：为其他对象提供一个代理以控制这个对象的访问。</p>
+<p>Singleton：保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+<p>State：允许一个对象在其内部状态改变时改变它的行为。对象看起来似乎修改了它所属的类</p>
+<p>Strategy：定义一系列的算法，把它们一个个封装起来，并且使它们可相互替换</p>
+<p>Template Method：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。Template Method使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+<p>Visitor：表示一个作用于某对象结构中的各元素的操作。可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<p>模式可以根据其目的分为创建型、结构型、或行为型。</p>
+<p>类模式处理子类和子类之间的关系，这些关系通过继承建立，是静态的，在编译时刻便确定下来了。对象模式处理对象间的关系，这些关系在运行时刻是可以变化的，更具动态性。</p>
+<p>创建型类模式将对象的部分创建工作延迟到子类，而创建型对象模式则将它延迟到另一个对象中。结构型类模式使用继承机制来组合类，而结构型对象模式则描述了对象的组装方式。行为类模式使用继承描述算法和控制流，而行为型对象模式则描述一组对象怎样协作完成单个对象所无法完成的认为。</p>
+<p>设计模式解决的问题方法：</p>
+<ul>
+<li>寻找合适的对象</li>
+<li>决定对象的细粒度</li>
+<li>指定对象接口</li>
+<li>描述对象的实现</li>
+</ul>
+<p>对象声明的每一个操作指定操作名、作为参数的对象和返回值，这就是所谓的操作的<strong>型构</strong></p>
+<p>对象操作所定义的所有操作型构的集合被称为该对象的<strong>接口</strong></p>
+<p><strong>类型</strong>是用来标识特定接口的一个名字</p>
+<p>当一个类型的接口包含另一个类型的接口时，我们就说它是另一个类型的<strong>子类型</strong>，另一个类型称为<strong>超类型</strong></p>
+<p>发送给对象的请求和它的相应操作在运行时刻的连接就称为<strong>动态绑定</strong></p>
+<p>对象通过实例化类来创建的，次对象被称为该类的实例。当实例化类时，要给对象的内部数据（由实例变量组成）分配存储空间，并将操作与这些数据联系起来。对象的许多类似实例是由实例化同一个类来创建的。</p>
+<p>新的类可以由已存在的类通过继承来定义。当子类继承父类时，子类包含该了父类所有的数据和操作。子类的实例对象包含所有子类和父类定义的数据，且它们能完成子类和父类定义的所有操作。</p>
+<p>抽象类的主要目的是为它的子类定义公共接口。一个抽象类将把它的部分或全部操作的实现延迟加载到子类中，因此一个抽象类不能被实例化。在抽象类中定义却没有实现的操作被称为抽象操作。</p>
+<p>类能够重定义父类定义的操作，重定义使得子类能接管父类对请求的处理操作。</p>
+<p>混入类时给其他类提供可选择的接口或功能的类。</p>
+<p><strong>对接口编程，而不是对实现编程</strong></p>
+<p>面向对象系统中功能复用的两种最常用的技术是类继承和对象组合</p>
+<p><strong>优先使用对象组合，而不是类继承</strong></p>
+<p>导致重新设计的一般原因：</p>
+<ol>
+<li>通过显示地指定一个类来创建对象</li>
+<li>对特殊操作的依赖</li>
+<li>对硬件和软件平台的依赖</li>
+<li>对对象表示或实现的依赖</li>
+<li>算法依赖</li>
+<li>紧耦合</li>
+<li>通过生成子类来扩充功能</li>
+<li>不能方便的对类进行修改</li>
+</ol>
+<p>模式和框架的区别：</p>
+<ol>
+<li>设计模式比框架更抽象</li>
+<li>设计模式是比框架更小的体系结构元素</li>
+<li>框架比设计模式更加特例化</li>
+</ol>
+<p>选择设计模式的方法：</p>
+<ul>
+<li>考虑设计模式是怎样解决设计问题的</li>
+<li>浏览模式的意图部分</li>
+<li>研究目的相似的模式</li>
+<li>检查重新设计的原因</li>
+<li>考虑设计中那些是可变的</li>
+</ul>
+<h1 id="实例展示"><a href="#实例展示" class="headerlink" title="实例展示"></a>实例展示</h1><p>层次结构信息的表述通常是通过一种被称为递归组合的技术来实现的。递归组合可以由较简单的元素逐渐建立复杂的元素。</p>
+<p>获得跨越硬件和软件平台的可移植性是系统设计的主要问题之一。移植的一大障碍是不同视感标准之间的差异性。</p>
+<p>一个平台将多个互相重叠的窗口展示在一个点阵显示器上。</p>
+<p>图源抽象的一个重要作用就是隐藏了存储其子图源的数据结构，我们可以在不影响其他类的情况下改变图元的数据结构。</p>
+<p>图元接口不应该偏重于某个数据结构。</p>
+<p>一个好的解决方案是封装那些变化的概念。</p>
+<p>分析对象怎样才能不使用类型测试或强制类型转换也能正确对待各种不同的图元。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2016/12/07/201612/DesignPattern-1/">http://moyu-x.com/2016/12/07/201612/DesignPattern-1/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+      
+      <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2016/12/11/201612/DesignPattern-2/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">设计模式（2）：创建型模式</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2016/12/05/201612/SpringInAction-1/">  
+        <span class="next-text nav-default">Spring实战(1)：基础及配置</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

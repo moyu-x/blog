@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="软件配置" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Linux, Windows, 配置, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2016/02/29/2015/环境变量/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>软件配置 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      软件配置
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-02-29
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Windows/">Windows</a>
+        
+        <a href="/categories/Windows/Linux/">Linux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">Windows中环境变量的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java"><span class="toc-number">1.1.</span> <span class="toc-text">Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gradle%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">Gradle的环境变量的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">Maven的配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.</span> <span class="toc-text">Git的环境变量的配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E4%B8%AD%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">Linux中环境变量的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-1"><span class="toc-number">2.1.</span> <span class="toc-text">Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sublime%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">Sublime的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ububtu-make%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text">Ububtu make的安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">C语言的建议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#android-sdk%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">android sdk的配置</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h1 id="Windows中环境变量的配置"><a href="#Windows中环境变量的配置" class="headerlink" title="Windows中环境变量的配置"></a>Windows中环境变量的配置</h1><h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><ol>
+<li><p>JAVA_HOME: 新建一个名为<code>JAVA_HOME</code>的变量，内容为jdk安装的目录</p>
+</li>
+<li><p>path中的配置，尽量在当前用户的path中添加：<br>在path后面（如果没有的话则新建一个）追加<code>%JAVA_HOME%\bin</code>及<code>%JAVA_HOME%\jre\bin</code>的变量，至于classpath我从一些博客上没有看到需要进行配置的必要，所以我一般不进行配置，有一些博客说配置classpath是老版本的需要，而比较新的版本则没有配置classpath的必要了，并且还有可能造成不必要的错误。个人认为目前的版本没有必要在系统中配置classpath。</p>
+</li>
+<li><p>测试：输入<code>javac -version</code>出现相关的版本号则配置正确 </p>
+<p>安装java时，jre会自动更新，而每次自动更新的时候，jdk并不会随著而更新，并且我发现每次自动更新结束之后，无论默认的jre安装在什么地方，更新之后都会更改到C盘之下，所以我建议都把jre和jdk默认安装到C盘下比较好，方便自己以后的管理</p>
+</li>
+<li><p>更新：每次升级的时候没有必要关心jre的版本问题，但是jdk的path会因为安装的问题而发生改变，所以每次更新的时候都需要更新jdk的版本信息。</p>
+</li>
+</ol>
+<h2 id="Gradle的环境变量的配置"><a href="#Gradle的环境变量的配置" class="headerlink" title="Gradle的环境变量的配置"></a>Gradle的环境变量的配置</h2><p><del>配置Gradle的原因主要是我最近在学习Android的开发的时候遇到的，目前我认为其和maven一样是一个依赖包管理工具，更多深层次的东西现在还没有进行学习，所以也仅是如此叙述。</del></p>
+<p>现在虽然在实习的时候使用Maven进行项目管理，但是在日常的学习使用的过程中还是习惯于使用Gradle来进行依赖和项目的管理，大体的使用过程如下：</p>
+<ol>
+<li><p>GRADLE_HOME：新建一个名为<code>GRADLE_HOME</code>的变量，内容为Gradle的安装目录</p>
+</li>
+<li><p>path的配置：在path中追加<code>%GRADLE_HOME%\bin</code></p>
+</li>
+<li><p>测试： 能正常运行<code>gradle -v</code>命令，出现显示当前信息的文件则说明成功。 </p>
+</li>
+<li><p>使用阿里源：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定jdk的版本：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sourceCompatibility=<span class="number">1.7</span></span><br><span class="line">targetCompatibility =<span class="number">1.7</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Maven的配置"><a href="#Maven的配置" class="headerlink" title="Maven的配置"></a>Maven的配置</h2><ol>
+<li><p>新建变量<code>MAVEN_HOME</code>,其中填入maven安装的目录</p>
+</li>
+<li><p>在path中追加’%MAVEN_HOME%\bin’就可以了</p>
+</li>
+<li><p>输入<code>mvn -version</code>出现版本信息</p>
+</li>
+<li><p><del>maven使用oschina的源：因为国内网速的原因，直接使用maven center的源会发现网速比较低，所以可以使用<a target="_blank" rel="noopener" href="http://maven.oschina.net/">oschina</a>提供的maven源来进行配置，在setting.xml中做如下修改：</del></p>
+<p>在Oschina的源失效之后，也就是和天翼云的合作结束后，这个镜像基本就不能使用了，可以考虑使用阿里的源，在setting.xml中进行入校配置： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ol>
+<h2 id="Git的环境变量的配置"><a href="#Git的环境变量的配置" class="headerlink" title="Git的环境变量的配置"></a>Git的环境变量的配置</h2><p>对于安装git的时候我们既可以使用git中自带在mingw的类Unix的运行环境，也就是git shell，也可以使用Windows的cmd来进行运行,当然安装的时候我还是建议使用独立的git shell来运行git，有是候我们也会在cmd或者是其他的编辑器中需要使用git。这时，就会发现没有配置环境变量，就会导致使用git的不方便，所以还是需要配置git的环境变量。</p>
+<ol>
+<li><p>GIT_HOME： 这是git的安装目录，git安装在什么地方就将其内容设为你所安装的目录</p>
+</li>
+<li><p>path配置： 在path中直接追加<code>%GIT_HOME%\bin</code>，这时就可以了</p>
+</li>
+<li><p>使用<code>git --version</code>名令来测试是否安装成功，当输入指令后出现git相关的版本号后则说明配置成功</p>
+</li>
+<li><p>git连接到github或者其他的代码托管网站：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置账户信息</span></span><br><span class="line">git config --global user.name &quot;yourName&quot;</span><br><span class="line">git config --global user.email yourname@gmail.com</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成RSA秘钥，邮箱同上，并将密钥提交到Github中</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;yourname@gmail.com&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试是否连接成功</span></span><br><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Linux中环境变量的配置"><a href="#Linux中环境变量的配置" class="headerlink" title="Linux中环境变量的配置"></a>Linux中环境变量的配置</h1><h2 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h2><p>在linux中，我主要使用Ubuntu来作为linux的使用环境，则这时可用使用WebUpd8提供的包来进行安装oracle的jdk，也可以使用openjdk来进行java的安装，当然也可以自己下载linux的jdk包之后进行下载安装，但是我认为对于个人使用的话直接使用WebUpd8提供的安装就可以了，对于生成产环境则不能这样做，所以对于oracle的jdk来说，可用使用如下指令就会进行安装并且配置好所需的环境变量了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository ppa:webupd8team/java</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sublime的安装"><a href="#Sublime的安装" class="headerlink" title="Sublime的安装"></a>Sublime的安装</h2><p>在这里也是使用webupd8team提供的安装包来进行直接的安装，其命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository  ppa:webupd8team/sublime-text-3</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install sublime-text-installer</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ububtu-make的安装"><a href="#Ububtu-make的安装" class="headerlink" title="Ububtu make的安装"></a>Ububtu make的安装</h2><p>使用umake指令可以十分方便的安装在Linux编程中所需要的绝大部分软件，安装命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository  ppa:ubuntu-desktop/ubuntu-make</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ubuntu-make</span><br></pre></td></tr></table></figure>
+
+<h1 id="C语言的建议"><a href="#C语言的建议" class="headerlink" title="C语言的建议"></a>C语言的建议</h1><p>对于C语言来说，我们可以使用微软提供的visual studio communication版本来进行学习，如果你认为这比较大的话，可以使用gcc来进行学习，也就是linux环境。当然不喜欢linux或者不想配置linux的话，我建议可以使用mingw或者是cygwin来进行学习，我强烈反对使用VC++6.0来进行C语言的学习，因为安装一个编辑器的时间都可以把基本的语法看一遍了，简直是在浪费时间。为了使电脑安装的东西少一些，我日常学习和使用C\C++的时候都是使用tdm-gcc和clion来进行学习的，因为其紧跟着gcc的更新，可以使用比较新的语法或功能。</p>
+<h1 id="android-sdk的配置"><a href="#android-sdk的配置" class="headerlink" title="android sdk的配置"></a>android sdk的配置</h1><p>因为在国内不能很好的使用<a target="_blank" rel="noopener" href="https://www.google.com/">Google</a>的数据进行开发和更新，所以只能使用国内提供的镜像来进行配置，具体的可以参考<a target="_blank" rel="noopener" href="http://www.androiddevtools.cn/">AndroidDevTool</a>来进行配置，其github的地址为<a target="_blank" rel="noopener" href="https://github.com/inferjay/AndroidDevTools">AndroidDevTool</a></p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2016/02/29/2015/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">http://moyu-x.com/2016/02/29/2015/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Linux/">Linux</a>
+      
+      <a href="/tags/Windows/">Windows</a>
+      
+      <a href="/tags/%E9%85%8D%E7%BD%AE/">配置</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2016/02/29/2015/Ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Ubuntu移除多余的内核</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2015/11/22/2015/docker%E7%9A%84%E4%BD%BF%E7%94%A8/">  
+        <span class="next-text nav-default">Docker的使用</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

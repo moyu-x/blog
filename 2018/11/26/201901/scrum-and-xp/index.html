@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="硝烟中的Scrum和XP" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="项目管理, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/11/26/201901/scrum-and-xp/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>硝烟中的Scrum和XP - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      硝烟中的Scrum和XP
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-11-26
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">3.</span> <span class="toc-text">第二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">4.</span> <span class="toc-text">第三章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="toc-number">5.</span> <span class="toc-text">第四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">第五章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="toc-number">7.</span> <span class="toc-text">第六章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="toc-number">8.</span> <span class="toc-text">第七章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0"><span class="toc-number">9.</span> <span class="toc-text">第八章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0"><span class="toc-number">12.</span> <span class="toc-text">第十二章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0"><span class="toc-number">14.</span> <span class="toc-text">第十四章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p><a id="org230b2f1"></a></p>
+<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>迭代开发的基本要求：</p>
+<ul>
+<li>迭代要有固定时长——不能超过6个星期</li>
+<li>在没一次迭代的结尾，代码都必须经过QA的测试，能够正常工作</li>
+</ul>
+<p>Nokia的Scrum标准：</p>
+<ul>
+<li>Scrum团队必须要有产品负责人，而且团队都应该清楚这个人呢是谁</li>
+<li>产品复测人必须要有产品的Backlog，其中包括团队对它进行的估算</li>
+<li>团队必须要有燃尽图，而且要了解他们自己的生产率</li>
+<li>在一个Sprint中，外人不能干涉团队的工作</li>
+</ul>
+<p><a id="org80f1e39"></a></p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><p>Scrum不是方法学，它是一个框架</p>
+<p><a id="orgdd5df6b"></a></p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>对于实践中我遇到的情况最好是产品能将业务描述清楚，而不是考虑到技术与业务上实现的问题，有基本上的BDD描述，这样开发就能够根据产品的文档进行技术设计</p>
+</blockquote>
+<p><a id="orgfdacc5f"></a></p>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><p>在sprint计划会议之前，要确保产品backlog尽然有序</p>
+<blockquote>
+<p>不是要求有完备的文档，而是对需要进行的工作有准确的描述，对产品边界上有准确的评估，并且能对自己所设计的功能有进行解释的准备，而不是 在和技术人员交流的时候死缠栏打</p>
+</blockquote>
+<p>产品负责人之外的人能添加新的story，但是不能对功能的考核和工作量进行估计</p>
+<p><a id="org375fe35"></a></p>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><p><strong><strong>制定sprint技术是在整个Scrum中最重要的活动</strong></strong></p>
+<p>sprint会议应当产生的成果：</p>
+<ul>
+<li>sprint目标</li>
+<li>团队成员名单（应当包括每个人能投入工作的程度）</li>
+<li>sprint backlog</li>
+<li>确定号sprint演示日期</li>
+<li>确定好时间地点，供举行每日的scrum会议</li>
+</ul>
+<p>当产品负责人坚持没时间不参加sprint会议以尝试的策略：</p>
+<ul>
+<li>试着让产品负责人理解，为什么他的直接参与事关项目成败</li>
+<li>试着在团队中找到某个人，让他在会议中充当产品负责人的代表</li>
+<li>试着说服管理团队为我们分配新的产品负责人</li>
+<li>推迟sprint的启动时间，直到产品负责人找到时间参会为止</li>
+</ul>
+<p>牺牲内部质量是一个错误的决定，一旦牺牲内部质量，在后期就要 投入更多的精力取解决这些事情</p>
+<p>学会按照时间盒安排工作，学会制定合乎情理的时间盒，这对会议长度和sprint长度同样有帮助</p>
+<p>决定story进入到sprint里的方法：</p>
+<ol>
+<li>本能反应</li>
+<li>生产率计算</li>
+</ol>
+<p>用生产率计算来估计包括两步：</p>
+<ol>
+<li>得出估算生产率</li>
+<li>计算在不超过估算生产率的情况下可以加入多少story</li>
+</ol>
+<blockquote>
+<p>产品负责人应当对团队的生产率进行合理评估，控制好产品开发的进度（评估不是给出精确的结果，而是能对sprint的进度有所管控）</p>
+</blockquote>
+<p>可以在进行项目决策的使用索引卡</p>
+<p>不要将任务拆分出现在产品的backlog中，原因有：</p>
+<ul>
+<li>任务拆分的随机性较强</li>
+<li>产品负责人不需要关心这种细节程度</li>
+</ul>
+<blockquote>
+<p>对于产品负责人说，任务的细分不是其职责，任务的划分应该下放到技术负责人中，由技术团队来对任务进行划分，在此过程中，技术负责人的目标应该是对所开发的产品和stroy进行解释</p>
+</blockquote>
+<p>当Scrum团队中测试人员说可以，这个story就算是结束了</p>
+<blockquote>
+<p>除此之外，其他人都无法决策这个story是否结束（除非这个sprint流产）</p>
+</blockquote>
+<p><a id="org030717e"></a></p>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><blockquote>
+<p>当sprint结束的时候，应该向全公司发送sprint的信息，应当包含这个sprint的目标，进度，相关文档和开发人员信息，以此让公司同事了解到团队正在做的事情</p>
+</blockquote>
+<p><a id="org693fba3"></a></p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><blockquote>
+<p>将sprint backlog的信息公开放置到团队人员能看到的地方，以便了解进度，可以考虑结合看板和燃尽图的模式</p>
+</blockquote>
+<p>在使用燃尽图的时候，应当将休息时间排除在外</p>
+<p><a id="orgd64f032"></a></p>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><p><strong><strong>让团队坐在一期</strong></strong></p>
+<blockquote>
+<p>当然产品负责人应该距离团队很近，就算不能在一起，也得尽量不合开发团队的整体分开</p>
+</blockquote>
+<p><a id="org13da563"></a></p>
+<h1 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h1><p>当一个个人经常不能完成sprint中的目标，这个时候应该进行单独的辅导，如果还是这样，在衡量他不是太重要之后，就试着将他从团队中挪走</p>
+<p><a id="org1b459e6"></a></p>
+<h1 id="第十章"><a href="#第十章" class="headerlink" title="第十章"></a>第十章</h1><p>在进行sprint回顾的时候，只要能清楚的指出问题的所在，到了下一个sprint，问题也许就自行解决了</p>
+<p><a id="org28ea899"></a></p>
+<h1 id="第十一章"><a href="#第十一章" class="headerlink" title="第十一章"></a>第十一章</h1><p>可以在两个sprint之间安排实验日，用于研究新的技术，学习新的技术，或者可以进行分享活动</p>
+<p><a id="org47fbd54"></a></p>
+<h1 id="第十二章"><a href="#第十二章" class="headerlink" title="第十二章"></a>第十二章</h1><p>推荐书目：敏捷估计与规划</p>
+<p><a id="orga9caefd"></a></p>
+<h1 id="第十三章"><a href="#第十三章" class="headerlink" title="第十三章"></a>第十三章</h1><p>测试驱动开发意味着要先写一个自动测试，然后编写恰好嫩巩固用的代码，让它通过这个测试，接着对代码进行重构，提高代码的可读性和消除重复，整理一下然后继续</p>
+<p><a id="org457a68d"></a></p>
+<h1 id="第十四章"><a href="#第十四章" class="headerlink" title="第十四章"></a>第十四章</h1><p>在一个sprint中及早发现并修复bug，要比sprint结束后再这样做的代价小得多</p>
+<blockquote>
+<p>在没个sprint版本中加入一些上个sprint后来发现的bug是一个很好的解决办法</p>
+</blockquote>
+<p><a id="org9b35025"></a></p>
+<h1 id="第十五章"><a href="#第十五章" class="headerlink" title="第十五章"></a>第十五章</h1><p>将各个sprint团队的周期保持一致是一个很好的做法</p>
+<p>使用跨组件的团队可以很好的对功能和任务进行分配</p>
+<p>在一个sprint中的story中，一定得分出优先级，这样才能更好有序的开发（并且可以防止中间出现意外事件）</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/11/26/201901/scrum-and-xp/">http://moyu-x.com/2018/11/26/201901/scrum-and-xp/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2019/02/23/201902/spring-tips/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Spring tips</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/09/06/201809/java-time/">  
+        <span class="next-text nav-default">Java8的使用：时间</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Spring实战(1)：基础及配置" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="笔记, Spring实战, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2016/12/05/201612/SpringInAction-1/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Spring实战(1)：基础及配置 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Spring实战(1)：基础及配置
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-12-05
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Spring/">Spring</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DI"><span class="toc-number">1.1.1.</span> <span class="toc-text">DI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">1.1.2.</span> <span class="toc-text">AOP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E5%AE%B9%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">Spring容器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">2.</span> <span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">自动化配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87java%E4%BB%A3%E7%A0%81%E8%BD%AC%E9%85%8Dbean"><span class="toc-number">2.2.</span> <span class="toc-text">通过java代码转配bean</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87XML%E8%A3%85%E9%85%8Dbean"><span class="toc-number">2.3.</span> <span class="toc-text">通过XML装配bean</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>降低Java开发的复杂性，Spring采取的策略：</p>
+<ul>
+<li>基于POJO的轻量级和最小侵入性编程</li>
+<li>通过依赖注入和面向接口实现松耦合</li>
+<li>基于切面和惯例进行声明式编程</li>
+<li>通过切面和模板减少样板式代码</li>
+</ul>
+<p>耦合具有两面性：</p>
+<ol>
+<li>紧密的耦合代码难以测试、难以复用、难以理解，并且典型地表兄出“打地鼠”式的bug特性</li>
+<li>一定程度的耦合又是必须的——完全没有耦合的代码什么也做不了</li>
+</ol>
+<h3 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h3><p>Spring通过Application Context装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。</p>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>AOP往往被定义为促使软件系统实现关注点的分离的一项技术。AOP能够使这些服务区模块化，并以声明 的方式将他们的应用到他们需要影响的组件中去。所造成的结果就是这些组件会具有更高的内聚性并且会更加关注自身的业务，完全不需要了解涉及系统服务所带来的复杂性。</p>
+<p><code>&lt;aop:aspect&gt;</code>元素引用该bean，前置调用为<code>&lt;aop:before&gt;</code>，后置调用为<code>&lt;aop:after&gt;</code></p>
+<h2 id="Spring容器"><a href="#Spring容器" class="headerlink" title="Spring容器"></a>Spring容器</h2><p>spring自带多个容器的实现，可以分为两种不同的类型bean工厂（由org.springframework. beans.<br>factory.eanFactory接口定义）是最简单的容器，提供基本的DI支持。应用上下文<br>（由org.springframework.context.ApplicationContext接口定义）基于BeanFactory构建，并提供应用框架级别的服务</p>
+<p>Spring自带了多种类型的应用上下文。下面罗列的几个是你最有可能</p>
+<ul>
+<li>AnnotationConfigApplicationContext：从一个或多个基于Java的配置类中加载Spring应用上下文。</li>
+<li>AnnotationConfigWebApplicationContext：从一个或多个基于Java的配置类中加载Spring Web应用上下文。</li>
+<li>ClassPathXmlApplicationContext：从类路径下的一个或多个XML配置文件中加载上下文定义，把应用上下文的定义文件作为类资源。</li>
+<li>FileSystemXmlapplicationcontext：从文件系统下的一个或多个XML配置文件中加载上下文定义。</li>
+<li>XmlWebApplicationContext：从Web应用下的一个或多个XML配置文件中加载上下文定义。</li>
+</ul>
+<p>Spring Bean的生命周期：</p>
+<p><img src="/%5Cimages%5C201612%5CSpringBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="SpringBean的生命周期"></p>
+<p><img src="/%5Cimages%5C201612%5CSpring%E6%A8%A1%E5%9D%97.png" alt="Spring模块"></p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>Spring提供了三种主要的装配机制：</p>
+<ul>
+<li>在XML中进行显式配置。</li>
+<li>在Java中进行显式配置。</li>
+<li>隐式的bean发现机制和自动装配</li>
+</ul>
+<h2 id="自动化配置"><a href="#自动化配置" class="headerlink" title="自动化配置"></a>自动化配置</h2><p>Spring从两个角度来实现自动化装配：</p>
+<ul>
+<li>组件扫描（component scanning）：Spring会自动发现应用上下文中所创建的bean。</li>
+<li>自动装配（autowiring）：Spring自动满足bean之间的依赖</li>
+</ul>
+<p>使用了<code>@Component</code>注解。这个简单的注解表明该类会作为组件类，并告知Spring要为这个类创建bean</p>
+<p><code>@ComponentScan</code>注解启用了组件扫描，这个注解能够在Spring中启用组件扫描,默认会扫描与配置类相同的包</p>
+<p>使用XML来启用组件扫描的话，那么可以使用Spring context命名空间的<code>&lt;context:component-scan&gt;</code>元素</p>
+<p>Spring应用上下文中所有的bean都会给定一个ID，Spring会根据类名为其指定一个ID。具体来讲就是将类名的第一个字母变为小写。如果想为这个bean设置不同的ID，你所要做的就是将期望的ID作为值传递给@Component注解。</p>
+<p>Spring支持将<code>@Named</code>作为<code>@Component</code>注解的替代方案。两者之间有一些细微的差异，但是在大多数场景中，它们是可以互相替换的。</p>
+<p>有一个原因会促使我们明确地设置基础包，那就是我们想要将配置类放在单独的包中，使其与其他的应用代码区分开来，为了指定不同的基础包，需要做的就是在<code>@ComponentScan</code>的value属性中指明包的名称.</p>
+<p>除了将包设置为简单的String类型之外，<code>@ComponentScan</code>还提供了另外一种方法，那就是将其指定为包中所包含的类或接口</p>
+<p>为了声明要进行自动装配，可以借助Spring的<code>@Autowired</code>注解。如果没有匹配的bean，那么在应用上下文创建的时候，Spring会抛出一个异常。为了避免异常的出现，你可以将<code>@Autowired</code>的required属性设置为<code>false</code></p>
+<p>将required属性设置为false时，Spring会尝试执行自动装配，但是如果没有匹配的bean的话，Spring将会让这个bean处于未装配的状态。但是，把required属性设置为false时，你需要谨慎对待。如果在你的代码中没有进null检查的话，这个处于未装配状态的属性有可能会出现NullPointerException</p>
+<p><code>@Autowired</code>是Spring的特有注解，可以替换为<code>@Inject</code></p>
+<h2 id="通过java代码转配bean"><a href="#通过java代码转配bean" class="headerlink" title="通过java代码转配bean"></a>通过java代码转配bean</h2><p>JavaConfig是配置代码，这意味着它不应该包含任何业务逻辑，JavaConfig也不应该侵入到业务逻辑代码之中。尽管不是必须的，但通常会将JavaConfig放到单独的包中，使它与其他的应用程序逻辑分离开来，这样对于它的意图就不会产生困惑了。</p>
+<p>创建JavaConfig类的关键在于为其添加<code>@Configuration</code>注解，<code>@Configuration</code>注解表明这个类是一个配置类，该类应该包含在Spring应用上下文中如何创建bean的细节</p>
+<p>要在JavaConfig中声明bean，我们需要编写一个方法，这个方法会创建所需类型的实例，然后给这个方法添加<code>@Bean</code>注解.默认情况下，bean的ID与带有@Bean注解的方法名是一样的，但是可以使用name属性指定一个不同的名字。</p>
+<p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。</p>
+<p>但是，在软件领域中，我们完全可以将同一个实例注入到任意数量的其他bean之中。默认情况下，Spring中的bean都是单例的。</p>
+<p><strong>带有@Bean注解的方法可以采用任何必要的Java功能来产生bean实例</strong></p>
+<h2 id="通过XML装配bean"><a href="#通过XML装配bean" class="headerlink" title="通过XML装配bean"></a>通过XML装配bean</h2><p>最简单的Spring XML配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:c</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!--其余代码--&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要在基于XML的Spring配置中声明一个bean，我们要使用spring-beans模式中的另外一个素：<code>&lt;bean&gt;</code>。<code>&lt;bean&gt;</code>元素类似于JavaConfig中的<code>@Bean</code>注解</p>
+<p>作为替代的方案，你也可以使用Spring的c-命名空间。c-命名空间是在Spring 3.0中引入的，它是在XML中更为简洁地描述构造器参数的方式。要使用它的话，必须要在XML的顶部声明其模式</p>
+<p>XML不允许某个元素的多个属性具有相同的名字。</p>
+<p><code>&lt;list&gt;</code>元素是<code>&lt;constructor-arg&gt;</code>的子元素，这表明一个包含值的列表将会传递到构造器中。其中，<code>&lt;value&gt;</code>元素用来指定列表中的每个元素。可以使用<code>&lt;ref&gt;</code>元素替代<code>&lt;value&gt;</code>，实现bean引用列表的装配。</p>
+<p>Spring为<code>&lt;constructor-arg&gt;</code>元素提供了c-命名空间作为替代方案，与之类似，Spring提供了更加简洁的p-命名空间，作为<code>&lt;property&gt;</code>元素的替代方案</p>
+<p>util-命名空间所提供的功能之一就是<code>&lt;util:list&gt;</code>元素，它会创建一个列表的bean。![Spring util-命名空间中的元素](\images\201612\Spring util-命名空间中的元素.png)</p>
+<p>在使用了XML的配置之后，如果要让spring同时加载它和其他基于Java的配置可以使用<code>@ImportResource</code>注解</p>
+<p>在XML中，我们可以使用import元素来拆分XML配置</p>
+<p>Spring中装配bean的三种主要方式：自动化配置、基于Java的显式配置以及基于XML的显式配置</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2016/12/05/201612/SpringInAction-1/">http://moyu-x.com/2016/12/05/201612/SpringInAction-1/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+      
+      <a href="/tags/Spring%E5%AE%9E%E6%88%98/">Spring实战</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2016/12/07/201612/DesignPattern-1/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">设计模式（1）：基础及实例</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2016/09/23/201609/SpringBootApplication/">  
+        <span class="next-text nav-default">Spring Boot(2):SpringBootApplication注解</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="搭建博客的简单步骤" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="blog, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2015/11/21/2015/搭建博客/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>搭建博客的简单步骤 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      搭建博客的简单步骤
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2015-11-21
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgithub%E8%B4%A6%E5%8F%B7%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">创建github账号及配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDGit%E5%92%8CNode-js"><span class="toc-number">3.</span> <span class="toc-text">下载Git和Node.js</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDhexo"><span class="toc-number">4.</span> <span class="toc-text">下载hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E6%96%87%E7%AB%A0%E5%92%8C%E9%83%A8%E7%BD%B2"><span class="toc-number">5.</span> <span class="toc-text">创建新的文章和部署</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BE%8E%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">美化配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git%E5%90%8C%E6%AD%A5"><span class="toc-number">7.</span> <span class="toc-text">git同步</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">8.</span> <span class="toc-text">hexo常用指令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%B9%B3%E5%8F%B0%E6%88%96%E4%B8%93%E4%B8%9A%E6%96%87%E7%AB%A0%E4%BD%8D%E7%BD%AE"><span class="toc-number">9.</span> <span class="toc-text">修改平台或专业文章位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BD%99%E5%8F%82%E8%80%83"><span class="toc-number">10.</span> <span class="toc-text">其余参考</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本来是想直接用官方给的主题的，但是我发现官方直接给的这样一个主题我不是十分的喜欢，所以我就学习了如何使用Hexo来搭建博客了。虽然在这其中还是有一些麻烦，但是在经过查找资料后，已经将我先在遇到的大部分问题解决了，现在我来介绍如何搭建一个简单的博客。</p>
+<h1 id="创建github账号及配置"><a href="#创建github账号及配置" class="headerlink" title="创建github账号及配置"></a>创建github账号及配置</h1><p>在<a target="_blank" rel="noopener" href="http://www.github.com/">Github</a>上申请账号，然后建立一个仓库（repository）,但是要设置为<code>public</code>的，名称为yourUserName.github.io，这样就创建了一个仓库了。然后在此仓库中的<code>Settings</code>中的<code>option</code>中点击<code>Lanuch automatic page generator</code>，然后根据提示完成下面的步骤。这样，一个项目简单的博客就完成了，当然如果直接使用gitpage来创建的话应会比较简单些。</p>
+<h1 id="下载Git和Node-js"><a href="#下载Git和Node-js" class="headerlink" title="下载Git和Node.js"></a>下载Git和Node.js</h1><p><a target="_blank" rel="noopener" href="http://git-scm.com/download/">Git下载地址</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js下载地址</a></p>
+<h1 id="下载hexo"><a href="#下载hexo" class="headerlink" title="下载hexo"></a>下载hexo</h1><p>在你要建立的目录下 执行以下指令（因为可能发生hexo指令无法使用的情况，这使就要将hexo配置进环境变量就可以了，这主要是会发生在Windows上面）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br><span class="line">hexo init [floder]</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>如果一切顺利，这时你就可以在地址栏中输入<code>127.0.0.1:4000</code>来查看演示网页了。如果发现下载速度有点慢的话可以下载淘宝提供的cnpm来下载所需要的资源，当然，这就需要先下载cnpm并且配置环境变量，命令为:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>如果不想使用cnpm的话，可以在用户目录下新建一个<code>.npmrc</code>的文件，在其中保存以下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">registry=http://npmreg.proxy.ustclug.org</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建新的文章和部署"><a href="#创建新的文章和部署" class="headerlink" title="创建新的文章和部署"></a>创建新的文章和部署</h1><p>直接使用<code>hexo new pageName</code>来新建一个页面，这时候会在source文件夹下的<code>_post</code>文件夹中会找到这个文件，然后将自己的文章输入到其中之后就可以了，编辑的时候使用的是。然后，执行以下指令<code>hexo server</code>,然后在浏览器中输入<code>127.0.0.1:4000</code>来查看你所建立的页面</p>
+<h1 id="美化配置"><a href="#美化配置" class="headerlink" title="美化配置"></a>美化配置</h1><ol>
+<li><p>主题：我么可以在<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题</a>中选择自己喜欢的主题后下载到themes文件夹中，并在<code>_config.yml</code>进行配置后使用</p>
+</li>
+<li><p>fork me on github:可以在<a target="_blank" rel="noopener" href="https://github.com/blog/273-github-ribbons">ribbon</a>中选择自己喜欢的ribbon代码，将其复制到Hexo正在使用的theme下layout.ejs中就可以了。</p>
+</li>
+<li><p>插件：在<a target="_blank" rel="noopener" href="https://hexo.io/plugins/">hexo plugin</a>选择主题并且根据提示下载并配置使用就可以了。这里有一些我自己推荐的插件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-all-minifier</span><br><span class="line">npm install hexo-deployer-git</span><br><span class="line">npm install hexo-filter-flowchart</span><br><span class="line">npm install hexo-generator-archive</span><br><span class="line">npm install hexo-generator-baidu-sitemap</span><br><span class="line">npm install hexo-generator-category</span><br><span class="line">npm install hexo-generator-feed</span><br><span class="line">npm install hexo-generator-index</span><br><span class="line">npm install hexo-generator-search</span><br><span class="line">npm install hexo-generator-sitemap</span><br><span class="line">npm install hexo-generator-tag</span><br><span class="line">npm install hexo-renderer-ejs</span><br><span class="line">npm install hexo-renderer-marked</span><br><span class="line">npm install hexo-renderer-stylus</span><br><span class="line">npm install hexo-server</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="git同步"><a href="#git同步" class="headerlink" title="git同步"></a>git同步</h1><p>执行<code>npm install hexo-deployer-git --save</code>来下载插件，然后在<code>_config.yml</code>进行配置，这是就可以使用<code>hexo deply</code>直接在github上进行部署了</p>
+<h1 id="hexo常用指令"><a href="#hexo常用指令" class="headerlink" title="hexo常用指令"></a>hexo常用指令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n pageName 创建一个名为pageName的页面</span><br><span class="line">hexo g 生成页面文件</span><br><span class="line">hexo s 在本地查看页面效果</span><br><span class="line">hexo d 将生成的页面文件部署到github中</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改平台或专业文章位置"><a href="#修改平台或专业文章位置" class="headerlink" title="修改平台或专业文章位置"></a>修改平台或专业文章位置</h1><p>如果需要将blog迁移到另外一个操作系统或者是重新搭建而又不想将原来的提交信息扔掉的话，这使就需要先创建一个分支<code>git branch [new-head-name]  [reference-to-(B)]</code>，然后重新部署完提交后，就会发现在主干上有些log信息丢失了，这使将新创建的分支和主干进行合并并解决冲突就可以了。</p>
+<p>另一种方式是先创建一个新的分支，在修改好后，部署到分支中，这史可能需要配置一下hexo的配置文件<code>_config.yml</code>，具体为:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改如下内容</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="comment">#git仓库的地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="comment">#branch的名字</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="其余参考"><a href="#其余参考" class="headerlink" title="其余参考"></a>其余参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="http://blog.fens.me/hexo-blog-github/">Hexo在github上构建免费的Web应用</a>  </li>
+<li><a target="_blank" rel="noopener" href="http://wsgzao.github.io/post/hexo-guide/">使用GitHub和Hexo搭建免费静态Blog</a></li>
+</ol>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2015/11/21/2015/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">http://moyu-x.com/2015/11/21/2015/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/blog/">blog</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2015/11/22/2015/docker%E7%9A%84%E4%BD%BF%E7%94%A8/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Docker的使用</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

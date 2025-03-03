@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="新知、交流与分享" />
+
+
+<!-- Website keywords -->
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/page/6/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <section id="posts" class="posts">
+  
+  
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/12/05/201612/SpringInAction-1/">Spring实战(1)：基础及配置</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-12-05
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Spring/">Spring</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>降低Java开发的复杂性，Spring采取的策略：</p>
+<ul>
+<li>基于POJO的轻量级和最小侵入性编程</li>
+<li>通过依赖注入和面向接口实现松耦合</li>
+<li>基于切面和惯例进行声明式编程</li>
+<li>通过切面和模板减少样板式代码</li>
+</ul>
+<p>耦合具有两面性：</p>
+<ol>
+<li>紧密的耦合代码难以测试、难以复用、难以理解，并且典型地表兄出“打地鼠”式的bug特性</li>
+<li>一定程度的耦合又是必须的——完全没有耦合的代码什么也做不了</li>
+</ol>
+<h3 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h3><p>Spring通过Application Context装载bean的定义并把它们组装起来。Spring应用上下文全权负责对象的创建和组装。</p>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>AOP往往被定义为促使软件系统实现关注点的分离的一项技术。AOP能够使这些服务区模块化，并以声明 的方式将他们的应用到他们需要影响的组件中去。所造成的结果就是这些组件会具有更高的内聚性并且会更加关注自身的业务，完全不需要了解涉及系统服务所带来的复杂性。</p>
+<p><code>&lt;aop:aspect&gt;</code>元素引用该bean，前置调用为<code>&lt;aop:before&gt;</code>，后置调用为<code>&lt;aop:after&gt;</code></p>
+<h2 id="Spring容器"><a href="#Spring容器" class="headerlink" title="Spring容器"></a>Spring容器</h2><p>spring自带多个容器的实现，可以分为两种不同的类型bean工厂（由org.springframework. beans.<br>factory.eanFactory接口定义）是最简单的容器，提供基本的DI支持。应用上下文<br>（由org.springframework.context.ApplicationContext接口定义）基于BeanFactory构建，并提供应用框架级别的服务</p>
+<p>Spring自带了多种类型的应用上下文。下面罗列的几个是你最有可能</p>
+<ul>
+<li>AnnotationConfigApplicationContext：从一个或多个基于Java的配置类中加载Spring应用上下文。</li>
+<li>AnnotationConfigWebApplicationContext：从一个或多个基于Java的配置类中加载Spring Web应用上下文。</li>
+<li>ClassPathXmlApplicationContext：从类路径下的一个或多个XML配置文件中加载上下文定义，把应用上下文的定义文件作为类资源。</li>
+<li>FileSystemXmlapplicationcontext：从文件系统下的一个或多个XML配置文件中加载上下文定义。</li>
+<li>XmlWebApplicationContext：从Web应用下的一个或多个XML配置文件中加载上下文定义。</li>
+</ul>
+<p>Spring Bean的生命周期：</p>
+<p><img src="/%5Cimages%5C201612%5CSpringBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="SpringBean的生命周期"></p>
+<p><img src="/%5Cimages%5C201612%5CSpring%E6%A8%A1%E5%9D%97.png" alt="Spring模块"></p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><p>Spring提供了三种主要的装配机制：</p>
+<ul>
+<li>在XML中进行显式配置。</li>
+<li>在Java中进行显式配置。</li>
+<li>隐式的bean发现机制和自动装配</li>
+</ul>
+<h2 id="自动化配置"><a href="#自动化配置" class="headerlink" title="自动化配置"></a>自动化配置</h2><p>Spring从两个角度来实现自动化装配：</p>
+<ul>
+<li>组件扫描（component scanning）：Spring会自动发现应用上下文中所创建的bean。</li>
+<li>自动装配（autowiring）：Spring自动满足bean之间的依赖</li>
+</ul>
+<p>使用了<code>@Component</code>注解。这个简单的注解表明该类会作为组件类，并告知Spring要为这个类创建bean</p>
+<p><code>@ComponentScan</code>注解启用了组件扫描，这个注解能够在Spring中启用组件扫描,默认会扫描与配置类相同的包</p>
+<p>使用XML来启用组件扫描的话，那么可以使用Spring context命名空间的<code>&lt;context:component-scan&gt;</code>元素</p>
+<p>Spring应用上下文中所有的bean都会给定一个ID，Spring会根据类名为其指定一个ID。具体来讲就是将类名的第一个字母变为小写。如果想为这个bean设置不同的ID，你所要做的就是将期望的ID作为值传递给@Component注解。</p>
+<p>Spring支持将<code>@Named</code>作为<code>@Component</code>注解的替代方案。两者之间有一些细微的差异，但是在大多数场景中，它们是可以互相替换的。</p>
+<p>有一个原因会促使我们明确地设置基础包，那就是我们想要将配置类放在单独的包中，使其与其他的应用代码区分开来，为了指定不同的基础包，需要做的就是在<code>@ComponentScan</code>的value属性中指明包的名称.</p>
+<p>除了将包设置为简单的String类型之外，<code>@ComponentScan</code>还提供了另外一种方法，那就是将其指定为包中所包含的类或接口</p>
+<p>为了声明要进行自动装配，可以借助Spring的<code>@Autowired</code>注解。如果没有匹配的bean，那么在应用上下文创建的时候，Spring会抛出一个异常。为了避免异常的出现，你可以将<code>@Autowired</code>的required属性设置为<code>false</code></p>
+<p>将required属性设置为false时，Spring会尝试执行自动装配，但是如果没有匹配的bean的话，Spring将会让这个bean处于未装配的状态。但是，把required属性设置为false时，你需要谨慎对待。如果在你的代码中没有进null检查的话，这个处于未装配状态的属性有可能会出现NullPointerException</p>
+<p><code>@Autowired</code>是Spring的特有注解，可以替换为<code>@Inject</code></p>
+<h2 id="通过java代码转配bean"><a href="#通过java代码转配bean" class="headerlink" title="通过java代码转配bean"></a>通过java代码转配bean</h2><p>JavaConfig是配置代码，这意味着它不应该包含任何业务逻辑，JavaConfig也不应该侵入到业务逻辑代码之中。尽管不是必须的，但通常会将JavaConfig放到单独的包中，使它与其他的应用程序逻辑分离开来，这样对于它的意图就不会产生困惑了。</p>
+<p>创建JavaConfig类的关键在于为其添加<code>@Configuration</code>注解，<code>@Configuration</code>注解表明这个类是一个配置类，该类应该包含在Spring应用上下文中如何创建bean的细节</p>
+<p>要在JavaConfig中声明bean，我们需要编写一个方法，这个方法会创建所需类型的实例，然后给这个方法添加<code>@Bean</code>注解.默认情况下，bean的ID与带有@Bean注解的方法名是一样的，但是可以使用name属性指定一个不同的名字。</p>
+<p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。</p>
+<p>但是，在软件领域中，我们完全可以将同一个实例注入到任意数量的其他bean之中。默认情况下，Spring中的bean都是单例的。</p>
+<p><strong>带有@Bean注解的方法可以采用任何必要的Java功能来产生bean实例</strong></p>
+<h2 id="通过XML装配bean"><a href="#通过XML装配bean" class="headerlink" title="通过XML装配bean"></a>通过XML装配bean</h2><p>最简单的Spring XML配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xmlns:c</span>=<span class="string">&quot;http://www.springframework.org/schema/c&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">&lt;!--其余代码--&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>要在基于XML的Spring配置中声明一个bean，我们要使用spring-beans模式中的另外一个素：<code>&lt;bean&gt;</code>。<code>&lt;bean&gt;</code>元素类似于JavaConfig中的<code>@Bean</code>注解</p>
+<p>作为替代的方案，你也可以使用Spring的c-命名空间。c-命名空间是在Spring 3.0中引入的，它是在XML中更为简洁地描述构造器参数的方式。要使用它的话，必须要在XML的顶部声明其模式</p>
+<p>XML不允许某个元素的多个属性具有相同的名字。</p>
+<p><code>&lt;list&gt;</code>元素是<code>&lt;constructor-arg&gt;</code>的子元素，这表明一个包含值的列表将会传递到构造器中。其中，<code>&lt;value&gt;</code>元素用来指定列表中的每个元素。可以使用<code>&lt;ref&gt;</code>元素替代<code>&lt;value&gt;</code>，实现bean引用列表的装配。</p>
+<p>Spring为<code>&lt;constructor-arg&gt;</code>元素提供了c-命名空间作为替代方案，与之类似，Spring提供了更加简洁的p-命名空间，作为<code>&lt;property&gt;</code>元素的替代方案</p>
+<p>util-命名空间所提供的功能之一就是<code>&lt;util:list&gt;</code>元素，它会创建一个列表的bean。![Spring util-命名空间中的元素](\images\201612\Spring util-命名空间中的元素.png)</p>
+<p>在使用了XML的配置之后，如果要让spring同时加载它和其他基于Java的配置可以使用<code>@ImportResource</code>注解</p>
+<p>在XML中，我们可以使用import元素来拆分XML配置</p>
+<p>Spring中装配bean的三种主要方式：自动化配置、基于Java的显式配置以及基于XML的显式配置</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/09/23/201609/SpringBootApplication/">Spring Boot(2):SpringBootApplication注解</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-23
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <p>这篇文章就来简单的介绍出初始化创建Spring Boot程序的时候提供的两个类级别的注解，一个是用于程序如口程序的<code>@SpringBootAppliaction</code>注解和用于测试使用的<code>@SpringBootTest</code>注解 ，还有就是关注一下SpringRunner类。</p>
+<h1 id="SpringBootAppliaction注解"><a href="#SpringBootAppliaction注解" class="headerlink" title="@SpringBootAppliaction注解"></a><code>@SpringBootAppliaction</code>注解</h1><p>首先我们先来简单的看一下他的源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(excludeFilters = @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class))</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br><span class="line">  </span><br><span class="line">	Class&lt;?&gt;[] exclude() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	String[] excludeName() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@AliasFor(annotation = ComponentScan.class, attribute = &quot;basePackages&quot;)</span></span><br><span class="line">	String[] scanBasePackages() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@AliasFor(annotation = ComponentScan.class, attribute = &quot;basePackageClasses&quot;)</span></span><br><span class="line">	Class&lt;?&gt;[] scanBasePackageClasses() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这份源代码中有三个比较重要的类级别的注解，一个是<code>@SpringBootConfiguration</code>，这个注解表明这个是一个Spring Boot程序。第二个是一个<code>@EnableAutoConfiguration</code>注解，表示这个Spring Boot的程序是使用自动配置的，如果需要配置一些其他的配置，则可以在application.properties或application.yml中进行配置，Spring Boot会自动加载这些配置文件；在类中的还可以引入其他配置文件的方式另说。第三个是<code>@ComponentScan</code>注解，表明在这个文件的同级别的包之下的所有文件的注解都是可以被发现的。</p>
+<p>接口中定义的方法中，有两个方法是用来加载配置类的，这些配置类就是在application.properties中的内容，喜欢直接使用配置类的应该会喜欢这个方法的。剩下的两个方法则是对于扫描类包的了，默认情况下，只会扫描的同级别下所有的类包，但是如果有些类包不想被扫描到的话也可以使用这个方法制定扫描的类包。</p>
+<h1 id="SpringBootTest注解"><a href="#SpringBootTest注解" class="headerlink" title="@SpringBootTest注解"></a><code>@SpringBootTest</code>注解</h1><p>源代码为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@BootstrapWith(SpringBootTestContextBootstrapper.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootTest &#123;</span><br><span class="line">  <span class="comment">// 详细内容请看源码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里只有一个类级别的注解需要关注，这就是<code>@BootstrapWith</code>注解，这个注解是告诉测试程序测试的入口，一般情况下我们使用Junit进行测试的时候，总是自己加载各种依赖，而使用这个注解则告诉了测试程序配置加载的位置，当然一般是加载默认的配置文件，也可以加载自定义的文件。</p>
+<p>而其中默认提供的<code>SpringBootTestContextBootstrapper</code>则是一个实现测试文件配置的加载，启动入口以及基本的配置，这我么可以从其继承链上看出来这是对<code>TestContextBootstrapper</code>的实现:</p>
+<p><img src="/%5Cimages%5C201609%5CSpringBootTestContextBootstrapper.png" alt="SpringBootTestContextBootstrapper"></p>
+<h1 id="SpringRunner"><a href="#SpringRunner" class="headerlink" title="SpringRunner"></a>SpringRunner</h1><p>对于测试文件，如果经常看网上教程的人会发现在测试文件使用的时候使用@RunWith注解会发现使用的不是SpringRuuner.class，而是使用SpringJUnit4ClassRunner.class，这是是不是会认为SpringRunner更加强大的呢。其实不是，SpringRunner集成了SpringJUnit4ClassRunner，其中就多了一个方法，就是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">SpringRunner</span><span class="params">(Class&lt;?&gt; clazz)</span> <span class="keyword">throws</span> InitializationError &#123;</span><br><span class="line">		<span class="built_in">super</span>(clazz);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这其实是一个构造器，就是将标准的Junit测试文件加载到TestContextManager中，当然了，既然使用了@RunWith注解了，在这个时候其中的内容SpringRuuner和SpringJUnit4ClassRunner是没有多大区别的，但是在其他情况下还是有区别的。</p>
+<h1 id="SpringApplication"><a href="#SpringApplication" class="headerlink" title="SpringApplication"></a>SpringApplication</h1><p>这个类相当的有意思，在目前的情况下我们使用到的其实是他的一个静态类<code>run</code>，在源文件中，这个方法是一个重载方法，在以后我们还可以使用这个方法定义在系统加载的时候的参数，默认情况下，这些参数和application.propreties中的没有什么不同，但是我们可以更加自己的需要进行添加，让其加载个性化的参数。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/09/22/201609/SpringBoot/">Spring Boot(1):参见SpringBoot</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-22
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <p>最近开始看Spring Boot相关方面的文章，主要原因还是看网上说的这家伙开发软件的速度比传统的Spring的开发要快，所以在最近学习Spring 的同时也就顺便就开始看Spring Boot的书籍了。</p>
+<p>当然书就看了两本，一本是《Spring Boot In Action》这本书怎么说呢，可以说是一个有实例的官方文档的简单版，其中提到的Grails还是有点意思的。开始的时候这本书还没有中文版的，看的是英文版，这个痛苦啊，那就不说了，看到一半的时候中文版发售了，那个心情就更不好了。另外一本是Apress的《Pro Spring Boot》，这本书讲的比较详细，对其中使用较多的模块还是都有所涉猎的，但是里面有一些技术现在我还是没有遇到过，所有看着还是有点麻烦。马上准备去看一件官方文档，我认为上面应该会讲一些其中内容是怎能实现的。</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p>创建一个Spring Boot项目有三种方式：</p>
+<ol>
+<li><p>通过官网的<a target="_blank" rel="noopener" href="https://start.spring.io/">Start Spring Boot</a>来进行创建，界面十分简洁，简单的配置一下就可以开始配置了开发自己的项目了</p>
+<p><img src="/%5Cimages%5C201609%5CSpringBoot.png" alt="SpringBoot"></p>
+</li>
+<li><p>使用Spring Boot CLI命令行工具来新建一个项目，简单命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring init --build gradle demo</span><br></pre></td></tr></table></figure>
+
+<p>这里是使用了Gradle为构建工具，而项目的名称则为demo，我没没有向其中添加其余的Spring 的模块，这就是最基本的Spring Boot的程序。</p>
+</li>
+<li><p>使用IDE自带的工具来进行配置，其实就是书写一个简单的构建文件，构建文件要么是基于<a target="_blank" rel="noopener" href="http://maven.apache.org/">Maven</a>的，要么是基于<a target="_blank" rel="noopener" href="https://gradle.org/">Gradle</a>的，不过我是推荐使用Gradle作为构建工具，主要是文件的整体结构清晰简单，就是这点就是可以值得去使用的了。</p>
+</li>
+</ol>
+<p>发现了没有，通过以上的方式构建开始项目的文件的方式相比以前开始开发Spring的软件的方法简单了许多，所有在选择自己需要的Spring模块后，其会将这些模块放置到构建文件中，这时候只需要使用Maven和Gradle导入这些文件到IDE中，开始构建项目，其中需要的各种依赖就会自动的引入到系统中了，这就减少了在开发系统的时候需要引入各种jar包，并且还减少了项目中各种依赖关系复杂而到中引入jar包错误的问题了。</p>
+<h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .gitignore</span><br><span class="line">├── build.gradle</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">│       ├── gradle-wrapper.jar</span><br><span class="line">│       └── gradle-wrapper.properties</span><br><span class="line">├── gradlew</span><br><span class="line">├── gradlew.bat</span><br><span class="line">└── src</span><br><span class="line">    ├── main</span><br><span class="line">    │   ├── java</span><br><span class="line">    │   │   └── top</span><br><span class="line">    │   │       └── wangjinpeng</span><br><span class="line">    │   │           └── DemoApplication.java</span><br><span class="line">    │   └── resources</span><br><span class="line">    │       └── application.properties</span><br><span class="line">    └── test</span><br><span class="line">        └── java</span><br><span class="line">            └── top</span><br><span class="line">                └── wangjinpeng</span><br><span class="line">                    └── DemoApplicationTests.java</span><br></pre></td></tr></table></figure>
+
+<p>这是使用<a target="_blank" rel="noopener" href="https://start.spring.io/">Spring Boot start</a>页面上构建的项目页面构建的一个项目，使用了Gradle作为了构建工具，所以其直接就使用的Gradle Wrapper模块，这可以是在系统中没有Gradle的时候还能使用Gradle构建自己需要的文件项目。</p>
+<p>剩下就十分的简单了，有一个默认的程序入口，就是DemoApplication.java，因为项目的名称为Demo，所以名称如上，其默认的命名规则为<code>项目名Application.java</code>。当然也是可以根据自己需要修改的。</p>
+<p>在资源文件中一个配置文件<code>application.properties</code>，这个是默认的配置文件。当然，对于喜欢yaml的人，也可创建名为<code>application.yml</code>的文件来作为默认的配置文件。</p>
+<p>剩下的一个文件为测试文件，这是默认提供的一个测试文件，这个不是程序必须的，所有可以去了也不会有什么问题。但是在测试驱动开发以及对于系统的正确性的要求的前提下，是必须编写测试的，编写测试可为将来的整个开发提供较好的便捷方式，以防止不小心修改代码后没有发现从而造成一个Bug。</p>
+<h1 id="默认依赖包"><a href="#默认依赖包" class="headerlink" title="默认依赖包"></a>默认依赖包</h1><p> <img src="/%5Cimages%5C201609%5C%E4%BE%9D%E8%B5%96%E6%96%87%E4%BB%B6.png" alt="依赖文件"></p>
+<p>这是默认情况提供给我们的依赖包，我们可以发现其提供给我们了三种测试工具，Junit、Mock和hamcrest，还提供了默认的JSON处理包和yaml的处理包，提供了日志文件接口sef4j。</p>
+<p>对于Spring的依赖包来说，除了包含Spring的核心容器aop、beans、core、expression外，还给了Spring Boot实现的源泉Spring Boot的依赖文件主要为和兴文件，日志处理，自动配置一加测试。我们最关注的就是Spring Boot的自动配置，这以后再说。</p>
+<h1 id="Gradle文件"><a href="#Gradle文件" class="headerlink" title="Gradle文件"></a>Gradle文件</h1><p>Gradle文件</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">	ext &#123;</span><br><span class="line">		springBootVersion = <span class="string">&#x27;1.4.1.RELEASE&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">	repositories &#123;</span><br><span class="line">		mavenCentral()</span><br><span class="line">	&#125;</span><br><span class="line">	dependencies &#123;</span><br><span class="line">		classpath(<span class="string">&quot;org.springframework.boot:spring-boot-gradle-plugin:$&#123;springBootVersion&#125;&quot;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;java&#x27;</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;eclipse&#x27;</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;spring-boot&#x27;</span></span><br><span class="line"></span><br><span class="line">jar &#123;</span><br><span class="line">	baseName = <span class="string">&#x27;demo&#x27;</span></span><br><span class="line">	version = <span class="string">&#x27;0.0.1-SNAPSHOT&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line">targetCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line">repositories &#123;</span><br><span class="line">	mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">	compile(<span class="string">&#x27;org.springframework.boot:spring-boot-starter&#x27;</span>)</span><br><span class="line">	testCompile(<span class="string">&#x27;org.springframework.boot:spring-boot-starter-test&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从整体上这与Maven的构建文件pom.xml还是有点相似的，都大体上分为三个部分：一个是使用的插件、一个是项目的基本信息，最后一大块则是依赖的各种文件包。</p>
+<p>不过对于整个build.gradle文件来说，我们只需要注意三点：</p>
+<ol>
+<li>Spring Boot的版本是自己选定的，当发现官网的构建页面不能选择自己需要的版本的时候，可以自己修改构建文件中的springBootVersion后的内容。当然这里面的版本号当然也是Spring Boot这个项目曾经出现过的，不然在maven中心仓库中是没有的，会直接报错。当然需要升级的时候也是可以直接修改这个标识，然后从新构建整个项目就可以了。</li>
+<li>依赖的文件包可以直接写在dependencies中。不过这里的书写方式还是与以前的有一些区别，这里的依赖文件没有版本号。这样的好处是我们不需要关系我们所使用的依赖是哪一个版本的，每一从新构建的时候都会将相关的文件升级到最新的版本，我们不需要处理相关内容。这也是会带来许多的问题，就是需要一些老的包来进行构建，这时候我们可将这些独立的包的内容直接书写，插件会解决大部分的问题。</li>
+<li>如果是直接使用的Spring的组件，则可以没有必要书写使用这个模块的版本号，而对于其余的依赖，还是需要写上版本号，以避免重新构建是整个系统的依赖关发生错误从而导致需要重新编写整个项目的事情。</li>
+</ol>
+<h1 id="源文件"><a href="#源文件" class="headerlink" title="源文件"></a>源文件</h1><p>DemoApplication.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DemoApplicationTests.java：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DemoApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看过这两个文件之后我们会发现，在application.properties文件为空的情况下还是可以进行运行部署和对系统的测试，是什么样的技术实现的呢？其实就是两个注解：</p>
+<ol>
+<li>@SpringBootApplication</li>
+<li>@SpringBootTest</li>
+</ol>
+<p>一个表示了这是一个Spring Boot的入口文件，表明这是一个Spring Boot程序。另一个则表示这个是一个Spring Boot的测试文件。对于这两个注解的特殊用处，我明天会继续书写。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/09/06/201609/about/">搭建博客的原因</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-09-06
+      </span>
+      
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <p> 　　从早2013年读大学开始我就知道了github这样一个网站，并且在其中学到了许多自己喜欢的知识，后来我也开始建立我自己的github账号，并在上面陆陆续续的使用了两年的时间。这个使用老账号的过程中，有许多的新技术在发布，其中就有swift以及kubernetes。但是由于某些原因，我还是将原来的那一个github账号删除了，开始使用现在这个新的Github账号。</p>
+<p>　　我在以前的学习的过程中也是在大量的阅读其他程序员写的博客和其造博客上免费发布的教程来进行学习的，其中就有现在我一直都还在逛得<a target="_blank" rel="noopener" href="http://www.oschina.net/">开源中国</a>和<a target="_blank" rel="noopener" href="http://www.cnblogs.com/">博客园</a>，在这上面有许多的人发布了他们经验和看法，这给我的学习提供了巨大的帮助。</p>
+<p>　　 现在我认为我在学习的方面还是十分的薄弱的，因为我除了一些计算机底层方面的知识外和软件设计相关的知识外，并没有太多的实际开发程序的经验。并且以前一直忙于其他的事情，所以也没有太多的对计算机以及编程方面有较深入的研究，在一些比较细致的问题上也是没有太多的看法。可以用这样的一句话来概括我自己，就是学了三年计算机的计算机小白。</p>
+<p>　　所以现在我准备开始将以前学习的一些知识更加深入的学习下去，最好是能达到一个T字型的发展目标，那就是对某一方面的技术有较深入的研究，并且对流行且使用的技术有所涉猎。并且还在有一段时间的过程中，我会写几个demo作为练手的东西，我会将其中学到的知识分享出来。我也会重新学习以前学过的一些基础性的知识，我会将我学习过程中记录的笔记整理之后发布出来。</p>
+<p>　　搭建这个博客主要还是有两方面的事情，一是记录自己的学习经历，包括基础的内容以及实际的学习过程，另外也是想分享自己在学习过程中的所思所想。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/08/28/201608/Spring4/">Spring4学习笔记</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-08-28
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="Bean-基础"><a href="#Bean-基础" class="headerlink" title="Bean 基础"></a>Bean 基础</h1><p>使用 Bean：</p>
+<ol>
+<li>读取 spring 的配置文件</li>
+<li>获取配置的 bean</li>
+<li>调用方法</li>
+</ol>
+<p>配置 bean：</p>
+<ul>
+<li>class：bean 的全类名，通过反射的方式在 IOC 容器中创建 Bean，所有要求 Bean 中必须有无参的构造器</li>
+<li>id：标识容器中 bean，id 唯一，在 IOC 容器中必须是唯一的若 id 没有指定，Spring 自动将权限定性类名作为 Bean 的名字 id 可以指定多个名字，名字之间可用逗号、分号、或空格分隔</li>
+</ul>
+<p>ApplicationContext 代表 IoC 容器</p>
+<p>spring 中提供了两种类型的 IoC 容器实现：</p>
+<ul>
+<li>BeanFactory: IOC 容器的基本实现.</li>
+<li>ApplicationContext: 提供了更多的高级特性. 是 BeanFactory 的子接口.</li>
+</ul>
+<p>BeanFactory 是 Spring 框架的基础设施，面向 Spring 本身；ApplicationContext 面向使用 Spring 框架的开发者，几乎所有的应用场合都直接使用 ApplicationContext 而非底层的 BeanFactory 无论使用何种方式, 配置文件时相同的</p>
+<p>ApplicationContext 的主要实现类：</p>
+<ul>
+<li>ClassPathXmlApplicationContext：从 类路径下加载配置文件</li>
+<li>FileSystemXmlApplicationContext: 从文件系统中加载配置文件</li>
+</ul>
+<p>ConfigurableApplicationContext 扩展于 ApplicationContext，新增加两个主要方法：refresh() 和 close()， 让 ApplicationContext 具有启动、刷新和关闭上下文的能力 ApplicationContext 在初始化上下文时就实例化所有单例的 Bean。WebApplicationContext 是专门为 WEB 应用而准备的，它允许从相对于 WEB 根目录的路径中完成初始化工作</p>
+<h1 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><p>Spring 支持 3 种依赖注入的方式</p>
+<ul>
+<li>属性注入</li>
+<li>构造器注入</li>
+<li>工厂方法注入（很少使用，不推荐）</li>
+</ul>
+<p>使用构造器注入属性值可以指定参数的位置和参数的类型，以区分重载的类型</p>
+<p>字面值：</p>
+<ul>
+<li>字面值：可用字符串表示的值，可以通过<code>&lt;value&gt;</code>元素标签或 value 属性进行注入。</li>
+<li>基本数据类型及其封装类、String 等类型都可以采取字面值注入的方式</li>
+<li>若字面值中包含特殊字符，可以使用 <![CDATA[]]> 把字面值包裹起来</li>
+</ul>
+<p>可以使用 property 的 ref 属性建立 bean 之间的引用关系，也可以使用<code>&lt;ref&gt;</code>子标签来建立此种关系</p>
+<p>内部 bean 不能被外部引用，只能在内部使用</p>
+<p>可以使用专用的<code>&lt;null/&gt;</code>元素标签为 Bean 的字符串或其它对象类型的属性注入 null 值</p>
+<p>为级联属性赋值，注意：属性需要先初始化后才可以级联属性赋值，否则会有异常，和 struts2 不同</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合属性：在 Spring 中可以通过一组内置的 xml 标签(例如:<code>&lt;list&gt;</code>, <code>&lt;set&gt;</code> 或 <code>&lt;map&gt;</code>) 来配置集合属性.<br>配置 java.util.List 类型的属性, 需要指定<code>&lt;list&gt;</code> 标签, 在标签里包含一些元素. 这些标签可以通过 <code>&lt;value&gt;</code>指定简单的常量值, 通过 <code>&lt;ref&gt;</code>指定对其他 Bean 的引用. 通过<code>&lt;bean&gt;</code>指定内置 Bean 定义. 通过 <code>&lt;null/&gt;</code> 指定空元素. 甚至可以内嵌其他集合.数组的定义和 List 一样, 都使用<code>&lt;list&gt;</code>配置 java.util.Set 需要使用 <code>&lt;set&gt;</code>标签, 定义元素的方法与 List 一样.Java.util.Map 通过 <code>&lt;map&gt;</code>标签定义,<code>&lt;map&gt;</code>标签里可以使用多个<code>&lt;entry&gt;</code> 作为子标签. 每个条目包含一个键和一个值. 必须在 <code>&lt;key&gt;</code>标签里定义键因为键和值的类型没有限制, 所以可以自由地为它们指定<code>&lt;value&gt;</code>, <code>&lt;ref</code>, <code>&lt;bean&gt;</code> 或 <code>&lt;null&gt;</code> 元素. 可以将 Map 的键和值作为<code>&lt;entry&gt;</code>的属性定义: 简单常量使用 key 和 value 来定义; Bean 引用通过 key-ref 和 value-ref 属性定义使用<code>&lt;props&gt;</code> 定义 java.util.Properties, 该标签使用多个 <prop> 作为子标签. 每个<code>&lt;prop&gt;</code> 标签必须定义 key 属性</p>
+<p>使用 map 节点及猫的 entry 子节点配置 Map 类型成员变量</p>
+<p>配置单例的集合 bean，以供多个 bean 进行引用，需要导入 util 命名空间</p>
+<p>通过 p 命名空间位 bean 的属性赋值，需要先导入 p 命名空间，相对于传统的配置方式更加简洁</p>
+<h2 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h2><p>Spring IOC 容器可以自动装配 Bean. 需要做的仅仅是在<code>&lt;bean&gt;</code>的 autowire 属性里指定自动装配的模式:</p>
+<ul>
+<li>byType(根据类型自动装配): 若 IOC 容器中有多个与目标 Bean 类型一致的 Bean. 在这种情况下, Spring 将无法判定哪个 Bean 最合适该属性, 所以不能执行自动装配.若 IoC 容器中有 1 个以上的匹配类型的 bean，则抛异常</li>
+<li>byName(根据名称自动装配): 必须将目标 Bean 的名称和属性名设置的完全相同.更加 bean 的名字和当前 bean 的 setter 风格的属性名进行自动装配，若有匹配的，则进行进行自动装配，反之则不装配</li>
+<li>constructor(通过构造器自动装配): 当 Bean 中存在多个构造器时, 此种自动装配方式将会很复杂. <strong>不推荐使用</strong></li>
+</ul>
+<p>自动装配的缺点：</p>
+<ul>
+<li>在 Bean 配置文件里设置 autowire 属性进行自动装配将会装配 Bean 的所有属性. 然而, 若只希望装配个别属性时, autowire 属性就不够灵活了.</li>
+<li>autowire 属性要么根据类型自动装配, 要么根据名称自动装配, 不能两者兼而有之.</li>
+<li>一般情况下，在实际的项目中很少使用自动装配功能，因为和自动装配功能所带来的好处比起来，明确清晰的配置文档更有说服力一些</li>
+</ul>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>bean 配置的继承：使用 bean 的 parent 属性指定继承哪个 bean 的配置</p>
+<p>抽象 bean：bean 的 abstract 属性为 true 的 bean，这样的 bean 不能被 IoC 容器实例化，只用来被继承配置，若某一个 bean 的 class 属性没有指定，则该 bean 必须是一个抽象 bean</p>
+<p>Spring 允许用户通过 depends-on 属性设定 Bean 前置依赖的 Bean，前置依赖的 Bean 会在本 Bean 实例化之前创建好。如果前置依赖于多个 Bean，则可以通过逗号，空格或的方式配置 Bean 的名称</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>使用 bean 的 scope 属性配置 bean 的作用域：</p>
+<ul>
+<li>singleton：默认值，容器初始时创建 bean 实例，在整个容器的生命周期只创建一个实例</li>
+<li>prototype：原型的，容器初始化时不创建 bean 的实例，而在每次请求时都创建一个新的实例并返回</li>
+</ul>
+<p>在配置文件里配置 Bean 时, 有时需要在 Bean 的配置里混入系统部署的细节信息(例如: 文件路径, 数据源配置信息等). 而这些部署细节实际上需要和 Bean 配置相分离<br>Spring 提供了一个 PropertyPlaceholderConfigurer 的 BeanFactory 后置处理器, 这个处理器允许用户将 Bean 配置的部分内容外移到属性文件中. 可以在 Bean 配置文件里使用形式为<code>$&#123;var&#125;</code>的变量, PropertyPlaceholderConfigurer 从属性文件里加载属性, 并使用这些属性来替换变量.Spring 还允许在属性文件中使用<code>$&#123;propName&#125;</code>，以实现属性之间的相互引用。</p>
+<p>导入属性文件，使用外部化属性文件的属性，通过<code>&lt;context:property-placeholder&gt;</code>进行属性文件的指定，在引用处引用属性文件</p>
+<h2 id="SpEL-表达式"><a href="#SpEL-表达式" class="headerlink" title="SpEL 表达式"></a>SpEL 表达式</h2><p>SpEL：</p>
+<ol>
+<li>为属性配置一个字面值</li>
+<li>引用其他对象</li>
+<li>引用其他对象的属性</li>
+<li>调用其他方法，还可以链式操作</li>
+<li>算术运算符：+、-、*、&#x2F;、%、^</li>
+<li>加号还可以用作字符串连接符</li>
+<li>比较运算符：&lt;、&gt;、&#x3D;&#x3D;、&gt;&#x3D;、lt、gt,、eq、le,、 ge</li>
+<li>逻辑运算符：and、or、not</li>
+<li><code>boolException ? true : false</code>表达式及其变式</li>
+<li>正则表达式</li>
+<li>调用静态方法或静态属性</li>
+<li>使用 SpEL 引用类的静态属性</li>
+<li>引用其他 bean 的属性</li>
+</ol>
+<h2 id="bean-的生命周期"><a href="#bean-的生命周期" class="headerlink" title="bean 的生命周期"></a>bean 的生命周期</h2><p>Spring IOC 容器可以管理 Bean 的生命周期, Spring 允许在 Bean 生命周期的特定点执行定制的任务</p>
+<p>Spring IOC 容器对 Bean 的生命周期进行管理的过程:</p>
+<ol>
+<li>通过构造器或工厂方法创建 Bean 实例</li>
+<li>为 Bean 的属性设置值和对其他 Bean 的引用</li>
+<li>调用 Bean 的初始化方法</li>
+<li>Bean 可以使用了</li>
+<li>当容器关闭时, 调用 Bean 的销毁方法</li>
+</ol>
+<p>在 Bean 的声明 Bean 后置处理器允许在调用初始化方法前后对 Bean 进行额外的处理.<br>Bean 后置处理器对 IOC 容器里的所有 Bean 实例逐一处理, 而非单一实例. 其典型应用是: 检查 Bean 属性的正确性或根据特定的标准更改 Bean 的属性.里设置 init-method 和 destroy-method 属性, 为 Bean 指定初始化和销毁方法</p>
+<p>实现 BeanPostProcessor 接口，并提供</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// init-method之前被调用</span></span><br><span class="line">Object <span class="title function_">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span>;</span><br><span class="line"><span class="comment">// init-method之后被调用</span></span><br><span class="line">Object <span class="title function_">postProcessAfterInitialization</span><span class="params">(Object bean, String beanName)</span>;</span><br><span class="line"><span class="comment">// bean:bean实例本身</span></span><br><span class="line"><span class="comment">// beanName：IoC容器配置的bean的名字</span></span><br><span class="line"><span class="comment">// 返回值：是实际上放回给用户的那个bean，注意：可以在以上两个方法中修改返回的bean，甚至返回一个新bean</span></span><br></pre></td></tr></table></figure>
+
+<p>配置 bean 的后置处理器，不需配置 id，IoC 容器自动识别是一个 BeanPostProcessor</p>
+<h2 id="其他调用-bean-的方法"><a href="#其他调用-bean-的方法" class="headerlink" title="其他调用 bean 的方法"></a>其他调用 bean 的方法</h2><p>静态工厂方法：直接调用某一个类的静态方法就可以返回 bean 的实例</p>
+<p>通过静态工厂方法来配置 bean，猪儿不是配置静态工厂方法实例，而是配置 bean 实例</p>
+<p>调用静态工厂方法创建 Bean 是将对象创建的过程封装到静态方法中. 当客户端需要对象时, 只需要简单地调用静态方法, 而不同关心创建对象的细节.<br>要声明通过静态方法创建的 Bean, 需要在 Bean 的 class 属性里指定拥有该工厂的方法的类, 同时在 factory-method 属性里指定工厂方法的名称. 最后, 使用 <constrctor-arg> 元素为该方法传递方法参数.</p>
+<p>实例工厂方法: 将对象的创建过程封装到另外一个对象实例的方法里. 当客户端需要请求对象时, 只需要简单的调用该实例方法而不需要关心对象的创建细节</p>
+<p>实例工厂方法，即需要创建工厂本身，在调用工厂方法来放回 bean 的实例</p>
+<p>自定义的 BeanFactory 需要实现 BeanFactory 接口</p>
+<h2 id="自动配置"><a href="#自动配置" class="headerlink" title="自动配置"></a>自动配置</h2><p>接受的注解：</p>
+<ul>
+<li><code>@Component</code>: 基本注解, 标识了一个受 Spring 管理的组件</li>
+<li><code>@Respository</code>: 标识持久层组件</li>
+<li><code>@Service</code>: 标识服务层(业务层)组件</li>
+<li><code>@Controller</code>: 标识表现层组件</li>
+</ul>
+<p>对于扫描到的组件, Spring 有默认的命名策略: 使用非限定类名, 第一个字母小写. 也可以在注解中通过 value 属性值标识组件的名称</p>
+<p><code>&lt;context:component-scan&gt;</code>扫描需要的包，需要多个包是使用逗号分隔</p>
+<p><code>&lt;context:include-filter&gt;</code>子节点表示要包含的目标类</p>
+<p><code>&lt;context:exclude-filter&gt;</code>子节点表示要排除在外的目标类</p>
+<p><code>&lt;context:component-scan&gt;</code>下可以拥有若干个<code>&lt;context:include-filter&gt;</code>和<code>&lt;context:exclude-filter&gt;</code>子节点</p>
+<p><code>&lt;context:component-scan&gt;</code>元素还会自动注册 AutowiredAnnotationBeanPostProcessor 实例, 该实例可以自动装配具有 @Autowired 和 @Resource 、@Inject 注解的属性.</p>
+<p>@Autowired 注解自动装配具有兼容类型的单个 Bean 属性:</p>
+<ul>
+<li>构造器, 普通字段(即使是非 public), 一切具有参数的方法都可以应用@Authwired 注解</li>
+<li>默认情况下, 所有使用 @Authwired 注解的属性都需要被设置. 当 Spring 找不到匹配的 Bean 装配属性时, 会抛出异常, 若某一属性允许不被设置, 可以设置 @Authwired 注解的 required 属性为 false</li>
+<li>默认情况下, 当 IOC 容器里存在多个类型兼容的 Bean 时, 通过类型的自动装配将无法工作. 此时可以在 <strong>@Qualifier 注解里提供 Bean 的名称. Spring 允许对方法的入参标注 @Qualifiter 已指定注入 Bean 的名称</strong></li>
+<li>@Authwired 注解也可以应用在数组类型的属性上, 此时 Spring 将会把所有匹配的 Bean 进行自动装配.</li>
+<li>@Authwired 注解也可以应用在集合属性上, 此时 Spring 读取该集合的类型信息, 然后自动装配所有与之兼容的 Bean.</li>
+<li>@Authwired 注解用在 java.util.Map 上时, 若该 Map 的键值为 String, 那么 Spring 将自动装配与之 Map 值类型兼容的 Bean, 此时 Bean 的名称作为键值</li>
+</ul>
+<p>@Resource 注解要求提供一个 Bean 名称的属性，若该属性为空，则自动采用标注处的变量或方法名作为 Bean 的名称</p>
+<p>@Inject 和 @Autowired 注解一样也是按类型匹配注入的 Bean， 但没有 reqired 属性</p>
+<h2 id="泛型依赖注入"><a href="#泛型依赖注入" class="headerlink" title="泛型依赖注入"></a>泛型依赖注入</h2><p>子类会自动继承父类（泛型）的一些依赖关系</p>
+<h1 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring 　 AOP"></a>Spring 　 AOP</h1><p>问题：</p>
+<ol>
+<li>代码混乱：原有的业务方法急剧膨胀. 每个方法在处理核心逻辑的同时还必须兼顾其他多个关注点</li>
+<li>代码分散：.如果日志需求发生变化, 必须修改所有模块.</li>
+</ol>
+<p>InvacationHandler 方法参数：</p>
+<ol>
+<li>proxy：正在返回的那个代理对象，一般情况下，在 invoke 方法中都不使用该对象</li>
+<li>method：正在被调用的方法</li>
+<li>args：调用方法时，传入的参数</li>
+</ol>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li>切面(Aspect): 横切关注点(跨越应用程序多个模块的功能)被模块化的特殊对象</li>
+<li>通知(Advice): 切面必须要完成的工作</li>
+<li>目标(Target): 被通知的对象</li>
+<li>代理(Proxy): 向目标对象应用通知之后创建的对象</li>
+<li>连接点（Joinpoint）：程序执行的某个特定位置：如类某个方法调用前、调用后、方法抛出异常后等。连接点由两个信息确定：方法表示的程序执行点；相对点表示的方位。例如 ArithmethicCalculator#add() 方法执行前的连接点，执行点为 ArithmethicCalculator#add()； 方位为该方法执行前的位置</li>
+<li>切点（pointcut）：每个类都拥有多个连接点：例如 ArithmethicCalculator 的所有方法实际上都是连接点，即连接点是程序类中客观存在的事务。AOP 通过切点定位到特定的连接点。类比：连接点相当于数据库中的记录，切点相当于查询条件。切点和连接点不是一对一的关系，一个切点匹配多个连接点，切点通过 org.springframework.aop.Pointcut 接口进行描述，它使用类和方法作为连接点的查询条件。</li>
+</ul>
+<h2 id="切面编程"><a href="#切面编程" class="headerlink" title="切面编程"></a>切面编程</h2><p>将一个类声明为切面：需要把该类放入到 IoC 容器中，再声明为一个切面</p>
+<p><code>&lt;aop:aspectj-autoproxy/&gt;</code>将自动的为匹配到的切点增加切面内容</p>
+<p>要在 Spring 中声明 AspectJ 切面, 只需要在 IOC 容器中将切面声明为 Bea 在 AspectJ 注解中, 切面只是一个带有 @Aspect 注解的 Java 类. 通知是标注有某种注解的简单的 Java 方法.n 实例.<br>AspectJ 支持 5 种类型的通知注解:</p>
+<ul>
+<li>@fore: 前置通知, 在方法执行之前执行</li>
+<li>@After: 后置通知, 在方法执行之后执行</li>
+<li>@AfterRunning: 返回通知, 在方法返回结果之后执行</li>
+<li>@AfterThrowing: 异常通知, 在方法抛出异常之后</li>
+<li>@Around: 环绕通知, 围绕着方法执行</li>
+</ul>
+<p>可以在通知方法中声明一个类型为 JoinPoint 的参数. 然后就能访问链接细节. 如方法名称和参数值.</p>
+<p>后置通知是在连接点完成之后执行的, 即连接点返回结果或者抛出异常的时候, 下面的后置通知记录了方法的终止.<br>一个切面可以包括一个或者多个通知</p>
+<p>后置通知中不能访问目标方法的执行结果</p>
+<p>返回通知可以方位结果</p>
+<p>异常通知：可以访问到异常对象，且可以指定在出现特定异常时在执行通知代码</p>
+<p>环绕通知需要携带 ProceedingsJoinPoint 类型参数，环绕通知类似于动态代理的全过程，ProceedingsJoinPoint 类型参数可以决定是否执行目标方法，且环绕通知必须有放回值，放回值即为目标方法的返回值</p>
+<p>可以使用@Order 注解指定切面的优先级，值越小，优先级越高</p>
+<h2 id="重用切点表达式"><a href="#重用切点表达式" class="headerlink" title="重用切点表达式"></a>重用切点表达式</h2><p>定义一个方法，用于声明切入点表达式，一般地，该方法中不在需要添如其他代码</p>
+<p>使用@Pointcut 来声明切入点表达式</p>
+<p>后面的其他通知直接使用方法名来引用当前的切入点表达式</p>
+<h2 id="基于-XML-配置的方式"><a href="#基于-XML-配置的方式" class="headerlink" title="基于 XML 配置的方式"></a>基于 XML 配置的方式</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">aop:config</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:pointcut</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span> <span class="attr">expression</span>=<span class="string">&quot;top.wangjinpeng.chapter2.impl.LoggingAsAspect.cutTest()&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspect</span> <span class="attr">ref</span>=<span class="string">&quot;loggingAsAspect&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">&quot;beforeMethod&quot;</span> <span class="attr">pointcut</span>=<span class="string">&quot;top.wangjinpeng.chapter2.impl.LoggingAsAspect.cutTest()&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aop:before</span> <span class="attr">method</span>=<span class="string">&quot;afterMethod&quot;</span> <span class="attr">pointcut</span>=<span class="string">&quot;top.wangjinpeng.chapter2.impl.LoggingAsAspect.cutTest()&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">aop:aspect</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aop:config</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>除了使用 AspectJ 注解声明切面, Spring 也支持在 Bean 配置文件中声明切面. 这种声明是通过 aop schema 中的 XML 元素完成的.<br>正常情况下, 基于注解的声明要优先于基于 XML 的声明. 通过 AspectJ 注解, 切面可以与 AspectJ 兼容, 而基于 XML 的配置则是 Spring 专有的. 由于 AspectJ 得到越来越多的 AOP 框架支持, 所以以注解风格编写的切面将会有更多重用的机会.</p>
+<p>当使用 XML 声明切面时, 需要在 <beans> 根元素中导入 aop Schema<br>在 Bean 配置文件中, 所有的 Spring AOP 配置都必须定义在 <a href="aop:config">aop:config</a> 元素内部. 对于每个切面而言, 都要创建一个 <a href="aop:aspect">aop:aspect</a> 元素来为具体的切面实现引用后端 Bean 实例.<br>切面 Bean 必须有一个标示符, 供 <a href="aop:aspect">aop:aspect</a> 元素引用</p>
+<h1 id="spring-jdbc"><a href="#spring-jdbc" class="headerlink" title="spring jdbc"></a>spring jdbc</h1><h2 id="简化-JDBC-模板查询"><a href="#简化-JDBC-模板查询" class="headerlink" title="简化 JDBC 模板查询"></a>简化 JDBC 模板查询</h2><p>每次使用都创建一个 JdbcTemplate 的新实例, 这种做法效率很低下.</p>
+<p>JdbcTemplate 类被设计成为线程安全的, 所以可以再 IOC 容器中声明它的单个实例, 并将这个实例注入到所有的 DAO 实例中.</p>
+<p>JdbcTemplate 也利用了 Java 1.5 的特定(自动装箱, 泛型, 可变长度等)来简化开发</p>
+<p>Spring JDBC 框架还提供了一个 JdbcDaoSupport 类来简化 DAO 实现. 该类声明了 jdbcTemplate 属性, 它可以从 IOC 容器中注入, 或者自动从数据源中创建.</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><ol>
+<li>配置 DataSource</li>
+<li>配置 JdbcTemplate</li>
+<li>使用</li>
+</ol>
+<p>其不支持级联属性，JdbcTemplate 到底是一个 JDBC 的小工具，而不是 ORM 框架</p>
+<h2 id="在-JDBC-模板中使用具名参数"><a href="#在-JDBC-模板中使用具名参数" class="headerlink" title="在 JDBC 模板中使用具名参数"></a>在 JDBC 模板中使用具名参数</h2><p>在经典的 JDBC 用法中, SQL 参数是用占位符 ? 表示,并且受到位置的限制. 定位参数的问题在于, 一旦参数的顺序发生变化, 就必须改变参数绑定.</p>
+<p>在 Spring JDBC 框架中, 绑定 SQL 参数的另一种选择是使用具名参数(named parameter).</p>
+<p>具名参数: SQL 按名称(以冒号开头)而不是按位置进行指定. 具名参数更易于维护, 也提升了可读性. 具名参数由框架类在运行时用占位符取代</p>
+<p>具名参数只在 NamedParameterJdbcTemplate 中得到支持</p>
+<p>在 SQL 语句中使用具名参数时, 可以在一个 Map 中提供参数值, 参数名为键<br>也可以使用 SqlParameterSource 参数</p>
+<p>批量更新时可以提供 Map 或 SqlParameterSource 的数组</p>
+<p>配置 NamedParameterJdbcTemplte，该对象可以使用具名参数，其没有无参数的构造器，所以必须为其构造器指定参数</p>
+<p>使用具名参数时，可以使用 update（String sql，SqlParameterSource paramSource)方法进行更新操作</p>
+<ol>
+<li>SQL 语句中的参数名和类的属性一致</li>
+<li>使用 SQLParameterSource 的 BeanPropertySqlParameterSource 实现类作为参数</li>
+</ol>
+<h1 id="事务管理"><a href="#事务管理" class="headerlink" title="事务管理"></a>事务管理</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>事务管理是企业级应用程序开发中必不可少的技术, 用来确保数据的完整性和一致性.</p>
+<p>事务就是一系列的动作, 它们被当做一个单独的工作单元. 这些动作要么全部完成, 要么全部不起作用</p>
+<p>事务的四个关键属性(ACID)</p>
+<ul>
+<li>原子性(atomicity): 事务是一个原子操作, 由一系列动作组成. 事务的原子性确保动作要么全部完成要么完全不起作用.</li>
+<li>一致性(consistency): 一旦所有事务动作完成, 事务就被提交. 数据和资源就处于一种满足业务规则的一致性状态中.</li>
+<li>隔离性(isolation): 可能有许多事务会同时处理相同的数据, 因此每个事物都应该与其他事务隔离开来, 防止数据损坏.</li>
+<li>持久性(durability): 一旦事务完成, 无论发生什么系统错误, 它的结果都不应该受到影响. 通常情况下, 事务的结果被写到持久化存储器中.</li>
+</ul>
+<h2 id="spring-事务管理"><a href="#spring-事务管理" class="headerlink" title="spring 事务管理"></a>spring 事务管理</h2><p>作为企业级应用程序框架, Spring 在不同的事务管理 API 之上定义了一个抽象层. 而应用程序开发人员不必了解底层的事务管理 API, 就可以使用 Spring 的事务管理机制.</p>
+<p>Spring 既支持编程式事务管理, 也支持声明式的事务管理.</p>
+<p>编程式事务管理: 将事务管理代码嵌入到业务方法中来控制事务的提交和回滚. 在编程式管理事务时, 必须在每个事务操作中包含额外的事务管理代码.</p>
+<p>声明式事务管理: 大多数情况下比编程式事务管理更好用. 它将事务管理代码从业务方法中分离出来, 以声明的方式来实现事务管理. 事务管理作为一种横切关注点, 可以通过 AOP 方法模块化. Spring 通过 Spring AOP 框架支持声明式事务管理.</p>
+<p>Spring 从不同的事务管理 API 中抽象了一整套的事务机制. 开发人员不必了解底层的事务 API, 就可以利用这些事务机制. 有了这些事务机制, 事务管理代码就能独立于特定的事务技术了.<br>Spring 的核心事务管理抽象是它为事务管理封装了一组独立于技术的方法. 无论使用 Spring 的哪种事务管理策略(编程式或声明式), 事务管理器都是必须的.</p>
+<h2 id="用事务通知声明式地管理事务"><a href="#用事务通知声明式地管理事务" class="headerlink" title="用事务通知声明式地管理事务"></a>用事务通知声明式地管理事务</h2><p>事务管理是一种横切关注点</p>
+<p>为了在 Spring 2.x 中启用声明式事务管理, 可以通过 tx Schema 中定义的<code>&lt;tx:advice&gt; 元</code>素声明事务通知, 为此必须事先将这个 Schema 定义添加到<code>&lt;beans&gt;</code>根元素中去.</p>
+<p>声明了事务通知后, 就需要将它与切入点关联起来. 由于事务通知是在<code>&lt;aop:config&gt;</code> 元素外部声明的, 所以它无法直接与切入点产生关联. 所以必须在<code>&lt;aop:config&gt;</code> 元素中声明一个增强器通知与切入点关联起来.</p>
+<p>由于 Spring AOP 是基于代理的方法, 所以只能增强公共方法. 因此, 只有公有方法才能通过 Spring AOP 进行事务管理.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--启用注解的配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--事务管理的配置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="用-Transactional-注解声明式地管理事务"><a href="#用-Transactional-注解声明式地管理事务" class="headerlink" title="用 @Transactional 注解声明式地管理事务"></a>用 @Transactional 注解声明式地管理事务</h2><p>除了在带有切入点, 通知和增强器的 Bean 配置文件中声明事务外, Spring 还允许简单地用<code>@Transactional</code>注解来标注事务方法.</p>
+<p>为了将方法定义为支持事务处理的, 可以为方法添加<code>@Transactional</code> 注解. 根据 Spring AOP 基于代理机制, 只能标注公有方法.</p>
+<p>可以在方法或者类级别上添加<code>@Transactional</code>注解. 当把这个注解应用到类上时, 这个类中的所有公共方法都会被定义成支持事务处理的.</p>
+<p>在 Bean 配置文件中只需要启用 <code>&lt;tx:annotation-driven&gt;</code>元素, 并为之指定事务管理器就可以了.</p>
+<p>如果事务处理器的名称是 transactionManager, 就可以在<code>&lt;tx:annotation-driven&gt;</code>元素中省略 transaction-manager 属性. 这个元素会自动检测该名称的事务处理器.</p>
+<p>当事务方法被另一个事务方法调用时, 必须指定事务应该如何传播. 例如: 方法可能继续在现有事务中运行, 也可能开启一个新事务, 并在自己的事务中运行.</p>
+<p>使用 Propagation 指定事务的传播行为，及当前的事务方法被另外一个事务方法调用时，如何使用事务。默认取值为 REQUIRED，即调用方法的事务。默认情况下 spring 的声明式事务对所有的运行时异常进行回滚，也可以对事务的属性进行设置</p>
+<p>默认情况下只有未检查异常(RuntimeException 和 Error 类型的异常)会导致事务回滚. 而受检查异常不会.<br>事务的回滚规则可以通过 @Transactional 注解的 rollbackFor 和 noRollbackFor 属性来定义. 这两个属性被声明为 Class[] 类型的, 因此可以为这两个属性指定多个异常类.<br>rollbackFor: 遇到时必须进行回滚<br>noRollbackFor: 一组异常类，遇到时必须不回滚</p>
+<h2 id="超时和只读"><a href="#超时和只读" class="headerlink" title="超时和只读"></a>超时和只读</h2><p>由于事务可以在行和表上获得锁, 因此长事务会占用资源, 并对整体性能产生影响.<br>如果一个事物只读取数据但不做修改, 数据库引擎可以对这个事务进行优化.<br>超时事务属性: 事务在强制回滚之前可以保持多久. 这样可以防止长期运行的事务占用资源.<br>只读事务属性: 表示这个事务只读取数据但不更新数据, 这样可以帮助数据库引擎优化事务.</p>
+<h1 id="spring-整合-hibernate"><a href="#spring-整合-hibernate" class="headerlink" title="spring 整合 hibernate"></a>spring 整合 hibernate</h1><h2 id="整合什么"><a href="#整合什么" class="headerlink" title="整合什么"></a>整合什么</h2><ol>
+<li>用 Ioc 容器来管理 hibernate 的 sessionFactory</li>
+<li>让 hibernate 使用上 spring 的声明式事务</li>
+</ol>
+<h2 id="spring-hibernate-事务流程"><a href="#spring-hibernate-事务流程" class="headerlink" title="spring hibernate 事务流程"></a>spring hibernate 事务流程</h2><p>在方法之前</p>
+<ol>
+<li>获取 Session</li>
+<li>把 Session 和当前线程绑定，就可以在 Dao 中使用 SessionFactory 的 getCurrentSession()的方法来获取 Session</li>
+<li>开启事务</li>
+</ol>
+<p>若方法正常，没有出现异常</p>
+<ol>
+<li>提交事务</li>
+<li>和当前线程绑定的 Session 解除绑定</li>
+<li>关闭 Session</li>
+</ol>
+<p>若方法出现异常：</p>
+<ol>
+<li>回滚事务</li>
+<li>和当前线程绑定的 Session 解除绑定</li>
+<li>关闭 Session</li>
+</ol>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/05/27/201605/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%A8%8B%E5%BA%8F/">计算机和程序</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-05-27
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%80%9D%E8%80%83/">思考</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>现在学习计算机已经三年了，有点想讲一讲我对一个程序的看法了。对于大部分的人来说，也算上没学计算机编程之前的我，都会认为计算机是一个十分智能的东西，仿佛再难的问题在计算机的面前都算是小意思一样。但这样的思想在我读大学并且对计算机的深入学习后才发现，这主要是得益于计算机的计算性能的提升，而不是计算机本身就是十分强大的，计算机的本身是十分的弱智的，但计算机进重复劳动的能力是人类的几何倍，且其速度还十分的块，而普通人是不会进行这样大的重复的且在其看来没有意义的事情的，而计算机则不会进行这样想，这就是计算机在我们面前表现的十分只能的原因。</p>
+<h1 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h1><p>计算机的开始就是纯粹的为了解决数学方面的问题，虽然我们学习的时候总是从图灵机开始讲起，但是最早的一台计算机是巴贝奇差分机，其就是用来解决数学的问题的。并且到了冯洛伊曼的时候，他写出就计算机的模型的时候，也是为了解决弹道和原子弹中的一些问题的（虽然不知道是不是真的在实战中用过，应为第一天冯洛伊曼模型的计算机在二战后许多年才造出来了），一直到了现在，大型的计算机也是可以用来解决数学问题的（就连日常播放视频的解码到大型网站的大规模分布式处理都算是数学问题）。其实我认为于计算机中最有趣的地方就是从问题空间到解空间的变换一直到计算机中的 01 代码的转换，这个从比较高级的抽象一直到底层的细节实现变换过程中，其将一个极其复杂的问题通过各种各样的软件工程的解题思维和数学上的思想将其一步步的再解空间中变换或映射，最后变成二进制的代码。</p>
+<h1 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h1><p>对于程序，可以简单的认为一个程序就是对数据的操控，对数据的操控又可以继续抽象为四个主要的功能，那就是增加、删除、查询以及修改。在我们日常对计算的使用过程中，无论是看视频、听音乐还是上网购物写文档这些事情，我都可以简单的认为就是进行这四项基本的活动。而数据则是软件的基础，在一个程序运行的过程中，是不可能没有任何数据产生的，我认为程序的运行则是伴随着数据的流动的，虽然可能修改数据，但是数据一定是会在软件中进流动的。</p>
+<p>虽然现在的程序从简单的计算器内部的计算软件到维持天猫和淘宝在双十一运行的大型分布式式系统来说，其主要的功能一直没有发生改变。随着需求的增加，原来的这些功能在现在的软件开发中不断被细化为不同的方面，但是只要仔细的对系统进行分析就会发现，这些细分的功能都是为了维持增删改查这四个基本功能在现在的需求下正常的运行。所以软件的基本功能没有发生根本性的改变，虽然不是每个软件的内部都包含着这四个功能，万变不离其宗，根本性的能容是不会轻易发生改变的。</p>
+<h1 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h1><p>对于数据，这个的解释则有许多的书籍进行描述了，但是对于数据的存储来说，我一直有一些不同的见解。那就是对于数据的读取，我们要不是就是遵循约定俗称的规矩，也就是进行现在我们编写的代码时遇到的各种各样的规范和协议。如果我们不遵循这些协议，其他人或系统发送过来的数据我们就无法进行任何形式的解析，而是一堆乱码。所以我认为读写数据是一种双向的，以某种方式进行写入或者是传输数据，必须以这种方式相匹配的方式对需要进行操作的数据进行操作才可以得到我们需要的数据，而不会出现乱码。</p>
+<p>这时，加密就是一个我认为比较不错的例子，对于某些比较重要的数据，我们当然希望只是在必要的人之间进行传递，而不是在整个网络中传递还能被其他人发现其中的秘密（虽然密码被破解只是一个时间上的问题，但是大部分人还是不希望自己的重要数据被其他的人获取），即使数据被其他人传递出去了，但是没有密码本，还是不能读取其中的真实能容才是每个人所希望的安全。这时数据就是遵循一种特别的约定进行传输的，所以我认为这样体现了数据在读写的时候是双向的这样概念了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>每次再根据自己目前的学习水平思考计算机中的一些自己所关心的问题的时候总是会有不同的见解，虽然不一定是正确的，但是我还是想将其分享出来，分享之后才会有更大的收获。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/04/25/201604/%E6%97%A5%E6%9C%AC%E6%96%87%E5%8C%96%E5%8D%81%E8%AE%B2/">日本文化十讲</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-04-25
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>　　这是我大二的时候为《日本文化十讲》而写的一篇结课作业在大学中，唯有这一门课是我最喜欢的课程，其他的课程也有比较有趣的，但是在计算机课枯燥下，这样一门课是我比较喜欢的了。所以我对以前写的这样一篇文章进行了些许修改后贴在这里，虽然现在的我在此看这篇文章的时候发现写得十分的糟糕，但是对于当时的我来说，写这样的一篇文章还是有点难的。现在看来，这篇文章有点条理不清的，不过还是勉强可以读的，其中有一些涉及到常识性错误的，我现在也是不想去修改了，就这样给他错着吧，保存原来的风貌就可以了。<br>　　这篇文章讲的是我当时比较喜欢的两部动漫，一部是从小学开始就看到《名侦探柯南》，虽然现在不是每个周都会去看更新，但是我还是会把其养肥了再去看。而另外的一部是《新世纪福音战士》，这个就不说了，大家都明白。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>　　小的时候我们再看动画片的时候，许多都是来自于日本的，如《奥特曼》系列、《铁臂阿童木》、《哆啦A梦》、《七龙珠》、《游戏王》等等，这些动漫无一不是从下陪伴我们成长，给我们带来了许多的快了和难以忘怀的记忆。当然这也是我文章的主题，现在先让来看一下日本动漫的概述：</p>
+<p>　　日本是世界动漫强国。其动漫发展的模式具有鲜明的民族特色且不失创新力和吸引力，这是其他国家动漫望尘莫及的。动漫是日本重要产业链，在全球鲜有对手，在一部非常成功的动漫出品后，往往会有其周边的产品，如：手办、服装、配饰等，另外还会制作剧场版或改编为游戏，这种成功的产业模式是其他国家很难进行复制的，这也是日本动漫在世界上经久不衰的原因之一。</p>
+<p>　　我时常也会手贱的去买一些周边的产品，发现这是一种十分剁手的行为，一些好看的手办在国内买不到，去淘宝找到的基本上都是假的，所以只有去网上找日本的代购了。先选好自己喜欢的东西，然后找代购下单，如果不出意外30天以后才能到自己的身边，被海关扣下的话那就自认倒霉吧。当然了我们也应该了解一些日本动漫的分类，这不是按照题材分的，只是我们日常接触日本动漫的方式，其主要分为三种类型：<br>电视动画：电视频道上播映的动画作品，一般我们会在网络上等字幕组把字幕做好后下下来看，因为一般日本动漫都不会以动画片的形式引进国内，所以只好以这样的方式来看自己喜欢的动漫，这有一些类似于每周在追美剧。</p>
+<p>　　剧场动画：影院公映的动画作品，是日本动画按传播方式分类的一种，在中国又被称为电影版，这样的制作方式一般画面都会十分精良，极少会出现在电视版上为了赶上播放进度而出现的一些画面失真。<br>OVA（OAD）：原创动画录影带，其中OVA是单独发售，OAD是随书发售的。</p>
+<p>　　一般能马上看到的只有电视剧版，这样在网络上快速找到资源的可能性是相当高的，并且国内也有一些网站在做与之相关的内容。再说一下剧场版，基本上都是今年的电影等到来年的时候才可以看到，这归功于日本电影院严格的管理制度，连看枪版的机会都没有，只有等到正式的DVD出品后才会在网上找到资源，这比起国内简直是一个地狱。</p>
+<p>　　来介绍一下日本动漫的两个三次：</p>
+<p>　　日本动漫史上的三次高潮，分别指《宇宙战舰大和号》、《机动战士高达0079》、《新世福音战士》。<br>机器人动漫三次革命，又称日本军事科幻动画三大不朽系列，指《机动战士高达0079》、《超时空要塞》、《新世纪福音战士》。</p>
+<p>　　上面是对日本动漫有着深刻影响的几部动漫，其中《宇宙战舰大和号》，堪称是日本动画的元祖级作品，其代表日本动画起步之作。而《新世纪福音战士》中的意识流描写和哲学的夹杂，使其成为了日本动漫史上争议最大的作品。《新世纪福音战士》中的女主凌波丽则成为了日本动漫“三无少女”的鼻祖，其后“三无少女”泛滥成灾，如长条有希，基本上在这之后的成功日本动漫里都能找到一个这样的人物存在。</p>
+<p>　　下面介绍两部部我比较喜欢的日本动漫，这些动漫在国内外都很出名，有一部是我从小学开始就看的动漫了，那就是《名侦探柯南》。那时还没有网络，都是在租书店里面看的或把碟或漫画书租回来家里面看，现在想一想当年那日子过得真是绝了。并且到目前为止还是没有引进，只是有漫画在国内出售。虽然在爱奇艺上面有中文配音的，但是他还是没有正式被引进，只是在网络上有配音版而已，不过这配音版也和其他的大部分配音一样有吐槽的地方，这里就不说了。</p>
+<p>　　明年就是2015年了，有一部动漫与这一时间有关，就是《新世纪福音战士》，这也是我最喜欢看的日本动漫之一，里面的一个凌波丽是我比较喜欢的动漫女主（另外一个是灰原哀）。下面就来介绍一下吧。</p>
+<p>　　新世纪福音战士（日语：新世纪エヴァンゲリオン；英语：Neon Genesis Evangelion），又称《EVA》。是日本动画公司GAINAX的机器人动画作品，由庵野秀明导演，于1995年在日本首次放送，共26话，于1997年上映了两部剧场版《死与新生》与《THE END OF EVANGELION》。2007年，开始了全新剧场版四部曲的计划，虽让官网说这和原来的版本没有太大的关系，但是还是在一些细小方面找到了和原来的电视剧版的相关的东西，说明这不是简单的一部翻拍的剧场版而已。我目前也在等待着明年的最后一部剧场版，希望是这样。</p>
+<p>　　故事是这样发生的：</p>
+<p>　　2000年，一个科学探险队在南极洲针对被称作“第一使徒”亚当的“光之巨人”进行探险。在对其进行接触实验时，“光之巨人”自毁，从而发生了“第二次冲击”，还导致到世界大战。最后，世界人口减半，地轴偏转、气候改变。根据对“第二次冲击”的调查，联合国在日本箱根成立人工进化研究所（即GEHIRN）从事EVA的发展研究，后GEHIRN利用在人工进化研究所下方发现的巨大空洞建造了总部。</p>
+<p>　　另一方面，联合国属下的秘密组织SEELE为了使人类进化，开始实行人类补完计划，就是将所有人的灵魂汇集在一起，通过中和每个人的AT.Filed，使每个人回归LCL之海。</p>
+<p>　　2004年，EVA初号机进行启动试验时发生事故，碇真嗣的母亲碇唯消失，碇源堂开始执行“碇源堂版本的人类补完计划”。2010年，GEHIRN被改建成NERV。</p>
+<p>　　2015年开始，根据SEELE人类补完计划剧本的安排，一种不明巨型生物“使徒”开始在日本登陆，并向NERV总部进攻。NERV组织EVA消灭使徒。碇真嗣被父亲召回驾驶初号机，并结识绫波零等人。在NERV与使徒作战的同时，碇源堂秘密地执行他自己的计划。随着时间推移，碇源堂的计划逐渐被SEELE发现，NERV与SEELE产生了矛盾并不断恶化。最后，NERV于SEELE的矛盾激化，SEELE讹称NERV企图引发第三次冲击，挑动国联派出军队抹杀NERV，在国联部队占领了NERV后，SEELE发动了人类补完计划。</p>
+<p>　　这里有一个著名的坑，那就是“人类补完计划”完成了吗？完成后人类会是什么样？碇真嗣会是什么样？凌波丽呢？无数的贴吧大神和各个论坛的大神给出了不同的解读，也就造成了许多的争议。当然一个好的动漫不会被其留下的争议而抹杀他的光辉，并且还会给他增光添彩。且一部好的动漫有其好的故事背景，虽让这在正式的剧场版中被删除了，但是还是挺有意义的，下面来介绍一下吧：</p>
+<p>　　在人类诞生之前曾经两度存在着拥有高度发达科技的史前文明。最早的文明被称为第一始祖民族，他们制造了EVA，却被它毁灭。接下来的第二始祖民族制造了隆基努斯之枪将EVA封印。为防止EVA复活，在世界各地埋下了被称为使徒的对EVA专用武器。</p>
+<p>　　现在来想一想为什么这部动漫会这么成功，是像古代的算命的人算出来这个时候出这样的一部动漫会大火，还是瞎猫碰上了死老鼠一样呢？当然不是，先来看看其特点：</p>
+<p>　　《新世纪福音战士》最开始注重描写战斗场景和人物对话，随着情节推移，故事逐渐变成对人物内心世界的精神分析式的叙述，尤其到TV最后几集时表现得尤为明显。新世纪福音战士》革命性的强烈意识流手法，大量宗教、哲学意象的运用，使得它在日本掀起被称为“社会现象”程度的巨大回响与冲击，并成为日本动画史上的一座里程碑。</p>
+<p>　　然后再来看看他世界观：</p>
+<p>　　西元2015年，为拯救已达进化瓶颈的人类，人类补完计划发动了。为了阻止这项计划，不明巨大战斗兵器群使徒陆续来袭。冠上了天使之名的他们，真的是神的使者吗？需要强大力量来抵抗使徒的人类，着手开发了泛用人型决战兵器Evangelion。到西元2029年，已经有三机实用化了。然而，EVA的操纵者却必须由“14岁的少男少女们”来担任。于是背负着人类存亡的少年们的战斗，现在开始了。</p>
+<p>　　虽然我的介绍不能充分的说明《新世纪福音战士》是如何的好和成功，但是也应该对其有了一个简单的了解。现在来介绍一部我从小学开始就一直追到现在的一部动漫，那就是《名侦探柯南》，先来做一个简单的介绍：</p>
+<p>　　《名侦探柯南》（日文：名探侦コナン；英文：Detective Conan）是日本漫画家青山刚昌的一部以侦探推理情节为主题的漫画作品，讲述了高中生侦探工藤新一被神秘的黑衣组织灌下代号为APTX4869的毒药后身体缩小为小学生，因此隐瞒身份，调查组织的同时不断解决各类案件的故事。初始创作于1994年，目前仍在日本小学馆的漫画杂志《周刊少年Sunday》上连载。</p>
+<p>　　当然对其作品来源的介绍也是必不可少的，我们现在看一看他的背景简介，可以有利于我们了解整部作品：</p>
+<p>　　作品的创作契机是1992年在《周刊少年Magazine》开始连载的《金田一少年之事件簿》所引发的推理漫画热潮。青山在其前一部作品《剑勇传说》连载结束后的仅4周时间的作品构思后，《名侦探柯南》的连载就开始了。<br> 　　对新一与柯南的构思来源于赤川次郎著的推理小说《三毛猫福尔摩斯》中“真相被蒙蔽的推理”的思路。作者流行的画风、多位登场人物之间的恋爱描写、江户川柯南等人物设定等方面得到了读者的广泛支持。自1994年问世后，作品至今已经连载了20年，却依然经久不衰，堪称日本动漫界的一大奇迹。</p>
+<p>　　我认为其故事的背景就比较可笑了，现在想起来我都认为那是不是当时的青山刚昌情急之下写出来的一个故事背景，并且再次出现这些“黑衣人”组织的时候已经快到漫画连载到七十多回的时候了，也就是作品发表后一年了，现在还是先来看一看这个背景吧：</p>
+<p>　　高中生侦探工藤新一，被称为“日本警察的救世主”、“平成年代的福尔摩斯”。一次在与青梅竹马兼女友毛利兰一起去游乐园游玩时，发现两个行动诡异的黑衣男子。他跟踪他们直到交易现场，另一个黑衣人趁其不注意从后面将他一棒击倒，并灌下一种名为APTX4869的神秘毒药企图杀他灭口，但因为副作用他的身体竟回到发育期的孩童状态。考虑到要是黑衣人知道他还活着的话，必将使周围的亲朋好友受到牵连，于是新一化名为“江户川柯南”，寄住在女友毛利兰的家中，想借助其父亲、担任侦探的毛利小五郎的力量来找寻黑衣人。不料小五郎不但对其没有帮助，还是个冒失的糊涂侦探。所以发生案件后，柯南就用阿笠博士发明的手表型麻醉枪让毛利小五郎睡着，接着用蝴蝶结领结变声器模仿他的声音来进行推理，解决了许多案件，同时也结交了许多伙伴，并且一直寻找着黑衣组织的人的下落，希望有朝一日将其绳之以法，并变回原来的样子。</p>
+<p>　　我记忆中他的名言就是“真相只有一个”，从1997年的第一步剧场版开时到现在的第十八部剧场版，他一直都在开头重复这句话，并且每一次的开始的时间和结束的时间都惊花认的相似。在漫画四百多回的暑假结束后，那时差不多是2005年的样子，他终于升入二年级，而不是一年级的小学生了，现在还是在二年级呆着，好像没有兴趣在往上升一个年纪了。我现在都大学了，他还是一个小学生，这是十分的令人不爽啊。我也想有一天能够获得APTX4869不死回到小时候，那是不是一种相当不错的体验吧。另外一个就是灰原哀，基本上也是一个“三无少女”，小时候一直在想他和柯南之间会发生什么，可是让我意外的是在漫画中出场的次数并是很多，基本上一年也就两三个系列里面会有他的身影会出现在漫画或电视剧版中。还有一点就是贴吧里面有大神统计过漫画版里的死亡人数差不多是电视剧版的一半，这就让我产生了一个想法，是不是电视剧和漫画版是两个版本，只是有一些东西是一样的，当然这也就是我这样想象而已。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/04/23/201604/%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/">程序运行</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-04-23
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <p>　　有许多的书都讲过程序是怎么运行的，不过这些书大部分都是在讲代码的编写与代码是怎么在计算机中进行运行的。今天我来换一个角度，从软件工程的角度来解释程序的运行（也可以说是程序的实现），主要还是因为我学软件工程的原因。</p>
+<p>　　在我们编写一个程序的时候，我们总是先要考虑这个程序会做什么，要完成什么样的工作？这可以说是类似于软件工程中的软件需求，通过对所开发软件的需求分析，可以更好解决我们所面临的问题。在现在的开发中，我想除了一些比较大的软件开发或者是对公的软件开发中，应该不会要比较详尽完备的开发文档，其更类似于极限编程。在我的同学编写软件的时候，也是没有对这方面的想法的。但是现在其会在编写代码前会对所开发的软件有一个抽象的认识。这相当于一个概念模型，模型在计算机中是一种至关重要的概念，以后再说吧。听老师讲，现在极限编程在在编程领域应用的比较广泛，所以我认为在开发前，这个对软件的大概模型可以从某种意义上被理解为软件的概要设计了，接下来才是根据这个模型开始对软件的编码了。</p>
+<p>　　有数据就要对数据进行存储和处理（不过数据是软件的基础，基本上软件的运行过程就是一个数据流动的过程，对数据的处理在我看来只是是否使用数据库而已），这时候，数据建模就是一个比较好的工具了。对数据的实体以及数据在整个软件系统中的流动顺序来进行数据库的建模，然后根据数据的建模来把这个数据库模型转换为实际上的一个数据库。当然，我认为数据建模也是有其利弊的，有利的一方面是可以在软件编码前就对软件有了一个较为完整的认识，而不利的一端则是不适用于需要快速迭代进行开发的软件产品。因为对于大部分的软件来说，一个详细的分析建立过程可能以及错失了市场，所以应该根据所做软件的类型和对象来选择合适的开发方法才是最好的选择。</p>
+<p>　　接下来才是对软件进行编码，其实从这个角度看来，软件编码在一个软件的开发过程中其实只是其中的一个部分，而不是整个软件开发的主题。就像一个公司不会只是有从事软件开发的工程师一样，软件开发中的程序员其实只是其中的一个部分，所以应该对软件开发中的其余部分要进行涉猎才行。对于软件的编码，其实主要的要确保在编写时就没有错误（虽然bug是在所难免的），并且在编码的时候还要遵循一定的编码规范，而且还要尽量写好测试才行，这样在每此修改和白盒测试的时候直接运行测试用例就可以了。</p>
+<p>　　在软件编写完成之后或者是在软件编写的过程中还是需要编写测试的，测试可以由编写软件的工程师来进行编写，也可由专门的测试人员来进行编写。我认为最好是在编写程序的时候就写好其测试用例，然后专业的测试人员就可以从不同的方向来对软件进行测试，而不是进行重复的劳动。对于现在的手机终端来说，其实还有一些比较反传统的测试方法，就是在确保软件的基本功能实现并保证没有太明显的bug后，就可以将软件上线运行，将软件的使用者也作为软件的测试这来对待一样，这时就会获得较大数据量的软件测试数据，也可以确保软件在每次新版本发布的时候都会修复上一个版本的错误。并且也可以在接下来的版本中取出以前软件中没有人使用或者是不太实用的功能，也可以加大以前版本中人们比较喜欢的功能来进行开发。</p>
+<p>　　最后，就是软件的后期维护了，其实对于大型的软件开发公司来说，开发一个软件是不会赚太多的钱的，对于一个软件中最赚钱的部分其实是软件开发后之后的软件的维护费用。一个公司不会只采购软件而不需要维护的（其实有这样的可能，但是只是其中的一小部分而已），对于一个软件后期的可持续的维护才是一些大公司购买这些软件的最终于的原因，其次才是软件的质量的好环。现在大型的软件公司如微软、oracle、RedHat主要的营收不是来自软件的出售，而是来自于软件的后期维护，这样才可以赚可持续性的钱。</p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/02/29/2015/Ubuntu%E7%A7%BB%E9%99%A4%E5%A4%9A%E4%BD%99%E5%86%85%E6%A0%B8/">Ubuntu移除多余的内核</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-02-29
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Linux/">Linux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="Ubuntu移除多余的内核"><a href="#Ubuntu移除多余的内核" class="headerlink" title="Ubuntu移除多余的内核"></a>Ubuntu移除多余的内核</h1><p>在使用Ubuntu的时候，发现内核更新的频率比较高，所以需要删除一些内核来节省空间:</p>
+<ol>
+<li>查询当前系统所使用的内核<code>uname -r</code></li>
+<li>查询系统中安装的内核<code>dpkg --get-selections|grep linux</code></li>
+<li>删除内核：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get remove linux-image-*.*.*-**（*号用你想删除的实际情况改写）</span><br><span class="line"><span class="built_in">sudo</span> apt-get remove linux-headers-*.*.*-**（*号用你想删除的实际情况改写）</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>再次执行<code>dpkg --get-selections|grep linux</code>查看内核是否都删除干净了,没干净继续删除,有的内核后面会显示是deinstall 那需要通过<code>dpkg --get-selections | grep deinstall | sed &#39;s/deinstall/\lpurge/&#39; | sudo dpkg --set-selections; sudo dpkg -Pa</code>来进行删除</li>
+</ol>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+  <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      <a class="post-link" href="/2016/02/29/2015/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">软件配置</a>
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2016-02-29
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Windows/">Windows</a>
+        
+        <a href="/categories/Windows/Linux/">Linux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    
+    
+
+    
+    <h1 id="Windows中环境变量的配置"><a href="#Windows中环境变量的配置" class="headerlink" title="Windows中环境变量的配置"></a>Windows中环境变量的配置</h1><h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><ol>
+<li><p>JAVA_HOME: 新建一个名为<code>JAVA_HOME</code>的变量，内容为jdk安装的目录</p>
+</li>
+<li><p>path中的配置，尽量在当前用户的path中添加：<br>在path后面（如果没有的话则新建一个）追加<code>%JAVA_HOME%\bin</code>及<code>%JAVA_HOME%\jre\bin</code>的变量，至于classpath我从一些博客上没有看到需要进行配置的必要，所以我一般不进行配置，有一些博客说配置classpath是老版本的需要，而比较新的版本则没有配置classpath的必要了，并且还有可能造成不必要的错误。个人认为目前的版本没有必要在系统中配置classpath。</p>
+</li>
+<li><p>测试：输入<code>javac -version</code>出现相关的版本号则配置正确 </p>
+<p>安装java时，jre会自动更新，而每次自动更新的时候，jdk并不会随著而更新，并且我发现每次自动更新结束之后，无论默认的jre安装在什么地方，更新之后都会更改到C盘之下，所以我建议都把jre和jdk默认安装到C盘下比较好，方便自己以后的管理</p>
+</li>
+<li><p>更新：每次升级的时候没有必要关心jre的版本问题，但是jdk的path会因为安装的问题而发生改变，所以每次更新的时候都需要更新jdk的版本信息。</p>
+</li>
+</ol>
+<h2 id="Gradle的环境变量的配置"><a href="#Gradle的环境变量的配置" class="headerlink" title="Gradle的环境变量的配置"></a>Gradle的环境变量的配置</h2><p><del>配置Gradle的原因主要是我最近在学习Android的开发的时候遇到的，目前我认为其和maven一样是一个依赖包管理工具，更多深层次的东西现在还没有进行学习，所以也仅是如此叙述。</del></p>
+<p>现在虽然在实习的时候使用Maven进行项目管理，但是在日常的学习使用的过程中还是习惯于使用Gradle来进行依赖和项目的管理，大体的使用过程如下：</p>
+<ol>
+<li><p>GRADLE_HOME：新建一个名为<code>GRADLE_HOME</code>的变量，内容为Gradle的安装目录</p>
+</li>
+<li><p>path的配置：在path中追加<code>%GRADLE_HOME%\bin</code></p>
+</li>
+<li><p>测试： 能正常运行<code>gradle -v</code>命令，出现显示当前信息的文件则说明成功。 </p>
+</li>
+<li><p>使用阿里源：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maven &#123; url <span class="string">&#x27;http://maven.aliyun.com/nexus/content/groups/public/&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定jdk的版本：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sourceCompatibility=<span class="number">1.7</span></span><br><span class="line">targetCompatibility =<span class="number">1.7</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Maven的配置"><a href="#Maven的配置" class="headerlink" title="Maven的配置"></a>Maven的配置</h2><ol>
+<li><p>新建变量<code>MAVEN_HOME</code>,其中填入maven安装的目录</p>
+</li>
+<li><p>在path中追加’%MAVEN_HOME%\bin’就可以了</p>
+</li>
+<li><p>输入<code>mvn -version</code>出现版本信息</p>
+</li>
+<li><p><del>maven使用oschina的源：因为国内网速的原因，直接使用maven center的源会发现网速比较低，所以可以使用<a target="_blank" rel="noopener" href="http://maven.oschina.net/">oschina</a>提供的maven源来进行配置，在setting.xml中做如下修改：</del></p>
+<p>在Oschina的源失效之后，也就是和天翼云的合作结束后，这个镜像基本就不能使用了，可以考虑使用阿里的源，在setting.xml中进行入校配置： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ol>
+<h2 id="Git的环境变量的配置"><a href="#Git的环境变量的配置" class="headerlink" title="Git的环境变量的配置"></a>Git的环境变量的配置</h2><p>对于安装git的时候我们既可以使用git中自带在mingw的类Unix的运行环境，也就是git shell，也可以使用Windows的cmd来进行运行,当然安装的时候我还是建议使用独立的git shell来运行git，有是候我们也会在cmd或者是其他的编辑器中需要使用git。这时，就会发现没有配置环境变量，就会导致使用git的不方便，所以还是需要配置git的环境变量。</p>
+<ol>
+<li><p>GIT_HOME： 这是git的安装目录，git安装在什么地方就将其内容设为你所安装的目录</p>
+</li>
+<li><p>path配置： 在path中直接追加<code>%GIT_HOME%\bin</code>，这时就可以了</p>
+</li>
+<li><p>使用<code>git --version</code>名令来测试是否安装成功，当输入指令后出现git相关的版本号后则说明配置成功</p>
+</li>
+<li><p>git连接到github或者其他的代码托管网站：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置账户信息</span></span><br><span class="line">git config --global user.name &quot;yourName&quot;</span><br><span class="line">git config --global user.email yourname@gmail.com</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成RSA秘钥，邮箱同上，并将密钥提交到Github中</span></span><br><span class="line">ssh-keygen -t rsa -C &quot;yourname@gmail.com&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测试是否连接成功</span></span><br><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="Linux中环境变量的配置"><a href="#Linux中环境变量的配置" class="headerlink" title="Linux中环境变量的配置"></a>Linux中环境变量的配置</h1><h2 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h2><p>在linux中，我主要使用Ubuntu来作为linux的使用环境，则这时可用使用WebUpd8提供的包来进行安装oracle的jdk，也可以使用openjdk来进行java的安装，当然也可以自己下载linux的jdk包之后进行下载安装，但是我认为对于个人使用的话直接使用WebUpd8提供的安装就可以了，对于生成产环境则不能这样做，所以对于oracle的jdk来说，可用使用如下指令就会进行安装并且配置好所需的环境变量了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository ppa:webupd8team/java</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install oracle-java8-installer</span><br></pre></td></tr></table></figure>
+
+<h2 id="Sublime的安装"><a href="#Sublime的安装" class="headerlink" title="Sublime的安装"></a>Sublime的安装</h2><p>在这里也是使用webupd8team提供的安装包来进行直接的安装，其命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository  ppa:webupd8team/sublime-text-3</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install sublime-text-installer</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ububtu-make的安装"><a href="#Ububtu-make的安装" class="headerlink" title="Ububtu make的安装"></a>Ububtu make的安装</h2><p>使用umake指令可以十分方便的安装在Linux编程中所需要的绝大部分软件，安装命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-add-repository  ppa:ubuntu-desktop/ubuntu-make</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ubuntu-make</span><br></pre></td></tr></table></figure>
+
+<h1 id="C语言的建议"><a href="#C语言的建议" class="headerlink" title="C语言的建议"></a>C语言的建议</h1><p>对于C语言来说，我们可以使用微软提供的visual studio communication版本来进行学习，如果你认为这比较大的话，可以使用gcc来进行学习，也就是linux环境。当然不喜欢linux或者不想配置linux的话，我建议可以使用mingw或者是cygwin来进行学习，我强烈反对使用VC++6.0来进行C语言的学习，因为安装一个编辑器的时间都可以把基本的语法看一遍了，简直是在浪费时间。为了使电脑安装的东西少一些，我日常学习和使用C\C++的时候都是使用tdm-gcc和clion来进行学习的，因为其紧跟着gcc的更新，可以使用比较新的语法或功能。</p>
+<h1 id="android-sdk的配置"><a href="#android-sdk的配置" class="headerlink" title="android sdk的配置"></a>android sdk的配置</h1><p>因为在国内不能很好的使用<a target="_blank" rel="noopener" href="https://www.google.com/">Google</a>的数据进行开发和更新，所以只能使用国内提供的镜像来进行配置，具体的可以参考<a target="_blank" rel="noopener" href="http://www.androiddevtools.cn/">AndroidDevTool</a>来进行配置，其github的地址为<a target="_blank" rel="noopener" href="https://github.com/inferjay/AndroidDevTools">AndroidDevTool</a></p>
+
+    
+    
+  </div>
+
+  
+
+  
+
+</article>
+  
+    
+  <nav class="pagination">  
+      
+      <a class="prev" href="/page/5/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/page/7/">  
+        <span class="next-text">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  
+</section>
+        </div>
+          
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="ArchLinux的使用(3):日常生活" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="ArchLinux, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/01/09/201801/ArchLinux-3/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>ArchLinux的使用(3):日常生活 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      ArchLinux的使用(3):日常生活
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-01-09
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/ArchLinux/">ArchLinux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">1.</span> <span class="toc-text">Markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.</span> <span class="toc-text">下载</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.1.</span> <span class="toc-text">普通下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bt"><span class="toc-number">2.2.</span> <span class="toc-text">bt</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E4%B9%90"><span class="toc-number">3.</span> <span class="toc-text">音乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-number">4.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9"><span class="toc-number">5.</span> <span class="toc-text">聊天</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>在使用ArchLinux的时候，我一直在想，能不能在ArchLinux之上打造一个简单的娱乐环境。虽然我安装Steam后也能玩游戏，但是我还是建议这个事情还是在Windows上进行比较好。</p>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><p>程序员一般都离不开要写一些<code>Markdown</code>文件，对于程序员来说，编<code>写Markdown</code>有许多的选择，比如直接在IDE中安装插件编写，也可以在编辑器中安装插件写，也可以使用专门的<code>Markdown</code>编辑器进行编写。我尝试过许多的编辑器，但是我推荐的是一款可以跨平台的编辑器<a target="_blank" rel="noopener" href="https://typora.io/">Typora</a>来进行编辑。如果启用了ArchLinux源的话可以之间使用<code>pacman</code>下载，不然就要使用<code>yaourt</code>在AUR中下载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接使用pacman中进行安装</span></span><br><span class="line">pacman -S typora</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用yaourt咱</span></span><br><span class="line">yaourt -S typora</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="普通下载"><a href="#普通下载" class="headerlink" title="普通下载"></a>普通下载</h3><p>在Linux上，下载工具有许多选择，可以选择使用<code>curl</code>或者<code>wget</code>这种命令行的，也可以使用uget这种有图形界面的 ，但是我推荐的是aria2这个下载工具，直接下载就行，具体的使用和配置方法我会在以后的博文中介绍。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S aria2</span><br></pre></td></tr></table></figure>
+<h3 id="bt"><a href="#bt" class="headerlink" title="bt"></a>bt</h3><p>在国内这种使用迅雷并且不太乐意分享下载速度的情况下，使用除了迅雷的客户端下载其实效果不太好，但是也没太多的办法，谁叫他们只进不出。所以在ArchLinux上面我推荐两个BT的下载客户端，一个是qBittorrent和Deluge。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装qBittorrent</span></span><br><span class="line">pacman -S qbittorrent</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装Deluge</span></span><br><span class="line">pacman -S deluge</span><br></pre></td></tr></table></figure>
+
+<h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p>在以前，在Linux听音乐的话，除了自己下载歌曲来听的话就只能使用网页来听歌。但是自从网易和深度合作后，我们就有了另外一种选择，就是使用网易云音乐。对于网易云音乐的安装，在启用<code>archlinux</code>情况下可以之间安装，不然就要在AUR中进行安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 直接安装</span></span><br><span class="line">pacman -S netease-cloud-music</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用aur安装</span></span><br><span class="line">yaourt -S netease-cloud-music</span><br></pre></td></tr></table></figure>
+
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><p>说起视频客户端的话，在ArchLinux上的选择还是挺多的，我推荐的是深度的播放器，但也有其他比较好的客户端，也是值得推荐的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 深度电影院</span></span><br><span class="line">pacman -S deepin-movie</span><br><span class="line"></span><br><span class="line"><span class="comment"># vlc</span></span><br><span class="line">pacman -S vlc</span><br><span class="line"></span><br><span class="line"><span class="comment"># mpv</span></span><br><span class="line">pacman -S mpv</span><br></pre></td></tr></table></figure>
+
+<h2 id="聊天"><a href="#聊天" class="headerlink" title="聊天"></a>聊天</h2><p>许多人在使用Linux的时候遇到的最大问题不是安装，不是编程环境的使用，而是安装QQ和微信，所以我也来介绍这怎么安装。我们需要的就是安装<code>wine</code>环境，这会模拟大部分的Windows的接口，基本能完成Windows上的许多操作，所以这就为我们安装聊天软件成为了可能。我们之间安装其中的包的时候，其会自动解决依赖，假如提示wine包不存在的时候，这个时候就需要启用<code>muitilib</code>这个源。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装Tim</span></span><br><span class="line">yaourt deepin-wine-tim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装微信</span></span><br><span class="line">yaourt deepin-wechat</span><br></pre></td></tr></table></figure>
+
+<p>这基本上已经包含了绝大部分日常使用的东西了，如果还有其他需要日常使用的功能，我会继续在此博文中添加。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/01/09/201801/ArchLinux-3/">http://moyu-x.com/2018/01/09/201801/ArchLinux-3/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/ArchLinux/">ArchLinux</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/01/12/201801/aria2/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">下载怎么办，试试Aria2</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/01/07/201801/ArchLinux-2/">  
+        <span class="next-text nav-default">ArchLinux的使用(2):开发环境的搭建</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

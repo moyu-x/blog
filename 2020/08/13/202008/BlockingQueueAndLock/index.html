@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="队列、AQS和锁" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Java, BlockingQueue, AQS, Lock, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2020/08/13/202008/BlockingQueueAndLock/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>队列、AQS和锁 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      队列、AQS和锁
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2020-08-13
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Java/">Java</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CopyOnWriteArrayList"><span class="toc-number">1.</span> <span class="toc-text">CopyOnWriteArrayList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ConcurrentLinkedQueue"><span class="toc-number">2.</span> <span class="toc-text">ConcurrentLinkedQueue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BlockingQueue"><span class="toc-number">3.</span> <span class="toc-text">BlockingQueue</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ArrryBlockingQueue"><span class="toc-number">3.1.</span> <span class="toc-text">ArrryBlockingQueue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LinkedBlockingQueue"><span class="toc-number">3.2.</span> <span class="toc-text">LinkedBlockingQueue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PriorityBlockingQueue"><span class="toc-number">3.3.</span> <span class="toc-text">PriorityBlockingQueue</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number"></span> <span class="toc-text">线程池</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Executor"><span class="toc-number">1.</span> <span class="toc-text">Executor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadPoolExecutor"><span class="toc-number">3.</span> <span class="toc-text">ThreadPoolExecutor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-number">3.1.</span> <span class="toc-text">构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%AF%B9%E6%AF%94"><span class="toc-number">4.</span> <span class="toc-text">常见对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Runable%E5%92%8CCallable"><span class="toc-number">4.1.</span> <span class="toc-text">Runable和Callable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#execute%E5%92%8Csubmit"><span class="toc-number">4.2.</span> <span class="toc-text">execute和submit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shutdown%E5%92%8CshutdowNow"><span class="toc-number">4.3.</span> <span class="toc-text">shutdown和shutdowNow</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ScheduledThreadPoolExecutor"><span class="toc-number">5.</span> <span class="toc-text">ScheduledThreadPoolExecutor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86-1"><span class="toc-number">5.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">执行过程</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <h2 id="CopyOnWriteArrayList"><a href="#CopyOnWriteArrayList" class="headerlink" title="CopyOnWriteArrayList"></a>CopyOnWriteArrayList</h2><p>应用于读多写少的环境中，根据类注释，可以直到在所有可变操作（add、set和remove）的时候是创建底层数组副本来实现的。</p>
+<p>从源码来看，get操作是直接没有锁和同步操作的，操作的就是原始的数组。</p>
+<p><code>set</code>操作先用<code>ReentrantLock</code>来获取锁，然后拷贝原数组的备份，在其基础上进行修改，最后用<code>setArray</code>方法来替换原数组。<code>add</code>方法也类似，但是在数据增长方面，没有了扩容控制，而是使用了<code>Arrays.copyOf</code>直接返回一个数据加一的新数组。而从固定位置插入的方法则使用<code>System.arrayCopy</code>方法进行操作</p>
+<h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue</h2><p>一个基于链表节点实现的无界线程安全队列。</p>
+<p>当许多线程共享一个公共集合时，<code>ConcurrentLinkledQueue</code>是一个合适的选择。</p>
+<p>迭代器是弱一致的，返回的元素反映了队列在迭代器创建时或创建后某个时刻的状态，它不抛出<code>ConcurrentModificationException</code>，并且可以与其他操作并发进行。包含在队列里面的元素都将被返回一次。</p>
+<h2 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h2><p>BlockingQueue在处理一个操作不能被立即满足但是能在未来某个时刻被满足的四种情况：</p>
+<ol>
+<li><p>抛出异常</p>
+</li>
+<li><p>返回特殊值</p>
+</li>
+<li><p>阻塞当前线程的执行直到条件被满足</p>
+</li>
+<li><p>在给定的最大时间内进行阻塞</p>
+<p> <img src="/images/lock/3.png" alt="&#x2F;images&#x2F;lock&#x2F;3.png"></p>
+</li>
+</ol>
+<p><code>BlockingQueue</code>不接受null，有容量限制，主要实现生产者-消费者队列，但是还支持<code>Collection</code>接口，其实现是线程安全的，所有队列方法都使用内部锁或者其他并发控制方式；其本质上不支持任何的<code>colse</code>和<code>shutdown</code>操作。</p>
+<p>内存一致性问题：将对象放入一个<code>BlockingQueue</code>的操作要发生在将对象从另一个线程中<code>BlockingQueue</code>移除操作之前</p>
+<p>当队列容器已满，生产者线程会被阻塞，直到队列未满；当队列容器为空时，消费者线程会被阻塞，直至队列非空时为止。</p>
+<h3 id="ArrryBlockingQueue"><a href="#ArrryBlockingQueue" class="headerlink" title="ArrryBlockingQueue"></a>ArrryBlockingQueue</h3><p>由数组构成的有界阻塞队列。这是一个经典的“有界缓冲区”，其中固定大小的数组包含由生产者插入并由消费者提取的元素。容量一旦创建，就不能更改。将元素放入满队列的尝试将导致操作阻塞；从空队列中获取元素的尝试也将类似地阻塞。此类支持可选的公平策略，用于对等待的生产者和消费者线程进行排序。默认情况下，不保证此顺序。但是，在公平性设置为<code>true</code>的情况下构建的队列将按FIFO顺序授予线程访问权限。公平通常会降低吞吐量，但会降低可变性并避免饥饿。</p>
+<p>对于并发的控制，使用<code>ReentrantLock</code>加上两个<code>Condition</code>条件控制的。在<code>put</code>和<code>take</code>操作的时候，都需要通过<code>ReentranLock</code>获取锁，最终调用实际的<code>enqueue</code>和<code>dequeue</code>，通过两个<code>condition</code>条件来传递信号。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Concurrency control uses the classic two-condition algorithm</span></span><br><span class="line"><span class="comment"> * found in any textbook.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** Main lock guarding all access */</span></span><br><span class="line"><span class="keyword">final</span> ReentrantLock lock;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Condition for waiting takes */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Condition notEmpty;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Condition for waiting puts */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Condition notFull;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LinkedBlockingQueue"><a href="#LinkedBlockingQueue" class="headerlink" title="LinkedBlockingQueue"></a>LinkedBlockingQueue</h3><p>双锁算法的变体。<code>putLock</code>和<code>takeLock</code>在等待操作时候需要条件，由<code>ReentrantLock</code>进行实现，依赖<code>count</code>字段作为原子维护，以避免在大多数情况下需要同时获取两个锁。 这其实相当于有两个<code>ReentrantLock</code>和两个<code>Contion</code>条件来共同实现保证状态</p>
+<p>提供读者和写着的可见性：当元素入队时，<code>putLock</code>获取锁并更新<code>count</code>，后续的读者通过<code>putLock</code>或者<code>takeLock</code>获取入队节点的可见性，读者<code>n = count.get()</code>，这将获取前n个<code>Node</code>的可见性。</p>
+<p>默认构建不设置大小，将会将<code>capacity</code>设置位<code>Integer.MAX_VALUE</code>，这也就相当于可以构建一个虚假意义的无界队列</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** Lock held by take, poll, etc */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">takeLock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Wait queue for waiting takes */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Condition</span> <span class="variable">notEmpty</span> <span class="operator">=</span> takeLock.newCondition();</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Lock held by put, offer, etc */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">putLock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">/** Wait queue for waiting puts */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Condition</span> <span class="variable">notFull</span> <span class="operator">=</span> putLock.newCondition();</span><br></pre></td></tr></table></figure>
+
+<h3 id="PriorityBlockingQueue"><a href="#PriorityBlockingQueue" class="headerlink" title="PriorityBlockingQueue"></a>PriorityBlockingQueue</h3><p>这个不保证相同优先级的元素排序，如果需要排序，可以自定义辅助键来打破优先级。</p>
+<p>由基于数组的二叉堆进行实现，用一个<code>ReentrantLock</code>锁来保护公共操作。在<code>resize</code>的时候，使用简单的自旋锁来保证<code>take</code>操作进行分配，这就避免了等待的消费者的一再等待随之而来的因素累积。</p>
+<p>默认的情况下使用自然排序，也可以通过自定义类实现 <code>compareTo</code>方法来指定元素排序规则，或者初始化时通过构造器参数 <code>Comparator</code>来指定排序规则。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">11</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAX_ARRAY_SIZE</span> <span class="operator">=</span> Integer.MAX_VALUE - <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// tryGrow的扩容数据</span></span><br><span class="line"><span class="type">int</span> <span class="variable">newCap</span> <span class="operator">=</span> oldCap + ((oldCap &lt; <span class="number">64</span>) ?</span><br><span class="line">                       (oldCap + <span class="number">2</span>) : <span class="comment">// grow faster if small</span></span><br><span class="line">                       (oldCap &gt;&gt; <span class="number">1</span>));</span><br></pre></td></tr></table></figure>
+
+<p>在使用<code>tryGrow</code>方法扩容的时候，目前容量小于64，那么就是<code>2 * oldCap  +  2</code>，大于64的时候就是原来的1.5倍。</p>
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><p>使用线程池的好处：</p>
+<ol>
+<li>降低资源消耗</li>
+<li>提高响应速度</li>
+<li>提高线程的可管理性</li>
+</ol>
+<p>线程池大小的确定（n为内核数量，超线程那种）：</p>
+<ul>
+<li>CPU密集型$n+1$：因为消耗的时cpu资源，应该尽可能的增加计算机资源</li>
+<li>IO密集型$2n$：需要进行的大量的io操作，cpu的压力小，应该尽可能的利用io效率</li>
+</ul>
+<h2 id="Executor"><a href="#Executor" class="headerlink" title="Executor"></a>Executor</h2><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>Executor接口并不是严格 要求异步执行，一般情况是任务在调用之外的线程中执行，许多Executor的实现对任务的调度情况加以限制。</p>
+<p>执行的任务需要实现<code>Runable</code>和<code>Callable</code>接口。</p>
+<p>主要由三部分构成：</p>
+<ol>
+<li>任务</li>
+<li>Executor</li>
+<li>结果</li>
+</ol>
+<p>阿里的开发建议上不允许使用<code>Executors</code>去创建线程池，原因如下：</p>
+<ol>
+<li><code>FixedThreadPool</code>和<code>SingleThreadExecutor</code>允许的等待队列是<code>Integer.MAX_VALUE</code>，会造成大量的线程堆积</li>
+<li><code>CachedThreadPool</code>和<code>ScheduleldThreadPool</code>允许创建为<code>Intreger.MAX_VALUE</code>数量的线程，极端环境下也能造成大量线程堆积</li>
+</ol>
+<p>线程池解决了两个不同的问题：</p>
+<ol>
+<li>由于减少了每个任务的调用开销，它们通常在执行大量异步任务时提高了性能，并且它们提供了一种绑定和管理执行任务集合时消耗资源的方法</li>
+<li>维护一些基本统计信息</li>
+</ol>
+<p>提供了了一下几个工厂方法，底层是基于<code>ThreadPoolExecutor</code>实现的：</p>
+<ol>
+<li><code>Executors.newCachedThreadPool</code>无界线程池，具有自动线程回收的功能。从源码上看，<code>corePoolSize</code>被设置为0，<code>maximumPoolSize</code>被设置为<code>Integer.MAX_VALUE</code> ，<code>keepalive</code>被设置为60，工作队列用<code>SynchronousQueue</code>实现。当提交的任务速度大于执行任务的速度时候，就会导致不断创建工作线程，最终导致cpu和内存资源耗尽。</li>
+<li><code>Executors.newFixedThreadPool</code>创建固定线程数量的线程池。从源码可以看出，<code>corePoolSize</code>和<code>maximumPoolSize</code>都是传入的<code>nThreads</code>，然后执行的<code>workQueue</code>是<code>LinkedBlockingQueue。</code>不推荐的原因是他的等待队列是默认构造的<code>LinkedBlockingQueue</code>并且<code>corePoolSize</code>和<code>maximumPoolSize</code>相等的原因，导致不可能存在任务队列满的情况，<code>keepAliveTime</code>被设置为0，等待队列默认数量是<code>Intger.MAX_VALUE</code>，极端情况下会占满整个<code>workQueue</code>，最后导致oom</li>
+<li><code>Executors.newSingleThreadExecutor</code>，从源码可以看出，<code>corePoolSize</code>和<code>maximumPoolSize</code>都是1，工作队列使用<code>LinkedBlockingQueue</code>来实现，<code>keepalive</code>被设置为0，所以也会和<code>Executors.newFixedThreadPool</code>一样造成oom</li>
+</ol>
+<p>推荐使用<code>ThreadPoolExecutor</code>去创建线程池</p>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><img src="/images/lock/4.png" alt="&#x2F;images&#x2F;lock&#x2F;4.png"></p>
+<h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p>其构造原理比较简单，就是些赋值操作，但是以下参数比较重要</p>
+<ol>
+<li><p><code>corePoolSize</code>：定义了最小可以同时运行的线程数量</p>
+</li>
+<li><p><code>maximumPoolSize</code>：线程池中允许的最大线程数量</p>
+</li>
+<li><p><code>workQueue</code>：在执行当前任务前会判断是否达到最大线程数量，达到就被存放到队列中</p>
+</li>
+<li><p><code>handler</code>：拒绝异常处理器，用于处理当前线程池达到最大执行容量，workqueue也满的情况</p>
+<p> 这个接口有四个实现类，代表了四种处理策略，实现的四个类作为ThreadPoolExecutor的四个内部类</p>
+<p> <img src="/images/lock/5.png" alt="&#x2F;images&#x2F;lock&#x2F;5.png"></p>
+<ol>
+<li><code>AbortPolicy</code>：抛出<code>RejectedExecutionException</code>，这个是默认的拒绝测率</li>
+<li><code>CallerRunsPolicy</code>：调用线程的<code>execute</code>方法执行代码，如果<code>executor</code>关闭，则丢弃任务</li>
+<li><code>DiscardOldestPolicy</code>：丢弃最早未处理的线程</li>
+<li><code>DiscardPolicy</code>：不处理新任务，直接丢弃</li>
+</ol>
+</li>
+</ol>
+<p>对于可伸缩的应用程序，最好使用<code>CallerRunsPolicy</code>策略。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>使用<code>ReentrantLock</code>作为全局锁来控制并发</p>
+<p>在一个新任务提交时，运行的<code>corePoolSize</code>小于<code>corePoolSize</code>时，即使其他任务存在空闲，一个新线程将被创建用于执行该任务。当运行的线程数大于<code>corePoolSize</code>小于<code>maximumPoolSize</code>时，则只会在<code>workQueue</code>满的时候才会创建新的线程。</p>
+<p>默认情况下，即使是核心线程也只在新任务到达时初始创建和启动，但是可以使用<code>prestartCoreThread</code>或<code>prestartAllCoreThread</code>方法动态覆盖。</p>
+<p>默认使用<code>ThreadFactory</code>创建新线程。如果未另行指定，则使用<code>Executors.defaultThreadFactory</code>，它创建的所有线程都位于同一<code>ThreadGroup</code>中，并且具有相同的<code>NORM_PRIORITY</code>优先级和非守护进程状态。</p>
+<p>可以阅读<code>ThreadPoolExecutor</code>的<code>execute</code>的代码，在开头的注释中，将整个执行过程分成了三个步骤：</p>
+<ol>
+<li>如果正在运行的线程少于<code>corePoolSize</code>，则调用<code>addWorker(command,true)</code>增加一个线程，并使用此线程运行任务</li>
+<li>任务已经排队成功，也就是运行任务数量大于<code>corePoolSize</code>，则先要判断当前线程池是否关闭，然后还得再次获得线程池状态，如果线程池不是<code>RUNNING</code>状态则要从任务队列中移除任务，还得检查线程是否全部执行完毕，同时执行拒绝操作，还得检查线程池是否为空，为空则增加线程</li>
+<li>无法将任务放入队列，则尝试使用<code>addWorker</code>添加一个线程，如果失败通过<code>reject()</code>执行相应的拒绝策略</li>
+</ol>
+<h2 id="常见对比"><a href="#常见对比" class="headerlink" title="常见对比"></a>常见对比</h2><h3 id="Runable和Callable"><a href="#Runable和Callable" class="headerlink" title="Runable和Callable"></a><code>Runable</code>和<code>Callable</code></h3><p><code>Runable</code>不返回结果或抛出检查异常</p>
+<p><code>Callable</code>返回结果和异常</p>
+<h3 id="execute和submit"><a href="#execute和submit" class="headerlink" title="execute和submit"></a><code>execute</code>和<code>submit</code></h3><p><code>execute</code>用于提交不需要返回值的任务，所以无法判断任务是否呗线程池执行与否</p>
+<p><code>submit</code>用于提交需要返回值的任务，线程池会返回一个<code>Future</code>对象</p>
+<h3 id="shutdown和shutdowNow"><a href="#shutdown和shutdowNow" class="headerlink" title="shutdown和shutdowNow"></a><code>shutdown</code>和<code>shutdowNow</code></h3><p><strong><code>shutdown（）</code></strong> :关闭线程池，线程池的状态变为 <code>SHUTDOWN</code>。线程池不再接受新任务了，但是队列里的任务得执行完毕。</p>
+<p><strong><code>shutdownNow（）</code></strong> :关闭线程池，线程的状态变为 <code>STOP</code>。线程池会终止当前正在运行的任务，并停止处理排队的任务并返回正在等待执行的 <code>List&lt;Runable&gt;</code>，除了尽力尝试停止处理正在积极执行的任务之外，没有其他保证。此实现通过<code>Thread.interrupt</code>取消任务，因此任何无法响应中断的任务都可能永远不会终止。</p>
+<h2 id="ScheduledThreadPoolExecutor"><a href="#ScheduledThreadPoolExecutor" class="headerlink" title="ScheduledThreadPoolExecutor"></a>ScheduledThreadPoolExecutor</h2><p><img src="/images/lock/6.png" alt="&#x2F;images&#x2F;lock&#x2F;6.png"></p>
+<p>主要用来在给定的延迟后运行任务，或者定期执行任务。但是在实际业务中，会使用Quartz等调度框架。</p>
+<h3 id="原理-1"><a href="#原理-1" class="headerlink" title="原理"></a>原理</h3><p>此类通过以下方式实现<code>ThreadPoolExecutor</code>：</p>
+<ol>
+<li>使用自定义类型的<code>ScheduledFutureTask</code></li>
+<li>使用自定义无界<code>DelayQueue</code>的变种<code>DelayedWorkQueue</code>，与<code>ThreadPoolExecutor</code>相比，<code>corePoolSize</code>和<code>maximumPoolSize</code>相同有效简化了一些相同的执行机制</li>
+<li>支持可选的关机后运行参数</li>
+<li>允许拦截和插装的任务修饰方法</li>
+</ol>
+<p>在构造方面，<code>corePoolSize</code>是传入的构造，<code>maximumPoolSize</code>则是被设置为<code>Integer.MAX_VALUE</code>，<code>keepalive</code>为0，这就导致了在极端情况下，也就是提交任务的速度一直大于线程池中执行线程的速度，就会一直新增工作线程，导致耗尽系统资源。</p>
+<p>使用<code>DelayedWorkQueue</code>作为任务的排队队列，是一个基于堆的数据结构，每个<code>ScheduledFutureTask</code>还要将其索引记录到堆数组中</p>
+<h3 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h3><ol>
+<li>当调用<code>scheduleAtFixedRate</code>方法时，会构建一个<code>ScheduledFutureTask</code>对象并添加到<code>DelayedWorkQueue</code>中，期间使用<code>decorateTask</code>将其转换成<code>RunnableScheduledFuture</code>对象</li>
+<li>使用<code>delayedExecute</code>获取<code>DelayedWorkQueue</code>中的任务，然后执行</li>
+</ol>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2020/08/13/202008/BlockingQueueAndLock/">http://moyu-x.com/2020/08/13/202008/BlockingQueueAndLock/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Java/">Java</a>
+      
+      <a href="/tags/BlockingQueue/">BlockingQueue</a>
+      
+      <a href="/tags/AQS/">AQS</a>
+      
+      <a href="/tags/Lock/">Lock</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2020/12/04/202012/tinyhttpd/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Tinyhttpd 源码阅读</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2020/08/06/202008/Muiti-Thread/">  
+        <span class="next-text nav-default">多线程基础</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="下载怎么办，试试Aria2" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Linux, aria2, Archlinux, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/01/12/201801/aria2/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>下载怎么办，试试Aria2 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      下载怎么办，试试Aria2
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-01-12
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/ArchLinux/">ArchLinux</a>
+        
+        <a href="/categories/ArchLinux/Linux/">Linux</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E8%BA%AB%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.2.</span> <span class="toc-text">变身服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E4%BA%91"><span class="toc-number">3.1.</span> <span class="toc-text">百度云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome%E9%9B%86%E6%88%90"><span class="toc-number">3.2.</span> <span class="toc-text">Chrome集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webui-aria2"><span class="toc-number">3.3.</span> <span class="toc-text">webui-aria2</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>刚使用Linux的时候，对于下载东西会有种无力感，没了迅雷，没了常见的下载工具，那怎么办呢？<code>wine</code>环境下面搞一个，还是搞下其他的工具？后来在我几经尝试之下，我发现了<code>Aria2</code>这个下载工具，所以这篇博客就是来介绍这个下载工具的使用的。</p>
+<p>那我们的目标是什么呢，那就是我们将其伪装成了一个BT客户端，还和百度云盘和Chrome进行了集成，还是做成了一个Systemd的服务，并且有个桌面客户端，想想是不是有点激动，那就开始吧。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>对于<code>Aria2</code>这个工具来说，绝大部分的发现版已经内置在官方维护的镜像中，最大的区别就是可能在不同发行版本之下的默认版本不同，但是一般情况下也没有什么影响，所以可以一行命令就搞定这个事情。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以ArchLinux作为示例</span></span><br><span class="line">pacman -S aria2</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>安装完成了，那我们就要说一下配置了，如果只是简单的使用，配置还是很简单的。但是我们的目标是伪装成一个BT客户端，能在Chrome中使用，还能使用百度云并且还能支持开机启动，这个在配置上来说就有点麻烦，所以我们得一步一步的来。</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>对于基本的配置来说，最重要的几点就是下载的位置，下载任务进度的保存位置以及远程访问的密码等这些配置。 这里有个示例配置的<a target="_blank" rel="noopener" href="https://aria2c.com/usage.html">网站</a>，我们可以在这个配置的基础上进行修改后得到我们的配置。</p>
+<p>我个人的建议是把下载任务的回话保存到<code>/etc/aria2</code>这个文件夹下面，并且把这个文件夹的权限调高，等之后的配置会使用到。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建文件夹</span></span><br><span class="line"><span class="built_in">mkdir</span> /etc/aria2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改文件夹权限</span></span><br><span class="line"><span class="built_in">chmod</span> 777 /etc/aria2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后在次文件夹下面创建配置文件并保存</span></span><br><span class="line">vim /etc/aria2/aria2.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个空的回话文件，不然启动的时候可能会报错</span></span><br><span class="line"><span class="built_in">touch</span> /etc/aria2/aria2.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="变身服务"><a href="#变身服务" class="headerlink" title="变身服务"></a>变身服务</h3><p>当写好配置文件之后，我们就可以用<code>aria2c</code>这个指令来进行开启和使用了，但是这样不是很麻烦么，每次都要进入命令行进行操作，所以我们在<code>/lib/systemd/system</code>这个文件夹下面创建一个<code>aria2.service</code>的文件，并在其中写入如下内容(注意将其中的<code>User</code>一栏换成你保存位置用户的名称)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line"> Description=Aria2c download manager</span><br><span class="line"> After=network.target</span><br><span class="line"></span><br><span class="line"> [Service]</span><br><span class="line"> Type=forking</span><br><span class="line"> User=user</span><br><span class="line"> RemainAfterExit=yes</span><br><span class="line"> ExecStart=/usr/bin/aria2c --conf-path=/etc/aria2/aria2.conf -D</span><br><span class="line"> ExecReload=/usr/bin/kill -HUP $MAINPID</span><br><span class="line"> RestartSec=1min</span><br><span class="line"> Restart=on-failure</span><br><span class="line"></span><br><span class="line"> [Install]</span><br><span class="line"> WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>在配置完成之后，我们就可以使用<code>systemctl start aria2.service</code>来启动任务了，如果需要开机启动，可以使用如下命令<code>systemctl enable aria2.service</code></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="百度云"><a href="#百度云" class="headerlink" title="百度云"></a>百度云</h3><p>百度云盘的离线下载是一个十分好的工具，我们要好好的利用。在使用百度云的时候，我们得使用一个Chrome的扩展：<a target="_blank" rel="noopener" href="https://github.com/acgotaku/BaiduExporter">BaiduExporter</a>，在安装完成之后，在百度云中进入简单的配置，然后可以使用他的RPC的导出方式了</p>
+<h3 id="Chrome集成"><a href="#Chrome集成" class="headerlink" title="Chrome集成"></a>Chrome集成</h3><p>此时我们的下载还有一个十分不舒服的地方那就是没法右键导出下载，并且不能简单的对下载的 任务进行管理，这个时候<a target="_blank" rel="noopener" href="https://github.com/binux/yaaw">yaaw</a>这个扩展就十分的好用了，直接在Chrome商店中安装后就可以使用这个服务集成了。</p>
+<h3 id="webui-aria2"><a href="#webui-aria2" class="headerlink" title="webui-aria2"></a>webui-aria2</h3><p>如果感觉这个还是有点简单了，有没有更加复杂点的了，有，那就是<a target="_blank" rel="noopener" href="https://github.com/ziahamza">webui-aria2</a>。这个网站可以在网页中进行aria2的控制，也给出了如何使用docker进行部署的方式，但是我还有一个更好的办法，那就是将其变成一个桌面应用，这个时候就要用到<a target="_blank" rel="noopener" href="https://github.com/jiahaog/nativefier">nativefier</a>这个工具了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装nativefier</span></span><br><span class="line">npm install -g nativefie</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成桌面客户端</span></span><br><span class="line">nativefier --name <span class="string">&#x27;aria2&#x27;</span> <span class="string">&#x27;https://ziahamza.github.io/webui-aria2/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置桌面图标，如果是使用Gnome就使用如下指令，否则就需要根据不同版本进行设置</span></span><br><span class="line">gnome-desktop-item-edit ~/.local/share/applications --create-new</span><br></pre></td></tr></table></figure>
+
+<p>现在回过头一看，是不是发现aria2这个工具的强大之处呢，我们将其伪装成了一个BT客户端，还和百度云盘和Chrome进行了集成，还是做成了一个Systemd的服务，并且有个桌面客户端，是不是特别爽，那就尽情使用吧。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/01/12/201801/aria2/">http://moyu-x.com/2018/01/12/201801/aria2/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Linux/">Linux</a>
+      
+      <a href="/tags/aria2/">aria2</a>
+      
+      <a href="/tags/Archlinux/">Archlinux</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/02/22/201802/HexoDeploy/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Hexo博客：部署与插件</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/01/09/201801/ArchLinux-3/">  
+        <span class="next-text nav-default">ArchLinux的使用(3):日常生活</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

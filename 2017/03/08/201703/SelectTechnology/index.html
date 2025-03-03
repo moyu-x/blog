@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="浅谈技术选择" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="技术, 博客, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2017/03/08/201703/SelectTechnology/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>浅谈技术选择 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      浅谈技术选择
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-03-08
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <p>今天发生了一件事情，就是苹果在iOS中使用了JSPatch以及LuaPatch这些热更新技术的应用开发者，收到的苹果的警告邮件，要求在下一个版本提交的时候移除这些模块。首先吐槽一波，这件事情在网上就炸锅了一样，各种各样的吐槽，React Native在Github上的一个issues变成了灌水和吐槽的集中营，我怀疑开发者看到这么多垃圾邮件绝对都要疯了。</p>
+<p>对于这件事情就先不进行吐槽了，我想来谈谈我对技术选择的一些看法。虽然我工作经验不多，但是也可以在我目前的见解下谈一谈我对技术选择的看法，可能以后我再从新看这篇文章的时候我会认为现在想想法是垃圾呢。</p>
+<p>在网络上总有人在讨论哪个语言是宇宙第一的语言，哪个语言最有前途，或者哪个IDE是世界第一，如果只是自黑和开玩笑倒是可以说说玩玩。如果不是，那在我看来，没有不好的编程语言，只有不好的程序员。在开发软件的时候，不能总想着新技术和前沿的理论就拿来进行使用，还是得进行一定量的选择的，因为新和技术牛，不一定适合现在所开发软件的场景。</p>
+<p>根据项目需求选择技术。对于程序员来说，当然都是希望在项目中使用使用自己拿手的技术，这样的开发成本和精力的投入都是比较低的，但是如果不为根据项目本身的特点和要求来选择一个合适的技术，其实等于在给自己挖个坑，日后后悔都来不及。在选择技术的时候，最基础的当然是语言的问题，这就要进行讨论了，选择自己团体大部分或者有利于项目发展的语言都是好的，因为技术是辅助产品成功的一个因素，虽然有的时候这个是至关重要的因素。其次就是对于框架的选择，是完全的使用新的框架进行开发，还是基于已经有的开源框架进行二次开发定制都是必须要进行考量的。</p>
+<p>还有就是不能盲目使用新技术新理念。我以前也是喜欢追新的技术，喜欢学习和使用新的技术，但是发现自己的编程能力和水平没有多大的提高，反而是每种都会一点，但是能都没有对一门技术进行深入的研究。后来我回归到了，关注新技术的发展和趋势，然后努力的学习基础方面的知识，找准适合自己一门技术就深入进行研究。如果发现一门技术自己感觉不错，风评也很好才会去尝试。不是大公司出的东西都是好的，可能那些东西只是适合他们自己的业务并且有可能是自己内部被淘汰的东西。所以，合适合理的选择技术，对自己和团队都是一件非常好的事情。</p>
+<p>最后，还是提一句，基础知识是十分重要的，许多人都说，工作中都在用各种框框，基础没什么用。我就想问一问，如果知识想成为一个好的API工程师是够了，因为这也是挺难的。如果想更进一步，或者想成为一个能写框架的人，那么基础方面的知识是十分重要的，而不是知识嘴上说说的那种重要而已。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2017/03/08/201703/SelectTechnology/">http://moyu-x.com/2017/03/08/201703/SelectTechnology/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a>
+      
+      <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2017/03/21/201703/LinuxDistribution/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">浅谈新手Linux发行版的选择</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2017/03/07/201703/UnderstandAbstraction/">  
+        <span class="next-text nav-default">认识抽象</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

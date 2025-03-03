@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Java8的使用：时间" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="方法, 技巧, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/09/06/201809/java-time/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Java8的使用：时间 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Java8的使用：时间
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-09-06
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Java/">Java</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">时间转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%97%B6%E9%97%B4"><span class="toc-number">1.1.</span> <span class="toc-text">字符串转换时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.2.</span> <span class="toc-text">时间转字符串</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">时间处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94"><span class="toc-number">2.1.</span> <span class="toc-text">时间间隔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%A2%9E%E5%87%8F%E5%8F%8A%E6%AF%94%E8%BE%83"><span class="toc-number">2.2.</span> <span class="toc-text">时间增减及比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E6%93%8D%E4%BD%9C"><span class="toc-number">2.3.</span> <span class="toc-text">特殊操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2-1"><span class="toc-number">3.</span> <span class="toc-text">时间转换</span></a></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>在开发中不可避免都需要对时间进行计算，尤其在处理财务方面的需求都时候，就经常需要<br>考虑时间的问题。由于Java8之前标准库在时间方面的问题，对于时间都处理就十分都麻烦，<br>甚至可以说是十分的恶心了，所以在Java8的时候就根据第三Jodo库实现了一个新的时间库<br>时间库（java.time），我现在就简单的介绍下使用，也算式我最近经常使用时间库进行编程操作都一个总结吧：</p>
+<p><strong>time库都操作基本都是函数式的</strong></p>
+<p>函数式</p>
+<h1 id="时间转换"><a href="#时间转换" class="headerlink" title="时间转换"></a>时间转换</h1><p>在对时间进行处理都时候，最常见的两个操作就是将字符串转换成时间或者在各种时间格式之间机型转换，这在之前基本上是要依赖<code>SimpleDateFormat</code>来进行操作，但是这样会存在许多问题，其中时区就可以能是其中一个问题</p>
+<h2 id="字符串转换时间"><a href="#字符串转换时间" class="headerlink" title="字符串转换时间"></a>字符串转换时间</h2><p>对于年月日或者年月日时分秒这种比较标准都时间格式来说，我们可以直接使用自带都方法<br>进行转换，需要指定特定的时间格式可以使用$DateTimeFormatter$中的数据，如果这这都<br>不太合适，还可以自定义$DateTimeFormatter$的实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 年-月-日</span></span><br><span class="line">LocalDate.parse(<span class="string">&quot;date string&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 年-月-日 时:分:秒</span></span><br><span class="line">LocalDateTime.parse(<span class="string">&quot;date string&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 年-月 这种一般在财务计算中常见</span></span><br><span class="line">YearMonth.parse(<span class="string">&quot;date string&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对于一些需要自定义都时间格式来说，我们可以使用Java8自带都时间格式函数来进行转换：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line">LocalDate.parse(<span class="string">&quot;date string&quot;</span>, formatter);</span><br></pre></td></tr></table></figure>
+
+<h2 id="时间转字符串"><a href="#时间转字符串" class="headerlink" title="时间转字符串"></a>时间转字符串</h2><p>在转换成时间都时候，如果式向数据比较标准的时间格式，其实直接使用<code>toString()</code>方法或者<code>String.valueOf()</code>就可以很好的处理时间数据了。但是向转换到一写特使格式都时候，我们同样可以使用<code>DateTimeFormatter</code>来完成我们都操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;dd LLLL yyyy&quot;</span>);</span><br><span class="line"><span class="type">String</span> <span class="variable">formattedString</span> <span class="operator">=</span> localDate.format(formatter);</span><br></pre></td></tr></table></figure>
+
+<h1 id="时间处理"><a href="#时间处理" class="headerlink" title="时间处理"></a>时间处理</h1><p>对于时间都处理，一般分为取间隔，时间的比较，时间的增加，这些操作在标准库中都有比较好的实现，我们可以直接取过来使用：</p>
+<h2 id="时间间隔"><a href="#时间间隔" class="headerlink" title="时间间隔"></a>时间间隔</h2><p>在使用这个方法取得时间的间隔都时候，会存在一个问题：按月都时候不是开闭包含都；精确到天或者月的时候，最后一个月不足自然的半个月都时候式不算一个月都。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">intervalMonth</span> <span class="operator">=</span> ChronoUnit.MONTHS.between(startDate, endDate);</span><br></pre></td></tr></table></figure>
+
+<h2 id="时间增减及比较"><a href="#时间增减及比较" class="headerlink" title="时间增减及比较"></a>时间增减及比较</h2><p>这个直接取时间库中都函数就可以完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在这里，时间都操作式函数式的，每次都返回一个新的时间对象</span></span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">newDate</span> <span class="operator">=</span> oldDate.plusMonths(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 比较精都和时间的精度有关，两个日期比较就精确到天</span></span><br><span class="line"><span class="type">boolean</span> <span class="variable">isBefore</span> <span class="operator">=</span> sourceDate.isBefore(targetDate);</span><br></pre></td></tr></table></figure>
+
+<h2 id="特殊操作"><a href="#特殊操作" class="headerlink" title="特殊操作"></a>特殊操作</h2><p>在进行时间处理都时候，经常需要取这个月有多少天，这个月都月末是什么时候的操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这个月都最后一天</span></span><br><span class="line"><span class="type">YearMonth</span> <span class="variable">sourceDate</span> <span class="operator">=</span> targetDate.with(TemporalAdjusters.lastDayOfMonth())</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个月的天数</span></span><br><span class="line"><span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> targetDate.lengthOfMonths();</span><br></pre></td></tr></table></figure>
+
+<h1 id="时间转换-1"><a href="#时间转换-1" class="headerlink" title="时间转换"></a>时间转换</h1><p>在以前，在对时间进行相互转换都时候需要借助字符串作为中间态，但是使用Java8的标准库之后，时间对象可以直接从大精度转换成小精度：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LocalDateTime -&gt; LocalDate -&gt; YearMonth</span><br></pre></td></tr></table></figure>
+
+<p>当由小精度转换成大精度都时候，只需要补全下精度就行了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">sourceDate</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">targetDate</span> <span class="operator">=</span> sourceDate.atTime(<span class="number">20</span>, <span class="number">11</span>, <span class="number">22</span>);</span><br></pre></td></tr></table></figure>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/09/06/201809/java-time/">http://moyu-x.com/2018/09/06/201809/java-time/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E6%96%B9%E6%B3%95/">方法</a>
+      
+      <a href="/tags/%E6%8A%80%E5%B7%A7/">技巧</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/11/26/201901/scrum-and-xp/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">硝烟中的Scrum和XP</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/02/26/201802/UseVim/">  
+        <span class="next-text nav-default">Vim的使用及YouCompleteMe的配置</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

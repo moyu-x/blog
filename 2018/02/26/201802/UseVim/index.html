@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="Vim的使用及YouCompleteMe的配置" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="Linux, Vim, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2018/02/26/201802/UseVim/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>Vim的使用及YouCompleteMe的配置 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      Vim的使用及YouCompleteMe的配置
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2018-02-26
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/Vim/">Vim</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">为什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim-plug"><span class="toc-number">2.1.</span> <span class="toc-text">vim-plug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YouCompleteMe"><span class="toc-number">2.2.</span> <span class="toc-text">YouCompleteMe</span></a></li></ol></li></ol>
+    </div>
+  </div>
+  
+
+  <div class="post-content">
+    
+    <p>今天想来介绍一下目前算是经常用的一个编辑器，那就是VIM。这个东西基本上自从我使用Linux开始就伴随着我使用Linux的过程，对于为什么使用这个上古编辑器，我会在下面解释。</p>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>在现在的那些IDE的功能都非常好的情况下，为什么我要使用这么一个上古级别的编辑器呢？难道只是为了装逼，还是为了其它的。我在配置Vim以及Emacs的时候想过一个问题，我们是需要一个简单的代码编辑器呢还是需要一个功能齐全的大杂烩，像许多IDE一样什么功能都有。在那么强的IDE下面写代码有的时候感觉写代码就像是在学习一个IDE在怎么使用，不是在进行编程，感觉像是IDE的努力奴隶一样。当然对于初学者来说使用IDE能省下许多的力气，可以将大部分的精力放在学习上面。</p>
+<p>对于我使用Vim的需求来说，主要差不多就只有亮点，代码高亮以及补全，对于调试来说我基本不太需要，因为使用Vim的大部分场景都是在服务器上面，主要面对的语言还是Python之类的脚本语言为主，其他时候的编码我大部分是在VSCode以及Idea上面完成的。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>对于Vim的安装我不想做介绍，没有意义，我就来介绍一下我写的配置，完整配置位于我的Github上面：<a target="_blank" rel="noopener" href="https://github.com/wjpworking/vimrc">vimrc</a>中。使用Vim，但是不是简单的使用它的快捷键，还应该使用其丰富的插件才行，这样感觉才爽。其实更多的时候使用vim键位其实比使用纯vim更加能提高开发的效率。并且我还建议参考下<a target="_blank" rel="noopener" href="https://github.com/SpaceVim/SpaceVim">Spacevim</a>和<a target="_blank" rel="noopener" href="https://github.com/spf13/spf13-vim">spf13</a>这两个的配置来编写适合自己的配置。</p>
+<h3 id="vim-plug"><a href="#vim-plug" class="headerlink" title="vim-plug"></a>vim-plug</h3><p>对于官方给的安装方式，需要使用的是Git手动安装，但是既然我们都使用了vim了，为什么我们不卸载Vim的配置文件中让其自动加载呢，所以我们可以在<code>.vimrc</code>中写入如下代码：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> !filereadable(vimplug_exists)</span><br><span class="line">  <span class="keyword">if</span> !executable(<span class="string">&quot;curl&quot;</span>)</span><br><span class="line">    <span class="keyword">echoerr</span> <span class="string">&quot;You have to install curl or first install vim-plug yourself!&quot;</span></span><br><span class="line">    <span class="keyword">execute</span> <span class="string">&quot;q!&quot;</span></span><br><span class="line">  <span class="keyword">endif</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;Installing Vim-Plug...&quot;</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="keyword">silent</span> !\curl -fLo ~/.<span class="keyword">vim</span>/autoload/plug.<span class="keyword">vim</span> --create-dirs https://raw.githubusercontent.<span class="keyword">com</span>/junegunn/<span class="keyword">vim</span>-plug/master/plug.<span class="keyword">vim</span></span><br><span class="line">  <span class="keyword">let</span> <span class="variable">g:not_finish_vimplug</span> = <span class="string">&quot;yes&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">autocmd</span> VimEnter * PlugInstall</span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+
+<p>这样在使用vim的时候会自动检查vimplug这个插件是否存在，当不存在的时候会去GitHub上面将<a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">Vim-plug</a>这个插件下载下来，这样就可以使用了。</p>
+<p>对于vim的插件来说，我使用的有这些：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> plug#begin(<span class="built_in">expand</span>(<span class="string">&#x27;~/.vim/plugged&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot;***********************</span></span><br><span class="line"><span class="string">&quot;&quot;</span> Plug install packages</span><br><span class="line"><span class="comment">&quot;***********************</span></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdtree&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;tpope/vim-fugitive&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;airblade/vim-gitgutter&#x27;</span>  <span class="comment">&quot; git历史</span></span><br><span class="line">Plug <span class="string">&#x27;jiangmiao/auto-pairs&#x27;</span> <span class="comment">&quot; 自动补全括号</span></span><br><span class="line">Plug <span class="string">&#x27;majutsushi/tagbar&#x27;</span>  <span class="comment">&quot; 代码组成</span></span><br><span class="line">Plug <span class="string">&#x27;w0rp/ale&#x27;</span>  <span class="comment">&quot; 语法检测</span></span><br><span class="line">Plug <span class="string">&#x27;Yggdroot/indentLine&#x27;</span> <span class="comment">&quot; 对齐线</span></span><br><span class="line">Plug <span class="string">&#x27;sheerun/vim-polyglot&#x27;</span>  <span class="comment">&quot; 语言集合</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;dir&#x27;</span>: <span class="string">&#x27;~/.fzf&#x27;</span>, <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install --bin&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;Shougo/vimproc.vim&#x27;</span>, &#123;<span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;make&#x27;</span>&#125;</span><br><span class="line">Plug <span class="string">&#x27;haya14busa/incsearch.vim&#x27;</span>  <span class="comment">&quot; 高亮搜索内容</span></span><br><span class="line">Plug <span class="string">&#x27;Valloric/YouCompleteMe&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install.py --clang-completer --system-libclang --go-completer  --js-completer --rust-completer&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;junegunn/vim-easy-align&#x27;</span>  <span class="comment">&quot; 等号对齐</span></span><br><span class="line">Plug <span class="string">&#x27;luochen1990/rainbow&#x27;</span>  <span class="comment">&quot; 高亮括号</span></span><br><span class="line">Plug <span class="string">&#x27;ntpeters/vim-better-whitespace&#x27;</span>  <span class="comment">&quot; 去除多余括号</span></span><br><span class="line">Plug <span class="string">&#x27;scrooloose/nerdcommenter&#x27;</span>  <span class="comment">&quot; 代码注释</span></span><br><span class="line">Plug <span class="string">&#x27;ryanoasis/vim-devicons&#x27;</span>  <span class="comment">&quot; Vim Dev Icons</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; themes</span></span><br><span class="line">Plug <span class="string">&#x27;vim-airline/vim-airline&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;vim-airline/vim-airline-themes&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;morhetz/gruvbox&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; fzf</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;dir&#x27;</span>: <span class="string">&#x27;~/.fzf&#x27;</span>, <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install --all&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf.vim&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> Snippets</span><br><span class="line">Plug <span class="string">&#x27;SirVer/ultisnips&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> Color</span><br><span class="line">Plug <span class="string">&#x27;flazz/vim-colorschemes&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> editconfig</span><br><span class="line">Plug <span class="string">&#x27;editorconfig/editorconfig-vim&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> <span class="keyword">python</span></span><br><span class="line">Plug <span class="string">&#x27;raimon49/requirements.txt.vim&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;google/yapf&#x27;</span>, &#123; <span class="string">&#x27;rtp&#x27;</span>: <span class="string">&#x27;plugins/vim&#x27;</span>, <span class="string">&#x27;for&#x27;</span>: <span class="string">&#x27;python&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;fisadev/vim-isort&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> html</span><br><span class="line">Plug <span class="string">&#x27;mattn/emmet-vim&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;hail2u/vim-css3-syntax&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;jelera/vim-javascript-syntax&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; vue</span></span><br><span class="line"><span class="comment">&quot; Plug &#x27;posva/vim-vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> fcitx</span><br><span class="line">Plug <span class="string">&#x27;lilydjwg/fcitx.vim&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span> markdown</span><br><span class="line">Plug <span class="string">&#x27;plasticboy/vim-markdown&#x27;</span>, &#123;<span class="string">&#x27;on_ft&#x27;</span> : <span class="string">&#x27;markdown&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br></pre></td></tr></table></figure>
+
+<p>对于我使用的大部分的插件我都不想细说，但是其中<a target="_blank" rel="noopener" href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a>我想好好的说一说。</p>
+<h3 id="YouCompleteMe"><a href="#YouCompleteMe" class="headerlink" title="YouCompleteMe"></a>YouCompleteMe</h3><p>对于补全，尤其是C&#x2F;C++这类复杂的语言，尤其有模板和泛型的存在，基本上补全十分麻烦；还有就是像Python这样的动态语言，因为其没有类型检查，语义上的补全和推导十分麻烦，甚至pycharm在这方面都不好，但是YouCompleteMe这就做的比较好的。对于补全，我需要C的，python、Go以及Rust的，所以得先在系统中安装这些软件，并且构建的时候需要C环境，所以得先安装clang，并且需要cmake来构建编译过程。我的建议是使用系统的自带的clang，虽然官方建议使用最新的，那是因为可能编译不通过，但是对于国内这种情况就算了吧。</p>
+<p>对于编译，我们只需要在Vim-plug的配置中加入如下代码就行:</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plug <span class="string">&#x27;Valloric/YouCompleteMe&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;./install.py --clang-completer --system-libclang --go-completer  --js-completer --rust-completer&#x27;</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于补全，我开启了语义补全、注释补全以及字符串补全，并且从一个字符开始就除非，这个比较符合我们使用IDE的习惯，这些设置的配置如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_global_ycm_extra_conf</span> = <span class="string">&#x27;~/.ycm_extra_conf.py&#x27;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_python_binary_path</span> = <span class="string">&#x27;/usr/bin/python3&#x27;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_server_python_interpreter</span> = <span class="string">&#x27;/usr/bin/python3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 补全</span></span><br><span class="line"><span class="keyword">set</span> completeopt=longest,<span class="keyword">menu</span>  <span class="comment">&quot; 下拉的补全菜单</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 回车选中当前项</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_key_list_stop_completion</span> = [<span class="string">&#x27;&lt;CR&gt;&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 键位</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;leader&gt;</span>jd :YcmCompleter GoToDefinitionElseDeclaration<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 配置</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_collect_identifiers_from_tags_files</span> = <span class="number">1</span>  <span class="comment">&quot; 基于标签的引擎</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_min_num_of_chars_for_completion</span> = <span class="number">1</span>  <span class="comment">&quot; 1个字符开始补全</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_cache_omnifunc</span> = <span class="number">0</span>  <span class="comment">&quot; 禁止缓存</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_seed_identifiers_with_syntax</span> = <span class="number">1</span>  <span class="comment">&quot; 语法关键字补全</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_complete_in_comments</span> = <span class="number">1</span>  <span class="comment">&quot; 补全注释</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_complete_in_strings</span> = <span class="number">1</span>  <span class="comment">&quot; 补全字符串</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_auto_trigger</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_collect_identifiers_from_comments_and_strings</span> = <span class="number">1</span>  <span class="comment">&quot; 将注释和字符串收录到补全信息中</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_confirm_extra_conf</span>=<span class="number">0</span>  <span class="comment">&quot; 关闭加载.ycm_extra_conf.py的提示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 补全的开始位置的设置</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_semantic_triggers</span> = <span class="built_in">get</span>(g:, <span class="string">&#x27;ycm_semantic_triggers&#x27;</span>, &#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">function!</span> <span class="title">s</span>:set_ft_triggers<span class="params">(ft, expr, override)</span> abort</span><br><span class="line">  <span class="keyword">if</span> <span class="variable">a:override</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">g:ycm_semantic_triggers</span>[<span class="variable">a:ft</span>] = <span class="variable">a:expr</span></span><br><span class="line">  <span class="keyword">elseif</span> !has_key(<span class="variable">g:ycm_semantic_triggers</span>, <span class="variable">a:ft</span>)</span><br><span class="line">    <span class="keyword">let</span> <span class="variable">g:ycm_semantic_triggers</span>[<span class="variable">a:ft</span>] = <span class="variable">a:expr</span></span><br><span class="line">  <span class="keyword">endif</span></span><br><span class="line"><span class="keyword">endfunction</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;c&#x27;</span>, [<span class="string">&#x27;-&gt;&#x27;</span>, <span class="string">&#x27;.&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;cpp&#x27;</span>, [<span class="string">&#x27;-&gt;&#x27;</span>, <span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;::&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;perl&#x27;</span>, [<span class="string">&#x27;-&gt;&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;javascript,python,go&#x27;</span>, [<span class="string">&#x27;.&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;java,jsp&#x27;</span>, [<span class="string">&#x27;.&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;vim&#x27;</span>, [<span class="string">&#x27;re![_a-zA-Z]+[_\w]*\.&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;sh&#x27;</span>, [<span class="string">&#x27;re![\w-]&#123;2&#125;&#x27;</span>, <span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;-&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"><span class="keyword">call</span> <span class="variable">s:set_ft_triggers</span>(<span class="string">&#x27;zsh&#x27;</span>, [<span class="string">&#x27;re![\w-]&#123;2&#125;&#x27;</span>, <span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;-&#x27;</span>], <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; 自动关闭窗口</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_autoclose_preview_window_after_completion</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:ycm_autoclose_preview_window_after_insertion</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>还有在安装好之后，需要在<code>$HOME</code>目录下面创建一个空的<code>.tern_project</code>文件（需要配置的请参考文档）和将<code>$HOME/.vim/plugged/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py</code>拷贝到<code>$HOME</code>下，大部分的情况下这个已经能满足绝大部分的需求了。</p>
+<p>至此，我对Vim的配置就完成了。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2018/02/26/201802/UseVim/">http://moyu-x.com/2018/02/26/201802/UseVim/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/Linux/">Linux</a>
+      
+      <a href="/tags/Vim/">Vim</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2018/09/06/201809/java-time/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">Java8的使用：时间</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2018/02/22/201802/HexoDeploy/">  
+        <span class="next-text nav-default">Hexo博客：部署与插件</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>

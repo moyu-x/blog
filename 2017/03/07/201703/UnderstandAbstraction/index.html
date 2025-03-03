@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Disable transformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<!-- Website description -->
+
+<meta name="description" content="认识抽象" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="博客, 墨语的后花园" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/default" title="墨语的后花园" >
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=3.0.0" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="http://moyu-x.com/2017/03/07/201703/UnderstandAbstraction/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
+  </script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.0.0" />
+
+<!-- Analytics and push -->
+
+
+
+  
+
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null,"server_url":null,"cdn":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>认识抽象 - 墨语的后花园</title>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">墨语的后花园</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">墨语的后花园</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
+
+    </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      认识抽象
+      
+    </h1>
+
+    <div class="post-meta">
+      <span class="post-time">
+        2017-03-07
+      </span>
+      
+      
+      <span class="post-category">
+        
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a>
+        
+      </span>
+      
+      
+    </div>
+  </header>
+
+  
+
+  <div class="post-content">
+    
+    <p>在进行编程的时候，最重要的一点就是逻辑清晰。我个人很认同一个观点，就是代码是写给人看的，而不仅仅只是在计算上进行运行。逻辑清晰一个方面，我认为就是对抽象较好的认识。</p>
+<p>在计算机中，抽象是无处不在的。维基百科上给了一个<strong>抽象</strong>的解释：是指以缩减一个概念或是一个现象的信息含量来将其广义化（Generalization）的过程，主要是为了只保存和一特定目的有关的信息。对此，可以知道，对计算机的建模分析也是一种抽象的方法。我一直认为在编写代码的时候，需要有黑箱思想。在对一个组件（来自第三方或者团队其他成员），经过认为合适的可靠性测试后，就要认为其是一个功能可靠的组件，我无需了解他内部的具体实现，只需要知道其是主要运行的流程和功能，然后直接拿来使用就行了。只有在需要对这个模块进行改造的时候才有必要了解他的具体实现和详细的运行流程。</p>
+<p>除此之外，维基百科上也有一个关键计算机抽象化的一个定义：<strong>抽象化</strong>（英语：Abstraction）是将数据与程序，以它的语义来呈现出它的外观，但是隐藏起它的实现细节。抽象化是用来减少程序的复杂度，使得程序员可以专注在处理少数重要的部分。一个电脑系统可以分区成几个抽象层（Abstraction layer），使得程序员可以将它们分开处理。</p>
+<p>其实，看一下定义的核心，就是去除具体的实现，将系统运行的骨架及核心剥离出来，这个抽离出来的骨架可以算是对所定义物体的抽象。对于计算机的使用者来说，操作系统可以算是对整个计算机内部计算运行的一个抽象，其屏蔽了这个计算机内部的实现原理，及各部件间是如何进行运行的，而我们只知道其运行的大体流程和大体上的组成，对于其具体的实现而言我们是不清楚的，这算是对计算机的一个抽象和屏蔽。</p>
+<p>对于程序员来说，编程语言就是对计算机的抽象。在整个计算机的内部，高层是对低层次的一个抽象。如果不说操作系统，整个的抽象层次在我看了应该是这样的：问题-&gt;建模-&gt;代码框架-&gt;具体实现。对于我们写好的代码来说，下面还有许多的层次的抽象，像高级编程语言就是对汇编语言的抽象，汇编语言是对机器语言的抽象。一般我们会认为认为，到了机器语言上应该没有抽象层了吧，其实不是，机器语言还对计算机内部的各种电子元件的电气变化还是进行了抽象的（我对这些不熟）。</p>
+<p>再说为什么不说操作系统，这在计算机编程中也是个及其重要的东西，我们既可能是操作系统的使用者，又有可能是操作系统的创建者，或者兼而有之。如果离开了操作系统，离开了操作系统的依托 ，我们所编写的软件也是可以进行运行的，例如大量的嵌入式设备。对于程序员来说，操作系统来说是一个特殊的抽象层的存在，他的使用者包括了普通人和开发人员。</p>
+<p>其实我个人的认识在某些意义上来说还是有些问题的，所以我认为，如果想要了解这方面的信息，还是需要去看相关方面的书籍才行，比如《现代操作系统》和《深入理解操作系统》。</p>
+
+    
+  </div>
+
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="http://moyu-x.com">moyu-x</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="http://moyu-x.com/2017/03/07/201703/UnderstandAbstraction/">http://moyu-x.com/2017/03/07/201703/UnderstandAbstraction/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2017/03/08/201703/SelectTechnology/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">浅谈技术选择</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2017/03/04/201703/DisforDigital/">  
+        <span class="next-text nav-default">世界是数字的</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:idwangmo@protonmail.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/moyu-x" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/zeed-w-beez/hexo-theme-even">Even</a>
+  </span>
+  <span class="division">|</span>
+  <span class="hosting-info">
+    footer.hosting
+  </span>
+
+  <span class="copyright-year">
+    <span>
+      
+      &copy;
+      
+      2015 - 2025      
+    </span>
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+
+    <span class="author">moyu-x</span>
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+    
+    
+    
+    
+    
+    
+  
+
+  
+
+
+
+
+
+
+
+<script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+
+<script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/even.js?v=3.0.0"></script>
+</body>
+
+</html>
